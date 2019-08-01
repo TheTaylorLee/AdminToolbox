@@ -1,5 +1,5 @@
 # AdminToolbox
-This Module has multiple dependency modules that are intended to provide a swiss army knife of semi-random tools. I am adding to it over time as I have the need for new functions to perform specific tasks. 
+This Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of semi-random tools. I am adding to it over time as I have the need for new functions to perform specific tasks. 
 
 Issues for any of the AdminToolbox modules and dependencies can be posted in the issues section. Requests for additions can be made as well.
 
