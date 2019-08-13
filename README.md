@@ -3,9 +3,7 @@ This Powershell Module has multiple dependency modules that are intended to prov
 
 Issues for any of the AdminToolbox modules and dependencies can be posted in the issues section. Requests for additions can be made as well.
 
-Powershell gallery is being used for version control and maintaining the code. All code can be reviewed there.
-
-
+Powershell gallery has all versions of code and they can be viewed there. Occasionaly new versions of the modules will be uploaded here for simple review.
 
 
 **AdminToolbox**
