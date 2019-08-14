@@ -1,5 +1,7 @@
 # **AdminToolbox.VMWareAutomate**
 
+![AdminToolbox.VMWareAutomate](https://github.com/TheTaylorLee/AdminToolbox/blob/master/Images/AdminToolbox.VMWareAutomate.png)
+
 * **1.0.0** Created the Module
 * **1.0.1** Fixed Formatting issues
 * **1.0.2** Changes to importing required modules and when connecting to servers
