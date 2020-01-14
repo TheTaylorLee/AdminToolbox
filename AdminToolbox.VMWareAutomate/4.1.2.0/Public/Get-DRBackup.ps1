@@ -59,7 +59,7 @@ Function Get-DRBackup {
         $results = Get-DnsServerResourceRecord -zonename $DNSZone -computername $PrimaryDNSServer | Select-Object hostname, Recordtype, timestamp, @{n = 'IP'; E = { $_.recorddata.IPV4Address } }
         $results | Export-Excel -WorksheetName "DNS" -Path "$datepath" -FreezeTopRow -TableName "$DNSZone" -AutoSize
 
-        #connect to old vcenter
+        #connect vcenter
         Connect-VIServer -Server $VCenter
 
         #Get's vm list
