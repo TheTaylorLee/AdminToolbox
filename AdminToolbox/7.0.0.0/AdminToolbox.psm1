@@ -1,0 +1,36 @@
+##Import Functions
+$FunctionPathPublic = $PSScriptRoot + "\Public\"
+$FunctionPathPrivate = $PSScriptRoot + "\Private\"
+
+try {
+    $PublicFunctions = Get-ChildItem $FunctionPathPublic | ForEach-Object {
+        [System.IO.File]::ReadAllText($_.FullName, [Text.Encoding]::UTF8) + [Environment]::NewLine
+    }
+
+    $PrivateFunctions = Get-ChildItem $FunctionPathPrivate | ForEach-Object {
+        [System.IO.File]::ReadAllText($_.FullName, [Text.Encoding]::UTF8) + [Environment]::NewLine
+    }
+
+    . ([scriptblock]::Create($PublicFunctions))
+    . ([scriptblock]::Create($PrivateFunctions))
+}
+
+catch {
+    $FunctionListPublic = Get-ChildItem $FunctionPathPublic -Name
+    $FunctionListPrivate = Get-ChildItem $FunctionPathPrivate -Name
+
+    ForEach ($Function in $FunctionListPublic) {
+        . ($FunctionPathPublic + $Function)
+    }
+
+    ForEach ($Function in $FunctionListPrivate) {
+        . ($FunctionPathPrivate + $Function)
+    }
+}
+
+#Add Custom Aliases
+Set-Alias -Name scm -Value Show-Command
+Set-Alias -Name gmad -Value Get-ModuleAliases
+
+#Present Module Introduction
+get-introat -clear no
