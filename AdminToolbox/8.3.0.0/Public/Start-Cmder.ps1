@@ -37,7 +37,7 @@ function Start-Cmder {
 
     else {
         $module = (Get-Module admintoolbox).ModuleBase
-        $cmder = "$module\support\cmder_mini\Cmder.exe"
+        $cmder = "$module\support\cmder_mini\vendor\conemu-maximus5\ConEmu.exe"
         Start-Process $cmder
     }
 }
