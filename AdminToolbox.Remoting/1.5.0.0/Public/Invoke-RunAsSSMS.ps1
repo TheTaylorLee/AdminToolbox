@@ -18,6 +18,10 @@ Function Invoke-RunAsSSMS {
     Invoke-RunAsSSMS -account domain\account
 
     This example will run SQL Server Studio Manager with the remote credentials specified
+
+    .Link
+    runas.exe
+    Invoke-RunAsNetwork
     #>
 
     [CmdletBinding()]

@@ -17,3 +17,4 @@
 * **1.2.0.1** Addressed some oversights in the help for Invoke-RWinSta
 * **1.3.0.0** Added Functions Remove-TerminalSessions and Get-TerminalSessions
 * **1.4.0.0** Added Function Invoke-RunAsSSMS
+* **1.5.0.0** Added Function Invoke-RunAsNetwork
