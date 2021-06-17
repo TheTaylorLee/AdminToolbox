@@ -1,4 +1,4 @@
-#TODO Monitor for changes made to the AzViz module that can be expanded into this function or new functions.
+//DOIT Monitor for changes made to the AzViz module that can be expanded into this function or new functions.
 function Get-TenantDiagrams {
     <#
     .DESCRIPTION
