@@ -29,5 +29,7 @@ function Start-AzureSync {
         $Policy
     )
 
+    Import-Module ADSync
+
     Start-ADSyncSyncCycle -PolicyType $Policy
 }

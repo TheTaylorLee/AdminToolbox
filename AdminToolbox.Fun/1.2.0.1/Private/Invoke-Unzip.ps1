@@ -1,7 +1,7 @@
 function Invoke-Unzip {
     <#
     .DESCRIPTION
-    Provides robust zip file extraction by attempting 3 possible methods. 
+    Provides robust zip file extraction by attempting 3 possible methods.
 
     .Parameter zipfile
     Specify the zipfile location and name
@@ -24,13 +24,13 @@ function Invoke-Unzip {
         [string]$outpath
     )
 
-    if (Get-Command expand-archive) {
+    if (Get-Command expand-archive -ErrorAction silentlycontinue) {
         $ErrorActionPreference = 'SilentlyContinue'
         Expand-Archive -Path $zipfile -DestinationPath $outpath
         $ErrorActionPreference = 'Continue'
     }
 
-    
+
 
     else {
         try {
@@ -38,7 +38,7 @@ function Invoke-Unzip {
             Add-Type -AssemblyName System.IO.Compression.FileSystem
             [System.IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
         }
-    
+
         catch {
             #If .net 4.5 or newer not present, com classes are used. This process is slower.
             [void] (New-Item -Path $outpath -ItemType Directory -Force)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2021-03-24 00:17:30" build="191012">
+		<key name=".Vanilla" modified="2021-05-27 23:31:21" build="191012">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -82,6 +82,11 @@
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
+			<value name="CmdLineHistory" type="multi">
+				<line data="{Helper::Show ANSI colors}"/>
+				<line data="{Bash::bash}"/>
+				<line data="{Shells:PSPortableLight (Admin)}"/>
+			</value>
 			<value name="SingleInstance" type="hex" data="01"/>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
 			<value name="Multi" type="hex" data="01"/>
@@ -403,7 +408,7 @@
 			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
-			<key name="HotKeys" modified="2021-03-23 23:38:41" build="191012">
+			<key name="HotKeys" modified="2021-05-27 23:31:21" build="191012">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="000000a2"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -599,9 +604,9 @@
 				<value name="DndRKey" type="hex" data="A2"/>
 				<value name="WndDragKey" type="dword" data="00121101"/>
 			</key>
-			<key name="Tasks" modified="2021-03-23 23:13:32" build="191012">
+			<key name="Tasks" modified="2021-05-27 23:31:21" build="191012">
 				<value name="Count" type="long" data="7"/>
-				<key name="Task1" modified="2021-03-23 23:38:41" build="191012">
+				<key name="Task1" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Shells::PSPortable (Admin)}"/>
 					<value name="Flags" type="dword" data="00000005"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -610,7 +615,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="C:\ProgramData\PS7x64\PS7-x64\pwsh.exe -nologo -new_console:a"/>
 				</key>
-				<key name="Task2" modified="2021-03-23 23:03:23" build="191012">
+				<key name="Task2" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Shells:PSPortableLight (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -619,7 +624,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="C:\ProgramData\PS7x64Light\PS7-x64\pwsh.exe -nologo -new_console:a"/>
 				</key>
-				<key name="Task3" modified="2021-03-23 23:03:23" build="191012">
+				<key name="Task3" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Shells::PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -628,7 +633,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="powershell.exe -new_console:a"/>
 				</key>
-				<key name="Task4" modified="2021-03-23 23:03:23" build="191012">
+				<key name="Task4" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Shells::cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -637,7 +642,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a'/>
 				</key>
-				<key name="Task5" modified="2021-03-23 23:13:32" build="191012">
+				<key name="Task5" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Shells::PowerShell Core (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -646,7 +651,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="pwsh.exe -new_console:a"/>
 				</key>
-				<key name="Task6" modified="2021-03-23 23:13:32" build="191012">
+				<key name="Task6" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Bash::bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -655,7 +660,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:pm:/mnt'/>
 				</key>
-				<key name="Task7" modified="2021-03-23 23:13:32" build="191012">
+				<key name="Task7" modified="2021-05-27 23:31:21" build="191012">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -665,13 +670,668 @@
 					<value name="Cmd1" type="string" data='cmd.exe /k type "%ConEmuBaseDir%\Addons\AnsiColors16t.ans" -cur_console:n'/>
 				</key>
 			</key>
-			<key name="Apps" modified="2021-03-23 22:59:36" build="191012">
+			<key name="Apps" modified="2021-05-27 23:31:21" build="191012">
 				<value name="Count" type="long" data="0"/>
 			</key>
-			<key name="Colors" modified="2021-03-23 22:59:36" build="191012">
-				<value name="Count" type="long" data="0"/>
+			<key name="Colors" modified="2021-05-27 23:31:21" build="191012">
+				<value name="Count" type="long" data="00000028"/>
+				<key name="Palette1" modified="2017-01-06 21:01:42" build="161206">
+					<value name="Name" type="string" data="One Dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00342c28"/>
+					<value name="ColorTable01" type="dword" data="0070635c"/>
+					<value name="ColorTable02" type="dword" data="0079c398"/>
+					<value name="ColorTable03" type="dword" data="0079c398"/>
+					<value name="ColorTable04" type="dword" data="004650be"/>
+					<value name="ColorTable05" type="dword" data="00dd78c6"/>
+					<value name="ColorTable06" type="dword" data="00669ad1"/>
+					<value name="ColorTable07" type="dword" data="00bfb2ab"/>
+					<value name="ColorTable08" type="dword" data="00697374"/>
+					<value name="ColorTable09" type="dword" data="00efaf61"/>
+					<value name="ColorTable10" type="dword" data="0079c398"/>
+					<value name="ColorTable11" type="dword" data="00c2b656"/>
+					<value name="ColorTable12" type="dword" data="00756ce0"/>
+					<value name="ColorTable13" type="dword" data="007a77f2"/>
+					<value name="ColorTable14" type="dword" data="005791f9"/>
+					<value name="ColorTable15" type="dword" data="00939fa0"/>
+				</key>
+				<key name="Palette2" modified="2018-06-14 14:56:16" build="180206">
+					<value name="Name" type="string" data="One Light"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00fafafa"/>
+					<value name="ColorTable01" type="dword" data="00423a38"/>
+					<value name="ColorTable02" type="dword" data="004fa150"/>
+					<value name="ColorTable03" type="dword" data="004fa150"/>
+					<value name="ColorTable04" type="dword" data="004312ca"/>
+					<value name="ColorTable05" type="dword" data="00a426a6"/>
+					<value name="ColorTable06" type="dword" data="00016898"/>
+					<value name="ColorTable07" type="dword" data="00423a38"/>
+					<value name="ColorTable08" type="dword" data="00a7a1a0"/>
+					<value name="ColorTable09" type="dword" data="00f27840"/>
+					<value name="ColorTable10" type="dword" data="004fa150"/>
+					<value name="ColorTable11" type="dword" data="00bc8401"/>
+					<value name="ColorTable12" type="dword" data="004956e4"/>
+					<value name="ColorTable13" type="dword" data="00a426a6"/>
+					<value name="ColorTable14" type="dword" data="00016898"/>
+					<value name="ColorTable15" type="dword" data="00016898"/>
+				</key>
+				<key name="Palette3" modified="2018-08-07 12:51:32" build="150305">
+					<value name="Name" type="string" data="ayu Dark"/>
+					<value name="ExtendColors" type="hex" data="00"/>
+					<value name="ExtendColorIdx" type="hex" data="10"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00151515"/>
+					<value name="ColorTable01" type="dword" data="00ffaa82"/>
+					<value name="ColorTable02" type="dword" data="00187626"/>
+					<value name="ColorTable03" type="dword" data="00d6ccb2"/>
+					<value name="ColorTable04" type="dword" data="000098ff"/>
+					<value name="ColorTable05" type="dword" data="00b380bb"/>
+					<value name="ColorTable06" type="dword" data="006779ab"/>
+					<value name="ColorTable07" type="dword" data="00ffffee"/>
+					<value name="ColorTable08" type="dword" data="00b8b0a1"/>
+					<value name="ColorTable09" type="dword" data="00ffaa82"/>
+					<value name="ColorTable10" type="dword" data="008de8c3"/>
+					<value name="ColorTable11" type="dword" data="00ffdd89"/>
+					<value name="ColorTable12" type="dword" data="007053ff"/>
+					<value name="ColorTable13" type="dword" data="007871f0"/>
+					<value name="ColorTable14" type="dword" data="006bcbff"/>
+					<value name="ColorTable15" type="dword" data="00f5f5f5"/>
+				</key>
+				<key name="Palette4" modified="2018-09-03 13:29:16" build="180626">
+					<value name="Name" type="string" data="XFCE-white-on-black"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00ffffff"/>
+					<value name="ColorTable01" type="dword" data="00aa0000"/>
+					<value name="ColorTable02" type="dword" data="0000aa00"/>
+					<value name="ColorTable03" type="dword" data="00aaaa00"/>
+					<value name="ColorTable04" type="dword" data="000000aa"/>
+					<value name="ColorTable05" type="dword" data="00aa00aa"/>
+					<value name="ColorTable06" type="dword" data="000055aa"/>
+					<value name="ColorTable07" type="dword" data="00000000"/>
+					<value name="ColorTable08" type="dword" data="00555555"/>
+					<value name="ColorTable09" type="dword" data="00ff5555"/>
+					<value name="ColorTable10" type="dword" data="0000cc00"/>
+					<value name="ColorTable11" type="dword" data="00cccc44"/>
+					<value name="ColorTable12" type="dword" data="005555ff"/>
+					<value name="ColorTable13" type="dword" data="00ff55ff"/>
+					<value name="ColorTable14" type="dword" data="0000cbcb"/>
+					<value name="ColorTable15" type="dword" data="00aaaaaa"/>
+				</key>
+				<key name="Palette5" modified="2015-04-05 12:51:32" build="150305">
+					<value name="Name" type="string" data="Tango Dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00000000"/>
+					<value name="ColorTable01" type="dword" data="00a46534"/>
+					<value name="ColorTable02" type="dword" data="00069a4e"/>
+					<value name="ColorTable03" type="dword" data="009a9806"/>
+					<value name="ColorTable04" type="dword" data="000000cc"/>
+					<value name="ColorTable05" type="dword" data="007b5075"/>
+					<value name="ColorTable06" type="dword" data="0000a0c4"/>
+					<value name="ColorTable07" type="dword" data="00cfd7d3"/>
+					<value name="ColorTable08" type="dword" data="00535755"/>
+					<value name="ColorTable09" type="dword" data="00cf9f72"/>
+					<value name="ColorTable10" type="dword" data="0034e28a"/>
+					<value name="ColorTable11" type="dword" data="00e2e234"/>
+					<value name="ColorTable12" type="dword" data="002929ef"/>
+					<value name="ColorTable13" type="dword" data="00a87fad"/>
+					<value name="ColorTable14" type="dword" data="004fe9fc"/>
+					<value name="ColorTable15" type="dword" data="00eceeee"/>
+				</key>
+				<key name="Palette6" modified="2015-04-05 12:51:32" build="150305">
+					<value name="Name" type="string" data="Spacemacs-dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="002e2b29"/>
+					<value name="ColorTable01" type="dword" data="00aea12a"/>
+					<value name="ColorTable02" type="dword" data="002fdc86"/>
+					<value name="ColorTable03" type="dword" data="0074952d"/>
+					<value name="ColorTable04" type="dword" data="001d21e0"/>
+					<value name="ColorTable05" type="dword" data="00c56ebc"/>
+					<value name="ColorTable06" type="dword" data="002f75dc"/>
+					<value name="ColorTable07" type="dword" data="00b2b2b2"/>
+					<value name="ColorTable08" type="dword" data="00ad5ba4"/>
+					<value name="ColorTable09" type="dword" data="00d7974f"/>
+					<value name="ColorTable10" type="dword" data="001db167"/>
+					<value name="ColorTable11" type="dword" data="00f0de28"/>
+					<value name="ColorTable12" type="dword" data="001f24f2"/>
+					<value name="ColorTable13" type="dword" data="007a53ce"/>
+					<value name="ColorTable14" type="dword" data="001d95b1"/>
+					<value name="ColorTable15" type="dword" data="00b2b2b2"/>
+				</key>
+				<key name="Palette7" modified="2015-03-19 13:53:09" build="150310">
+					<value name="Name" type="string" data="Solarized Light"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00e3f6fd"/>
+					<value name="ColorTable01" type="dword" data="00756e58"/>
+					<value name="ColorTable02" type="dword" data="00009985"/>
+					<value name="ColorTable03" type="dword" data="0098a12a"/>
+					<value name="ColorTable04" type="dword" data="002f32dc"/>
+					<value name="ColorTable05" type="dword" data="00c4716c"/>
+					<value name="ColorTable06" type="dword" data="00164bcb"/>
+					<value name="ColorTable07" type="dword" data="00837b65"/>
+					<value name="ColorTable08" type="dword" data="00586e75"/>
+					<value name="ColorTable09" type="dword" data="00d28b26"/>
+					<value name="ColorTable10" type="dword" data="00009985"/>
+					<value name="ColorTable11" type="dword" data="0098a12a"/>
+					<value name="ColorTable12" type="dword" data="002f32dc"/>
+					<value name="ColorTable13" type="dword" data="008236d3"/>
+					<value name="ColorTable14" type="dword" data="000089b5"/>
+					<value name="ColorTable15" type="dword" data="00756e58"/>
+				</key>
+				<key name="Palette8" modified="2015-03-19 13:53:09" build="150310">
+					<value name="Name" type="string" data="Solarized Dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00362b00"/>
+					<value name="ColorTable01" type="dword" data="00756e58"/>
+					<value name="ColorTable02" type="dword" data="00009985"/>
+					<value name="ColorTable03" type="dword" data="0098a12a"/>
+					<value name="ColorTable04" type="dword" data="002f32dc"/>
+					<value name="ColorTable05" type="dword" data="00c4716c"/>
+					<value name="ColorTable06" type="dword" data="00164bcb"/>
+					<value name="ColorTable07" type="dword" data="00969483"/>
+					<value name="ColorTable08" type="dword" data="00586e75"/>
+					<value name="ColorTable09" type="dword" data="00d28b26"/>
+					<value name="ColorTable10" type="dword" data="00009985"/>
+					<value name="ColorTable11" type="dword" data="0098a12a"/>
+					<value name="ColorTable12" type="dword" data="002f32dc"/>
+					<value name="ColorTable13" type="dword" data="008236d3"/>
+					<value name="ColorTable14" type="dword" data="000089b5"/>
+					<value name="ColorTable15" type="dword" data="00a1a193"/>
+				</key>
+				<key name="Palette9" modified="2018-03-18 17:03:39" build="180309">
+					<value name="Name" type="string" data="Rusty"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00282828"/>
+					<value name="ColorTable01" type="dword" data="00383f47"/>
+					<value name="ColorTable02" type="dword" data="00188d8d"/>
+					<value name="ColorTable03" type="dword" data="003a6594"/>
+					<value name="ColorTable04" type="dword" data="001b3db1"/>
+					<value name="ColorTable05" type="dword" data="008662b1"/>
+					<value name="ColorTable06" type="dword" data="00257bfc"/>
+					<value name="ColorTable07" type="dword" data="0092cae4"/>
+					<value name="ColorTable08" type="dword" data="00264362"/>
+					<value name="ColorTable09" type="dword" data="00798864"/>
+					<value name="ColorTable10" type="dword" data="0086dbd9"/>
+					<value name="ColorTable11" type="dword" data="007fbf8f"/>
+					<value name="ColorTable12" type="dword" data="003c4bf8"/>
+					<value name="ColorTable13" type="dword" data="009b87d2"/>
+					<value name="ColorTable14" type="dword" data="00c877f9"/>
+					<value name="ColorTable15" type="dword" data="00e9bccf"/>
+				</key>
+				<key name="Palette10" modified="2016-04-16 18:37:50" build="160329">
+					<value name="Name" type="string" data="Oceans16 Dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00453830"/>
+					<value name="ColorTable01" type="dword" data="00b17f66"/>
+					<value name="ColorTable02" type="dword" data="0065ac02"/>
+					<value name="ColorTable03" type="dword" data="0098c18f"/>
+					<value name="ColorTable04" type="dword" data="006a61bf"/>
+					<value name="ColorTable05" type="dword" data="00eca6ca"/>
+					<value name="ColorTable06" type="dword" data="008eaaef"/>
+					<value name="ColorTable07" type="dword" data="00e6d4d0"/>
+					<value name="ColorTable08" type="dword" data="00b09788"/>
+					<value name="ColorTable09" type="dword" data="00e7ab77"/>
+					<value name="ColorTable10" type="dword" data="009aca8f"/>
+					<value name="ColorTable11" type="dword" data="00c0c67b"/>
+					<value name="ColorTable12" type="dword" data="009491e3"/>
+					<value name="ColorTable13" type="dword" data="007c79db"/>
+					<value name="ColorTable14" type="dword" data="00a3d7dd"/>
+					<value name="ColorTable15" type="dword" data="00e6d4d0"/>
+				</key>
+				<key name="Palette11" modified="2015-04-05 12:51:32" build="150305">
+					<value name="Name" type="string" data="Default"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="0040342e"/>
+					<value name="ColorTable01" type="dword" data="00ac815e"/>
+					<value name="ColorTable02" type="dword" data="008cbea3"/>
+					<value name="ColorTable03" type="dword" data="00bbbc8f"/>
+					<value name="ColorTable04" type="dword" data="007087d0"/>
+					<value name="ColorTable05" type="dword" data="00ad8eb4"/>
+					<value name="ColorTable06" type="dword" data="008bcbeb"/>
+					<value name="ColorTable07" type="dword" data="00e9ded8"/>
+					<value name="ColorTable08" type="dword" data="00f0e9e5"/>
+					<value name="ColorTable09" type="dword" data="00c1a181"/>
+					<value name="ColorTable10" type="dword" data="008cbea3"/>
+					<value name="ColorTable11" type="dword" data="00d0c088"/>
+					<value name="ColorTable12" type="dword" data="006a61bf"/>
+					<value name="ColorTable13" type="dword" data="00ad8eb4"/>
+					<value name="ColorTable14" type="dword" data="008bcbeb"/>
+					<value name="ColorTable15" type="dword" data="00f4efec"/>
+				</key>
+				<key name="Palette12" modified="2015-03-19 13:53:09" build="150310">
+					<value name="Name" type="string" data="moe-light"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00e7fdfd"/>
+					<value name="ColorTable01" type="dword" data="00ffe5d4"/>
+					<value name="ColorTable02" type="dword" data="0000af00"/>
+					<value name="ColorTable03" type="dword" data="0087af00"/>
+					<value name="ColorTable04" type="dword" data="000000dd"/>
+					<value name="ColorTable05" type="dword" data="00ff089a"/>
+					<value name="ColorTable06" type="dword" data="003387fe"/>
+					<value name="ColorTable07" type="dword" data="00626262"/>
+					<value name="ColorTable08" type="dword" data="00b2b2b2"/>
+					<value name="ColorTable09" type="dword" data="00ff5b1f"/>
+					<value name="ColorTable10" type="dword" data="0000af00"/>
+					<value name="ColorTable11" type="dword" data="00d7af5f"/>
+					<value name="ColorTable12" type="dword" data="002929ef"/>
+					<value name="ColorTable13" type="dword" data="008b1fff"/>
+					<value name="ColorTable14" type="dword" data="003387fe"/>
+					<value name="ColorTable15" type="dword" data="00303030"/>
+				</key>
+				<key name="Palette13" modified="2017-01-06 21:01:42" build="161206">
+					<value name="Name" type="string" data="monokai"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00222827"/>
+					<value name="ColorTable01" type="dword" data="005e7175"/>
+					<value name="ColorTable02" type="dword" data="002ee2a6"/>
+					<value name="ColorTable03" type="dword" data="0074dbe6"/>
+					<value name="ColorTable04" type="dword" data="001f97fd"/>
+					<value name="ColorTable05" type="dword" data="00ff81ae"/>
+					<value name="ColorTable06" type="dword" data="001f97fd"/>
+					<value name="ColorTable07" type="dword" data="00f2f8f8"/>
+					<value name="ColorTable08" type="dword" data="007226f9"/>
+					<value name="ColorTable09" type="dword" data="00efd966"/>
+					<value name="ColorTable10" type="dword" data="002ee2a6"/>
+					<value name="ColorTable11" type="dword" data="00e4efa1"/>
+					<value name="ColorTable12" type="dword" data="003366cc"/>
+					<value name="ColorTable13" type="dword" data="007226f9"/>
+					<value name="ColorTable14" type="dword" data="0075bff4"/>
+					<value name="ColorTable15" type="dword" data="00ff81ae"/>
+				</key>
+				<key name="Palette14" modified="2015-03-19 13:53:09" build="150310">
+					<value name="Name" type="string" data="moe-dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00303030"/>
+					<value name="ColorTable01" type="dword" data="00ff5b1f"/>
+					<value name="ColorTable02" type="dword" data="0000ffaf"/>
+					<value name="ColorTable03" type="dword" data="00ffff87"/>
+					<value name="ColorTable04" type="dword" data="002929ef"/>
+					<value name="ColorTable05" type="dword" data="00ff8ad1"/>
+					<value name="ColorTable06" type="dword" data="000087ff"/>
+					<value name="ColorTable07" type="dword" data="00c6c6c6"/>
+					<value name="ColorTable08" type="dword" data="00b2b2b2"/>
+					<value name="ColorTable09" type="dword" data="00d7af5f"/>
+					<value name="ColorTable10" type="dword" data="0000dba1"/>
+					<value name="ColorTable11" type="dword" data="00afd700"/>
+					<value name="ColorTable12" type="dword" data="004b4bff"/>
+					<value name="ColorTable13" type="dword" data="00a34eff"/>
+					<value name="ColorTable14" type="dword" data="004fe9fc"/>
+					<value name="ColorTable15" type="dword" data="00e7fdfd"/>
+				</key>
+				<key name="Palette15" modified="2017-04-16 00:46:22" build="170316">
+					<value name="Name" type="string" data="Material (Sublime) darker"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00151515"/>
+					<value name="ColorTable01" type="dword" data="004a4a4a"/>
+					<value name="ColorTable02" type="dword" data="008de8c3"/>
+					<value name="ColorTable03" type="dword" data="008de8c3"/>
+					<value name="ColorTable04" type="dword" data="007053ff"/>
+					<value name="ColorTable05" type="dword" data="00ea92c7"/>
+					<value name="ColorTable06" type="dword" data="006c8cf7"/>
+					<value name="ColorTable07" type="dword" data="00ffffee"/>
+					<value name="ColorTable08" type="dword" data="00d6ccb2"/>
+					<value name="ColorTable09" type="dword" data="00ffaa82"/>
+					<value name="ColorTable10" type="dword" data="008de8c3"/>
+					<value name="ColorTable11" type="dword" data="00ffdd89"/>
+					<value name="ColorTable12" type="dword" data="007053ff"/>
+					<value name="ColorTable13" type="dword" data="007871f0"/>
+					<value name="ColorTable14" type="dword" data="006bcbff"/>
+					<value name="ColorTable15" type="dword" data="006c8cf7"/>
+				</key>
+				<key name="Palette16" modified="2015-11-16 11:38:31" build="150513">
+					<value name="Name" type="string" data="Material Shell (Ocean)"/>
+					<value name="TextColorIdx" type="hex" data="06"/>
+					<value name="BackColorIdx" type="hex" data="00"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="00"/>
+					<value name="ColorTable00" type="dword" data="00383226"/>
+					<value name="ColorTable01" type="dword" data="00151515"/>
+					<value name="ColorTable02" type="dword" data="00645a45"/>
+					<value name="ColorTable03" type="dword" data="00716f5d"/>
+					<value name="ColorTable04" type="dword" data="000098ff"/>
+					<value name="ColorTable05" type="dword" data="00ffff18"/>
+					<value name="ColorTable06" type="dword" data="00b8b0a1"/>
+					<value name="ColorTable07" type="dword" data="00f5f5f5"/>
+					<value name="ColorTable08" type="dword" data="00b8b0a1"/>
+					<value name="ColorTable09" type="dword" data="00ffc440"/>
+					<value name="ColorTable10" type="dword" data="0039dccd"/>
+					<value name="ColorTable11" type="dword" data="00c1ac00"/>
+					<value name="ColorTable12" type="dword" data="005252ff"/>
+					<value name="ColorTable13" type="dword" data="008140ff"/>
+					<value name="ColorTable14" type="dword" data="0035c1ff"/>
+					<value name="ColorTable15" type="dword" data="00f5f5f5"/>
+				</key>
+				<key name="Palette17" modified="2015-11-16 11:34:26" build="150513">
+					<value name="Name" type="string" data="Material Shell (Dark)"/>
+					<value name="TextColorIdx" type="hex" data="06"/>
+					<value name="BackColorIdx" type="hex" data="00"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="00"/>
+					<value name="ColorTable00" type="dword" data="00151515"/>
+					<value name="ColorTable01" type="dword" data="004f4737"/>
+					<value name="ColorTable02" type="dword" data="00645a45"/>
+					<value name="ColorTable03" type="dword" data="00716f5d"/>
+					<value name="ColorTable04" type="dword" data="000098ff"/>
+					<value name="ColorTable05" type="dword" data="00ffc440"/>
+					<value name="ColorTable06" type="dword" data="00b8b0a1"/>
+					<value name="ColorTable07" type="dword" data="00f5f5f5"/>
+					<value name="ColorTable08" type="dword" data="00b8b0a1"/>
+					<value name="ColorTable09" type="dword" data="00f5a542"/>
+					<value name="ColorTable10" type="dword" data="002cd8c3"/>
+					<value name="ColorTable11" type="dword" data="00c1ac00"/>
+					<value name="ColorTable12" type="dword" data="003e44ff"/>
+					<value name="ColorTable13" type="dword" data="00601bd8"/>
+					<value name="ColorTable14" type="dword" data="0035c1ff"/>
+					<value name="ColorTable15" type="dword" data="00f5f5f5"/>
+				</key>
+				<key name="Palette18" modified="2018-08-07 12:51:32" build="150305">
+					<value name="Name" type="string" data="ayu Mirage"/>
+					<value name="ExtendColors" type="hex" data="00"/>
+					<value name="ExtendColorIdx" type="hex" data="10"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00332721"/>
+					<value name="ColorTable01" type="dword" data="00c2c9cc"/>
+					<value name="ColorTable02" type="dword" data="00cbe695"/>
+					<value name="ColorTable03" type="dword" data="007ee6ba"/>
+					<value name="ColorTable04" type="dword" data="003333ff"/>
+					<value name="ColorTable05" type="dword" data="007987f2"/>
+					<value name="ColorTable06" type="dword" data="0080d5ff"/>
+					<value name="ColorTable07" type="dword" data="00c2c9cc"/>
+					<value name="ColorTable08" type="dword" data="0059a7ff"/>
+					<value name="ColorTable09" type="dword" data="00ffd073"/>
+					<value name="ColorTable10" type="dword" data="007ee6ba"/>
+					<value name="ColorTable11" type="dword" data="00e6cf5c"/>
+					<value name="ColorTable12" type="dword" data="003333ff"/>
+					<value name="ColorTable13" type="dword" data="00ffbfd4"/>
+					<value name="ColorTable14" type="dword" data="0066ccff"/>
+					<value name="ColorTable15" type="dword" data="00ffbfd4"/>
+				</key>
+				<key name="Palette19" modified="2015-03-19 13:53:09" build="150310">
+					<value name="Name" type="string" data="Material (Emacs) light"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00fafafa"/>
+					<value name="ColorTable01" type="dword" data="00aea490"/>
+					<value name="ColorTable02" type="dword" data="002f8b55"/>
+					<value name="ColorTable03" type="dword" data="006b7900"/>
+					<value name="ColorTable04" type="dword" data="001c1cb7"/>
+					<value name="ColorTable05" type="dword" data="00b73a67"/>
+					<value name="ColorTable06" type="dword" data="00006cef"/>
+					<value name="ColorTable07" type="dword" data="00212121"/>
+					<value name="ColorTable08" type="dword" data="008b7d60"/>
+					<value name="ColorTable09" type="dword" data="00f39621"/>
+					<value name="ColorTable10" type="dword" data="00389f68"/>
+					<value name="ColorTable11" type="dword" data="00a79700"/>
+					<value name="ColorTable12" type="dword" data="001c1cb7"/>
+					<value name="ColorTable13" type="dword" data="00631ee9"/>
+					<value name="ColorTable14" type="dword" data="0000a0ff"/>
+					<value name="ColorTable15" type="dword" data="00baada7"/>
+				</key>
+				<key name="Palette20" modified="2021-04-18 17:13:59" build="210314">
+					<value name="Name" type="string" data="gruvbox-light"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00c7f1fb"/>
+					<value name="ColorTable01" type="dword" data="00786607"/>
+					<value name="ColorTable02" type="dword" data="000e7479"/>
+					<value name="ColorTable03" type="dword" data="00587b42"/>
+					<value name="ColorTable04" type="dword" data="0006009d"/>
+					<value name="ColorTable05" type="dword" data="00713f8f"/>
+					<value name="ColorTable06" type="dword" data="001476b5"/>
+					<value name="ColorTable07" type="dword" data="0036383c"/>
+					<value name="ColorTable08" type="dword" data="00646f7c"/>
+					<value name="ColorTable09" type="dword" data="00458588"/>
+					<value name="ColorTable10" type="dword" data="001a9798"/>
+					<value name="ColorTable11" type="dword" data="006a9d68"/>
+					<value name="ColorTable12" type="dword" data="001d24cc"/>
+					<value name="ColorTable13" type="dword" data="008662b1"/>
+					<value name="ColorTable14" type="dword" data="002199d7"/>
+					<value name="ColorTable15" type="dword" data="00713f8f"/>
+				</key>
+				<key name="Palette21" modified="2016-02-21 19:15:02" build="160218">
+					<value name="Name" type="string" data="gruvbox-dark"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00282828"/>
+					<value name="ColorTable01" type="dword" data="00758392"/>
+					<value name="ColorTable02" type="dword" data="001a9798"/>
+					<value name="ColorTable03" type="dword" data="0037bab8"/>
+					<value name="ColorTable04" type="dword" data="001d24cc"/>
+					<value name="ColorTable05" type="dword" data="008662b1"/>
+					<value name="ColorTable06" type="dword" data="002d80fc"/>
+					<value name="ColorTable07" type="dword" data="00b4daeb"/>
+					<value name="ColorTable08" type="dword" data="008499a8"/>
+					<value name="ColorTable09" type="dword" data="0098a584"/>
+					<value name="ColorTable10" type="dword" data="0037bab8"/>
+					<value name="ColorTable11" type="dword" data="007fbf8f"/>
+					<value name="ColorTable12" type="dword" data="003c4bf8"/>
+					<value name="ColorTable13" type="dword" data="009b87d2"/>
+					<value name="ColorTable14" type="dword" data="0041bcf9"/>
+					<value name="ColorTable15" type="dword" data="009b87d2"/>
+				</key>
+				<key name="Palette22" modified="2016-02-21 19:15:02" build="160218">
+					<value name="Name" type="string" data="Dracula"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00482a28"/>
+					<value name="ColorTable01" type="dword" data="00cc6374"/>
+					<value name="ColorTable02" type="dword" data="003dde66"/>
+					<value name="ColorTable03" type="dword" data="00fbd677"/>
+					<value name="ColorTable04" type="dword" data="003c3cee"/>
+					<value name="ColorTable05" type="dword" data="00f993dd"/>
+					<value name="ColorTable06" type="dword" data="006cb8ff"/>
+					<value name="ColorTable07" type="dword" data="00dee4e4"/>
+					<value name="ColorTable08" type="dword" data="00969a9a"/>
+					<value name="ColorTable09" type="dword" data="00c47262"/>
+					<value name="ColorTable10" type="dword" data="007bfa50"/>
+					<value name="ColorTable11" type="dword" data="00fde98b"/>
+					<value name="ColorTable12" type="dword" data="005555ff"/>
+					<value name="ColorTable13" type="dword" data="00c679ff"/>
+					<value name="ColorTable14" type="dword" data="008cfcfc"/>
+					<value name="ColorTable15" type="dword" data="00f2f8f8"/>
+				</key>
+				<key name="Palette23" modified="2018-07-12 16:05:14" build="180626">
+					<value name="Name" type="string" data="dark-room-red"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00000000"/>
+					<value name="ColorTable01" type="dword" data="0000c8c8"/>
+					<value name="ColorTable02" type="dword" data="000f69e3"/>
+					<value name="ColorTable03" type="dword" data="00dfdfdf"/>
+					<value name="ColorTable04" type="dword" data="0005057a"/>
+					<value name="ColorTable05" type="dword" data="0000009b"/>
+					<value name="ColorTable06" type="dword" data="005a5abe"/>
+					<value name="ColorTable07" type="dword" data="000000ff"/>
+					<value name="ColorTable08" type="dword" data="00e64f53"/>
+					<value name="ColorTable09" type="dword" data="008c8c8c"/>
+					<value name="ColorTable10" type="dword" data="00ffff80"/>
+					<value name="ColorTable11" type="dword" data="0098a12a"/>
+					<value name="ColorTable12" type="dword" data="002f32dc"/>
+					<value name="ColorTable13" type="dword" data="008236d3"/>
+					<value name="ColorTable14" type="dword" data="000089b5"/>
+					<value name="ColorTable15" type="dword" data="009d9dff"/>
+				</key>
+				<key name="Palette24" modified="2019-09-01 20:07:12" build="190714">
+					<value name="Name" type="string" data="Chalk"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="002e2c2b"/>
+					<value name="ColorTable01" type="dword" data="00ac7f2a"/>
+					<value name="ColorTable02" type="dword" data="00699a78"/>
+					<value name="ColorTable03" type="dword" data="0099a744"/>
+					<value name="ColorTable04" type="dword" data="00513ab2"/>
+					<value name="ColorTable05" type="dword" data="005a4fbc"/>
+					<value name="ColorTable06" type="dword" data="004aabb9"/>
+					<value name="ColorTable07" type="dword" data="00d9d8d2"/>
+					<value name="ColorTable08" type="dword" data="00888888"/>
+					<value name="ColorTable09" type="dword" data="00ff9540"/>
+					<value name="ColorTable10" type="dword" data="006fc480"/>
+					<value name="ColorTable11" type="dword" data="00bdcc52"/>
+					<value name="ColorTable12" type="dword" data="004048f2"/>
+					<value name="ColorTable13" type="dword" data="007551fb"/>
+					<value name="ColorTable14" type="dword" data="0062ebff"/>
+					<value name="ColorTable15" type="dword" data="00d9d8d2"/>
+				</key>
+				<key name="Palette25" modified="2017-01-05 17:52:51" build="161206">
+					<value name="Name" type="string" data="base16-railscasts-light"/>
+					<value name="ExtendColors" type="hex" data="00"/>
+					<value name="ExtendColorIdx" type="hex" data="0e"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00f3f7f9"/>
+					<value name="ColorTable01" type="dword" data="007e645a"/>
+					<value name="ColorTable02" type="dword" data="0061c2a5"/>
+					<value name="ColorTable03" type="dword" data="0061c2a5"/>
+					<value name="ColorTable04" type="dword" data="003949da"/>
+					<value name="ColorTable05" type="dword" data="00ebb3b6"/>
+					<value name="ColorTable06" type="dword" data="005894bc"/>
+					<value name="ColorTable07" type="dword" data="0055403a"/>
+					<value name="ColorTable08" type="dword" data="00352927"/>
+					<value name="ColorTable09" type="dword" data="00be9c6d"/>
+					<value name="ColorTable10" type="dword" data="0061c2a5"/>
+					<value name="ColorTable11" type="dword" data="00509f51"/>
+					<value name="ColorTable12" type="dword" data="003949da"/>
+					<value name="ColorTable13" type="dword" data="003949da"/>
+					<value name="ColorTable14" type="dword" data="006dc6ff"/>
+					<value name="ColorTable15" type="dword" data="003378cc"/>
+				</key>
+				<key name="Palette26" modified="2017-01-05 17:52:51" build="161206">
+					<value name="Name" type="string" data="base16-railscasts-dark"/>
+					<value name="ExtendColors" type="hex" data="00"/>
+					<value name="ExtendColorIdx" type="hex" data="0e"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="002b2b2b"/>
+					<value name="ColorTable01" type="dword" data="007e645a"/>
+					<value name="ColorTable02" type="dword" data="0061c2a5"/>
+					<value name="ColorTable03" type="dword" data="0061c2a5"/>
+					<value name="ColorTable04" type="dword" data="003949da"/>
+					<value name="ColorTable05" type="dword" data="00ebb3b6"/>
+					<value name="ColorTable06" type="dword" data="005894bc"/>
+					<value name="ColorTable07" type="dword" data="00dce1e6"/>
+					<value name="ColorTable08" type="dword" data="00c9cfd4"/>
+					<value name="ColorTable09" type="dword" data="00be9c6d"/>
+					<value name="ColorTable10" type="dword" data="0061c2a5"/>
+					<value name="ColorTable11" type="dword" data="00509f51"/>
+					<value name="ColorTable12" type="dword" data="003949da"/>
+					<value name="ColorTable13" type="dword" data="003949da"/>
+					<value name="ColorTable14" type="dword" data="006dc6ff"/>
+					<value name="ColorTable15" type="dword" data="003378cc"/>
+				</key>
+				<key name="Palette27" modified="2015-03-19 13:53:09" build="150310">
+					<value name="Name" type="string" data="base16-ocean-dark"/>
+					<value name="ExtendColors" type="hex" data="00"/>
+					<value name="ExtendColorIdx" type="hex" data="0e"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="003b302b"/>
+					<value name="ColorTable01" type="dword" data="00b3a18f"/>
+					<value name="ColorTable02" type="dword" data="008cbea3"/>
+					<value name="ColorTable03" type="dword" data="008cbea3"/>
+					<value name="ColorTable04" type="dword" data="006a61bf"/>
+					<value name="ColorTable05" type="dword" data="00ad8eb4"/>
+					<value name="ColorTable06" type="dword" data="007087d0"/>
+					<value name="ColorTable07" type="dword" data="00cec5c0"/>
+					<value name="ColorTable08" type="dword" data="007e7365"/>
+					<value name="ColorTable09" type="dword" data="00b3a18f"/>
+					<value name="ColorTable10" type="dword" data="008cbea3"/>
+					<value name="ColorTable11" type="dword" data="00b3a18f"/>
+					<value name="ColorTable12" type="dword" data="006a61bf"/>
+					<value name="ColorTable13" type="dword" data="006a61bf"/>
+					<value name="ColorTable14" type="dword" data="008bcbeb"/>
+					<value name="ColorTable15" type="dword" data="007087d0"/>
+				</key>
+				<key name="Palette28" modified="2018-08-07 12:51:32" build="150305">
+					<value name="Name" type="string" data="ayu Light"/>
+					<value name="ExtendColors" type="hex" data="00"/>
+					<value name="ExtendColorIdx" type="hex" data="10"/>
+					<value name="TextColorIdx" type="hex" data="10"/>
+					<value name="BackColorIdx" type="hex" data="10"/>
+					<value name="PopTextColorIdx" type="hex" data="10"/>
+					<value name="PopBackColorIdx" type="hex" data="10"/>
+					<value name="ColorTable00" type="dword" data="00fafafa"/>
+					<value name="ColorTable01" type="dword" data="006c6761"/>
+					<value name="ColorTable02" type="dword" data="004dbf99"/>
+					<value name="ColorTable03" type="dword" data="0000b386"/>
+					<value name="ColorTable04" type="dword" data="008379f2"/>
+					<value name="ColorTable05" type="dword" data="007171f0"/>
+					<value name="ColorTable06" type="dword" data="001897f2"/>
+					<value name="ColorTable07" type="dword" data="0080766c"/>
+					<value name="ColorTable08" type="dword" data="00326efa"/>
+					<value name="ColorTable09" type="dword" data="00e69e39"/>
+					<value name="ColorTable10" type="dword" data="0000b386"/>
+					<value name="ColorTable11" type="dword" data="00d4b455"/>
+					<value name="ColorTable12" type="dword" data="001818f5"/>
+					<value name="ColorTable13" type="dword" data="00cc7aa3"/>
+					<value name="ColorTable14" type="dword" data="00408fff"/>
+					<value name="ColorTable15" type="dword" data="00cc7aa3"/>
+				</key>
 			</key>
 		</key>
 	</key>
 </key>
-
