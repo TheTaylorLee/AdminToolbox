@@ -28,7 +28,7 @@ jobs:
         - name: Publish the Module
           shell: pwsh
           run: |
-            gci
+            get-childitem
 
       # Set Required Modules that will be needed and should be cached prior to running more steps
         #- name: Set required Powershell modules
