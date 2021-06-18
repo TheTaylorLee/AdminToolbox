@@ -25,10 +25,10 @@ jobs:
       - uses: actions/checkout@v2
 
       #Run pwsh functions to publish the module
-        - name: Publish the Module
-          shell: pwsh
-          run: |
-            get-childitem
+      - name: Publish the Module
+        shell: pwsh
+        run: |
+          get-childitem
 
       # Set Required Modules that will be needed and should be cached prior to running more steps
         #- name: Set required Powershell modules
