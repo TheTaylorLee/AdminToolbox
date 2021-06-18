@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: PSGal;l
+name: PSGallery Publish
 
 # Controls when the action will run.
 on: # Triggers the workflow on push or pull request events but only for the master branch
@@ -22,33 +22,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
       #Run pwsh functions to publish the module
-      - name: Publish the Module
+      - uses: actions/checkout@v2
+      - name: Publish updated Modules
+        env:
+          NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
         shell: pwsh
         run: |
-          get-childitem
-
-      # Set Required Modules that will be needed and should be cached prior to running more steps
-        #- name: Set required Powershell modules
-          #id: psmodulecache
-          #uses: potatoqualitee/psmodulecache@v1
-          #with:
-            #modules-to-cache: Pester, PSSCriptAnalyzer, InvokeBuild, platyPS
-
-      # Cache the Modules
-        #- name: Setup PowerShell module cache
-          #id: cacher
-          #uses: actions/cache@v2
-          #with:
-            #path: ${{ steps.psmodulecache.outputs.modulepath }}
-            #key: ${{ steps.psmodulecache.outputs.keygen }}
-
-      #Installing any missing modules
-        #- name: Install required PowerShell modules
-          #if: steps.cacher.outputs.cache-hit != 'true'
-          #shell: pwsh
-          #run: |
-            #Set-PSRepository PSGallery -InstallationPolicy Trusted
-            #Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+          function Invoke-PublishModules {
+            $ptestversionPSGallery = (Find-Module ptest -Repository PSGallery).version
+            $ptestversionGithub = Get-Content "/PTest/changelog.md" | Select-Object -Last 1
+              if ($ptestversionGithub -gt $ptestversionPSGallery ) {
+                Publish-Module -Path /PTest -NuGetApiKey $env:NUGET_KEY -Verbose
+              }
+          }
+          Invoke-PublishModules
