@@ -34,13 +34,6 @@ jobs:
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
 
-            #AdminToolbox
-            $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
-            $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
-              if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
-              }
-
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
             $ActiveDirectoryGithub = Get-Content "$workingdirectory/Admintoolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1
@@ -102,6 +95,13 @@ jobs:
             $VMWareAutomateGithub = Get-Content "$workingdirectory/Admintoolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
               if ($VMWareAutomateGithub -gt $VMWareAutomatePSGallery ) {
                 Publish-Module -Path "$workingdirectory/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY -Verbose
+              }
+
+            #AdminToolbox
+            $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
+            $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
+              if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
+                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
 
             $ErrorActionPreference = 'continue'
