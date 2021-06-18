@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: PSGal;l
 
 # Controls when the action will run.
 on: # Triggers the workflow on push or pull request events but only for the master branch
@@ -24,24 +24,31 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      #Run pwsh functions to publish the module
+        - name: Publish the Module
+          shell: pwsh
+          run: |
+            gci
+
       # Set Required Modules that will be needed and should be cached prior to running more steps
-      - name: Set required Powershell modules
-        id: psmodulecache
-        uses: potatoqualitee/psmodulecache@v1
-        with:
-          modules-to-cache: Pester, PSSCriptAnalyzer, InvokeBuild, platyPS
+        #- name: Set required Powershell modules
+          #id: psmodulecache
+          #uses: potatoqualitee/psmodulecache@v1
+          #with:
+            #modules-to-cache: Pester, PSSCriptAnalyzer, InvokeBuild, platyPS
 
       # Cache the Modules
-      - name: Setup PowerShell module cache
-        id: cacher
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.psmodulecache.outputs.modulepath }}
-          key: ${{ steps.psmodulecache.outputs.keygen }}
+        #- name: Setup PowerShell module cache
+          #id: cacher
+          #uses: actions/cache@v2
+          #with:
+            #path: ${{ steps.psmodulecache.outputs.modulepath }}
+            #key: ${{ steps.psmodulecache.outputs.keygen }}
 
-      - name: Install required PowerShell modules
-        if: steps.cacher.outputs.cache-hit != 'true'
-        shell: pwsh
-        run: |
-          Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+      #Installing any missing modules
+        #- name: Install required PowerShell modules
+          #if: steps.cacher.outputs.cache-hit != 'true'
+          #shell: pwsh
+          #run: |
+            #Set-PSRepository PSGallery -InstallationPolicy Trusted
+            #Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
