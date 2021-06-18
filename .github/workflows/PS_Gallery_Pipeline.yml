@@ -32,7 +32,7 @@ jobs:
           $workingdirectory = (get-location).path
           function Invoke-PublishModules {
             $ptestversionPSGallery = (Find-Module ptest -Repository PSGallery).version
-            $ptestversionGithub = Get-Content "$workingdirectory/PTest/changelog.md" | Select-Object -Last 1
+            $ptestversionGithub = Get-Content "$workingdirectory/PTest/Changelog.md" | Select-Object -Last 1
               if ($ptestversionGithub -gt $ptestversionPSGallery ) {
                 Publish-Module -Path $workingdirectory/PTest -NuGetApiKey $env:NUGET_KEY -Verbose
               }
