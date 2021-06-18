@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'ptest.psm1'
+RootModule = 'PTestManifest.psm1'
 
 # Version number of this module.
 ModuleVersion = '1.1.0.0'
@@ -18,7 +18,7 @@ ModuleVersion = '1.1.0.0'
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'aec9e052-95f0-4c52-b0c3-87f69e3ddcba'
+GUID = 'c571434e-103f-4d70-94a5-ff871a4c8d8b'
 
 # Author of this module
 Author = 'Taylor Lee'
