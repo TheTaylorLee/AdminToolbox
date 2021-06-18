@@ -51,11 +51,8 @@ jobs:
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
 
-                Import-Module Microsoft.PowerShell.Utility -force -SkipEditionCheck
-                Import-Module Microsoft.PowerShell.Diagnostics -force -SkipEditionCheck
-                Import-Module Microsoft.PowerShell.Management -force -SkipEditionCheck
-
             $workingdirectory = (get-location).path
+            Import-Module "$workingdirector/Required/PSEventViewer" -force -SkipEditionCheck
 
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
