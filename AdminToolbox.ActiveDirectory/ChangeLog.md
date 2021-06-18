@@ -17,3 +17,7 @@
 * **1.3.1.0** Updates for output made to Get-UserReport
 * **1.3.2.0** Renamed function get-dclockoutevents2 to just be Get-DCLockoutEvents
 * **1.3.2.1** Fix for Renamed function not being exported
+* **1.4.0.0**  Implemented a CI/CD workflow that finishes with this module being published to PSGallery
+
+#The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
+1.4.0.0
