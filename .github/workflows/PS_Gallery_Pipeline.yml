@@ -22,17 +22,36 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #Run pwsh functions to publish the module
       - uses: actions/checkout@v2
-      - name: Publish updated Modules
+
+      #Cache Modules that are required by publishing modules
+      - name: Set required Powershell modules
+        id: psmodulecache
+        uses: potatoqualitee/psmodulecache@v1
+        with:
+          modules-to-cache: ImportExcel, PSNmap
+
+      - name: Setup PowerShell module cache
+        id: cacher
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.psmodulecache.outputs.modulepath }}
+          key: ${{ steps.psmodulecache.outputs.keygen }}
+
+      #Run pwsh functions to publish the module
+      - name: Install Required Modules and Publish updated Modules
+        if: steps.cacher.outputs.cache-hit != 'true'
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
         shell: pwsh
         run: |
-          $workingdirectory = (get-location).path
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
 
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
+
+            $workingdirectory = (get-location).path
 
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
