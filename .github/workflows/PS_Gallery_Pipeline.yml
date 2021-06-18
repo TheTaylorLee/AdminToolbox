@@ -102,6 +102,13 @@ jobs:
                 Publish-Module -Path "$workingdirectory/AdminToolbox.Networking" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
 
+            #Office365
+            $Office365PSGallery = (Find-Module "AdminToolbox.Office365" -Repository PSGallery).version
+            $Office365Github = Get-Content "$workingdirectory/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
+              if ($Office365Github -gt $Office365PSGallery ) {
+                Publish-Module -Path "$workingdirectory/AdminToolbox.Office365" -NuGetApiKey $env:NUGET_KEY -Verbose
+              }
+
             #Remoting
             $RemotingPSGallery = (Find-Module "AdminToolbox.Remoting" -Repository PSGallery).version
             $RemotingGithub = Get-Content "$workingdirectory/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
@@ -120,6 +127,16 @@ jobs:
             $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
             $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
               if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
+                Import-Module -Name "$workingdirectory/AdminToolbox.ActiveDirectory"
+                Import-Module -Name "$workingdirectory/AdminToolbox.EndpointManagement"
+                Import-Module -Name "$workingdirectory/AdminToolbox.Exchange"
+                Import-Module -Name "$workingdirectory/AdminToolbox.FFTools"
+                Import-Module -Name "$workingdirectory/AdminToolbox.FileManagement"
+                Import-Module -Name "$workingdirectory/AdminToolbox.Fun"
+                Import-Module -Name "$workingdirectory/AdminToolbox.Networking"
+                Import-Module -Name "$workingdirectory/AdminToolbox.Office365"
+                Import-Module -Name "$workingdirectory/AdminToolbox.Remoting"
+                Import-Module -Name "$workingdirectory/AdminToolbox.VMWareAutomate"
                 Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
 
