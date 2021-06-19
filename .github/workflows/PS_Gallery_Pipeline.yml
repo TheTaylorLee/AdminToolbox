@@ -127,16 +127,16 @@ jobs:
             $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
             $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
               if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
-                Install-Module AdminToolbox.ActiveDirectory; Import-Module AdminToolbox.ActiveDirectory
-                Install-Module AdminToolbox.EndpointManagement; Import-Module AdminToolbox.EndpointManagement
-                Install-Module AdminToolbox.Exchange; Import-Module AdminToolbox.Exchange
-                Install-Module AdminToolbox.FFTools; Import-Module AdminToolbox.FFTools
-                Install-Module AdminToolbox.FileManagement; Import-Module AdminToolbox.FileManagement
-                Install-Module AdminToolbox.Fun; Import-Module AdminToolbox.Fun
-                Install-Module AdminToolbox.Networking; Import-Module AdminToolbox.Networking
-                Install-Module AdminToolbox.Office365; Import-Module AdminToolbox.Office365
-                Install-Module AdminToolbox.Remoting; Import-Module AdminToolbox.Remoting
-                Install-Module AdminToolbox.VMWareAutomate; Import-Module AdminToolbox.VMWareAutomate
+                Install-Module AdminToolbox.ActiveDirectory -AllowClobber -Force; Import-Module AdminToolbox.ActiveDirectory -Force -Global
+                Install-Module AdminToolbox.EndpointManagement -AllowClobber -Force; Import-Module AdminToolbox.EndpointManagement -Force -Global
+                Install-Module AdminToolbox.Exchange -AllowClobber -Force; Import-Module AdminToolbox.Exchange -Force -Global
+                Install-Module AdminToolbox.FFTools -AllowClobber -Force; Import-Module AdminToolbox.FFTools -Force -Global
+                Install-Module AdminToolbox.FileManagement -AllowClobber -Force; Import-Module AdminToolbox.FileManagement -Force -Global
+                Install-Module AdminToolbox.Fun -AllowClobber -Force; Import-Module AdminToolbox.Fun -Force -Global
+                Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
+                Install-Module AdminToolbox.Office365 -AllowClobber -Force; Import-Module AdminToolbox.Office365 -Force -Global
+                Install-Module AdminToolbox.Remoting -AllowClobber -Force; Import-Module AdminToolbox.Remoting -Force -Global
+                Install-Module AdminToolbox.VMWareAutomate -AllowClobber -Force; Import-Module AdminToolbox.VMWareAutomate -Force -Global
                 Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
           }
