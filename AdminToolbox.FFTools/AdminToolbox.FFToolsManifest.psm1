@@ -28,10 +28,6 @@ catch {
     }
 }
 
-#Load Tips File
-$tipspath = $PSScriptRoot + "\support\ffmpeg tips.txt"
-$tips = Get-Content $tipspath
-
 ##Function to Add ffmpeg module files to PSModulePath
 #Save the current value for PSModulePath in the $p variable.
 $p = [Environment]::GetEnvironmentVariable("Path")
