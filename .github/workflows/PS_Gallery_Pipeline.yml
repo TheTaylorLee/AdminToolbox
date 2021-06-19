@@ -140,9 +140,6 @@ jobs:
                 Install-Module AdminToolbox.VMWareAutomate; Import-Module AdminToolbox.VMWareAutomate
                 Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
-
-            $ErrorActionPreference = 'continue'
-
           }
           Invoke-PublishModules
 
