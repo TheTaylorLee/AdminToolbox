@@ -138,7 +138,8 @@ jobs:
                 Import-Module -Name "$workingdirectory/AdminToolbox.Office365"
                 Import-Module -Name "$workingdirectory/AdminToolbox.Remoting"
                 Import-Module -Name "$workingdirectory/AdminToolbox.VMWareAutomate"
-                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
+                #Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Get-Module AdminToolbox.ActiveDirectory | fl*
               }
 
             $ErrorActionPreference = 'continue'
