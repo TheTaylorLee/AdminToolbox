@@ -139,7 +139,7 @@ jobs:
                 Import-Module -Name "$workingdirectory/AdminToolbox.Remoting"
                 Import-Module -Name "$workingdirectory/AdminToolbox.VMWareAutomate"
                 #Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
-                Get-Module AdminToolbox.ActiveDirectory | fl*
+                Get-Module AdminToolbox.ActiveDirectory | fl *
               }
 
             $ErrorActionPreference = 'continue'
