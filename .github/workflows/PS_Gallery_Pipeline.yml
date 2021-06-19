@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
 
       #Cache Modules that are required by publishing modules
-      - name: Set required Powershell modules
+      - name: Set required Powershell modules that should be cached
         id: psmodulecache
         uses: potatoqualitee/psmodulecache@v1
         with:

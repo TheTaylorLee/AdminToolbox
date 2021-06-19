@@ -18,7 +18,7 @@ ModuleVersion = '2.7.0.0'
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'f9d562b2-5ba6-472b-a08c-8b45003b92a3'
+GUID = '646a10cb-c0f8-4b14-b6e5-d85982f5fedd'
 
 # Author of this module
 Author = 'Taylor Lee'

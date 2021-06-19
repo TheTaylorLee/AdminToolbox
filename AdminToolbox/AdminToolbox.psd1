@@ -18,7 +18,7 @@ ModuleVersion = '8.5.0.0'
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '64a531a4-28c6-4b29-8922-0b81f38cde8f'
+GUID = '6b80edc5-29c5-436f-84c0-65e9eeadc027'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -58,7 +58,7 @@ RequiredModules = @(@{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion
                @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.5.0.0'; }, 
                @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.3.0.0'; }, 
                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.7.0.0'; }, 
-               @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.3.0.0'; }, 
+               @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.3.0.1'; }, 
                @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.6.0.0'; }, 
                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.4.0.0'; }, 
                @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; }, 
