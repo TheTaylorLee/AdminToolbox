@@ -124,30 +124,49 @@ jobs:
                 Publish-Module -Path "$workingdirectory/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
 
-            #AdminToolbox
-            $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
-            $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
-              if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
-                Import-Module -Name "$workingdirectory/AdminToolbox.ActiveDirectory"
-                Import-Module -Name "$workingdirectory/AdminToolbox.EndpointManagement"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Exchange"
-                Import-Module -Name "$workingdirectory/AdminToolbox.FFTools"
-                Import-Module -Name "$workingdirectory/AdminToolbox.FileManagement"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Fun"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Networking"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Office365"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Remoting"
-                Import-Module -Name "$workingdirectory/AdminToolbox.VMWareAutomate"
-                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
-              }
-
             $ErrorActionPreference = 'continue'
 
           }
           Invoke-PublishModules
 
+      #
+      #
+      #Cache Modules that are required by publishing modules
+      - name: Set required Powershell modules
+        id: psmodulecache
+        uses: potatoqualitee/psmodulecache@v1
+        with:
+          modules-to-cache: ImportExcel, PSNmap, AdminToolbox.ActiveDirectory, AdminToolbox.EndpointManagement, AdminToolbox.Exchange, AdminToolbox.FFTools, AdminToolbox.FileManagement, AdminToolbox.Fun, AdminToolbox.Networking, AdminToolbox.Office365, AdminToolbox.Remoting, AdminToolbox.VMWareAutomate
 
+      - name: Setup PowerShell module cache
+        id: cacher
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.psmodulecache.outputs.modulepath }}
+          key: ${{ steps.psmodulecache.outputs.keygen }}
 
+      #Run pwsh functions to publish the module
+      - name: Install Required Modules and Publish updated Modules
+        if: steps.cacher.outputs.cache-hit != 'true'
+        env:
+          NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+
+          function Invoke-PublishModules {
+            $ErrorActionPreference = 'Stop'
+
+            $workingdirectory = (get-location).path
+            Import-Module "$workingdirectory/Required/PSEventViewer" -force -SkipEditionCheck
+
+          #AdminToolbox
+            $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
+            $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
+              if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
+                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
+              }
 
       #THIS IS FOR WORKFLOW TESTING. IT USES THE PTEST MODULE AT /PTEST/PTEST.PSD1
       #- uses: actions/check     out@v2
