@@ -40,7 +40,6 @@ jobs:
 
       #Run pwsh functions to publish the module
       - name: Install Required Modules and Publish updated Modules
-        if: steps.cacher.outputs.cache-hit != 'true'
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
         shell: pwsh
@@ -142,23 +141,3 @@ jobs:
               }
           }
           Invoke-PublishModules
-
-
-
-
-      #THIS IS FOR WORKFLOW TESTING. IT USES THE PTEST MODULE AT /PTEST/PTEST.PSD1
-      #- uses: actions/check     out@v2
-      #- name: Publish updated Modules
-        #env:
-          #NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
-        #shell: pwsh
-        #run: |
-          #$workingdirectory = (get-location).path
-          #function Invoke-PublishModules {
-            #$ptestversionPSGallery = (Find-Module ptest -Repository PSGallery).version
-            #$ptestversionGithub = Get-Content "$workingdirectory/PTest/Changelog.md" | Select-Object -Last 1
-              #if ($ptestversionGithub -gt $ptestversionPSGallery ) {
-                #Publish-Module -Path $workingdirectory/PTest -NuGetApiKey $env:NUGET_KEY -Verbose
-              #}
-          #}
-          #Invoke-PublishModules
