@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
 
       #Cache Modules that are required by publishing modules
-      - name: Set required Powershell modules that should be cached
+      - name: Specify PowerShell modules to cache
         id: psmodulecache
         uses: potatoqualitee/psmodulecache@v1
         with:
@@ -57,70 +57,110 @@ jobs:
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
             $ActiveDirectoryGithub = Get-Content "$workingdirectory/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1
               if ($ActiveDirectoryGithub -gt $ActiveDirectoryPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.ActiveDirectory" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.ActiveDirectory" -NuGetApiKey $env:NUGET_KEY
+                $ActiveDirectory = Write-Host "[+] AdminToolbox.ActiveDirectory published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $ActiveDirectory = Write-Host "[*] AdminToolbox.ActiveDirectory not published" -Foregroundcolor Cyan
               }
 
             #EndpointManagement
             $EndpointManagementPSGallery = (Find-Module "AdminToolbox.EndpointManagement" -Repository PSGallery).version
             $EndpointManagementGithub = Get-Content "$workingdirectory/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1
               if ($EndpointManagementGithub -gt $EndpointManagementPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.EndpointManagement" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.EndpointManagement" -NuGetApiKey $env:NUGET_KEY
+                $EndpointManagement = Write-Host "[+] AdminToolbox.EndpointManagement published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $EndpointManagement = Write-Host "[*] AdminToolbox.EndpointManagement not published" -Foregroundcolor Cyan
               }
 
             #Exchange
             $ExchangePSGallery = (Find-Module "AdminToolbox.Exchange" -Repository PSGallery).version
             $ExchangeGithub = Get-Content "$workingdirectory/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1
               if ($ExchangeGithub -gt $ExchangePSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Exchange" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.Exchange" -NuGetApiKey $env:NUGET_KEY
+                $Exchange = Write-Host "[+] AdminToolbox.Exchange published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $Exchange = Write-Host "[*] AdminToolbox.Exchange not published" -Foregroundcolor Cyan
               }
 
             #FFTools
             $FFToolsPSGallery = (Find-Module "AdminToolbox.FFTools" -Repository PSGallery).version
             $FFToolsGithub = Get-Content "$workingdirectory/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1
               if ($FFToolsGithub -gt $FFToolsPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.FFTools" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.FFTools" -NuGetApiKey $env:NUGET_KEY
+                $FFTools = Write-Host "[+] AdminToolbox.FFTools published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $FFTools = Write-Host "[*] AdminToolbox.FFTools not published" -Foregroundcolor Cyan
               }
 
             #FileManagement
             $FileManagementPSGallery = (Find-Module "AdminToolbox.FileManagement" -Repository PSGallery).version
             $FileManagementGithub = Get-Content "$workingdirectory/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1
               if ($FileManagementGithub -gt $FileManagementPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.FileManagement" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.FileManagement" -NuGetApiKey $env:NUGET_KEY
+                $FileManagement = Write-Host "[+] AdminToolbox.FileManagement published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $FileManagement = Write-Host "[*] AdminToolbox.FileManagement not published" -Foregroundcolor Cyan
               }
 
             #Fun
             $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
             $FunGithub = Get-Content "$workingdirectory/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
               if ($FunGithub -gt $FunPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Fun" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.Fun" -NuGetApiKey $env:NUGET_KEY
+                $Fun = Write-Host "[+] AdminToolbox.Fun published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $Fun = Write-Host "[*] AdminToolbox.Fun not published" -Foregroundcolor Cyan
               }
 
             #Networking
             $NetworkingPSGallery = (Find-Module "AdminToolbox.Networking" -Repository PSGallery).version
             $NetworkingGithub = Get-Content "$workingdirectory/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
               if ($NetworkingGithub -gt $NetworkingPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Networking" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.Networking" -NuGetApiKey $env:NUGET_KEY
+                $Networking = Write-Host "[+] AdminToolbox.Networking published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $Networking = Write-Host "[*] AdminToolbox.Networking not published" -Foregroundcolor Cyan
               }
 
             #Office365
             $Office365PSGallery = (Find-Module "AdminToolbox.Office365" -Repository PSGallery).version
             $Office365Github = Get-Content "$workingdirectory/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
               if ($Office365Github -gt $Office365PSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Office365" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.Office365" -NuGetApiKey $env:NUGET_KEY
+                $Office365 = Write-Host "[+] AdminToolbox.Office365 published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $Office365 = Write-Host "[*] AdminToolbox.Office365 not published" -Foregroundcolor Cyan
               }
 
             #Remoting
             $RemotingPSGallery = (Find-Module "AdminToolbox.Remoting" -Repository PSGallery).version
             $RemotingGithub = Get-Content "$workingdirectory/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
               if ($RemotingGithub -gt $RemotingPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Remoting" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.Remoting" -NuGetApiKey $env:NUGET_KEY
+                $Remoting = Write-Host "[+] AdminToolbox.Remoting published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $Remoting = Write-Host "[*] AdminToolbox.Remoting not published" -Foregroundcolor Cyan
               }
 
             #VMWareAutomate
             $VMWareAutomatePSGallery = (Find-Module "AdminToolbox.VMWareAutomate" -Repository PSGallery).version
             $VMWareAutomateGithub = Get-Content "$workingdirectory/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
               if ($VMWareAutomateGithub -gt $VMWareAutomatePSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY
+                $VMWareAutomate = Write-Host "[+] AdminToolbox.VMWareAutomate published to PSGalley" -Foregroundcolor Green
+              }
+              else {
+                $VMWareAutomate = Write-Host "[*] AdminToolbox.VMWareAutomate not published" -Foregroundcolor Cyan
               }
 
             #AdminToolbox
@@ -137,7 +177,23 @@ jobs:
                 Install-Module AdminToolbox.Office365 -AllowClobber -Force; Import-Module AdminToolbox.Office365 -Force -Global
                 Install-Module AdminToolbox.Remoting -AllowClobber -Force; Import-Module AdminToolbox.Remoting -Force -Global
                 Install-Module AdminToolbox.VMWareAutomate -AllowClobber -Force; Import-Module AdminToolbox.VMWareAutomate -Force -Global
-                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
+                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
+                $AdminToolbox = Write-Host "[+] AdminToolbox published to PSGalley" -Foregroundcolor Green
               }
+              else {
+                $AdminToolbox = Write-Host "[*] AdminToolbox not published" -Foregroundcolor Cyan
+              }
+
+              $ActiveDirectory
+              $EndpointManagement
+              $Exchange
+              $FFTools
+              $FileManagement
+              $Fun
+              $Networking
+              $Office365
+              $Remoting
+              $VMWareAutomate
+              $AdminToolbox
           }
           Invoke-PublishModules
