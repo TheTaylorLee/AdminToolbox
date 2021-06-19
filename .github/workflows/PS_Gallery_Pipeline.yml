@@ -128,18 +128,17 @@ jobs:
             $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
             $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
               if ($AdminToolboxGithub -gt $AdminToolboxPSGallery ) {
-                Import-Module -Name "$workingdirectory/AdminToolbox.ActiveDirectory"
-                Import-Module -Name "$workingdirectory/AdminToolbox.EndpointManagement"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Exchange"
-                Import-Module -Name "$workingdirectory/AdminToolbox.FFTools"
-                Import-Module -Name "$workingdirectory/AdminToolbox.FileManagement"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Fun"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Networking"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Office365"
-                Import-Module -Name "$workingdirectory/AdminToolbox.Remoting"
-                Import-Module -Name "$workingdirectory/AdminToolbox.VMWareAutomate"
-                #Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
-                Get-Module AdminToolbox.ActiveDirectory | fl *
+                Install-Module AdminToolbox.ActiveDirectory; Import-Module AdminToolbox.ActiveDirectory
+                Install-Module AdminToolbox.EndpointManagement; Import-Module AdminToolbox.EndpointManagement
+                Install-Module AdminToolbox.Exchange; Import-Module AdminToolbox.Exchange
+                Install-Module AdminToolbox.FFTools; Import-Module AdminToolbox.FFTools
+                Install-Module AdminToolbox.FileManagement; Import-Module AdminToolbox.FileManagement
+                Install-Module AdminToolbox.Fun; Import-Module AdminToolbox.Fun
+                Install-Module AdminToolbox.Networking; Import-Module AdminToolbox.Networking
+                Install-Module AdminToolbox.Office365; Import-Module AdminToolbox.Office365
+                Install-Module AdminToolbox.Remoting; Import-Module AdminToolbox.Remoting
+                Install-Module AdminToolbox.VMWareAutomate; Import-Module AdminToolbox.VMWareAutomate
+                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY -Verbose
               }
 
             $ErrorActionPreference = 'continue'
