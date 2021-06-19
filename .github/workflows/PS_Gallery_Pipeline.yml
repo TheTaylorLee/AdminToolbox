@@ -52,7 +52,7 @@ jobs:
             $ErrorActionPreference = 'Stop'
 
             $workingdirectory = (get-location).path
-            #Import-Module "$workingdirectory/Required/PSEventViewer" -force -SkipEditionCheck
+            Import-Module "$workingdirectory/Required/PSEventViewer" -force -SkipEditionCheck
 
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
