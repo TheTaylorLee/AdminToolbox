@@ -17,6 +17,5 @@
             IconUri                    = 'https://evotec.xyz/wp-content/uploads/2018/10/PSEventViewer.png'
         }
     }
-    RequiredModules      = 'Microsoft.PowerShell.Utility', 'Microsoft.PowerShell.Diagnostics', 'Microsoft.PowerShell.Management'
     RootModule           = 'PSEventViewer.psm1'
 }
