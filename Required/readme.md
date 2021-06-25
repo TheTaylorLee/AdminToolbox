@@ -1,1 +1,0 @@
-This module exists as a solution to some problems with a github action. It serves no purpose to the Admintoolbox modules themselves.

@@ -47,13 +47,12 @@ jobs:
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
           Install-Module PSEventViewer -Force -Allowclobber
-          Import-Module PSEventViewer -Force -SkipEditionCheck -Verbose
+          Import-Module PSEventViewer -Force -SkipEditionCheck
 
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
 
             $workingdirectory = (get-location).path
-            #Import-Module "$workingdirectory/Required/PSEventViewer" -force -SkipEditionCheck -verbose
 
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
