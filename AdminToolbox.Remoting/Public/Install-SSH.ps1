@@ -61,9 +61,9 @@ function Install-SSH {
         $zipfile = "c:\winssh.zip"
         $outpath = "c:\Winssh"
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::TLS12
-        Invoke-WebRequest -Uri $url -OutFile $zipfile
+        Invoke-WebRequest -Uri $url -OutFile $zipfile -UseBasicParsing
         Invoke-Unzip $zipfile $outpath
-        Remove-Item $zipfile -force
+        Remove-Item $zipfile -Force
         . $outpath\OpenSSH-Win32\install-sshd.ps1
     }
 

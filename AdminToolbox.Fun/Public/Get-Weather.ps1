@@ -36,5 +36,5 @@ function Get-Weather {
         [Parameter(Mandatory = $true)]$Location
     )
 
-    (Invoke-WebRequest http://wttr.in/"$Location"?QF -UserAgent "curl" ).Content
+    (Invoke-WebRequest http://wttr.in/"$Location"?QF -UserAgent "curl" -UseBasicParsing).Content
 }

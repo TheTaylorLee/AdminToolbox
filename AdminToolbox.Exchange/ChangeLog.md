@@ -18,7 +18,7 @@
 * **1.4.0.3** Updated help for Connect-ExchangeServer
 * **1.5.0.0** Added Function Get-MailboxDetails
 * **1.5.1.0** Updated get-mailboxreport to resolve a repeating write message.
-* **1.6.0.0**  Implemented a CI/CD workflow that finishes with this module being published to PSGallery
+* **1.6.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
 1.6.0.0

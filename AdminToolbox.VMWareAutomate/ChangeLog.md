@@ -41,7 +41,7 @@
 * **4.2.0.0** Tested and marked Core compatbile
 * **4.3.0.0** Added functions Enable-DatastoreRoundRobin and Get-VMFolderPAth
 * **4.3.1.0** Updated Get-VMFolderPaths to sort the report alphabetically
-* **4.4.0.0**  Implemented a CI/CD workflow that finishes with this module being published to PSGallery
+* **4.4.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
 4.4.0.0
