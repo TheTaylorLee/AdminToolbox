@@ -46,8 +46,8 @@ jobs:
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
-          Install-Module PSEventViewer
-          Import-Module PSEventViewer -AllowClobber -Force -SkipEditionCheck -Verbose
+          Install-Module PSEventViewer -Force -Allowclobber
+          Import-Module PSEventViewer -Force -SkipEditionCheck -Verbose
 
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
