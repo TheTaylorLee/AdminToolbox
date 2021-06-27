@@ -43,6 +43,7 @@
 * **4.3.0.0** Added Get-RemoteDesktopLogins and Get-RebootEvents
 * **4.4.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 * **4.5.0.0** Removed get-powershell7 in favor of the PSPortable functions
+* **4.5.1.0** Bug fix for Disable-Standby
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.5.0.0
+4.5.1.0

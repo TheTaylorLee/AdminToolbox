@@ -15,7 +15,7 @@ function Disable-Standby {
 
     #Get Path to Powercfg
     $getmod = Get-Module Admintoolbox.EndpointManagement
-    $trim = $getmod.path -replace ("Admintoolbox.EndpointManagement.psm1", "")
+    $trim = $getmod.path -replace ("Admintoolbox.EndpointManagementManifest.psm1", "")
     $Modpath = $trim + '\support\'
 
     #Import Powercfg
