@@ -11,7 +11,7 @@ function Reset-NetworkAdapter {
     Reset-NetworkAdapter -interface "Local Area Connection"
 
     .Link
-    Reset-NetworkStack
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

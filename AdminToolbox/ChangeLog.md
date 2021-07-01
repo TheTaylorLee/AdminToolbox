@@ -140,6 +140,7 @@
 * **8.4.1.0**  Changed deploy-functions to use approved verbs
 * **8.5.0.0**  Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 * **8.5.1.0**  Removed reliance on Internet explorer web engine by updating invoke-webrequest functions to use basic parsing
+* **8.6.0.0**  Added Markdown Documentation and link help
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-8.5.1.0
+8.6.0.0

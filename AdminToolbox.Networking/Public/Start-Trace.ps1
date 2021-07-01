@@ -5,6 +5,9 @@ function Start-Trace {
 
     .EXAMPLE
     Start-Trace
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

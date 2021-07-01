@@ -8,6 +8,9 @@ function Get-Emote {
 
     .Example
     Get-Emote -Name Flip
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

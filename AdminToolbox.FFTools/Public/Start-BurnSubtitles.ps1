@@ -19,6 +19,9 @@ function Start-BurnSubtitles {
     If the transcode switch parameter is used then the file will be transcoded in addition to the subtitles being burned.
 
     Start-BurnSubtitles -video "Action Jackson.mkv" -srtfile "Action Jackson.srt" -Transcode
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [cmdletbinding()]
     param (

@@ -4,9 +4,7 @@ function Get-TerminalSessions {
     Pulls a list of all users sessions in a Remote Desktop Server Farm
 
     .Link
-    Remove-TerminalSessions
-    Invoke-QWinSta
-    Invoke-RWinSta
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     try {

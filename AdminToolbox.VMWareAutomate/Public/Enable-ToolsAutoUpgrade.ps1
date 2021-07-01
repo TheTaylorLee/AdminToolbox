@@ -21,7 +21,7 @@ Function Enable-ToolsAutoUpgrade {
     Requires the VMware.PowerCLI Module
 
     .Link
-    Get-ToolsAutoUpgrade
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]

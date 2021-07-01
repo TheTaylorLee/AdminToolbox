@@ -30,8 +30,7 @@ function Invoke-NetworkScan {
     Does not work in Powershell Core
 
     .Link
-    Invoke-PSipcalc https://www.powershellgallery.com/packages/PSnmap
-    Invoke-PSNmap https://www.powershellgallery.com/packages/PSnmap
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     [Alias('scan')]

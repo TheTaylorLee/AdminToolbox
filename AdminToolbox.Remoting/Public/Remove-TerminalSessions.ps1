@@ -4,9 +4,7 @@ function Remove-TerminalSessions {
     Pulls a list of all users sessions in a Remote Desktop Server Farm and allows you to select and remove one or many at once.
 
     .Link
-    Get-TerminalSessions
-    Invoke-QWinSta
-    Invoke-RWinSta
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     function remove-session {

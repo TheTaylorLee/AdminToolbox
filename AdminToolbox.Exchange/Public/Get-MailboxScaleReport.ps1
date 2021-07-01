@@ -30,8 +30,8 @@ Function Get-MailboxScaleReport {
     Exchange 2007: 50000 messages per folder, 500 folders total
     Exchange 2010/2013/2016/2019: 100000 messages per folder, 500 folders total
 
-    .LINK
-    Get-MailboxReport
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

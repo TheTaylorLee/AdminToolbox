@@ -24,6 +24,9 @@ function Get-Printers {
     Return long list of info on the printers
 
     Get-Printers -computer PCName -complex
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

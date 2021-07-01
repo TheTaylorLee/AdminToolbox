@@ -13,9 +13,7 @@ Function Get-GroupMembers {
     Get-GroupMembers -Path "$env:USERPROFILE\downloads\AD Group Members.xlsx"
 
     .Link
-    Get-UserReport
-	Get-EndpointReport
-	Get-GroupMemberships
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
 

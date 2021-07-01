@@ -7,10 +7,7 @@ function Get-ChocoOutdated {
     Get-ChocoOutdated
 
     .Link
-    Get-ChocoInstalls
-    Install-Chocolatey
-    Install-ChocoPackages
-    Invoke-ChocoUpgrade
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [cmdletbinding()]
     [Alias('Show-ChocoOutdated')]

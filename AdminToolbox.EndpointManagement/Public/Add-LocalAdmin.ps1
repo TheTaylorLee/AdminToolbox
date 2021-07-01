@@ -14,6 +14,9 @@ function Add-LocalAdmin {
     Adds specified domain user to the local administrators group
 
     Add-LocalAdmin -user domain\user
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -8,11 +8,7 @@ function Get-PasswordExpired {
     Requires the Active Directory Module.
 
     .Link
-    Get-DCLockoutEvents
-    Get-LockedAccounts
-    Set-Password
-    Unlock-Account
-    Unlock-AllAccounts
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

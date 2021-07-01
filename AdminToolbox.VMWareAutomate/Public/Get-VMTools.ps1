@@ -35,7 +35,7 @@ Function Get-VMTools {
     Requires the VMware.PowerCLI Module
 
     .Link
-    Update-VMTools
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]

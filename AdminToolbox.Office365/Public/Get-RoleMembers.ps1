@@ -5,6 +5,9 @@ function Get-RoleMembers {
 
     .NOTES
     Requires the MSOnline module be imported
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     begin {

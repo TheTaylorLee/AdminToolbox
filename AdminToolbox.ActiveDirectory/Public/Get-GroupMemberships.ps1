@@ -12,10 +12,8 @@ Function Get-GroupMemberships {
     .Example
 	Get-GroupMemberships -Path "$env:USERPROFILE\downloads\Group Memberships.xlsx"
 
-	.Link
-    Get-UserReport
-	Get-EndpointReport
-	Get-GroupMembers
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
 	#>
 
 	[CmdletBinding()]

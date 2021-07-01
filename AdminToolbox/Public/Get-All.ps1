@@ -1,9 +1,12 @@
 function Get-All {
     <#
-.Description
-Gets function for all AdminToolbox Modules
-#>
+    .Description
+    Gets function for all AdminToolbox Modules
 
-    Get-Command -module AdminToolbo*
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+    #>
+
+    Get-Command -Module AdminToolbo*
 
 }

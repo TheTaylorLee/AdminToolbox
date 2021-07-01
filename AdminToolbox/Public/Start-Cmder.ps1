@@ -12,6 +12,9 @@ function Start-Cmder {
     Add Cmder to startup login startup
 
     Cmder -Startup
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [cmdletbinding()]

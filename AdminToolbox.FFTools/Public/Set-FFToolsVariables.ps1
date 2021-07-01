@@ -15,6 +15,9 @@ function Set-FFToolsVariables {
     Creates persistent environment variables. Be sure to include a closing backslash for the parameters.
 
     Set-FFToolsVariables -Source "c:\media\"" -Target "c:\media\out\"
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Cmdletbinding()]

@@ -7,7 +7,7 @@ function Get-UserDisabledMailboxes {
     Requires the Active Directory module and must be run from the Exchange Server
 
     .Link
-    Get-EndpointReport
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

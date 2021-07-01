@@ -8,6 +8,9 @@ function Get-RebootEvents {
 
     .EXAMPLE
     Get-RebootEvents -Server server.domain.tld
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -13,7 +13,7 @@ function Connect-ExchangeServer {
     The powershell virtual directory must be defined on the exchange server, or this will fail
 
     .Link
-    Disconnect-ExchangeServer
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

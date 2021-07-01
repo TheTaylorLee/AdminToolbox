@@ -1,31 +1,34 @@
 function Get-MacVendor {
     <#
-.Synopsis
-Resolve MacAddresses To Vendors
+    .Synopsis
+    Resolve MacAddresses To Vendors
 
-.Description
-This Function Queries The MacVendors API With Supplied MacAdderess And Returns Manufacturer Information If A Match Is Found
+    .Description
+    This Function Queries The MacVendors API With Supplied MacAdderess And Returns Manufacturer Information If A Match Is Found
 
-.Parameter MacAddress
-MacAddress To Be Resolved
+    .Parameter MacAddress
+    MacAddress To Be Resolved
 
-.Parameter SkipDNS
-If you are using public DNS, use SKipDNS. This will prevent long delays caused by retrieving Hostnames.
+    .Parameter SkipDNS
+    If you are using public DNS, use SKipDNS. This will prevent long delays caused by retrieving Hostnames.
 
-.Parameter Subnet
-Specify a local subnet to query
+    .Parameter Subnet
+    Specify a local subnet to query
 
-.Example
-Get-MacVendor -MacAddress 00:00:00:00:00:00
+    .Example
+    Get-MacVendor -MacAddress 00:00:00:00:00:00
 
-.Example
-Get-MacVendor -MacAddress 00:00:00:00:00:00,11:11:11:11:11:11
+    .Example
+    Get-MacVendor -MacAddress 00:00:00:00:00:00,11:11:11:11:11:11
 
-.Example
-Get Mac addresses for all devices on the local subnet and query their OUI
+    .Example
+    Get Mac addresses for all devices on the local subnet and query their OUI
 
-Get-MacVendor -Subnet 192.168.0 | Sort-Object Vendor
-#>
+    Get-MacVendor -Subnet 192.168.0 | Sort-Object Vendor
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+    #>
     [CmdletBinding(DefaultParameterSetName = 'MacAddress')]
     param(
         [Parameter (Mandatory = $true, ValueFromPipeline = $false, ParameterSetName = 'MacAddress')]

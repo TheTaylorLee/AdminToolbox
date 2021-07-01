@@ -8,6 +8,9 @@ Function Enable-DataStoreRoundRobin {
 
     .NOTES
     Must have the VMWARE.PowerCLI module loaded
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Get-VMHost |

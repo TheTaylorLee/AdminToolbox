@@ -9,6 +9,9 @@ function Get-RemoteDesktopLogins {
 
     .EXAMPLE
     Get-RemoteDesktopLogins -Outputpath c:\folder\filename.csv
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [cmdletbinding()]

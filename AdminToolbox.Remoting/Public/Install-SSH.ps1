@@ -26,6 +26,9 @@ function Install-SSH {
     Enable-OpenSSH features and set the services to Automatic
 
     Install-OpenSSH -AutoServices
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding(SupportsShouldProcess)]
     [Alias ('Install-OpenSSH')]

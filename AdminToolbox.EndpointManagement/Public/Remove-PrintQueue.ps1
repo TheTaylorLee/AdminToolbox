@@ -3,6 +3,9 @@ function Remove-PrintQueue {
     <#
     .DESCRIPTION
     This command clears print queues for all printers
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]

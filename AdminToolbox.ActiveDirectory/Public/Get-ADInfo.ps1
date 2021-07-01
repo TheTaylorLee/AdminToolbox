@@ -8,7 +8,7 @@ function Get-ADInfo {
     Requires the Active Directory Module
 
     .Link
-    Get-PCInfo
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

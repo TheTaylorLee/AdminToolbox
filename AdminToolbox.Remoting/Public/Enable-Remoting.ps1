@@ -19,6 +19,9 @@ function Enable-Remoting {
     This will enable remoting and then prompt for credentials
 
     Enable-PSRemoting -computer PCName -username domain\username
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -35,6 +38,6 @@ function Enable-Remoting {
 
 
     #Testing that PSRemoting is now enabled.
-    Write-Host "If an error is presented after this point PSRemoting wasn't enabled" -Foregroundcolor Yellow
+    Write-Host "If an error is presented after this point PSRemoting wasn't enabled" -ForegroundColor Yellow
     Test-WSMan $Computer
 }

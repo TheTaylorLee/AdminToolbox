@@ -26,9 +26,7 @@ function Get-Weather {
     moon@2016-10-25       # Moon phase for the date (@2016-10-25)
 
     .Link
-    Connect-SSH
-    Enable-PSRemoting
-    Enable-Remoting
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Cmdletbinding()]

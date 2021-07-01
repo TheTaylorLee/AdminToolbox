@@ -18,8 +18,7 @@ function Remove-DisabledADProfiles {
     Remove-DisabledADProfiles -domaincontroller DomainControllerDNSName
 
     .Link
-    Remove-All
-    Remove-OlderThan
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

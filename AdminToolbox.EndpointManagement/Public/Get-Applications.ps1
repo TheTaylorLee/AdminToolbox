@@ -1,35 +1,35 @@
 function Get-Applications {
     <#
-.SYNOPSIS
-Sourced from https://mcpmag.com/articles/2017/07/27/gathering-installed-software-using-powershell.aspx
-Created by Boe Prox
+    .SYNOPSIS
+    Sourced from https://mcpmag.com/articles/2017/07/27/gathering-installed-software-using-powershell.aspx
+    Created by Boe Prox
 
-.DESCRIPTION
-Get detailed information on installed applications and their uninstall strings.
+    .DESCRIPTION
+    Get detailed information on installed applications and their uninstall strings.
 
-.PARAMETER Computername
-For specifying a remote computer to get an application list from
+    .PARAMETER Computername
+    For specifying a remote computer to get an application list from
 
-.EXAMPLE
-Get installed software outputted to a table
+    .EXAMPLE
+    Get installed software outputted to a table
 
-Get-Software | ft
+    Get-Software | ft
 
-.EXAMPLE
-Get installed software on all online domain joined Endpoints
+    .EXAMPLE
+    Get installed software on all online domain joined Endpoints
 
-$Computername = get-adcomputer -filter *
-$computername = Get-Software
+    $Computername = get-adcomputer -filter *
+    $computername = Get-Software
 
-.EXAMPLE
-Get installed software on all computers listed in a text file
+    .EXAMPLE
+    Get installed software on all computers listed in a text file
 
-$Computername = get-content c:\computers.txt
-$computername = Get-Software
+    $Computername = get-content c:\computers.txt
+    $computername = Get-Software
 
-.Link
-Uninstall-Application
-#>
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+    #>
 
     [OutputType('System.Software.Inventory')]
     [Cmdletbinding()]

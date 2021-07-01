@@ -14,6 +14,9 @@ Function Get-HostSerialNumber {
     Requires the VMware.PowerCLI Module
 
     Connect to Host or Vcenter First
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Param (

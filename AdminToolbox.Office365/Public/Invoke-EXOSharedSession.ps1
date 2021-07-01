@@ -13,9 +13,7 @@ Function Invoke-EXOSharedSession {
     Requires the Exchange online module already installed
 
     .Link
-    Connect-office365
-    Connect-ExchangeServer
-    Disconnect-Exchangeserver
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

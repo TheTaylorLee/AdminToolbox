@@ -15,9 +15,7 @@ function Invoke-RWinSta {
     Invoke-RWinSta -ID 2 -Server name.domain.tld
 
     .Link
-    Get-TerminalSessions
-    Remove-TerminalSessions
-    Invoke-QWinSta
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

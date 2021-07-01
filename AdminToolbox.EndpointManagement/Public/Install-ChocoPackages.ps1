@@ -17,10 +17,7 @@ function Install-ChocoPackages {
     Install-ChocoPackages -install firefox, chrome, nmap
 
     .Link
-    Get-ChocoInstalls
-    Get-ChocoOutdated
-    Install-Chocolatey
-    Invoke-ChocoUpgrade
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -33,7 +30,7 @@ function Install-ChocoPackages {
 
     #Start Transcript
     $username = $env:UserName
-    Start-Transcript "c:\users\$username\desktop\Choco Install.txt" -append
+    Start-Transcript "c:\users\$username\desktop\Choco Install.txt" -Append
 
     #Install Choco Packages
     Write-Host 'Installing Software with Chocolatey...' -ForegroundColor Green

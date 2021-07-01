@@ -13,6 +13,9 @@ function Reset-EndpointPassword {
     Reaches out to a specified domain controller using a domain admin account to rebuild the trust relationship
 
     Reset-EndpintPassword CompanyDC01 Domain\Username
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

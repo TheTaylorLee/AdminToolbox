@@ -100,6 +100,9 @@ function Connect-Office365 {
     Azure Az Module Module allows managing Azure settings, subscriptions, VM, Resource groups, and more from the Command Line.
     Replaces AzureRM
     Install-Module -Name Az
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -149,13 +152,13 @@ function Connect-Office365 {
     if ($ExchangeOnlinev2) {
         #Exchange Online Module
         Write-Host "Connecting to Exchange Online Services Version 2" -BackgroundColor black -ForegroundColor green
-        connect-exchangeonline
+        Connect-ExchangeOnline
     }
 
     if ($SecurityandCompliance) {
         #Security and Compliance Module
         Write-Host "Connecting to Exchange Online Protection and Security (aka Security and Compliance)" -BackgroundColor black -ForegroundColor green
-        Connect-ippssession
+        Connect-IPPSSession
     }
 
     if ($Skype) {

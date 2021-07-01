@@ -19,6 +19,9 @@ function Start-AzureSync {
     Performs an incrmental sync with Azure Active Directroy
 
     Start-AzureSync -Policy Delta
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

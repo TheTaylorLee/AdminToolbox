@@ -14,6 +14,9 @@ Function Get-VMFolderPaths {
 
     .NOTES
     Must have the VMWARE.PowerCLI module loaded
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     $folders = Get-Folder | Sort-Object Name

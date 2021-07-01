@@ -4,7 +4,6 @@ function Get-Office365 {
 
     Write-Host "Office 365 Functions"                                                                        -ForegroundColor green
     Write-Host "Connect-Office365          ..Connects to Office 365 Module"                                  -ForegroundColor cyan
-    Write-Host "Get-CRTReport              ..Gets a security report for Threat hunting. Credit: Crowdstrike" -ForegroundColor cyan
     Write-Host "Invoke-EXOSharedSession    ..Invokes an environment to EXO and On-Prem modules same console" -ForegroundColor cyan
     Write-Host " "
 

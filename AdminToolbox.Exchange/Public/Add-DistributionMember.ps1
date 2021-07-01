@@ -27,6 +27,9 @@ function Add-DistributionMember {
     Add a single mailbox to multiple Distribution Groups.
 
     Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees,Worker Bees"
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

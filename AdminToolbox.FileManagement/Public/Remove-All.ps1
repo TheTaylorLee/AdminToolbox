@@ -18,8 +18,7 @@ function Remove-All {
     Remove-All -Computer JackPC10
 
     .Link
-    Remove-DisabledADProfiles
-    Remove-OlderThan
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]
@@ -35,7 +34,7 @@ function Remove-All {
     #Statement of Free Space before Cleaning
     Write-Host " "
     Write-Host "Free Space Before Cleaning" -ForegroundColor Yellow
-    Get-CimInstance win32_logicaldisk -filter "drivetype=3" -computer $computer |
+    Get-CimInstance win32_logicaldisk -Filter "drivetype=3" -computer $computer |
     Format-Table -Property DeviceID, Volumename, `
     @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } }, `
     @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } }, `
@@ -49,23 +48,23 @@ function Remove-All {
         $ErrorActionPreference = 'SilentlyContinue'
 
         Get-Service -ComputerName $computer TrustedInstaller | Stop-Service -Force
-        Get-ChildItem -path "\\$computer\C$\windows\logs" -Include '*.log' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "\\$computer\C$\windows\logs" -Include '*.cab' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "\\$computer\C$\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "\\$computer\C$\$recycle.bin" -Include '*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "\\$computer\C$\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "\\$computer\C$\Users\*\AppData\Local\Microsoft\Terminal Server Client\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
+        Get-ChildItem -Path "\\$computer\C$\windows\logs" -Include '*.log' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "\\$computer\C$\windows\logs" -Include '*.cab' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "\\$computer\C$\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "\\$computer\C$\$recycle.bin" -Include '*' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "\\$computer\C$\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "\\$computer\C$\Users\*\AppData\Local\Microsoft\Terminal Server Client\" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
         $tempfolders = @("\\$computer\C$\Windows\Temp\*", "\\$computer\C$\Windows\Prefetch\*", "\\$computer\C$\Documents and Settings\*\Local Settings\temp\*", "\\$computer\C$\Users\*\Appdata\Local\Temp\*")
-        Remove-Item $tempfolders -force -recurse
+        Remove-Item $tempfolders -Force -Recurse
         $tempinternetfolders = @("\\$computer\C$\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "\\$computer\C$\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "\\$computer\C$\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
-        Remove-Item $tempinternetfolders -force -recurse
+        Remove-Item $tempinternetfolders -Force -Recurse
         Get-Service -ComputerName $computer -Name TrustedInstaller | Start-Service
 
         $ErrorActionPreference = 'Continue'
 
         Write-Host " "
         Write-Host "Free Space After Cleaning" -ForegroundColor Yellow
-        Get-CimInstance win32_logicaldisk -filter "drivetype=3" -computer $computer |
+        Get-CimInstance win32_logicaldisk -Filter "drivetype=3" -computer $computer |
         Format-Table -Property DeviceID, Volumename, `
         @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } }, `
         @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } }, `
@@ -76,25 +75,25 @@ function Remove-All {
         $ErrorActionPreference = 'SilentlyContinue'
 
         Stop-Service TrustedInstaller -Force
-        Get-ChildItem -path "C:\windows\" -Include '*.log' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "C:\windows\logs" -Include '*.cab' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "C:\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path 'c:\$recycle.bin' -Include '*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "C:\Users\*\AppData\Local\Microsoft\Terminal Server Client\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
+        Get-ChildItem -Path "C:\windows\" -Include '*.log' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "C:\windows\logs" -Include '*.cab' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path 'c:\$recycle.bin' -Include '*' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem -Path "C:\Users\*\AppData\Local\Microsoft\Terminal Server Client\" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
         $tempfolders = @("C:\Windows\Temp\*", "C:\Windows\Prefetch\*", "C:\Documents and Settings\*\Local Settings\temp\*", "C:\Users\*\Appdata\Local\Temp\*")
-        Remove-Item $tempfolders -force -recurse
+        Remove-Item $tempfolders -Force -Recurse
         $tempinternetfolders = @("C:\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "C:\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "C:\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
-        Remove-Item $tempinternetfolders -force -recurse
+        Remove-Item $tempinternetfolders -Force -Recurse
         powercfg.exe /hibernate off
-        Remove-Item c:\hiberfile.sys -force -ErrorAction 'silentlycontinue'
+        Remove-Item c:\hiberfile.sys -Force -ErrorAction 'silentlycontinue'
         Start-Service TrustedInstaller
 
         $ErrorActionPreference = 'Continue'
 
         Write-Host " "
         Write-Host "Free Space After Cleaning" -ForegroundColor Yellow
-        Get-CimInstance win32_logicaldisk -filter "drivetype=3" -computer $computer |
+        Get-CimInstance win32_logicaldisk -Filter "drivetype=3" -computer $computer |
         Format-Table -Property DeviceID, Volumename, `
         @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } }, `
         @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } }, `

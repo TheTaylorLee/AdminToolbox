@@ -4,13 +4,7 @@ function Clear-Arp {
     Clears the local arp table
 
     .Link
-    Clear-DNSClientCache
-    Get-DNSClientCache
-    Get-NetIPConfiguration
-    Get-NetworkStatistics
-    Get-PublicIP
-    Resolve-DNSName
-    Test-Netconnection
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     #Check For Admin Privleges

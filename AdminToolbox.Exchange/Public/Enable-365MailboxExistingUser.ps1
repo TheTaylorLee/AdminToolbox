@@ -29,7 +29,7 @@ Function Enable-365MailboxExistingUser {
     Enable-365Mailbox -Identity Domain\Username -PrimarySmtpAddress email@company.com -RemoteRoutingAddres email@company.onmicrosoft.com -DomainController server.domain.com
 
     .Link
-    Enable-RemoteMailbox
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

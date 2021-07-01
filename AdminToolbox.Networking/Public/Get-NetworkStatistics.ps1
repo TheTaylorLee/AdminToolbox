@@ -90,15 +90,6 @@ function Get-NetworkStatistics {
         Author: Shay Levy, code butchered by Cookie Monster
         Shay's Blog: http://PowerShay.com
         Cookie Monster's Blog: http://ramblingcookiemonster.github.io/
-
-    .LINK
-        Clear-Arp
-        Clear-DNSClientCache
-        Get-DNSClientCache
-        Get-NetIPConfiguration
-        Get-PublicIP
-        Resolve-DNSName
-        Test-Netconnection
     #>
 
     [OutputType('System.Management.Automation.PSObject')]
@@ -166,11 +157,11 @@ function Get-NetworkStatistics {
                 [string]$cmd = "cmd /c c:\windows\system32\netstat.exe -ano >> $tempFile"
 
                 #define remote file path - computername, drive, folder path
-                $remoteTempFile = "\\{0}\{1}`${2}" -f "$Computer", (Split-Path $tempFile -qualifier).TrimEnd(":"), (Split-Path $tempFile -noqualifier)
+                $remoteTempFile = "\\{0}\{1}`${2}" -f "$Computer", (Split-Path $tempFile -Qualifier).TrimEnd(":"), (Split-Path $tempFile -NoQualifier)
 
                 #delete previous results
                 Try {
-                    $null = Invoke-WmiMethod -class Win32_process -name Create -ArgumentList "cmd /c del $tempFile" -ComputerName $Computer -ErrorAction stop
+                    $null = Invoke-WmiMethod -Class Win32_process -Name Create -ArgumentList "cmd /c del $tempFile" -ComputerName $Computer -ErrorAction stop
                 }
                 Catch {
                     Write-Warning "Could not invoke create win32_process on $Computer to delete $tempfile"
@@ -178,7 +169,7 @@ function Get-NetworkStatistics {
 
                 #run command
                 Try {
-                    $processID = (Invoke-WmiMethod -class Win32_process -name Create -ArgumentList $cmd -ComputerName $Computer -ErrorAction stop).processid
+                    $processID = (Invoke-WmiMethod -Class Win32_process -Name Create -ArgumentList $cmd -ComputerName $Computer -ErrorAction stop).processid
                 }
                 Catch {
                     #If we didn't run netstat, break everything off
@@ -191,14 +182,14 @@ function Get-NetworkStatistics {
                     #This while should return true until the process completes
                     $(
                         try {
-                            Get-Process -id $processid -computername $Computer -ErrorAction Stop
+                            Get-Process -Id $processid -computername $Computer -ErrorAction Stop
                         }
                         catch {
                             $FALSE
                         }
                     )
                 ) {
-                    Start-Sleep -seconds 2
+                    Start-Sleep -Seconds 2
                 }
 
                 #gather results
@@ -212,7 +203,7 @@ function Get-NetworkStatistics {
                         Break
                     }
 
-                    Remove-Item $remoteTempFile -force
+                    Remove-Item $remoteTempFile -Force
 
                 }
                 else {

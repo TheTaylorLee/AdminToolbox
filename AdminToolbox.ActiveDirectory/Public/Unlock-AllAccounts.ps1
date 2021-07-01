@@ -8,11 +8,7 @@ function Unlock-AllAccounts {
     Requires the Active Directory Module.
 
     .Link
-    Get-DCLockoutEvents
-    Get-LockedAccounts
-    Get-PasswordExpired
-    Set-Password
-    Unlock-Account
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

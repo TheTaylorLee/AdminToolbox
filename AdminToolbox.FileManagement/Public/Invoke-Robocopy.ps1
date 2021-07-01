@@ -1,48 +1,51 @@
 function Invoke-Robocopy {
     <#
-.DESCRIPTION
-This is a wrapper function that provides preset robocopy options using parameter sets and supports running with no presets.
+    .DESCRIPTION
+    This is a wrapper function that provides preset robocopy options using parameter sets and supports running with no presets.
 
-.PARAMETER Source
-Source directory from which files are being copied from
+    .PARAMETER Source
+    Source directory from which files are being copied from
 
-.PARAMETER Target
-The target directory for copied files
+    .PARAMETER Target
+    The target directory for copied files
 
-.PARAMETER Arguments
-Any combination of robocopy parameters that can be passed to the NoPreset paremeterset, or any prepopulated parametersets
+    .PARAMETER Arguments
+    Any combination of robocopy parameters that can be passed to the NoPreset paremeterset, or any prepopulated parametersets
 
-.PARAMETER MirrorSync
-Specifies that you wish to use the MirrorSync preset options for the Robocopy job
+    .PARAMETER MirrorSync
+    Specifies that you wish to use the MirrorSync preset options for the Robocopy job
 
-.PARAMETER NoPreset
-Specifies that you will be providing your own parameter set for the Robocopy Job
+    .PARAMETER NoPreset
+    Specifies that you will be providing your own parameter set for the Robocopy Job
 
-.PARAMETER NoPurgeSync
-Specifies that you wish to use the NoPurgeSync preset options for the Robocopy job
+    .PARAMETER NoPurgeSync
+    Specifies that you wish to use the NoPurgeSync preset options for the Robocopy job
 
-.EXAMPLE
-The NoPresets parameter set allows for specifying all arguments in any combination that is preferred.
+    .EXAMPLE
+    The NoPresets parameter set allows for specifying all arguments in any combination that is preferred.
 
-$Arguments = @("/mir", "/copyall", "/r:1", "/w:1", "/zb", "/E")
-$Arguments | Invoke-Robocopy -Source c:\temp -Target c:\test -nopreset
+    $Arguments = @("/mir", "/copyall", "/r:1", "/w:1", "/zb", "/E")
+    $Arguments | Invoke-Robocopy -Source c:\temp -Target c:\test -nopreset
 
-or
+    or
 
-Invoke-Robocopy -Nopreset -Source c:\temp -Target c:\test -Arguments "/mir", "/copyall", "/r:1", "/w:1", "/zb", "
+    Invoke-Robocopy -Nopreset -Source c:\temp -Target c:\test -Arguments "/mir", "/copyall", "/r:1", "/w:1", "/zb", "
 
-.EXAMPLE
-Default set of parameters for mirroring directories with permissions and purging files that no longer exist at the source.
-#Command run is equal to <Robocopy.exe $Source $Target /mir /COPY:DATSO /r:1 /w:1 /zb $Arguments>
+    .EXAMPLE
+    Default set of parameters for mirroring directories with permissions and purging files that no longer exist at the source.
+    #Command run is equal to <Robocopy.exe $Source $Target /mir /COPY:DATSO /r:1 /w:1 /zb $Arguments>
 
-Invoke-Robocopy -Source c:\temp -Target c:\test -MirrorSync
+    Invoke-Robocopy -Source c:\temp -Target c:\test -MirrorSync
 
-.EXAMPLE
-Default set of parameters for mirroring directories with permissions without purging files that no longer exist at the source.
-#Command run is equal to <Robocopy.exe $Source $Target /e /COPY:DATSO /r:1 /w:1 /zb $Arguments>
+    .EXAMPLE
+    Default set of parameters for mirroring directories with permissions without purging files that no longer exist at the source.
+    #Command run is equal to <Robocopy.exe $Source $Target /e /COPY:DATSO /r:1 /w:1 /zb $Arguments>
 
-Invoke-Robocopy -Source c:\temp -Target c:\test -NoPurgeSync
-#>
+    Invoke-Robocopy -Source c:\temp -Target c:\test -NoPurgeSync
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+    #>
 
     [cmdletbinding()]
 

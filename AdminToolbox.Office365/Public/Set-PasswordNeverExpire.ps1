@@ -12,9 +12,8 @@ Function Set-PasswordNeverExpire {
     .NOTES
     Requires the AzureAD module be installed, imported, and Connected.
 
-    .LINK
-    Set-AzureADUser
-    Get-AzureADUser
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Cmdletbinding()]

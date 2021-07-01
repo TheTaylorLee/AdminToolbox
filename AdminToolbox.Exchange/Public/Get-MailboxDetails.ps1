@@ -8,8 +8,7 @@ Function get-mailboxreport {
     Get-MailboxReport
 
     .Link
-    Get-MailboxScaleReport
-    Get-MailboxReport
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     $Mailboxes = get-mailbox | Select-Object alias, SamAccountName, DistinguishedName, PrimarySmtpAddress, database, emailaddresses, DisplayName

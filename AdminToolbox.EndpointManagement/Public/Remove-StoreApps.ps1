@@ -15,6 +15,9 @@ function Remove-StoreApps {
 
     .EXAMPLE
     Remove-StoreApps
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding(SupportsShouldProcess)]
 
@@ -55,7 +58,7 @@ function Remove-StoreApps {
 
     foreach ($Crap in $CrapApps) {
         Get-AppxPackage -Name $Crap | Remove-AppxPackage -ErrorAction SilentlyContinue
-        Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $Crap | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
+        Get-AppxProvisionedPackage -Online | Where-Object DisplayName -Like $Crap | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
         Write-Output "Removing $Crap if exists."
     }
 

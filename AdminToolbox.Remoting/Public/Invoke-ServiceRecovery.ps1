@@ -2,9 +2,9 @@ function Invoke-ServiceRecovery {
 
     <#
     .DESCRIPTION
-        Restart one or multiple services that share a part of a Service Displayname
+    Restart one or multiple services that share a part of a Service Displayname
 
-        The purpose of this command is recover from issues with widely distributed services. Example would be an antivirus service or Remote Access Agents providing trouble.
+    The purpose of this command is recover from issues with widely distributed services. Example would be an antivirus service or Remote Access Agents providing trouble.
 
     .Parameter DisplayNameLike
     Specify a full or partial name match for the service
@@ -13,17 +13,20 @@ function Invoke-ServiceRecovery {
     Specifies to pickup failed service recoveries from a log file
 
     .EXAMPLE
-        Restart specified service on all domain endpoints
+    Restart specified service on all domain endpoints
 
-        Invoke-ServiceRecovery -DisplayNameLike Kaseya
+    Invoke-ServiceRecovery -DisplayNameLike Kaseya
 
     .EXAMPLE
-        Restart specified service on all remaining endpoints using the failed endpoints log.
+    Restart specified service on all remaining endpoints using the failed endpoints log.
 
-        Invoke-ServiceRecovery -DisplayNameLike Kaseya -FromLog .\servicerecovery_log_0911.txt
+    Invoke-ServiceRecovery -DisplayNameLike Kaseya -FromLog .\servicerecovery_log_0911.txt
 
     .NOTES
-        Must be Run from a DC or have the ActiveDirectory Module imported
+    Must be Run from a DC or have the ActiveDirectory Module imported
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Param (

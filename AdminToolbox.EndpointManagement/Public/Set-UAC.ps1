@@ -27,6 +27,9 @@ function Set-UAC {
     Enable UAC Entirely
 
     Set-UACState -Enable
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

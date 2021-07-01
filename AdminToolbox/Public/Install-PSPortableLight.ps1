@@ -9,8 +9,8 @@ Function Install-PSPortableLight {
 
     Install-PSPortableLight
 
-    .LINK
-    Install-PSPortable
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

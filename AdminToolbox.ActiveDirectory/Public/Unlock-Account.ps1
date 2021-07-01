@@ -17,11 +17,7 @@ function Unlock-Account {
     Unlock-ADAccount -identity JohnD
 
     .Link
-    Get-DCLockoutEvents
-    Get-LockedAccounts
-    Get-PasswordExpired
-    Set-Password
-    Unlock-AllAccounts
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

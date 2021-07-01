@@ -48,6 +48,9 @@ function Invoke-Power {
 
     .NOTES
     Requires the VMware.PowerCLI Module
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

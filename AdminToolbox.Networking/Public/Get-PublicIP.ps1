@@ -18,12 +18,7 @@ function Get-PublicIP {
     Get-PublicIP -IP 8.8.8.8
 
     .Link
-    Clear-DNSClientCache
-    Get-DNSClientCache
-    Get-NetIPConfiguration
-    Get-NetworkStatistics
-    Resolve-DNSName
-    Test-Netconnection
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -45,5 +40,5 @@ function Get-PublicIP {
         org      = $ipinfo.org
         Phone    = $ipinfo.phone
     }
-    $PublicIP.getenumerator() | Sort-Object -property name
+    $PublicIP.getenumerator() | Sort-Object -Property name
 }

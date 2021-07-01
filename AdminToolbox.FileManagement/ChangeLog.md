@@ -15,6 +15,7 @@
 * **1.3.0.0** Added Get-ShareReport Function that combines ntfs and share permissions reports
 * **1.4.0.0** Added Functions get-filename and get-foldername
 * **1.5.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
+* **1.6.0.0** Added Markdown Documentation and link help
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.5.0.0
+1.6.0.0

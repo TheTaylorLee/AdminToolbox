@@ -15,7 +15,7 @@ function Set-VirtualDirectories {
     Set-VirtualDirectories -Servername exch2016-01 -url mail.domain.com
 
     .Link
-    Get-VirtualDirectories
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [cmdletbinding()]

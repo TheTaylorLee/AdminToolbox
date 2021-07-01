@@ -7,7 +7,7 @@ function Import-ActiveDirectory {
     Import-AD
 
     .Link
-    Import-Module
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -5,6 +5,9 @@ function Disable-Standby {
 
     .EXAMPLE
     Disable-Standby
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     [Alias("Disable-Sleep")]

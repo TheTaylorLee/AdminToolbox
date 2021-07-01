@@ -5,6 +5,9 @@ Function Get-MFAStatus {
 
     .NOTES
     Requires the Exchange Online module be installed, imported, and Connected.
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     #Check that the MSOnline and ImportExcel Module is loaded

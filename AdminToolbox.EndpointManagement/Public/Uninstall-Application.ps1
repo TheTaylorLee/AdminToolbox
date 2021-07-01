@@ -13,7 +13,7 @@ function Uninstall-Application {
     Uninstall-Application
 
     .Link
-    Get-Applications
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Cmdletbinding()]
@@ -27,24 +27,24 @@ function Uninstall-Application {
     #Provide the application to be uninstalled
     Write-Host ""
     Write-Host "Find the Out-Gridview window and select an application to uninstall!" -ForegroundColor Yellow
-    $out = Get-Applications | Out-GridView -passthru -title "Select an Application to Uninstall"
+    $out = Get-Applications | Out-GridView -PassThru -Title "Select an Application to Uninstall"
 
     #If the uninstaller uses msiexec, this will parse the string to be readable by the console.
     if ($out.uninstallstring -like "msiexec*") {
         $out1 = $out.uninstallstring -replace ('{', ' "{')
         $out2 = $out1 -replace ('}', '}"')
         $arguments = $out2 -replace ('msiexec.exe', '')
-        Write-Host "Find the uninstall window if exists to finish the uninstall" -Foregroundcolor green
+        Write-Host "Find the uninstall window if exists to finish the uninstall" -ForegroundColor green
         Write-Host ""
-        Start-Process -Filepath msiexec.exe -argumentlist $arguments
+        Start-Process -FilePath msiexec.exe -ArgumentList $arguments
     }
 
     #If not an msiexec installer, this will add quatation marks to avoid issues caused by spaces in the path.
     else {
         $out1 = $out.uninstallstring + '"'
         $filepath = '"' + $out1
-        Write-Host "Find the uninstall window if exists to finish the uninstall" -Foregroundcolor green
+        Write-Host "Find the uninstall window if exists to finish the uninstall" -ForegroundColor green
         Write-Host ""
-        Start-Process -Filepath $filepath
+        Start-Process -FilePath $filepath
     }
 }

@@ -11,9 +11,8 @@ Function Set-Subscription {
     .NOTES
     Requires the AZ module be installed, imported, and Connected.
 
-    .LINK
-    Get-AZContext
-    Set-ResourceGroup
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

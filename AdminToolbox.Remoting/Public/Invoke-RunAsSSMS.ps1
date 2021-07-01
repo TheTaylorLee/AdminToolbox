@@ -20,8 +20,7 @@ Function Invoke-RunAsSSMS {
     This example will run SQL Server Studio Manager with the remote credentials specified
 
     .Link
-    runas.exe
-    Invoke-RunAsNetwork
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

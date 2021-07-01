@@ -11,7 +11,7 @@ Function Get-VirtualDirectories {
     Requires the Microsoft Exchange module.
 
     .Link
-    Set-VirtualDirectories
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

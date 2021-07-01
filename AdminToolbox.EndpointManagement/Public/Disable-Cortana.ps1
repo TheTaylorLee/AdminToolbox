@@ -6,6 +6,9 @@ Function Disable-Cortana {
     .Notes
     To undo this change delete the following registry key or change the value to 1
     'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\AllowCortana'
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\' -Name 'Windows Search'

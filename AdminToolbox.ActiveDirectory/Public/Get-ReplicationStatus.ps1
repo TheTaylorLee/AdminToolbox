@@ -18,10 +18,6 @@ function Get-ReplicationStatus {
 
     .LINK
     https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/
-
-    .LINK
-
-    Start-Replication
     #>
 
     [CmdletBinding()]

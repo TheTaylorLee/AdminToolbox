@@ -16,9 +16,7 @@ function Get-EndpointReport {
     Get-EndpointReport -path C:\UserReport.csv
 
     .Link
-    Get-UserReport
-	Get-GroupMemberships
-	Get-GroupMembers
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]
@@ -29,7 +27,7 @@ function Get-EndpointReport {
 
     Import-Module ActiveDirectory
 
-    Get-ADComputer -Filter { (Enabled -eq $true) } -properties * |
+    Get-ADComputer -Filter { (Enabled -eq $true) } -Properties * |
     Select-Object name, OperatingSystem, whenCreated, LastLogonDate |
     Export-Csv $Path -NoTypeInformation
 

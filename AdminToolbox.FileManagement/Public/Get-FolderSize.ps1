@@ -23,6 +23,9 @@ function Get-FolderSize {
     Finds the size of the C:\users folder in MegaBytes
 
     Get-Foldersize -Folder c:\users\ -ByteSize TB
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

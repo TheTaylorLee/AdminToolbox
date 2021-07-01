@@ -42,13 +42,8 @@ Function Invoke-PowerState {
     .NOTES
     Requires the AZ module be installed, imported, and Connected.
 
-    .LINK
-    Get-AzVM
-    New-AzVM
-    Remove-AzVM
-    Restart-AzVM
-    Stop-AzVM
-    Update-AzVM
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -17,6 +17,9 @@ Function Grant-MailboxAccessOWAOnly {
 
     .NOTES
     Must have the Exchange module loaded and importexcel module
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

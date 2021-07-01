@@ -7,10 +7,7 @@ function Invoke-ChocoUpgrade {
     Invoke-ChocoUpgrade
 
     .Link
-    Get-ChocoInstalls
-    Get-ChocoOutdated
-    Install-Chocolatey
-    Install-Chocolatey
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -9,6 +9,9 @@ function Get-TenantDiagrams {
 
     .NOTES
     Tested and compatible with AZViz version 1.0.9 and PSGraph version 2.1.38.27. If not working in the future look for changes in those modules versions
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -32,6 +32,9 @@ Function Invoke-HotAdd {
 
     .NOTES
     Requires the VMware.PowerCLI Module
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

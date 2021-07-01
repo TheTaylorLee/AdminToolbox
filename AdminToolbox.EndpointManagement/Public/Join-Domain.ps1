@@ -9,6 +9,8 @@ function Join-Domain {
     .EXAMPLE
     Join-Domain -domain company.com
 
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     param (

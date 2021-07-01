@@ -17,8 +17,7 @@ function Remove-OlderThan {
     Delete-OlderThan -Path "C:\Folder" -DaysBack "-90"
 
     .Link
-    Remove-All
-    Remove-DisabledADProfiles
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Param (

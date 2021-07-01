@@ -26,6 +26,9 @@ Function Invoke-Sync365 {
 
     .Notes
     If attempting to run this on a server that doesn't have PSRemoting enabled and Azure AD Sync setup, then this function will fail.
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Cmdletbinding()]

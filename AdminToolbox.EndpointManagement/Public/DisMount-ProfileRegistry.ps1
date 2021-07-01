@@ -15,7 +15,7 @@ function DisMount-ProfileRegistry {
     DisMount-ProfileRegistry -SamAccountName JohnS
 
     .Link
-    Mount-ProfileRegistry
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

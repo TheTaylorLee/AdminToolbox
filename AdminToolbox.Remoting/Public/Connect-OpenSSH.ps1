@@ -24,9 +24,7 @@ function Connect-OpenSSH {
     https://github.com/PowerShell/Win32-OpenSSH
 
     .Link
-    Enable-PSRemoting
-    Enable-Remoting
-    Install-SSH
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

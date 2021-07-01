@@ -17,6 +17,9 @@ Function Set-365GroupVisibility {
 
     .NOTES
     Requires the ExchangeOnline module be installed, imported, and Connected.
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Cmdletbinding()]

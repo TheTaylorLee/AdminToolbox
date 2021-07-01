@@ -1,17 +1,17 @@
 Function Get-FolderName {
 
     <#
-.Description
-Get a gui prompt for Specifying a folder name
+    .Description
+    Get a gui prompt for Specifying a folder name
 
-.Example
-$Folder = Get-Foldername
+    .Example
+    $Folder = Get-Foldername
 
-Creates a prompt to select a folder and then saves the path to a variable.
+    Creates a prompt to select a folder and then saves the path to a variable.
 
-.Link
-Get-FileName
-#>
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+    #>
 
     param([string]$Description = "Select Folder", [string]$RootFolder = "Desktop")
 

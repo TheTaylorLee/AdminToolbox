@@ -23,6 +23,9 @@ Function Get-ShareReport {
     Get a Share report for a single share
 
     Get-ShareReport -DomainController DCHostname -smbShares Sharename
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -68,10 +71,10 @@ Function Get-ShareReport {
         $ADGroup = Get-ADGroup -Filter * | Sort-Object Name
         $ADDomain = (Get-ADDomain).name
         ForEach ($Group in $ADGroup) {
-            $notnull = Get-ADGroupMember -Identity $Group.Name -erroraction silentlycontinue
+            $notnull = Get-ADGroupMember -Identity $Group.Name -ErrorAction silentlycontinue
             if ($null -ne $notnull) {
                 $Groupname = $Group.Name
-                Get-ADGroupMember -Identity $Group.Name -erroraction silentlycontinue |
+                Get-ADGroupMember -Identity $Group.Name -ErrorAction silentlycontinue |
                 Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
                 Export-Excel -FreezeTopRow -WorksheetName "$ADDomain|$Groupname" -Path $Path -TableName "$ADDomain|$Groupname" -Title "$ADDomain|$Groupname" -TitleSize 12 -TitleBold -AutoSize -WarningAction:SilentlyContinue
             }

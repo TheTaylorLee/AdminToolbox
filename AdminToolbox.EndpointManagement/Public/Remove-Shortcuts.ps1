@@ -5,6 +5,9 @@ function Remove-Shortcuts {
 
     .EXAMPLE
     Remove-Shortcuts
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     param (

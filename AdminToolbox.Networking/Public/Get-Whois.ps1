@@ -11,10 +11,14 @@ function Get-WhoIs {
     Get-Whois poshcode.com
 
     This example is one that forwards to a second whois server ...
+
     .Example
     Get-Whois poshcode.com -NoForward
 
     Returns the partial results you get when you don't follow forwarding to a new whois server
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

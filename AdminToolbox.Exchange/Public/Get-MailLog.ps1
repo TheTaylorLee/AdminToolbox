@@ -22,7 +22,7 @@ function Get-MailLog {
     Get-MailLog -Start 05/14/2017 -End 05/14/2018 -Resultsize 10000
 
     .Link
-    Get-MessageTrackingLog
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -13,9 +13,7 @@ function Get-UserReport {
     Get-UserReport -path C:\UserReport.csv
 
     .Link
-    Get-GroupMemberships
-	Get-EndpointReport
-	Get-GroupMembers
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

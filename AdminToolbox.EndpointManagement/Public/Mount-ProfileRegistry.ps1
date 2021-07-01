@@ -20,7 +20,7 @@ function Mount-ProfileRegistry {
     Mount-ProfileRegistry -SamAccountName JohnS -DomainController TexasDC2016
 
     .Link
-    DisMount-ProfileRegistry
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -37,13 +37,13 @@ function Mount-ProfileRegistry {
 
     #Import Active Directory Module if needed
     if ($null -eq $isloaded) {
-        $DCSession = New-PSSession -Computername $domaincontroller
+        $DCSession = New-PSSession -ComputerName $domaincontroller
         Invoke-Command -Command { Import-Module ActiveDirectory } -Session $DCSession
-        Import-PSSession -Session $DCSession -Module ActiveDirectory -allowclobber
+        Import-PSSession -Session $DCSession -Module ActiveDirectory -AllowClobber
     }
 
     #Get Active Directory Sid
-    $sid = Get-ADUser -filter { samaccountname -eq $SamAccountName }
+    $sid = Get-ADUser -Filter { samaccountname -eq $SamAccountName }
 
     #Check that a use Sid was populated
     if ($null -eq $sid) {

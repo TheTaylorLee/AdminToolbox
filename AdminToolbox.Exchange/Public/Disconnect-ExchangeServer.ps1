@@ -7,7 +7,7 @@ Function Disconnect-ExchangeServer {
     Disconnect-ExchangeServer -FQDN server.domain.com
 
     .Link
-    Connect-ExchangeServer
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

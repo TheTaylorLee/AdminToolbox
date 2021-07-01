@@ -27,6 +27,9 @@ Function Start-Application {
 
     .Notes
     Uses the private function Get-Elevation
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [cmdletbinding(DefaultParameterSetName = 'Application')]
@@ -51,7 +54,7 @@ Function Start-Application {
             "C:\Windows\System32"
             "$env:USERPROFILE\appdata"
         )
-        Get-ChildItem $path -include *.exe, *.msc -Recurse | Where-Object { $_.FullName -notlike '*en-us*' } | Select-Object FullName, PSChildName | Export-Clixml $env:USERPROFILE\Documents\ApplicationIndex.xml
+        Get-ChildItem $path -Include *.exe, *.msc -Recurse | Where-Object { $_.FullName -notlike '*en-us*' } | Select-Object FullName, PSChildName | Export-Clixml $env:USERPROFILE\Documents\ApplicationIndex.xml
         $ErrorActionPreference = 'continue'
 
     }

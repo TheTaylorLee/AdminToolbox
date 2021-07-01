@@ -28,6 +28,9 @@ function Start-TranscodeMap {
     Includes streams 0, 2, and 5 from the file movie.mkv and transcodes with a crf of 23
 
     Start-TranscodeStreams -video .\movie.mkv -m1 0:0 -m2 0:2 -m3 0:5 -crf 23
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [cmdletbinding()]
     [Alias('TranscodeMap')]
@@ -50,7 +53,7 @@ function Start-TranscodeMap {
     if ($env:FFToolsSource -and $env:FFToolsTarget) {
         #modify the video parameter to use an mkv extension for the outfile parameter
         $video2 = $video.Split('\')
-        $video3 = $video2 | Select-Object -last 1
+        $video3 = $video2 | Select-Object -Last 1
         $video4 = $video3 -replace ".{4}$"
         $videoout = $video4 + ".mkv"
 

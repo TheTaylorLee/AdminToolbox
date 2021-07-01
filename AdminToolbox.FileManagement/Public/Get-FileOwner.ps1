@@ -16,9 +16,7 @@ function Get-FileOwner {
     Get-FileOwner -Path c:\users -Report c:\FileOwners.csv
 
     .Link
-    Get-ShareNTFSReport
-    Get-SharePermissionsReport
-    Find-ComputerFiles
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]

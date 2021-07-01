@@ -17,9 +17,8 @@ function New-AuthPolicy {
     .NOTES
     Requires the Exchange Online module be installed, imported, and Connected.
 
-    .LINK
-    Get-AuthPolicy
-    Set-AuthPolicy
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     Param (

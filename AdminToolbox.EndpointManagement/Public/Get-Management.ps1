@@ -11,6 +11,9 @@ function Get-Management {
     Specify the computer you are connecting to.
 
     Get-Management -computer PCName
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

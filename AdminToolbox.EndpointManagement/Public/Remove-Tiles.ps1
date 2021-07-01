@@ -5,6 +5,9 @@ function Remove-Tiles {
 
     .EXAMPLE
     Remove-Tiles
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     param (

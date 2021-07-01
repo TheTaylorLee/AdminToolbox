@@ -5,7 +5,7 @@ function Reset-NetworkStack {
     Resets the TCP/IP and Winsock Stacks
 
     .Link
-    Reset-NetworkAdapter
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -19,5 +19,5 @@ function Reset-NetworkStack {
     netsh.exe int ip reset
     netsh.exe int ipv4 reset reset.log
     netsh.exe int ipv6 reset reset.log
-    Write-Host "You need to restart the computer now"  -foregroundcolor yellow
+    Write-Host "You need to restart the computer now"  -ForegroundColor yellow
 }

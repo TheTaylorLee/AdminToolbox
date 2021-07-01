@@ -8,6 +8,9 @@ function Get-Streams {
 
     .Example
     Get-Streams -video .\file.mp4
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [cmdletbinding()]
     param (

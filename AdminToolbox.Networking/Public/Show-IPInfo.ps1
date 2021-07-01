@@ -8,6 +8,9 @@ Function Show-IPInfo {
     Use the alias and type less
 
     sip
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -28,9 +28,7 @@ function Find-ComputersFiles {
     find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst -path "c$\users\*\appdata\local"
 
     .Link
-    Get-ShareNTFSReport
-    Get-SharePermissionsReport
-    Get-FileOwner
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]

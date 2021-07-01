@@ -14,10 +14,7 @@ function Get-DCLockoutEvents {
     Requires The Active Directory Module
 
     .Link
-    Get-LockedAccounts
-    Get-PasswordExpired
-    Unlock-Account
-    Unlock-AllAccounts
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]

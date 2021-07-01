@@ -2,6 +2,9 @@ Function Get-PrintBackup {
     <#
     .Description
     Creates a spreadsheet of printer information for change log tracking. The excel spreadsheet is saved to the local desktop.
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Import-Module ImportExcel
@@ -18,20 +21,20 @@ Function Get-PrintBackup {
 
     Get-PrinterPort |
     Select-Object * |
-    Export-Excel -WorksheetName Ports -path .\printers.xlsx -FreezeTopRow -tablename Ports -autosize
+    Export-Excel -WorksheetName Ports -Path .\printers.xlsx -FreezeTopRow -TableName Ports -AutoSize
 
     Get-PrinterDriver |
     Select-Object * |
-    Export-Excel -WorksheetName Drivers -path .\printers.xlsx -FreezeTopRow -tablename Drivers -autosize
+    Export-Excel -WorksheetName Drivers -Path .\printers.xlsx -FreezeTopRow -TableName Drivers -AutoSize
 
     Get-Printer |
     Select-Object * |
-    Export-Excel -WorksheetName Printers -path .\printers.xlsx -FreezeTopRow -tablename printers -autosize
+    Export-Excel -WorksheetName Printers -Path .\printers.xlsx -FreezeTopRow -TableName printers -AutoSize
 
     Get-Printer |
     Get-PrintConfiguration |
     Select-Object * |
-    Export-Excel -WorksheetName PrintConfiguration -path .\printers.xlsx -FreezeTopRow -tablename PrintConfiguration
+    Export-Excel -WorksheetName PrintConfiguration -Path .\printers.xlsx -FreezeTopRow -TableName PrintConfiguration
 
     Start-Process $env:USERPROFILE\desktop\printers.xlsx
 }

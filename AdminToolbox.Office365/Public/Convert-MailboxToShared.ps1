@@ -9,6 +9,9 @@ function Convert-MailboxToShared {
         2. This Function must be run from the server that hosts Azure AD Connect and the on-premise Account must be synced to an Exchange Online Mailbox.
         3. The Exchange online Module must be imported into the console before this function is run.
         4. The account associated with the Exchange Online Mailbox must be disabled and moved to an OU that is not Azure AD Synced
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]
@@ -162,7 +165,7 @@ Prerequisites:
                             switch ($selection3) {
                                 '1' {
                                     Write-Host "When the Popup appears, select a mailbox, and hit ok." -ForegroundColor Yellow
-                                    $AccessPermission = get-mailbox | Out-GridView -passthru -title "Select a Mailbox and Hit Ok"
+                                    $AccessPermission = get-mailbox | Out-GridView -PassThru -Title "Select a Mailbox and Hit Ok"
                                     Add-MailboxPermission -Identity "$MailboxName" -User $AccessPermission.name -AccessRights FullAccess -InheritanceType All
                                 }
                             }
@@ -175,13 +178,13 @@ Prerequisites:
 
                     #Get GUID of new shared mailbox:
                     Write-Host "Select the Shared Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $SharedMailbox = Get-Mailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -passthru -title "Select the Shared Mailbox and Hit Ok"
+                    $SharedMailbox = Get-Mailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
                     Write-Host "The Shared Mailbox Guid is" -ForegroundColor Cyan
                     $SharedMailbox.ExchangeGuid
 
                     #Get GUID of old inactive mailbox:
                     Write-Host "Select the disconnected/disabled Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $DisconnectedMailbox = Get-Mailbox -softdeletedmailbox | Out-GridView -passthru -title "Select the disconnected/disabled Mailbox and Hit Ok"
+                    $DisconnectedMailbox = Get-Mailbox -softdeletedmailbox | Out-GridView -PassThru -Title "Select the disconnected/disabled Mailbox and Hit Ok"
                     Write-Host "The Disconnected/disabled Mailbox Guid is" -ForegroundColor Cyan
                     $DisconnectedMailbox.ExchangeGuid
 
@@ -213,7 +216,7 @@ Prerequisites:
                     #Add SMTP Addresses to the Shared Mailbox
                     Write-Host " "
                     Write-Host "Select the Shared Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $SharedMailbox = Get-Mailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -passthru -title "Select the Shared Mailbox and Hit Ok"
+                    $SharedMailbox = Get-Mailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
                     Write-Host " "
                     Write-Host "Current Mailbox Addresses are..." -ForegroundColor Green
                     $SharedMailbox.EmailAddresses

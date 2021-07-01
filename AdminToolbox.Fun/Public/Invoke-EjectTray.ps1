@@ -1,21 +1,26 @@
 Function Invoke-EjectTray {
     <#
-     .SYNOPSIS
-        This script helps in ejecting or closing the CD/DVD Drive
+    .SYNOPSIS
+    This script helps in ejecting or closing the CD/DVD Drive
+
     .DESCRIPTION
-        This script helps in ejecting or closing the CD/DVD Drive
+    This script helps in ejecting or closing the CD/DVD Drive
+
     .PARAMETER  Eject
-        Ejects the CD/DVD Drive
+    Ejects the CD/DVD Drive
+
     .PARAMETER  Close
-        Closes the CD/DVD Drive
-    .EXAMPLE
-        Invoke-EjectTray -Eject
+    Closes the CD/DVD Drive
 
-        Ejects the CD Drive
     .EXAMPLE
-        Invoke-EjectTray -Close
+    Invoke-EjectTray -Eject
 
-        Closes the CD Drive
+    Ejects the CD Drive
+
+    .EXAMPLE
+    Invoke-EjectTray -Close
+
+    Closes the CD Drive
 
     .EXAMPLE
     Invoke-Command -Computername CoWorkerPC -Scriptblock {Import-Module Admintoolbox -force; Invoke-EjectTray -Eject}
@@ -23,8 +28,8 @@ Function Invoke-EjectTray {
     Closes the CD Drive on another PC
 
     .Notes
-        Author : Sitaram Pamarthi
-        WebSite: http://techibee.com
+    Author : Sitaram Pamarthi
+    WebSite: http://techibee.com
     #>
     [CmdletBinding()]
     param(

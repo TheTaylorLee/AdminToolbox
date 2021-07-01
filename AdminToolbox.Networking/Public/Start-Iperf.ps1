@@ -32,6 +32,9 @@ function Start-Iperf {
     Initiate a client bandwidth test
 
     Start-Iperf -Client -serverip 0.0.0.0 --port 10555 udp
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

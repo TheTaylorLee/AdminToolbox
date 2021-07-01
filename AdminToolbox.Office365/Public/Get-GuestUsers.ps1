@@ -16,6 +16,9 @@
 
     .Notes
     Requires the AzureAD and Import excel modules be imported and the AzureAD module connected
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Param

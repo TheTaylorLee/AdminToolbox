@@ -1,5 +1,10 @@
 function Install-FFTools {
 
+    <#
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+    #>
+
     #Download and unzip ffmpeg exes'
     Write-Host "Downloading the windows x64 build of ffmpeg and unpacking in path: $env:SystemRoot\system32" -ForegroundColor Green
     $url = "https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-4.2-win64-static.zip"
@@ -11,10 +16,10 @@ function Install-FFTools {
 
 
     #Copy ffmpeg exes' into the system path for execution in powershell
-    $FFMpegFiles = Get-ChildItem $outpath -recurse -Include *.exe
+    $FFMpegFiles = Get-ChildItem $outpath -Recurse -Include *.exe
     Copy-Item $FFMpegFiles $env:SystemRoot\system32
 
     #Remove stage package
-    Remove-Item $zipfile -force
-    Remove-Item $outpath -force -Recurse
+    Remove-Item $zipfile -Force
+    Remove-Item $outpath -Force -Recurse
 }

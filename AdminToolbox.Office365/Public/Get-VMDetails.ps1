@@ -8,6 +8,9 @@ Function Get-VMDetails {
 
     .NOTES
     Requires the AZ and Admintoolbox.Office365 module be installed, imported, and Connected.
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

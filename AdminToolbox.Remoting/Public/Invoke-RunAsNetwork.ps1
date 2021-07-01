@@ -15,8 +15,7 @@ Function Invoke-RunAsNetwork {
     This example will launch mmc.exe and any remote computers you connect to will authentice using the provided account.
 
     .Link
-    runas.exe
-    Invoke-RunAsSSMS
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

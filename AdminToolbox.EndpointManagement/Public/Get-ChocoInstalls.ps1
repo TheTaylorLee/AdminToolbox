@@ -7,10 +7,7 @@ function Get-ChocoInstalls {
     Show-ChocoInstalls
 
     .Link
-    Get-ChocoOutdated
-    Install-Chocolatey
-    Install-ChocoPackages
-    Invoke-ChocoUpgrade
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding()]
     [Alias('Show-ChocoInstalls')]

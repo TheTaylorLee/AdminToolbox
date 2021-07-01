@@ -5,6 +5,9 @@ Function Open-AdminMMC {
 
     .EXAMPLE
     Open-AdminMMC
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Start-Process AdminMMC.msc

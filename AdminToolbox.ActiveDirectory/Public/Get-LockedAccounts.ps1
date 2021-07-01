@@ -8,11 +8,7 @@ function Get-LockedAccounts {
     Requires the Active Directory Module
 
     .Link
-    Get-DCLockoutEvents
-    Get-PasswordExpired
-    Set-Password
-    Unlock-Account
-    Unlock-AllAccounts
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     Import-Module ActiveDirectory

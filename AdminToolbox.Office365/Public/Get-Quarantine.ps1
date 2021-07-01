@@ -21,12 +21,8 @@ Function Get-Quarantine {
     .NOTES
     Requires the ExchangeOnline module be installed, imported, and Connected.
 
-    .LINK
-    Get-QuarantineMessage
-    Release-QuarantineMessage
-    Unblock-Quarantine
-    Export-QuarantineMessage
-    Export-Quarantine
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

@@ -3,6 +3,9 @@ function Get-Excuse {
     <#
     .DESCRIPTION
     Are you out of excuses. Let powershell help you
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding(SupportsShouldProcess)]
@@ -10,7 +13,7 @@ function Get-Excuse {
     $ex = (Invoke-WebRequest http://pages.cs.wisc.edu/~ballard/bofh/excuses -OutVariable excuses).content.split([Environment]::NewLine)[(Get-Random $excuses.content.split([Environment]::NewLine).count)]
 
     Write-Host " "
-    Write-Host "$ex" -Foregroundcolor Green
+    Write-Host "$ex" -ForegroundColor Green
     Write-Host " "
 
     Add-Type -AssemblyName System.Speech

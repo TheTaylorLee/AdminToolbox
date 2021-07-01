@@ -27,6 +27,9 @@ Function Get-HostMemoryDimms {
         P1_Node1_Channel3_Dimm0 Samsung      P2-DIMMH1       16 24         DDR3
         P1_Node1_Channel3_Dimm1 Samsung      P2-DIMMH2       16 24         DDR3
                                 Winbond                  ...625 11         Flash
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     param(
@@ -68,7 +71,7 @@ Function Get-HostMemoryDimms {
     $pass = ConvertTo-SecureString $rootpw -Force
     $cred = New-Object System.Management.Automation.PSCredential ('root', $pass)
     $CIMOpt = New-CimSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck -Encoding Utf8 -UseSsl
-    $Session = New-CimSession -Authentication Basic -Credential $cred -ComputerName $VMHost -port 443 -SessionOption $CIMOpt
+    $Session = New-CimSession -Authentication Basic -Credential $cred -ComputerName $VMHost -Port 443 -SessionOption $CIMOpt
     Get-CimInstance -CimSession $Session CIM_PhysicalMemory | Select-Object BankLabel, Manufacturer, Description , @{n = 'SizeGB'; e = { $_.Capacity / 1GB } }, MemoryType, @{n = 'MemoryDef'; e = { $MemHash[$_.MemoryType] } } | Format-Table
 
 }

@@ -16,12 +16,11 @@ function Invoke-Monitor {
     .Example
     Invoke-Monitor -Service Microsoft.com -port 443
 
-    .Link
-    Get-Emote
-    Test-Netconnection
-
     .Notes
     Requires the Admintoolbox.Fun module
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

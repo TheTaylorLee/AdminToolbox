@@ -7,7 +7,7 @@ function Enable-Firewall {
     Disable-Firewall
 
     .Link
-    Disable-Firewall
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
     [CmdletBinding(SupportsShouldProcess)]
     param (

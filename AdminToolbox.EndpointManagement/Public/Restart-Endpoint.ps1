@@ -31,11 +31,7 @@ function Restart-Endpoint {
     Restart-Endpoint -Hours 0.25
 
     .Link
-    Get-DCLockoutEvents2
-    Get-LockedAccounts
-    Get-PasswordExpired
-    Unlock-Account
-    Unlock-AllAccounts
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [CmdletBinding()]

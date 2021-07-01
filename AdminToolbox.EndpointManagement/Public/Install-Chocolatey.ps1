@@ -7,10 +7,7 @@ function Install-Chocolatey {
     Install-Chocolatey
 
     .Link
-    Get-ChocoInstalls
-    Get-ChocoOutdated
-    Install-ChocoPackages
-    Invoke-ChocoUpgrade
+    https://github.com/TheTaylorLee/AdminToolbox
     #>
 
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute( `
