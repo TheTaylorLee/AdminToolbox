@@ -36,6 +36,7 @@
 * **2.6.0.0** Added Function Start-Trace
 * **2.7.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 * **2.8.0.0** Added Markdown Documentation and link help
+* **2.8.1.0** Certain functions run by Invoke-Monitoring exist in the non required admintoolbox.fun module. I added those functions to this module so it's not a required module and errors won't be presented.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.8.0.0
+2.8.1.0
