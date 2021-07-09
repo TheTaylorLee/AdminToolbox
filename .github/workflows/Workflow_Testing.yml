@@ -35,7 +35,7 @@ jobs:
             GCI $workingdirectory
             #FortiWizard
             $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
-            $GithubVersion = Get-Content "$workingdirectory/Admintoolbox.Fortiwizard/ChangeLog.md" | Select-Object -Last 1
+            $GithubVersion = Get-Content "$workingdirectory/Admintoolbox.FortiWizard/Changelog.md" | Select-Object -Last 1
               if ($GithubVersion -gt $PSGalleryVersion ) {
                 Publish-Module -Path "$workingdirectory" -NuGetApiKey $env:NUGET_KEY
                 $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
