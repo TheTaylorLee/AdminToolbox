@@ -8,7 +8,7 @@ If the above workflow shows a status other than passing, the code is being devel
 * *__To get started__*
 
 ```Powershell
-Install-Module AdminToolbox -Allowclobber -Global -Force
+Install-Module AdminToolbox -Allowclobber -Force
 ```
 
 [Powershell Gallery](https://www.powershellgallery.com/packages/AdminToolbox/) has all versions of the AdminToolbox Modules. Most recent versions will be maintained in this repository.
