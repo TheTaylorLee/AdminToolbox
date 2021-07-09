@@ -33,15 +33,12 @@ jobs:
           function test {
             $workingdirectory = (get-location).path
             GCI $workingdirectory
+            GCI $workingdirectory/admintoolbox.fortiwizard
             #FortiWizard
             $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
             $GithubVersion = Get-Content "$workingdirectory/Admintoolbox.FortiWizard/Changelog.md" | Select-Object -Last 1
               if ($GithubVersion -gt $PSGalleryVersion ) {
-                Publish-Module -Path "$workingdirectory" -NuGetApiKey $env:NUGET_KEY
-                $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
-              }
-              else {
-                $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
+                Write-Output Success!!!!!
               }
           }
           test
