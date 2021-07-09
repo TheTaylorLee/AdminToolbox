@@ -47,7 +47,8 @@ jobs:
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
           Install-Module PSEventViewer -Force -Allowclobber
-          Import-Module PSEventViewer -Force -SkipEditionCheck
+          Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
+          Import-Module Posh-SSH -Force -SkipEditionCheck
 
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
@@ -107,6 +108,17 @@ jobs:
               }
               else {
                 $FileManagement = Write-Output "[-] AdminToolbox.FileManagement not published"
+              }
+
+            #FortiWizard
+            $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
+            $GithubVersion = Get-Content "$workingdirectory/Admintoolbox.Fortiwizard/ChangeLog.md" | Select-Object -Last 1
+              if ($GithubVersion -gt $PSGalleryVersion ) {
+                Publish-Module -Path "$workingdirectory" -NuGetApiKey $env:NUGET_KEY
+                $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
+              }
+              else {
+                $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
               }
 
             #Fun
@@ -173,6 +185,7 @@ jobs:
                 Install-Module AdminToolbox.Exchange -AllowClobber -Force; Import-Module AdminToolbox.Exchange -Force -Global
                 Install-Module AdminToolbox.FFTools -AllowClobber -Force; Import-Module AdminToolbox.FFTools -Force -Global
                 Install-Module AdminToolbox.FileManagement -AllowClobber -Force; Import-Module AdminToolbox.FileManagement -Force -Global
+                Install-Module AdminToolbox.FortiWizard -AllowClobber -Force; Import-Module AdminToolbox.FortiWizard -Force -Global
                 Install-Module AdminToolbox.Fun -AllowClobber -Force; Import-Module AdminToolbox.Fun -Force -Global
                 Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
                 Install-Module AdminToolbox.Office365 -AllowClobber -Force; Import-Module AdminToolbox.Office365 -Force -Global
@@ -190,6 +203,7 @@ jobs:
               $Exchange
               $FFTools
               $FileManagement
+              $FortiWizard
               $Fun
               $Networking
               $Office365
