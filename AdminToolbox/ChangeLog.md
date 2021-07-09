@@ -142,6 +142,7 @@
 * **8.5.1.0**  Removed reliance on Internet explorer web engine by updating invoke-webrequest functions to use basic parsing
 * **8.6.0.0**  Added Markdown Documentation and link help
 * **9.0.0.0**  Added Module Admintoolbox.Fortiwizard
+* **9.0.1.0**  Updated Get-Info
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-9.0.0.0
+9.0.1.0

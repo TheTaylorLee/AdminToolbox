@@ -28,6 +28,7 @@ Get-EndpointManagement            ..Gets functions for Managing Endpoints
 Get-Exchange                      ..Gets functions for Exchange
 Get-FFTools                       ..Gets functions for FFMpeg utilities
 Get-FileManagement                ..Gets functions for File Management
+Get-FortiWizard                   ..Gets functions for FortiWizard
 Get-Fun                           ..Gets functions for Fun
 Get-Networking                    ..Gets functions for Networking
 Get-Office365                     ..Gets functions for Office 365
