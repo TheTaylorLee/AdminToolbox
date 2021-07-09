@@ -44,3 +44,4 @@ jobs:
                 $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
               }
           }
+          test
