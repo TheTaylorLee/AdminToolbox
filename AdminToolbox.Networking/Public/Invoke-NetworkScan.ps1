@@ -1,5 +1,3 @@
-#FUTURECONSIDERATIONS Replace PSNmap commands with own functions. This is to remove reliance on PSNmap module
-#FUTURECONSIDERATIONS Take Invoke-PSIPCalc and add it as a native function of the Admintoolbox.Networking module after replacing reliance on PSNmap
 function Invoke-NetworkScan {
     <#
     .Description
