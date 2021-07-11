@@ -1,6 +1,6 @@
 ---
-external help file:
-Module Name:
+external help file: AdminToolbox.FortiWizardManifest-help.xml
+Module Name: AdminToolbox.FortiWizard
 online version: https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 schema: 2.0.0
 ---
@@ -13,40 +13,41 @@ schema: 2.0.0
 
 ### TrustedHost6
 ```
-Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
- -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object> -TrustedHost5 <Object>
- -TrustedHost6 <Object> [<CommonParameters>]
+Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
+ -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object>
+ -TrustedHost5 <Object> -TrustedHost6 <Object> [<CommonParameters>]
 ```
 
 ### TrustedHost5
 ```
-Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
- -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object> -TrustedHost5 <Object>
- [<CommonParameters>]
+Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
+ -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object>
+ -TrustedHost5 <Object> [<CommonParameters>]
 ```
 
 ### TrustedHost4
 ```
-Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
- -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object> [<CommonParameters>]
+Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
+ -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object>
+ [<CommonParameters>]
 ```
 
 ### TrustedHost3
 ```
-Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
- -TrustedHost2 <Object> -TrustedHost3 <Object> [<CommonParameters>]
+Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
+ -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> [<CommonParameters>]
 ```
 
 ### TrustedHost2
 ```
-Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
- -TrustedHost2 <Object> [<CommonParameters>]
+Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
+ -TrustedHost1 <Object> -TrustedHost2 <Object> [<CommonParameters>]
 ```
 
 ### TrustedHost1
 ```
-Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
- [<CommonParameters>]
+Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
+ -TrustedHost1 <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -77,6 +78,32 @@ Aliases:
 Required: True
 Position: Named
 Default value: Admin
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowAccess
+Specify the Administrative Access preferences that should be allowed. Should be provided in a space delimited string format. Options below
+ping              PING access.
+https             HTTPS access.
+ssh               SSH access.
+snmp              SNMP access.
+http              HTTP access.
+telnet            TELNET access.
+fgfm              FortiManager access.
+radius-acct       RADIUS accounting access.
+probe-response    Probe access.
+fabric            Security Fabric access.
+ftm               FTM access.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: Ping https ssh ftm fgfm
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
