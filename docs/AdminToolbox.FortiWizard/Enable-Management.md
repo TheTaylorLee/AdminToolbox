@@ -1,6 +1,6 @@
 ---
-external help file: AdminToolbox.FortiWizardManifest-help.xml
-Module Name: AdminToolbox.FortiWizard
+external help file:
+Module Name:
 online version: https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 schema: 2.0.0
 ---
@@ -11,8 +11,42 @@ schema: 2.0.0
 
 ## SYNTAX
 
+### TrustedHost6
 ```
-Enable-Management [[-AdminUsername] <String>] [-WANInterfaceName] <Object> [<CommonParameters>]
+Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
+ -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object> -TrustedHost5 <Object>
+ -TrustedHost6 <Object> [<CommonParameters>]
+```
+
+### TrustedHost5
+```
+Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
+ -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object> -TrustedHost5 <Object>
+ [<CommonParameters>]
+```
+
+### TrustedHost4
+```
+Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
+ -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object> [<CommonParameters>]
+```
+
+### TrustedHost3
+```
+Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
+ -TrustedHost2 <Object> -TrustedHost3 <Object> [<CommonParameters>]
+```
+
+### TrustedHost2
+```
+Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
+ -TrustedHost2 <Object> [<CommonParameters>]
+```
+
+### TrustedHost1
+```
+Enable-Management -AdminUsername <String> -WANInterfaceName <Object> -TrustedHost1 <Object>
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -40,8 +74,8 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: 1
+Required: True
+Position: Named
 Default value: Admin
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -56,7 +90,97 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 2
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedHost1
+Set the first Trusted subnet allowed to access the Fortigate
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedHost2
+Set the second Trusted subnet allowed to access the Fortigate
+
+```yaml
+Type: Object
+Parameter Sets: TrustedHost6, TrustedHost5, TrustedHost4, TrustedHost3, TrustedHost2
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedHost3
+Set the third Trusted subnet allowed to access the Fortigate
+
+```yaml
+Type: Object
+Parameter Sets: TrustedHost6, TrustedHost5, TrustedHost4, TrustedHost3
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedHost4
+Set the fourth Trusted subnet allowed to access the Fortigate
+
+```yaml
+Type: Object
+Parameter Sets: TrustedHost6, TrustedHost5, TrustedHost4
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedHost5
+Set the fifth Trusted subnet allowed to access the Fortigate
+
+```yaml
+Type: Object
+Parameter Sets: TrustedHost6, TrustedHost5
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedHost6
+Set the sixth Trusted subnet allowed to access the Fortigate
+
+```yaml
+Type: Object
+Parameter Sets: TrustedHost6
+Aliases:
+
+Required: True
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
