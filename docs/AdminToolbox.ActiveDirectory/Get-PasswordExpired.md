@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.ActiveDirectoryManifest-help.xml
 Module Name: AdminToolbox.ActiveDirectory
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -41,9 +41,5 @@ Requires the Active Directory Module.
 
 ## RELATED LINKS
 
-[Get-DCLockoutEvents
-Get-LockedAccounts
-Set-Password
-Unlock-Account
-Unlock-AllAccounts]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

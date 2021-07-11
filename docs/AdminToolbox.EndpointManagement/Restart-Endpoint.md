@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.EndpointManagementManifest-help.xml
 Module Name: AdminToolbox.EndpointManagement
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -78,9 +78,5 @@ View the Examples for clarification.
 
 ## RELATED LINKS
 
-[Get-DCLockoutEvents2
-Get-LockedAccounts
-Get-PasswordExpired
-Unlock-Account
-Unlock-AllAccounts]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

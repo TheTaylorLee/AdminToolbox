@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.ExchangeManifest-help.xml
 Module Name: AdminToolbox.Exchange
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -41,5 +41,5 @@ Requires the Active Directory module and must be run from the Exchange Server
 
 ## RELATED LINKS
 
-[Get-EndpointReport]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

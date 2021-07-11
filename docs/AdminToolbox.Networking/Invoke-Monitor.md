@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.NetworkingManifest-help.xml
 Module Name: AdminToolbox.Networking
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -85,6 +85,5 @@ Requires the Admintoolbox.Fun module
 
 ## RELATED LINKS
 
-[Get-Emote
-Test-Netconnection]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

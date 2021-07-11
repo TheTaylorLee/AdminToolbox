@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.NetworkingManifest-help.xml
 Module Name: AdminToolbox.Networking
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -102,3 +102,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

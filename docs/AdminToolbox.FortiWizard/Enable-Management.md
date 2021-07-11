@@ -51,24 +51,46 @@ Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceNam
 ```
 
 ## DESCRIPTION
-Configures trusted hosts that the admin account may connect from and enables management from the WAN interface!
+Configures trusted hosts that the admin account may connect from and enables management from the WAN interface.
+Don't forget to include your internal and management subnets if you still want to be able to manage the firewall from them!
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
+This example allows management from all Private Class ranges and one public IP
+```
+
 $Params = @{
 AdminUsername    = "admin"
+TrustedHost1     = "192.168.0.0 255.255.0.0"
+TrustedHost2     = "10.0.0.0 255.0.0.0"
+TrustedHost3     = "172.16.0.0 255.240.0.0"
+TrustedHost4     = "8.8.8.8 255.255.255.255"
 WANInterfaceName = "port1"
 }
+
+Enable-Management @Params
+
+### EXAMPLE 2
 ```
+This example allows management from a single /24 subnet and a single public range. It also limits access to HTTPS
+```
+
+$Params = @{
+AdminUsername    = "admin"
+AllowAccess      = "https"
+TrustedHost1     = "192.168.0.0 255.255.255.0"
+TrustedHost2     = "8.8.8.8 255.255.255.255"
+WANInterfaceName = "port1"
+}
 
 Enable-Management @Params
 
 ## PARAMETERS
 
 ### -AdminUsername
-{{ Fill AdminUsername Description }}
+Specify the admin username who management access is being enabled for
 
 ```yaml
 Type: String
@@ -77,13 +99,15 @@ Aliases:
 
 Required: True
 Position: Named
-Default value: Admin
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -AllowAccess
-Specify the Administrative Access preferences that should be allowed. Should be provided in a space delimited string format. Options below
+Specify the Administrative Access preferences that should be allowed.
+Should be provided in a space delimited string format.
+Options below
 ping              PING access.
 https             HTTPS access.
 ssh               SSH access.
@@ -221,6 +245,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+This function currently supports up to 6 Trusted Host subnets
 
 ## RELATED LINKS
 

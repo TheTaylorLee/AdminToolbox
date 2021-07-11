@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.ActiveDirectoryManifest-help.xml
 Module Name: AdminToolbox.ActiveDirectory
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -41,7 +41,5 @@ Requires Active Directory Module
 
 ## RELATED LINKS
 
-[Get-GroupMemberships
-Get-EndpointReport
-Get-GroupMembers]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

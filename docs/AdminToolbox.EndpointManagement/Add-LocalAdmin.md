@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.EndpointManagementManifest-help.xml
 Module Name: AdminToolbox.EndpointManagement
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -56,3 +56,6 @@ Azure AD Joined machines will require the user to first login to a computer with
 The user logging in registers their SID so that the command is successful.
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

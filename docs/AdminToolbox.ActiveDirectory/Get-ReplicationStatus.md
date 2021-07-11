@@ -60,5 +60,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/](https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/)
 
-[Start-Replication]()
-

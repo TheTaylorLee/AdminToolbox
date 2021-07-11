@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.NetworkingManifest-help.xml
 Module Name: AdminToolbox.Networking
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -263,12 +263,3 @@ Shay's Blog: http://PowerShay.com
 Cookie Monster's Blog: http://ramblingcookiemonster.github.io/
 
 ## RELATED LINKS
-
-[Clear-Arp
-Clear-DNSClientCache
-Get-DNSClientCache
-Get-NetIPConfiguration
-Get-PublicIP
-Resolve-DNSName
-Test-Netconnection]()
-

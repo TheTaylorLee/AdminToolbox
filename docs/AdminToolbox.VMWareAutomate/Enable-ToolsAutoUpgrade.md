@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.VMWareAutomateManifest-help.xml
 Module Name: AdminToolbox.VMWareAutomate
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -94,5 +94,5 @@ Requires the VMware.PowerCLI Module
 
 ## RELATED LINKS
 
-[Get-ToolsAutoUpgrade]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.Office365Manifest-help.xml
 Module Name: AdminToolbox.Office365
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -48,3 +48,6 @@ The Exchange online Module must be imported into the console before this functio
 The account associated with the Exchange Online Mailbox must be disabled and moved to an OU that is not Azure AD Synced
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

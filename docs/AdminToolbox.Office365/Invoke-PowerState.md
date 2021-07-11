@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.Office365Manifest-help.xml
 Module Name: AdminToolbox.Office365
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -155,10 +155,5 @@ Requires the AZ module be installed, imported, and Connected.
 
 ## RELATED LINKS
 
-[Get-AzVM
-New-AzVM
-Remove-AzVM
-Restart-AzVM
-Stop-AzVM
-Update-AzVM]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

@@ -1,19 +1,18 @@
 ---
 external help file: AdminToolbox.FFToolsManifest-help.xml
 Module Name: AdminToolbox.FFTools
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
 # Install-FFTools
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Install-FFTools [<CommonParameters>]
+Install-FFTools
 ```
 
 ## DESCRIPTION
@@ -30,16 +29,13 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
-
-### None
 
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.EndpointManagementManifest-help.xml
 Module Name: AdminToolbox.EndpointManagement
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -63,5 +63,5 @@ Requires Powershell 5.1
 
 ## RELATED LINKS
 
-[Get-ADInfo]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

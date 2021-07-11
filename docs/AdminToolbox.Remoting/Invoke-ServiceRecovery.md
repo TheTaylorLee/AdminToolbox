@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.RemotingManifest-help.xml
 Module Name: AdminToolbox.Remoting
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -80,3 +80,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Must be Run from a DC or have the ActiveDirectory Module imported
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

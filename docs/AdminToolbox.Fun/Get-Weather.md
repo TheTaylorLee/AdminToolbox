@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.FunManifest-help.xml
 Module Name: AdminToolbox.Fun
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -67,7 +67,5 @@ https://winaero.com/blog/get-weather-forecast-powershell/
 
 ## RELATED LINKS
 
-[Connect-SSH
-Enable-PSRemoting
-Enable-Remoting]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

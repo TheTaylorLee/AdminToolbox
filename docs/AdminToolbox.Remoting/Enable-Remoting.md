@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.RemotingManifest-help.xml
 Module Name: AdminToolbox.Remoting
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -87,3 +87,6 @@ If you do not, download it with the sysinternals suite.
 Add psexec to one of your enviroment variable paths.
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

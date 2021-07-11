@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.NetworkingManifest-help.xml
 Module Name: AdminToolbox.Networking
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -113,6 +113,5 @@ Does not work in Powershell Core
 
 ## RELATED LINKS
 
-[Invoke-PSipcalc https://www.powershellgallery.com/packages/PSnmap
-Invoke-PSNmap https://www.powershellgallery.com/packages/PSnmap]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

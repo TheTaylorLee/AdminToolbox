@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.Office365Manifest-help.xml
 Module Name: AdminToolbox.Office365
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -56,3 +56,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Requires the AZ and Admintoolbox.Office365 module be installed, imported, and Connected.
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

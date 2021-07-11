@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.RemotingManifest-help.xml
 Module Name: AdminToolbox.Remoting
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -79,7 +79,5 @@ https://github.com/PowerShell/Win32-OpenSSH
 
 ## RELATED LINKS
 
-[Enable-PSRemoting
-Enable-Remoting
-Install-SSH]()
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
 

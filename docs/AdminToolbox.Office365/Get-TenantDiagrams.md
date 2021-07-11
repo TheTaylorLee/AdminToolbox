@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.Office365Manifest-help.xml
 Module Name: AdminToolbox.Office365
-online version:
+online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
@@ -132,3 +132,6 @@ Tested and compatible with AZViz version 1.0.9 and PSGraph version 2.1.38.27.
 If not working in the future look for changes in those modules versions
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+
