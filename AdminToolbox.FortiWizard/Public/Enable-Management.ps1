@@ -50,6 +50,7 @@ Function Enable-Management {
 
     $Params = @{
     AdminUsername    = "admin"
+    AllowAccess      = "ping https ssh ftm fgfm"
     TrustedHost1     = "192.168.0.0 255.255.0.0"
     TrustedHost2     = "10.0.0.0 255.0.0.0"
     TrustedHost3     = "172.16.0.0 255.240.0.0"
