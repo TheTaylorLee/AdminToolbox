@@ -112,7 +112,7 @@ Function Invoke-HotAdd {
 
     if ($EnableMem) {
         if ($VMName) {
-            WWrite-Host "Configuring $VMName" -ForegroundColor Yellow
+            Write-Host "Configuring $VMName" -ForegroundColor Yellow
             $vmview = Get-VM $VMName | Get-View
             $vmConfigSpec = New-Object VMware.Vim.VirtualMachineConfigSpec
             $extra = New-Object VMware.Vim.optionvalue
@@ -155,22 +155,22 @@ Function Invoke-HotAdd {
                 $vmConfigSpec.extraconfig += $extra
                 $vmview.ReconfigVM($vmConfigSpec)
             }
-        }
 
-        else {
-            $vms = Get-VM | Get-View
+            else {
+                $vms = Get-VM | Get-View
 
-            foreach ($vm in $vms) {
-                Write-Host "Configuring hotadd on: " -ForegroundColor Yellow -NoNewline
-                Write-Host $vm.name -ForegroundColor Cyan
+                foreach ($vm in $vms) {
+                    Write-Host "Configuring hotadd on: " -ForegroundColor Yellow -NoNewline
+                    Write-Host $vm.name -ForegroundColor Cyan
 
-                $vmview = Get-VM $vm.name | Get-View
-                $vmConfigSpec = New-Object VMware.Vim.VirtualMachineConfigSpec
-                $extra = New-Object VMware.Vim.optionvalue
-                $extra.Key = "vcpu.hotadd"
-                $extra.Value = "true"
-                $vmConfigSpec.extraconfig += $extra
-                $vmview.ReconfigVM($vmConfigSpec)
+                    $vmview = Get-VM $vm.name | Get-View
+                    $vmConfigSpec = New-Object VMware.Vim.VirtualMachineConfigSpec
+                    $extra = New-Object VMware.Vim.optionvalue
+                    $extra.Key = "vcpu.hotadd"
+                    $extra.Value = "true"
+                    $vmConfigSpec.extraconfig += $extra
+                    $vmview.ReconfigVM($vmConfigSpec)
+                }
             }
         }
 
