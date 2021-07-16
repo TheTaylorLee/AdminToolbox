@@ -24,13 +24,52 @@ Enable Push Notifications for Fortitokenson a Public Interface
 ### EXAMPLE 1
 ```
 $Params = @{
-UnusedPort        = "26357"
-WanInterfaceName  = "port1"
-WanIP             = "1.1.1.1"
+    UnusedPort        = "26357"
+    WanInterfaceName  = "port1"
+    WanIP             = "1.1.1.1"
 }
 ```
 
 Enable-PushNotifications @params
+
+### EXAMPLE 2
+```
+This example generates and SSH session and invokes the output of this function against that sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+
+$Params = @{
+    UnusedPort        = "26357"
+    WanInterfaceName  = "port1"
+    WanIP             = "1.1.1.1"
+}
+$command = Enable-PushNotifications @params
+
+$result = Invoke-SSHCommand -Command $command -SessionId 0
+$result.output
+
+### EXAMPLE 3
+```
+This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+New-SSHSession -computername 192.168.1.1
+
+$Params = @{
+    UnusedPort        = "26357"
+    WanInterfaceName  = "port1"
+    WanIP             = "1.1.1.1"
+}
+$command = Enable-PushNotifications @params
+
+$sessions = Get-SSHSession
+foreach ($session in $sessions) {
+    Write-Output "Invoking Command against $session.host"
+    $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+    $result.output
+}
 
 ## PARAMETERS
 

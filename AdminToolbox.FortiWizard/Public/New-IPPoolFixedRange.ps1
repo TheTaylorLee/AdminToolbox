@@ -20,14 +20,53 @@ Function New-IPPoolFixedRange {
 
     .Example
     $Params = @{
-    IPPoolName            = "CompanyIPSECPool"
-    StartIPRangeExternal  = "10.155.127.1"
-    EndIPRangeExternal    = "10.155.127.254"
-    StartIPRangeInternal  = "192.168.0.1"
-    EndIPRangeInternal    = "192.168.0.254"
+        IPPoolName            = "CompanyIPSECPool"
+        StartIPRangeExternal  = "10.155.127.1"
+        EndIPRangeExternal    = "10.155.127.254"
+        StartIPRangeInternal  = "192.168.0.1"
+        EndIPRangeInternal    = "192.168.0.254"
     }
 
     New-IPPoolFixedRange @params
+
+    .Example
+    This example generates and SSH session and invokes the output of this function against that sessions.
+
+    New-SSHSession -computername 192.168.0.1
+
+    $Params = @{
+        IPPoolName            = "CompanyIPSECPool"
+        StartIPRangeExternal  = "10.155.127.1"
+        EndIPRangeExternal    = "10.155.127.254"
+        StartIPRangeInternal  = "192.168.0.1"
+        EndIPRangeInternal    = "192.168.0.254"
+    }
+    $command = New-IPPoolFixedRange @params
+
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
+    .Example
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
+    New-SSHSession -computername 192.168.0.1
+    New-SSHSession -computername 192.168.1.1
+
+    $Params = @{
+        IPPoolName            = "CompanyIPSECPool"
+        StartIPRangeExternal  = "10.155.127.1"
+        EndIPRangeExternal    = "10.155.127.254"
+        StartIPRangeInternal  = "192.168.0.1"
+        EndIPRangeInternal    = "192.168.0.254"
+    }
+    $command = New-IPPoolFixedRange @params
+
+    $sessions = Get-SSHSession
+    foreach ($session in $sessions) {
+        Write-Output "Invoking Command against $session.host"
+        $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+        $result.output
+    }
 
     .Notes
     Source NAT (IP Pool) and Destination NAT (Virtual IP)

@@ -36,19 +36,68 @@ Function Write-SSLVPNConfig {
 
     .Example
     $Params = @{
-    CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
-    DNofParentOU                 = "DC=domain,DC=COM"
-    DNSServerIP                  = "192.168.0.1"
-    InternalLanIP                = "192.168.0.0"
-    InternalLanSubnetMask        = "255.255.255.0"
-    LanInterfaceName             = "port2"
-    LDAPSERVERFriendlyName       = "DomainLdap"
-    ServiceAccountPassword       = "Password"
-    ServiceAccountsAMAccountName = "fortigate"
-    WanInterfaceName             = "port1"
+        CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
+        DNofParentOU                 = "DC=domain,DC=COM"
+        DNSServerIP                  = "192.168.0.1"
+        InternalLanIP                = "192.168.0.0"
+        InternalLanSubnetMask        = "255.255.255.0"
+        LanInterfaceName             = "port2"
+        LDAPSERVERFriendlyName       = "DomainLdap"
+        ServiceAccountPassword       = "Password"
+        ServiceAccountsAMAccountName = "fortigate"
+        WanInterfaceName             = "port1"
     }
 
     Write-SSLVPNConfig @Params
+
+    .Example
+    This example generates and SSH session and invokes the output of this function against that sessions.
+
+    New-SSHSession -computername 192.168.0.1
+
+    $Params = @{
+        CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
+        DNofParentOU                 = "DC=domain,DC=COM"
+        DNSServerIP                  = "192.168.0.1"
+        InternalLanIP                = "192.168.0.0"
+        InternalLanSubnetMask        = "255.255.255.0"
+        LanInterfaceName             = "port2"
+        LDAPSERVERFriendlyName       = "DomainLdap"
+        ServiceAccountPassword       = "Password"
+        ServiceAccountsAMAccountName = "fortigate"
+        WanInterfaceName             = "port1"
+    }
+    $command = Write-SSLVPNConfig @Params
+
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
+    .Example
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
+    New-SSHSession -computername 192.168.0.1
+    New-SSHSession -computername 192.168.1.1
+
+    $Params = @{
+        CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
+        DNofParentOU                 = "DC=domain,DC=COM"
+        DNSServerIP                  = "192.168.0.1"
+        InternalLanIP                = "192.168.0.0"
+        InternalLanSubnetMask        = "255.255.255.0"
+        LanInterfaceName             = "port2"
+        LDAPSERVERFriendlyName       = "DomainLdap"
+        ServiceAccountPassword       = "Password"
+        ServiceAccountsAMAccountName = "fortigate"
+        WanInterfaceName             = "port1"
+    }
+    $command = Write-SSLVPNConfig @Params
+
+    $sessions = Get-SSHSession
+    foreach ($session in $sessions) {
+        Write-Output "Invoking Command against $session.host"
+        $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+        $result.output
+    }
 
     .Link
     https://github.com/TheTaylorLee/FortiWizard/tree/main/docs

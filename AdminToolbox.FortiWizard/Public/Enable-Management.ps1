@@ -64,14 +64,57 @@ Function Enable-Management {
     This example allows management from a single /24 subnet and a single public range. It also limits access to HTTPS
 
     $Params = @{
-    AdminUsername    = "admin"
-    AllowAccess      = "https"
-    TrustedHost1     = "192.168.0.0 255.255.255.0"
-    TrustedHost2     = "8.8.8.8 255.255.255.255"
-    WANInterfaceName = "port1"
+        AdminUsername    = "admin"
+        AllowAccess      = "https"
+        TrustedHost1     = "192.168.0.0 255.255.255.0"
+        TrustedHost2     = "8.8.8.8 255.255.255.255"
+        WANInterfaceName = "port1"
     }
 
     Enable-Management @Params
+
+    .Example
+    This example generates and SSH session and invokes the output of this function against that sessions.
+
+    New-SSHSession -computername 192.168.0.1
+
+    $Params = @{
+        AdminUsername    = "admin"
+        AllowAccess      = "ping https ssh ftm fgfm"
+        TrustedHost1     = "192.168.0.0 255.255.0.0"
+        TrustedHost2     = "10.0.0.0 255.0.0.0"
+        TrustedHost3     = "172.16.0.0 255.240.0.0"
+        TrustedHost4     = "8.8.8.8 255.255.255.255"
+        WANInterfaceName = "port1"
+    }
+    $command = Enable-Management @Params
+
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
+    .Example
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
+    New-SSHSession -computername 192.168.0.1
+    New-SSHSession -computername 192.168.1.1
+
+    $Params = @{
+        AdminUsername    = "admin"
+        AllowAccess      = "ping https ssh ftm fgfm"
+        TrustedHost1     = "192.168.0.0 255.255.0.0"
+        TrustedHost2     = "10.0.0.0 255.0.0.0"
+        TrustedHost3     = "172.16.0.0 255.240.0.0"
+        TrustedHost4     = "8.8.8.8 255.255.255.255"
+        WANInterfaceName = "port1"
+    }
+    $command = Enable-Management @Params
+
+    $sessions = Get-SSHSession
+    foreach ($session in $sessions) {
+        Write-Output "Invoking Command against $session.host"
+        $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+        $result.output
+    }
 
     .Notes
     This function currently supports up to 6 Trusted Host subnets

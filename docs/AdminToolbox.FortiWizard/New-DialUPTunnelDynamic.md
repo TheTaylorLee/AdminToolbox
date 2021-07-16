@@ -26,6 +26,16 @@ This will be for the remote side of the tunnel whose public IP is subject to cha
 New-DialupTunnelDynamic
 ```
 
+### EXAMPLE 2
+```
+This example generates and SSH session and invokes the output of this function against that sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+$command = New-DialupTunnelDynamic
+$result = Invoke-SSHCommand -Command $command -SessionId 0
+$result.output
+
 ## PARAMETERS
 
 ## INPUTS

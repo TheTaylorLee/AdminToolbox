@@ -17,13 +17,50 @@ Function New-VIPRange {
 
     .Example
     $Params = @{
-    VIPName               = "PatientPortal"
-    ExternalIP            = "192.168.8.1-192.168.8.254"
-    Interface             = "IPSecTunnel"
-    InternalIP            = "192.168.1.1-192.168.1.254"
+        VIPName               = "PatientPortal"
+        ExternalIP            = "192.168.8.1-192.168.8.254"
+        Interface             = "IPSecTunnel"
+        InternalIP            = "192.168.1.1-192.168.1.254"
     }
 
     New-VIPRange @params
+
+    .Example
+    This example generates and SSH session and invokes the output of this function against that sessions.
+
+    New-SSHSession -computername 192.168.0.1
+
+    $Params = @{
+        VIPName               = "PatientPortal"
+        ExternalIP            = "192.168.8.1-192.168.8.254"
+        Interface             = "IPSecTunnel"
+        InternalIP            = "192.168.1.1-192.168.1.254"
+    }
+    $command = New-VIPRange @params
+
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
+    .Example
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
+    New-SSHSession -computername 192.168.0.1
+    New-SSHSession -computername 192.168.1.1
+
+    $Params = @{
+        VIPName               = "PatientPortal"
+        ExternalIP            = "192.168.8.1-192.168.8.254"
+        Interface             = "IPSecTunnel"
+        InternalIP            = "192.168.1.1-192.168.1.254"
+    }
+    $command = New-VIPRange @params
+
+    $sessions = Get-SSHSession
+    foreach ($session in $sessions) {
+        Write-Output "Invoking Command against $session.host"
+        $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+        $result.output
+    }
 
     .Notes
     Source NAT (IP Pool) and Destination NAT (Virtual IP)

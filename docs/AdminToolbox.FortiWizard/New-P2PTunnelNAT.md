@@ -26,6 +26,16 @@ The source Subnet will be Natted by this policy.
 New-P2PTunnelNAT
 ```
 
+### EXAMPLE 2
+```
+This example generates and SSH session and invokes the output of this function against that sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+$command = New-P2PTunnelNAT
+$result = Invoke-SSHCommand -Command $command -SessionId 0
+$result.output
+
 ## PARAMETERS
 
 ## INPUTS

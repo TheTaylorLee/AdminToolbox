@@ -24,14 +24,55 @@ Create a New Virtual IP for a single Host
 ### EXAMPLE 1
 ```
 $Params = @{
-VIPName               = "PatientPortal"
-ExternalIP            = "57.65.98.23"
-Interface             = "wan1"
-InternalIP            = "192.168.8.15"
+    VIPName               = "PatientPortal"
+    ExternalIP            = "57.65.98.23"
+    Interface             = "wan1"
+    InternalIP            = "192.168.8.15"
 }
 ```
 
 New-VIPHost @params
+
+### EXAMPLE 2
+```
+This example generates and SSH session and invokes the output of this function against that sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+
+$Params = @{
+    VIPName               = "PatientPortal"
+    ExternalIP            = "57.65.98.23"
+    Interface             = "wan1"
+    InternalIP            = "192.168.8.15"
+}
+$command = New-VIPHost @params
+
+$result = Invoke-SSHCommand -Command $command -SessionId 0
+$result.output
+
+### EXAMPLE 3
+```
+This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+New-SSHSession -computername 192.168.1.1
+
+$Params = @{
+    VIPName               = "PatientPortal"
+    ExternalIP            = "57.65.98.23"
+    Interface             = "wan1"
+    InternalIP            = "192.168.8.15"
+}
+$command = New-VIPHost @params
+
+$sessions = Get-SSHSession
+foreach ($session in $sessions) {
+    Write-Output "Invoking Command against $session.host"
+    $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+    $result.output
+}
 
 ## PARAMETERS
 

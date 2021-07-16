@@ -29,8 +29,8 @@ Create a new Service Object
 ### EXAMPLE 1
 ```
 $Params = @{
-ServiceName   = "OWA"
-TCPPortRange  = "443"
+    ServiceName   = "OWA"
+    TCPPortRange  = "443"
 }
 ```
 
@@ -42,11 +42,48 @@ If you require a range of ports specify the parameter range like shown here.
 ```
 
 $Params = @{
-ServiceName   = "RTP"
-UDPPortRange  = "10000-11000"
+    ServiceName   = "RTP"
+    UDPPortRange  = "10000-11000"
 }
 
 New-ServiceObject @params
+
+### EXAMPLE 3
+```
+This example generates and SSH session and invokes the output of this function against that sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+
+$Params = @{
+    ServiceName   = "RTP"
+    UDPPortRange  = "10000-11000"
+}
+$command = New-ServiceObject @params
+
+$result = Invoke-SSHCommand -Command $command -SessionId 0
+$result.output
+
+### EXAMPLE 4
+```
+This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+New-SSHSession -computername 192.168.1.1
+
+$Params = @{
+    ServiceName   = "RTP"
+    UDPPortRange  = "10000-11000"
+}
+$command = New-ServiceObject @params
+
+$sessions = Get-SSHSession
+foreach ($session in $sessions) {
+    Write-Output "Invoking Command against $session.host"
+    $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+    $result.output
+}
 
 ## PARAMETERS
 

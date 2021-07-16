@@ -6,6 +6,14 @@ Function New-P2PTunnelNAT {
     .Example
     New-P2PTunnelNAT
 
+    .Example
+    This example generates and SSH session and invokes the output of this function against that sessions.
+
+    New-SSHSession -computername 192.168.0.1
+    $command = New-P2PTunnelNAT
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
     .Notes
     Capitalization and spacing is very important when running this function. Typos should also be avoided. Any errors resultant from adding spaces, creating typos, or not focusing on persisint casing will lead to errors. The function will fail, or the config script when pushed to the firewall will fail to produce desired results.
 

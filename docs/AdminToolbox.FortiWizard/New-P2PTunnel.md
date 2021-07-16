@@ -25,6 +25,16 @@ This is a CLI wizard that generates a new IPSec Tunnel Config and related object
 New-P2PTunnel
 ```
 
+### EXAMPLE 2
+```
+This example generates and SSH session and invokes the output of this function against that sessions.
+```
+
+New-SSHSession -computername 192.168.0.1
+$command = New-P2PTunnel
+$result = Invoke-SSHCommand -Command $command -SessionId 0
+$result.output
+
 ## PARAMETERS
 
 ## INPUTS

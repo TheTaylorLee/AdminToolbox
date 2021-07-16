@@ -14,12 +14,47 @@ Function New-AddressObject {
 
     .Example
     $Params = @{
-    AddressName   = "ComanyLan_192.168.0.1/26"
-    IPAddress     = "192.168.0.1"
-    SubnetMask    = "255.255.255.192"
+        AddressName   = "ComanyLan_192.168.0.1/26"
+        IPAddress     = "192.168.0.1"
+        SubnetMask    = "255.255.255.192"
     }
 
     New-AddressObject @params
+
+    .Example
+    This example generates and SSH session and invokes the output of this function against that sessions.
+
+    New-SSHSession -computername 192.168.0.1
+
+    $Params = @{
+        AddressName   = "ComanyLan_192.168.0.1/26"
+        IPAddress     = "192.168.0.1"
+        SubnetMask    = "255.255.255.192"
+    }
+    $command = New-AddressObject @params
+
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
+    .Example
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
+    New-SSHSession -computername 192.168.0.1
+    New-SSHSession -computername 192.168.1.1
+
+    $Params = @{
+        AddressName   = "ComanyLan_192.168.0.1/26"
+        IPAddress     = "192.168.0.1"
+        SubnetMask    = "255.255.255.192"
+    }
+    $command = New-AddressObject @params
+
+    $sessions = Get-SSHSession
+    foreach ($session in $sessions) {
+        Write-Output "Invoking Command against $session.host"
+        $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+        $result.output
+    }
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
