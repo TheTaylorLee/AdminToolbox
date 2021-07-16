@@ -13,7 +13,7 @@ Function New-P2PPhase2Interface {
     Param (
     )
 
-    $PhaseName = Read-Host "Provide a Phase 2 Name with no spaces in the format of <TunnelNameP2#> (Phase 2 Name)"
+    $PhaseName = Read-Host "Provide a Phase 2 Name in the format of <TunnelName P2 #> (Phase 2 Name)"
     $TunnelName = Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"
     $Proposal = Read-Host "
 des-md5          des-md5

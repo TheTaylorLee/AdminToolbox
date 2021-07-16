@@ -1,6 +1,6 @@
 #Used By New-P2PTunnelNAT
 
-Function New-FirewallPolicyTunnel {
+Function New-FirewallPolicyTunnelNAT {
     <#
     .Description
     Create Firewall Policies for the tunnel.
