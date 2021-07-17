@@ -1,7 +1,7 @@
 #Used By New-DialUPTunnelDynamic
 #Used By New-DialUPTunnelStatic
 
-Function New-StaticRouteTunnel {
+Function New-StaticRouteDialupTunnel {
     <#
     .Description
     Creates Static routes for a tunnel.
