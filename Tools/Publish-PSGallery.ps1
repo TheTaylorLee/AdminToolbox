@@ -25,7 +25,7 @@ $Name = "AdminToolbox.FileManagement"
 $RequiredVersion = "1.4.0.0"
 Publish-Module -Name $Name -NuGetApiKey $API -RequiredVersion $RequiredVersion
 
-#Publish Module .Fun
+#Publish Module .Fortiwizard
 $Name = "AdminToolbox.Fortiwizard"
 $RequiredVersion = "1.0.0.0"
 Publish-Module -Name $Name -NuGetApiKey $API -RequiredVersion $RequiredVersion

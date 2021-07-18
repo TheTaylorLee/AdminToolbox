@@ -1,5 +1,4 @@
 #If invoke-scan stops to work the way it's currently built, these are functions that could come in handy.
-#Invoke-scan should be rebuilt to maintain it's speed. Instead of trying to multi-thread the command maybe jobs or something else can be use. Think it through and make it happen.
 
 
 function testport ($hostname = 'yahoo.com', $port = 80, $timeout = 100) {
@@ -12,8 +11,6 @@ function testport ($hostname = 'yahoo.com', $port = 80, $timeout = 100) {
   [pscustomobject]@{hostname = $hostname; port = $port; open = $open }
 }
 
-
-#Observe all below
 
 Function Start-PortTest {
 
