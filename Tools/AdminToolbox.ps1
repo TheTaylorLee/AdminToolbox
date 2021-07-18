@@ -6,7 +6,7 @@ $gitrootpath = "G:\Github\AdminToolbox"
 $env:gitrootpath = $gitrootpath
 
 #Set Persistent Environment Variables
-[Environment]::SetEnvironmentVariable("FFToolsTarget", "$gitrootpath", "User")
+[Environment]::SetEnvironmentVariable("gitrootpath", "$gitrootpath", "User")
 
 
 
