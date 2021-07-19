@@ -7,7 +7,7 @@ Function New-P2PTunnelNAT {
     New-P2PTunnelNAT
 
     .Example
-    This example generates and SSH session and invokes the output of this function against that sessions.
+    This example generates an SSH session and invokes the output of this function against that session.
 
     New-SSHSession -computername 192.168.0.1
     $command = New-P2PTunnelNAT

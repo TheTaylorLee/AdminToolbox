@@ -33,7 +33,7 @@ New-AddressObject @params
 
 ### EXAMPLE 2
 ```
-This example generates and SSH session and invokes the output of this function against that sessions.
+This example generates an SSH session and invokes the output of this function against that session.
 ```
 
 New-SSHSession -computername 192.168.0.1
