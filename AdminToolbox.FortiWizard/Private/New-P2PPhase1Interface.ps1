@@ -9,12 +9,10 @@ Function New-P2PPhase1Interface {
 
     [CmdletBinding()]
     Param (
-    )
-
-    $TunnelName = Read-Host "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters  (TunnelName)"
-    $Interface = Read-Host "Provide the name of the public interface for this tunnel. (Public Interface)"
-    $TTL = Read-Host "Provide the Phase 1 Time to Live (TTL)"
-    $Proposal = Read-Host "
+        [Parameter(Mandatory = $true)]$TunnelName = (Read-Host "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters  (TunnelName)"),
+        [Parameter(Mandatory = $true)]$Interface = (Read-Host "Provide the name of the public interface for this tunnel. (Public Interface)"),
+        [Parameter(Mandatory = $true)]$TTL = (Read-Host "Provide the Phase 1 Time to Live (TTL)"),
+        [Parameter(Mandatory = $true)]$Proposal = (Read-Host "
 des-md5          des-md5
 des-sha1         des-sha1
 des-sha256       des-sha256
@@ -42,10 +40,11 @@ aes256-sha384    aes256-sha384
 aes256-sha512    aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format. (Encryption Proposal)
-"
-    $dhgroups = Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"
-    $PeerAddress = Read-Host "Specify the Peer address for the Tunnel Peer (Peer Address)"
-    $PSK = Read-Host "Specify the PSK for the Tunnel"
+"),
+        [Parameter(Mandatory = $true)]$dhgroups = (Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"),
+        [Parameter(Mandatory = $true)]$PeerAddress = (Read-Host "Specify the Peer address for the Tunnel Peer (Peer Address)"),
+        [Parameter(Mandatory = $true)]$PSK = (Read-Host "Specify the PSK for the Tunnel")
+    )
 
     Write-Output "
 config vpn ipsec phase1-interface

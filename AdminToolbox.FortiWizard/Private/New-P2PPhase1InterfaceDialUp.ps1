@@ -10,12 +10,16 @@ Function New-P2PPhase1InterfaceDialUp {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true, ParameterSetName = "Static")][switch]$Static,
-        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")][switch]$Dynamic
-    )
-
-    $TunnelName = Read-Host "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters  (TunnelName)"
-    $Interface = Read-Host "Provide the name of the public interface for this tunnel. (Public Interface)"
-    $Proposal = Read-Host "
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")][switch]$Dynamic,
+        [Parameter(Mandatory = $true, ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
+        $TunnelName = (Read-Host "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters  (TunnelName)"),
+        [Parameter(Mandatory = $true, ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
+        $Interface = (Read-Host "Provide the name of the public interface for this tunnel. (Public Interface)"),
+        [Parameter(Mandatory = $true, ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
+        $Proposal = (Read-Host "
 des-md5          des-md5
 des-sha1         des-sha1
 des-sha256       des-sha256
@@ -43,10 +47,17 @@ aes256-sha384    aes256-sha384
 aes256-sha512    aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format. (Encryption Proposal)
-"
-    $dhgroups = Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"
-    $PSK = Read-Host "Specify the PSK for the Tunnel (PSK)"
-    $PeerID = "Specify a unique 3 digit numeric peer ID to use for the tunnel. (Peer ID)"
+"),
+        [Parameter(Mandatory = $true, ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
+        $dhgroups = (Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"),
+        [Parameter(Mandatory = $true, ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
+        $PSK = (Read-Host "Specify the PSK for the Tunnel (PSK)"),
+        [Parameter(Mandatory = $true, ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
+        $PeerID = (Read-Host "Specify a unique 3 digit numeric peer ID to use for the tunnel. (Peer ID)")
+    )
 
     if ($Static) {
         Write-Output "

@@ -11,11 +11,9 @@ Function New-P2PPhase2Interface {
 
     [CmdletBinding()]
     Param (
-    )
-
-    $PhaseName = Read-Host "Provide a Phase 2 Name in the format of <TunnelName P2 #> (Phase 2 Name)"
-    $TunnelName = Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"
-    $Proposal = Read-Host "
+        [Parameter(Mandatory = $true)]$PhaseName = (Read-Host "Provide a Phase 2 Name in the format of <TunnelName P2 #> (Phase 2 Name)"),
+        [Parameter(Mandatory = $true)]$TunnelName = (Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"),
+        [Parameter(Mandatory = $true)]$Proposal = (Read-Host "
 des-md5          des-md5
 des-sha1         des-sha1
 des-sha256       des-sha256
@@ -43,13 +41,13 @@ aes256-sha384    aes256-sha384
 aes256-sha512    aes256-sha512
 
 Type in the encryption selection to use for the Phase 2 Proposal in a space delimited format. (Encryption Proposal)
-"
-    $TTL = Read-Host "Provide the Phase 2 Time to Live (TTL)"
-    $dhgroups = Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"
-    $PFS = Read-Host "Specify PFS enable/disable. (PFS)"
-    $SourceAddressName = Read-Host "Specify the Source Address Object or Group Name (Source Address/Group)"
-    $DestinationAddressName = Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)"
-
+"),
+        [Parameter(Mandatory = $true)]$TTL = (Read-Host "Provide the Phase 2 Time to Live (TTL)"),
+        [Parameter(Mandatory = $true)]$dhgroups = (Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"),
+        [Parameter(Mandatory = $true)]$PFS = (Read-Host "Specify PFS enable/disable. (PFS)"),
+        [Parameter(Mandatory = $true)]$SourceAddressName = (Read-Host "Specify the Source Address Object or Group Name (Source Address/Group)"),
+        [Parameter(Mandatory = $true)]$DestinationAddressName = (Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)")
+    )
 
     Write-Output "
 config vpn ipsec phase2-interface

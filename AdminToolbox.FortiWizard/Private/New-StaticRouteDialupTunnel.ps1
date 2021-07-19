@@ -9,9 +9,8 @@ Function New-StaticRouteDialupTunnel {
 
     [CmdletBinding()]
     Param (
+        [Parameter(Mandatory = $true)]$DestinationAddressName = (Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)")
     )
-
-    $DestinationAddressName = Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)"
 
     Write-Output "
 config router static

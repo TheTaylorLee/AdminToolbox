@@ -8,11 +8,15 @@ Function New-FirewallPolicyTunnel {
     Create Firewall Policies for the tunnel.
     #>
 
-    $TunnelName = Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"
-    $SourceInterfaceName = Read-Host "Specify the Source or Lan Interface name (Source Interface Name)"
-    $SourceAddress = Read-Host "Specify the Source Address Object/s in space delimited format or the Source Address Group. (Source)"
-    $DestinationAddress = Read-Host "Specify the Destination Address Object/s in space delimited format or the Destination Address Group. (Destination)"
-    $Service = Read-Host "Specify the Service Object/s in space delimited format or the Service Group. If all specify ALL in capital letters. (Service)"
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory = $true)]$TunnelName = (Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"),
+        [Parameter(Mandatory = $true)]$SourceInterfaceName = (Read-Host "Specify the Source or Lan Interface name (Source Interface Name)"),
+        [Parameter(Mandatory = $true)]$SourceAddress = (Read-Host "Specify the Source Address Object/s in space delimited format or the Source Address Group. (Source)"),
+        [Parameter(Mandatory = $true)]$DestinationAddress = (Read-Host "Specify the Destination Address Object/s in space delimited format or the Destination Address Group. (Destination)"),
+        [Parameter(Mandatory = $true)]$Service = (Read-Host "Specify the Service Object/s in space delimited format or the Service Group. If all specify ALL in capital letters. (Service)")
+    )
+
 
     Write-Output "
 config firewall policy
