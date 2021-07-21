@@ -9,8 +9,10 @@ Function New-StaticRouteTunnel {
 
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $true)]$TunnelName = (Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"),
-        [Parameter(Mandatory = $true)]$DestinationAddressName = (Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)")
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the tunnel name that was provided when creating the phase 1 interface.")]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Destination Address Object or Group Name.")]
+        $DestinationAddressName
     )
 
     Write-Output "

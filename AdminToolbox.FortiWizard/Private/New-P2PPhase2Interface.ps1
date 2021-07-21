@@ -11,9 +11,11 @@ Function New-P2PPhase2Interface {
 
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $true)]$PhaseName = (Read-Host "Provide a Phase 2 Name in the format of <TunnelName P2 #> (Phase 2 Name)"),
-        [Parameter(Mandatory = $true)]$TunnelName = (Read-Host "Provide the tunnel name that was provided when creating the phase 1 interface. This is case sensitive (TunnelName)"),
-        [Parameter(Mandatory = $true)]$Proposal = (Read-Host "
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a Phase 2 Name in the format of <TunnelName P2 #>")]
+        $PhaseName,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
 des-sha256       des-sha256
@@ -40,13 +42,19 @@ aes256-sha256    aes256-sha256
 aes256-sha384    aes256-sha384
 aes256-sha512    aes256-sha512
 
-Type in the encryption selection to use for the Phase 2 Proposal in a space delimited format. (Encryption Proposal)
-"),
-        [Parameter(Mandatory = $true)]$TTL = (Read-Host "Provide the Phase 2 Time to Live (TTL)"),
-        [Parameter(Mandatory = $true)]$dhgroups = (Read-Host "Provide the DH Group or Group in space delimeted format. (DH Group/s)"),
-        [Parameter(Mandatory = $true)]$PFS = (Read-Host "Specify PFS enable/disable. (PFS)"),
-        [Parameter(Mandatory = $true)]$SourceAddressName = (Read-Host "Specify the Source Address Object or Group Name (Source Address/Group)"),
-        [Parameter(Mandatory = $true)]$DestinationAddressName = (Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)")
+Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
+")]
+        $Proposal,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 2 Time to Live.")]
+        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Peer address for the Tunnel Peer.")]
+        $dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify PFS enable/disable.")]
+        $PFS,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Source Address Object or Group Name.")]
+        $SourceAddressName,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Destination Address Object or Group Name.")]
+        $DestinationAddressName
     )
 
     Write-Output "

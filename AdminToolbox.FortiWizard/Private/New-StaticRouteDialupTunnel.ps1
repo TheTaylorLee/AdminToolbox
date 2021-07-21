@@ -9,7 +9,8 @@ Function New-StaticRouteDialupTunnel {
 
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $true)]$DestinationAddressName = (Read-Host "Specify the Destination Address Object or Group Name (Destination Address/Group)")
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Destination Address Object or Group Name.")]
+        $DestinationAddressName
     )
 
     Write-Output "
