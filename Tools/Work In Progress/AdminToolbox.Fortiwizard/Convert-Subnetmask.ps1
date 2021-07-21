@@ -3,15 +3,17 @@ function Convert-Subnetmask {
     ###############################################################################################################
     # Language     :  PowerShell 4.0
     # Filename     :  Convert-Subnetmask.ps1
-    # Autor        :  BornToBeRoot (https://github.com/BornToBeRoot)
+    # Author       :  BornToBeRoot (https://github.com/BornToBeRoot)
     # Description  :  Convert a subnetmask to CIDR and vise versa
     # Repository   :  https://github.com/BornToBeRoot/PowerShell
     # License      : This single function is licensed under - GPL-3.0 License
+    # Link         : https://github.com/BornToBeRoot/PowerShell/blob/master/Documentation/Function/Convert-Subnetmask.README.md
     ###############################################################################################################
 
     <#
     .SYNOPSIS
     Convert a subnetmask to CIDR and vise versa
+
     .DESCRIPTION
     Convert a subnetmask like 255.255.255 to CIDR (/24) and vise versa.
 
@@ -20,15 +22,13 @@ function Convert-Subnetmask {
     Mask          CIDR
     ----          ----
     255.255.255.0   24
+
     .EXAMPLE
     Convert-Subnetmask -Mask 255.255.0.0
     Mask        CIDR
     ----        ----
     255.255.0.0   16
-
-    .LINK
-    https://github.com/BornToBeRoot/PowerShell/blob/master/Documentation/Function/Convert-Subnetmask.README.md
-#>
+    #>
     [CmdLetBinding(DefaultParameterSetName = 'CIDR')]
     param(
         [Parameter(
