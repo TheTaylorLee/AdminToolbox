@@ -13,11 +13,11 @@ Function Write-SSLVPNConfig {
     .Parameter DNSServerIP
     IPv4 address of the DNS server used by the SSLVPN clients
 
-    .Parameter InternalLanSubnetMask
-    Subnet mask of the LANIP to be accessed ex: 255.255.255.0
+    .Parameter InternalCIDR
+    CIDR Address for the allowed LAN subnet
 
-    .Parameter InternalLanIP
-    IP Address thats matches the Host Minimum for the Subnet
+    .Parameter SSLClientCIDR
+    CIDR Address for the subnet being handed out to SSLVPN Clients
 
     .Parameter LanInterfaceName
     Name of the LAN interface containing the to be accessed Subnet
@@ -39,8 +39,8 @@ Function Write-SSLVPNConfig {
         CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
         DNofParentOU                 = "DC=domain,DC=COM"
         DNSServerIP                  = "192.168.0.1"
-        InternalLanIP                = "192.168.0.0"
-        InternalLanSubnetMask        = "255.255.255.0"
+        InternalCIDR                 = "192.168.56.0/24"
+        SSLClientCIDR                = "10.212.134.0/24"
         LanInterfaceName             = "port2"
         LDAPSERVERFriendlyName       = "DomainLdap"
         ServiceAccountPassword       = "Password"
@@ -59,8 +59,8 @@ Function Write-SSLVPNConfig {
         CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
         DNofParentOU                 = "DC=domain,DC=COM"
         DNSServerIP                  = "192.168.0.1"
-        InternalLanIP                = "192.168.0.0"
-        InternalLanSubnetMask        = "255.255.255.0"
+        InternalCIDR                 = "192.168.56.0/24"
+        SSLClientCIDR                = "10.212.134.0/24"
         LanInterfaceName             = "port2"
         LDAPSERVERFriendlyName       = "DomainLdap"
         ServiceAccountPassword       = "Password"
@@ -82,8 +82,8 @@ Function Write-SSLVPNConfig {
         CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
         DNofParentOU                 = "DC=domain,DC=COM"
         DNSServerIP                  = "192.168.0.1"
-        InternalLanIP                = "192.168.0.0"
-        InternalLanSubnetMask        = "255.255.255.0"
+        InternalCIDR                 = "192.168.56.0/24"
+        SSLClientCIDR                = "10.212.134.0/24"
         LanInterfaceName             = "port2"
         LDAPSERVERFriendlyName       = "DomainLdap"
         ServiceAccountPassword       = "Password"
@@ -108,21 +108,40 @@ Function Write-SSLVPNConfig {
         [Parameter(Mandatory = $true)]$CommaSeperatedDNSSuffixes,
         [Parameter(Mandatory = $true)]$DNofParentOU,
         [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$DNSServerIP,
-        [Parameter(Mandatory = $true)][ValidateScript( {
-                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$') {
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
                     $true
                 }
                 else {
-                    throw "$_ is an invalid pattern. You must provide a subnet mask and not a prefix."
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
-            })]$InternalLanSubnetMask,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$InternalLanIP,
+            })]
+        $InternalCIDR,
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $SSLClientCIDR,
         [Parameter(Mandatory = $true)]$LanInterfaceName,
         [Parameter(Mandatory = $true)]$LDAPServerFriendlyName,
         [Parameter(Mandatory = $true)]$ServiceAccountPassword,
         [Parameter(Mandatory = $true)]$ServiceAccountsAMAccountName,
         [Parameter(Mandatory = $true)]$WanInterfaceName
     )
+
+    #Calculate for Internal CIDR
+    $calc = Invoke-PSipcalc $InternalCIDR
+    $IPAddress = ($calc).IP
+    $SubnetMask = ($calc).SubnetMask
+
+    #Calculate for SSL Client CIDR
+    $SSLClientcalc = Invoke-PSipcalc $SSLClientCIDR
+    $SSLClientStartIP = ($SSLClientcalc).HostMin
+    $SSLClientEndIP = ($SSLClientcalc).HostMax
 
 
     Write-Output "
@@ -146,18 +165,18 @@ config user group
 end
 
 config firewall address
-    edit SSLVPN_TUNNEL_ADDR1
+    edit ""SSLVPN_TUNNEL_$SSLClientCIDR""
         set type iprange
         set associated-interface ssl.root
-        set start-ip 10.212.134.1
-        set end-ip 10.212.134.254
+        set start-ip $SSLClientStartIP
+        set end-ip $SSLClientEndIP
     next
 end
 
 config firewall address
-    edit SSLVPN_InternalLan
+    edit ""SSLVPN_Internal_$InternalCIDR""
         set visibility disable
-        set subnet $InternalLanIP $InternalLanSubnetMask
+        set subnet $IPAddress $SubnetMask
     next
 end
 
@@ -166,7 +185,7 @@ config vpn ssl web portal
     delete web-access
     edit tunnel-access
         set tunnel-mode enable
-        set ip-pools SSLVPN_TUNNEL_ADDR1
+        set ip-pools ""SSLVPN_TUNNEL_$SSLClientCIDR""
         set ipv6-tunnel-mode disable
         config split-dns
         edit 1
@@ -184,7 +203,7 @@ config vpn ssl settings
     set ssl-min-proto-ver tls1-0
     set idle-timeout 43200
     set auth-timeout 43200
-    set tunnel-ip-pools SSLVPN_TUNNEL_ADDR1
+    set tunnel-ip-pools ""SSLVPN_TUNNEL_$SSLClientCIDR""
     set dns-server1 $DNSServerIP
     set source-interface ""$WanInterfaceName""
     set source-address all
@@ -205,7 +224,7 @@ config firewall policy
         set srcintf ssl.root
         set dstintf ""$LanInterfaceName""
         set srcaddr all
-        set dstaddr SSLVPN_InternalLan
+        set dstaddr ""SSLVPN_Internal_$InternalCIDR""
         set action accept
         set schedule always
         set service ALL

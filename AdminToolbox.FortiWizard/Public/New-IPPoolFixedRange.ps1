@@ -92,10 +92,12 @@ Function New-IPPoolFixedRange {
         $InternalCIDR
     )
 
+    #Calculate for External CIDR
     $Externalcalc = Invoke-PSipcalc $Externalcidr
     $ExternalStartIP = ($Externalcalc).HostMin
     $ExternalEndIP = ($Externalcalc).HostMax
 
+    #Calculate for Internal CIDR
     $Internalcalc = Invoke-PSipcalc $Internalcidr
     $InternalStartIP = ($Internalcalc).HostMin
     $InternalEndIP = ($Internalcalc).HostMax

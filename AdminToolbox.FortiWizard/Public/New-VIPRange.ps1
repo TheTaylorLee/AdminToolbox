@@ -6,21 +6,21 @@ Function New-VIPRange {
     .Parameter VIPName
     Specify a Unique name for the Virtual IP Object
 
-    .Parameter ExternalIPRange
-    Specify the External IP used for the VIP Range
+    .Parameter ExternalCIDR
+    Specify the External CIDR address used for the VIP Range. ex: 192.168.0.0/24
 
     .Parameter Interface
     Specify the Name of the External Interface for the VIP
 
-    .Parameter InternalIPRange
-    Specify the Internal IP used for the VIP Range
+    .Parameter InternalCIDR
+    Specify the Internal CIDR address used for the VIP Range. ex: 192.168.0.0/24
 
     .Example
     $Params = @{
         VIPName               = "PatientPortal"
-        ExternalIP            = "192.168.8.1-192.168.8.254"
+        ExternalCIDR          = "192.168.8.0/24"
         Interface             = "IPSecTunnel"
-        InternalIP            = "192.168.1.1-192.168.1.254"
+        InternalCIDR          = "192.168.1.0/24"
     }
 
     New-VIPRange @params
@@ -32,9 +32,9 @@ Function New-VIPRange {
 
     $Params = @{
         VIPName               = "PatientPortal"
-        ExternalIP            = "192.168.8.1-192.168.8.254"
+        ExternalCIDR          = "192.168.8.0/24"
         Interface             = "IPSecTunnel"
-        InternalIP            = "192.168.1.1-192.168.1.254"
+        InternalCIDR          = "192.168.1.0/24"
     }
     $command = New-VIPRange @params
 
@@ -49,9 +49,9 @@ Function New-VIPRange {
 
     $Params = @{
         VIPName               = "PatientPortal"
-        ExternalIP            = "192.168.8.1-192.168.8.254"
+        ExternalCIDR          = "192.168.8.0/24"
         Interface             = "IPSecTunnel"
-        InternalIP            = "192.168.1.1-192.168.1.254"
+        InternalCIDR          = "192.168.1.0/24"
     }
     $command = New-VIPRange @params
 
@@ -76,33 +76,47 @@ Function New-VIPRange {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$VIPName,
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[-][0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$') {
-                    $true
-                }
-                else {
-                    throw "$_ is an invalid entry. You must provide a range in this pattern 192.168.1.1-192.168.1.254"
-                }
-            })]$ExternalIPRange,
         [Parameter(Mandatory = $true)]$Interface,
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[-][0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$') {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
                     $true
                 }
                 else {
-                    throw "$_ is an invalid entry. You must provide a range in this pattern 192.168.1.1-192.168.1.254"
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
-            })]$InternalIPRange
+            })]
+        $ExternalCIDR,
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $InternalCIDR
     )
+
+    #Calculate for External CIDR
+    $Externalcalc = Invoke-PSipcalc $Externalcidr
+    $ExternalStartIP = ($Externalcalc).HostMin
+    $ExternalEndIP = ($Externalcalc).HostMax
+    $ExternalRange = "$ExternalStartIP" + "-" + "$ExternalEndIP"
+
+    #Calculate for Internal CIDR
+    $Internalcalc = Invoke-PSipcalc $Internalcidr
+    $InternalStartIP = ($Internalcalc).HostMin
+    $InternalEndIP = ($Internalcalc).HostMax
+    $InternalRange = "$InternalStartIP" + "-" + "$InternalEndIP"
 
     Write-Output "
 config firewall vip
     edit ""$VIPName""
-        set extip $ExternalIPRange
+        set extip ""$ExternalRange""
         set extintf ""$Interface""
-        set mappedip $InternalIPRange
+        set mappedip ""$InternalRange""
     next
 end"
 }
