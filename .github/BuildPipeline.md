@@ -19,5 +19,5 @@ This is the workflow for new releases
 * **Commit Phase**
     * If a new function was added or any changes made to Markdown help files use PlatyPS to update them
     * Commit changes to the AdminToolbox Repository
-    * Monitor for successful a successful workflow
+    * Monitor for a successful workflow
     * If the workflow fails, resolve and repeat any of the above needed steps
