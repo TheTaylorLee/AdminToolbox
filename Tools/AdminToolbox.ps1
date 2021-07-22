@@ -185,7 +185,9 @@ Function out-manifests {
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         Tags                 = 'Fortinet', 'FortiGate', 'FortiOS'
         RequiredModules      = (
-            @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' }
+            @{ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
+            @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' },
+            @{ModuleName = "PSNmap" ; ModuleVersion = "1.3.1" }
         )
     }
 
