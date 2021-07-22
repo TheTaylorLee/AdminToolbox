@@ -6,25 +6,17 @@ Function New-IPPoolFixedRange {
     .Parameter IPPoolName
     Specify a Unique name for the IP Pool
 
-    .Parameter StartIPRangeExternal
-    Specify an IPAddress that will be at the begining of the external IP Range
+    .Parameter ExternalCIDR
+    Specify the external CIDR range for the IPPool
 
-    .Parameter EndIPRangeExternal
-    Specify an IPAddress that will be at the end of the external IP Range
-
-    .Parameter StartIPRangeInternal
-    Specify an IPAddress that will be at the begining of the internal IP Range
-
-    .Parameter EndIPRangeInternal
-    Specify an IPAddress that will be at the end of the internal IP Range
+    .Parameter InternalCIDR
+    Specify the internal CIDR range for the IPPool
 
     .Example
     $Params = @{
         IPPoolName            = "CompanyIPSECPool"
-        StartIPRangeExternal  = "10.155.127.1"
-        EndIPRangeExternal    = "10.155.127.254"
-        StartIPRangeInternal  = "192.168.0.1"
-        EndIPRangeInternal    = "192.168.0.254"
+        ExternalCIDR          = "10.155.127.0/24"
+        InternalCIDR          = "192.168.1.0/24"
     }
 
     New-IPPoolFixedRange @params
@@ -36,10 +28,8 @@ Function New-IPPoolFixedRange {
 
     $Params = @{
         IPPoolName            = "CompanyIPSECPool"
-        StartIPRangeExternal  = "10.155.127.1"
-        EndIPRangeExternal    = "10.155.127.254"
-        StartIPRangeInternal  = "192.168.0.1"
-        EndIPRangeInternal    = "192.168.0.254"
+        ExternalCIDR          = "10.155.127.0/24"
+        InternalCIDR          = "192.168.1.0/24"
     }
     $command = New-IPPoolFixedRange @params
 
@@ -54,10 +44,8 @@ Function New-IPPoolFixedRange {
 
     $Params = @{
         IPPoolName            = "CompanyIPSECPool"
-        StartIPRangeExternal  = "10.155.127.1"
-        EndIPRangeExternal    = "10.155.127.254"
-        StartIPRangeInternal  = "192.168.0.1"
-        EndIPRangeInternal    = "192.168.0.254"
+        ExternalCIDR          = "10.155.127.0/24"
+        InternalCIDR          = "192.168.1.0/24"
     }
     $command = New-IPPoolFixedRange @params
 
@@ -82,20 +70,44 @@ Function New-IPPoolFixedRange {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$IPPoolName,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$StartIPRangeExternal,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$EndIPRangeExternal,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$StartIPRangeInternal,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$EndIPRangeInternal
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $ExternalCIDR,
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $InternalCIDR
     )
+
+    $Externalcalc = Invoke-PSipcalc $Externalcidr
+    $ExternalStartIP = ($Externalcalc).HostMin
+    $ExternalEndIP = ($Externalcalc).HostMax
+
+    $Internalcalc = Invoke-PSipcalc $Internalcidr
+    $InternalStartIP = ($Internalcalc).HostMin
+    $InternalEndIP = ($Internalcalc).HostMax
 
     Write-Output "
 config firewall ippool
     edit ""$IPPoolName""
         set type fixed-port-range
-        set startip $StartIPRangeExternal
-        set endip $EndIPRangeExternal
-        set source-startip $StartIPRangeInternal
-        set source-endip $EndIPRangeInternal
+        set startip $ExternalStartIP
+        set endip $ExternalEndIP
+        set source-startip $InternalStartIP
+        set source-endip $InternalEndIP
     next
 end"
 }

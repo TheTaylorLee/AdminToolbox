@@ -6,17 +6,13 @@ Function New-IPPoolOverLoad {
     .Parameter IPPoolName
     Specify a Unique name for the IP Pool
 
-    .Parameter StartIP
-    Specify an IPAddress that will be at the begining of the Overload NAT
-
-    .Parameter EndIP
-    Specify an IPAddress that will be at the end of the Overload NAT
+    .Parameter CIDR
+    Specify a CIDR address. ex: 192.168.0.0/24
 
     .Example
     $Params = @{
         IPPoolName    = "SSLVPNNAT"
-        StartIP       = "10.155.127.1"
-        EndIP         = "10.155.127.254"
+        CIDR          = "192.168.1.0/24"
     }
 
     New-IPPoolOverload @params
@@ -28,8 +24,7 @@ Function New-IPPoolOverLoad {
 
     $Params = @{
         IPPoolName    = "SSLVPNNAT"
-        StartIP       = "10.155.127.1"
-        EndIP         = "10.155.127.254"
+        CIDR          = "192.168.1.0/24"
     }
     $command = New-IPPoolOverload @params
 
@@ -44,8 +39,7 @@ Function New-IPPoolOverLoad {
 
     $Params = @{
         IPPoolName    = "SSLVPNNAT"
-        StartIP       = "10.155.127.1"
-        EndIP         = "10.155.127.254"
+        CIDR          = "192.168.1.0/24"
     }
     $command = New-IPPoolOverload @params
 
@@ -70,9 +64,21 @@ Function New-IPPoolOverLoad {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$IPPoolName,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$StartIP,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$EndIP
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $CIDR
     )
+
+    $calc = Invoke-PSipcalc $cidr
+    $StartIP = ($calc).HostMin
+    $EndIP = ($calc).HostMax
 
     Write-Output "
 config firewall ippool
