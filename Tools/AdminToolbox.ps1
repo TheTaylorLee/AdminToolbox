@@ -23,7 +23,7 @@ Function out-manifests {
         FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC', 'Start-Cmder', 'Install-PSPortableLight', 'Install-PSPortable'
         Path                 = "$savepath\AdminToolbox.psd1"
         Author               = "Taylor Lee"
-        Description          = "Parent module for a collection of modules. These modules are varied in their tasks. Review required modules or the project site to better understand this modules capabilities."
+        Description          = "Parent module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         ModuleVersion        = "9.0.6.0"
@@ -47,7 +47,7 @@ Function out-manifests {
         )
         RootModule           = "AdminToolboxManifest.psm1"
         ReleaseNotes         = "The release notes can be found in the ChangeLog.md file at the scriptroot path."
-        Tags                 = '365', 'Active', 'ActiveDirectory', 'Automate', 'Application', 'Directory', 'Exchange', 'FileManagement', 'Iperf', 'Network', 'Networking', 'NetworkScan', 'Office', 'Office365', 'OpenSSH', 'PC', 'PCSetup', 'Print', 'Printer', 'Remoting', 'Robocopy', 'Setup', 'SSH', 'vmware', 'Windows'
+        Tags                 = '365', 'Active', 'ActiveDirectory', 'Automate', 'Application', 'Directory', 'Exchange', 'FileManagement', 'Fortinet', 'FortiGate', 'FortiOS', 'Iperf', 'Network', 'Networking', 'NetworkScan', 'Office', 'Office365', 'OpenSSH', 'PC', 'PCSetup', 'Print', 'Printer', 'Remoting', 'Robocopy', 'Setup', 'SSH', 'vmware', 'Windows'
     }
 
     New-ModuleManifest @Params
@@ -270,7 +270,7 @@ Function out-manifests {
         FunctionsToExport    = 'Get-Remoting', 'Connect-OpenSSH', 'Enable-Remoting', 'Install-SSH', 'Invoke-ServiceRecovery', 'Invoke-RWinSta', 'Invoke-QWinSta', 'Remove-TerminalSessions', 'Get-TerminalSessions', 'Invoke-RunAsSSMS', 'Invoke-RunAsNetwork'
         Path                 = "$savepath\AdminToolbox.Remoting.psd1"
         Author               = "Taylor Lee"
-        Description          = "Functions for remote management an access."
+        Description          = "Functions for remote management and access."
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         ModuleVersion        = "1.7.0.0"

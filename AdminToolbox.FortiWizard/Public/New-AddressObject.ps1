@@ -6,17 +6,13 @@ Function New-AddressObject {
     .Parameter AddressName
     Specify a Unique name for the Address Object
 
-    .Parameter IPAddress
-    Specify a IPAddress that will be ranged by the subnet mask
-
-    .Parameter SubnetMask
-    Specify a SubnetMask for the IPAddress
+    .Parameter CIDR
+    Specify a CIDR address. ex: 192.168.0.0/24
 
     .Example
     $Params = @{
         AddressName   = "ComanyLan_192.168.0.1/26"
-        IPAddress     = "192.168.0.1"
-        SubnetMask    = "255.255.255.192"
+        CIDR          = "192.168.0.1/26"
     }
 
     New-AddressObject @params
@@ -28,8 +24,7 @@ Function New-AddressObject {
 
     $Params = @{
         AddressName   = "ComanyLan_192.168.0.1/26"
-        IPAddress     = "192.168.0.1"
-        SubnetMask    = "255.255.255.192"
+        CIDR          = "192.168.0.1/26"
     }
     $command = New-AddressObject @params
 
@@ -44,8 +39,7 @@ Function New-AddressObject {
 
     $Params = @{
         AddressName   = "ComanyLan_192.168.0.1/26"
-        IPAddress     = "192.168.0.1"
-        SubnetMask    = "255.255.255.192"
+        CIDR          = "192.168.0.1/26"
     }
     $command = New-AddressObject @params
 
@@ -63,16 +57,21 @@ Function New-AddressObject {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$AddressName,
-        [Parameter(Mandatory = $true)][ValidatePattern('^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$')]$IPAddress,
-        [Parameter(Mandatory = $true)][ValidateScript( {
-                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}$') {
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
                     $true
                 }
                 else {
-                    throw "$_ is an invalid pattern. You must provide a subnet mask and not a prefix."
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
-            })]$SubnetMask
+            })]
+        $CIDR
     )
+
+    $calc = Invoke-PSipcalc $cidr
+    $IPAddress = ($calc).IP
+    $SubnetMask = ($calc).SubnetMask
 
     Write-Output "
 #Create Addresses

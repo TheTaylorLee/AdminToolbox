@@ -21,26 +21,23 @@ Function Enable-Management {
     fabric            Security Fabric access.
     ftm               FTM access.
 
-    .Parameter ConfigFilePath
-    Location to save the outputted config file to. The output will append an existing file if the path matches
+    .Parameter TrustedCIDR1
+    Set the first Trusted CIDR address allowed to access the Fortigate. ex: 192.168.0.0/24
 
-    .Parameter TrustedHost1
-    Set the first Trusted subnet allowed to access the Fortigate
+    .Parameter TrustedCIDR2
+    Set the second Trusted CIDR address allowed to access the Fortigate. ex: 192.168.0.0/24
 
-    .Parameter TrustedHost2
-    Set the second Trusted subnet allowed to access the Fortigate
+    .Parameter TrustedCIDR3
+    Set the third Trusted CIDR address allowed to access the Fortigate. ex: 192.168.0.0/24
 
-    .Parameter TrustedHost3
-    Set the third Trusted subnet allowed to access the Fortigate
+    .Parameter TrustedCIDR4
+    Set the fourth Trusted CIDR address allowed to access the Fortigate. ex: 192.168.0.0/24
 
-    .Parameter TrustedHost4
-    Set the fourth Trusted subnet allowed to access the Fortigate
+    .Parameter TrustedCIDR5
+    Set the fifth Trusted CIDR address allowed to access the Fortigate. ex: 192.168.0.0/24
 
-    .Parameter TrustedHost5
-    Set the fifth Trusted subnet allowed to access the Fortigate
-
-    .Parameter TrustedHost6
-    Set the sixth Trusted subnet allowed to access the Fortigate
+    .Parameter TrustedCIDR6
+    Set the sixth Trusted CIDR address allowed to access the Fortigate. ex: 192.168.0.0/24
 
     .Parameter WANInterfaceName
     Name of the Wan Interface
@@ -51,10 +48,10 @@ Function Enable-Management {
     $Params = @{
     AdminUsername    = "admin"
     AllowAccess      = "ping https ssh ftm fgfm"
-    TrustedHost1     = "192.168.0.0 255.255.0.0"
-    TrustedHost2     = "10.0.0.0 255.0.0.0"
-    TrustedHost3     = "172.16.0.0 255.240.0.0"
-    TrustedHost4     = "8.8.8.8 255.255.255.255"
+    TrustedCIDR1     = "192.168.0.0/16"
+    TrustedCIDR2     = "10.0.0.0/8"
+    TrustedCIDR3     = "172.16.0.0/12"
+    TrustedCIDR4     = "8.8.8.8/32"
     WANInterfaceName = "port1"
     }
 
@@ -66,8 +63,8 @@ Function Enable-Management {
     $Params = @{
         AdminUsername    = "admin"
         AllowAccess      = "https"
-        TrustedHost1     = "192.168.0.0 255.255.255.0"
-        TrustedHost2     = "8.8.8.8 255.255.255.255"
+        TrustedCIDR1     = "192.168.0.0/24"
+        TrustedCIDR2     = "8.8.8.8/32"
         WANInterfaceName = "port1"
     }
 
@@ -81,10 +78,10 @@ Function Enable-Management {
     $Params = @{
         AdminUsername    = "admin"
         AllowAccess      = "ping https ssh ftm fgfm"
-        TrustedHost1     = "192.168.0.0 255.255.0.0"
-        TrustedHost2     = "10.0.0.0 255.0.0.0"
-        TrustedHost3     = "172.16.0.0 255.240.0.0"
-        TrustedHost4     = "8.8.8.8 255.255.255.255"
+        TrustedCIDR1     = "192.168.0.0/16"
+        TrustedCIDR2     = "10.0.0.0/8"
+        TrustedCIDR3     = "172.16.0.0/12"
+        TrustedCIDR4     = "8.8.8.8/32"
         WANInterfaceName = "port1"
     }
     $command = Enable-Management @Params
@@ -101,10 +98,10 @@ Function Enable-Management {
     $Params = @{
         AdminUsername    = "admin"
         AllowAccess      = "ping https ssh ftm fgfm"
-        TrustedHost1     = "192.168.0.0 255.255.0.0"
-        TrustedHost2     = "10.0.0.0 255.0.0.0"
-        TrustedHost3     = "172.16.0.0 255.240.0.0"
-        TrustedHost4     = "8.8.8.8 255.255.255.255"
+        TrustedCIDR1     = "192.168.0.0/16"
+        TrustedCIDR2     = "10.0.0.0/8"
+        TrustedCIDR3     = "172.16.0.0/12"
+        TrustedCIDR4     = "8.8.8.8/32"
         WANInterfaceName = "port1"
     }
     $command = Enable-Management @Params
@@ -117,7 +114,7 @@ Function Enable-Management {
     }
 
     .Notes
-    This function currently supports up to 6 Trusted Host subnets
+    This function currently supports up to 6 Trusted Host subnets. Open a Github issue to request more added.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
@@ -125,88 +122,160 @@ Function Enable-Management {
 
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost1')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost2')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost3')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR1')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR2')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR3')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
         [string]$AdminUsername,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost1')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost2')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost3')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR1')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR2')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR3')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
         [string]$AllowAccess = "ping https ssh ftm fgfm",
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost1')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost2')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost3')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR1')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR2')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR3')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
         $WANInterfaceName,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost1')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost2')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost3')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
-        $TrustedHost1,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost2')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost3')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
-        $TrustedHost2,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost3')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
-        $TrustedHost3,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost4')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
-        $TrustedHost4,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost5')]
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
-        $TrustedHost5,
-        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedHost6')]
-        $TrustedHost6
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR1')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR2')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR3')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $TrustedCIDR1,
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR2')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR3')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $TrustedCIDR2,
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR3')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $TrustedCIDR3,
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR4')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $TrustedCIDR4,
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR5')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $TrustedCIDR5,
+        [Parameter(Mandatory = $true, ParameterSetName = 'TrustedCIDR6')]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $TrustedCIDR6
     )
 
-    if ($TrustedHost1) {
-        $t1 = "set trusthost1 $TrustedHost1"
+    if ($TrustedCIDR1) {
+        $calc = Invoke-PSipcalc $TrustedCIDR1
+        $IPAddress = ($calc).IP
+        $SubnetMask = ($calc).SubnetMask
+
+        $t1 = "set trusthost1 $IPAddress $SubnetMask"
         $t2 = $null
         $t3 = $null
         $t4 = $null
         $t5 = $null
         $t6 = $null
     }
-    if ($TrustedHost2) {
-        $t2 = "set trusthost2 $TrustedHost2"
+    if ($TrustedCIDR2) {
+        $calc = Invoke-PSipcalc $TrustedCIDR2
+        $IPAddress = ($calc).IP
+        $SubnetMask = ($calc).SubnetMask
+
+        $t2 = "set trusthost2 $IPAddress $SubnetMask"
         $t3 = $null
         $t4 = $null
         $t5 = $null
         $t6 = $null
     }
-    if ($TrustedHost3) {
-        $t3 = "set trusthost3 $TrustedHost3"
+    if ($TrustedCIDR3) {
+        $calc = Invoke-PSipcalc $TrustedCIDR3
+        $IPAddress = ($calc).IP
+        $SubnetMask = ($calc).SubnetMask
+
+        $t3 = "set trusthost3 $IPAddress $SubnetMask"
         $t4 = $null
         $t5 = $null
         $t6 = $null
     }
-    if ($TrustedHost4) {
-        $t4 = "set trusthost4 $TrustedHost4"
+    if ($TrustedCIDR4) {
+        $calc = Invoke-PSipcalc $TrustedCIDR4
+        $IPAddress = ($calc).IP
+        $SubnetMask = ($calc).SubnetMask
+
+        $t4 = "set trusthost4 $IPAddress $SubnetMask"
         $t5 = $null
         $t6 = $null
     }
-    if ($TrustedHost5) {
-        $t5 = "set trusthost5 $TrustedHost5"
+    if ($TrustedCIDR5) {
+        $calc = Invoke-PSipcalc $TrustedCIDR5
+        $IPAddress = ($calc).IP
+        $SubnetMask = ($calc).SubnetMask
+
+        $t5 = "set trusthost5 $IPAddress $SubnetMask"
         $t6 = $null
     }
-    if ($TrustedHost6) {
-        $t6 = "set trusthost6 $TrustedHost6"
+    if ($TrustedCIDR6) {
+        $calc = Invoke-PSipcalc $TrustedCIDR6
+        $IPAddress = ($calc).IP
+        $SubnetMask = ($calc).SubnetMask
+
+        $t6 = "set trusthost6 $IPAddress $SubnetMask"
     }
 
     if ($t6) {

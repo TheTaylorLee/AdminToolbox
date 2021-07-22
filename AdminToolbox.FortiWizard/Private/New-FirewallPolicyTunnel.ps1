@@ -35,7 +35,7 @@ config firewall policy
         set schedule always
         set service ""$Service""
         set utm-status enable
-        set ssl-ssh-profile Block-Malicious
+        set ssl-ssh-profile no-inspection
         set ips-sensor default
         set logtraffic all
     next
@@ -52,7 +52,7 @@ config firewall policy
         set schedule always
         set service ""$Service""
         set utm-status enable
-        set ssl-ssh-profile Block-Malicious
+        set ssl-ssh-profile no-inspection
         set ips-sensor default
         set logtraffic all
     next
