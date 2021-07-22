@@ -25,3 +25,4 @@ Install-Module PlatyPS -Force
 $ModuleName = '<ModuleNameHere>'
 $path = "./docs/<ModuleName>"
 New-MarkdownHelp -Module $ModuleName -OutputFolder $path -force
+```
