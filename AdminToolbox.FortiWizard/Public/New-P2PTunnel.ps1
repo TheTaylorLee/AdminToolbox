@@ -3,6 +3,16 @@ Function New-P2PTunnel {
     .Description
     This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
 
+    .Parameter AddressObjectNames
+    This is the Address Object Names that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectCIDRs parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+
+    ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
+
+    .Parameter AddressObjectCIDRs
+    This is the Address Object CIDRs that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
     .Example
     New-P2PTunnel
 
@@ -22,115 +32,112 @@ Function New-P2PTunnel {
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
     #>
-    $ErrorActionPreference = 'inquire'
 
-    Write-Host "Each function called by this VPN wizard will write to host it's config. This is for referencing as other functions are called. When this wizard is complete, the full config will be written as output for manipulation and use. Any time an error occurs you will be prompted if you wish to abort or continue the function. If you continue you will get the opportunity to correct the mistake as the error private function will be called again." -ForegroundColor Green
+    Param (
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of Address Objects that will be used by this Tunnel. ex: ""LanSubnet"", ""PartnerSubnet""")]
+        [string[]]$AddressObjectNames,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$AddressObjectCIDRs
+    )
+
     Write-Host ""
 
-
     #Create Address Objects
-    Write-Host "Creating Address Objects Config" -ForegroundColor Cyan
-    $query = Read-Host "Do you want to create one or more Address Objects? (yes/no)"
-    $AddressObjects = while ($query -eq 'yes') {
-        if ($query -eq 'yes') {
-            New-AddressObject
+    [int]$max = $AddressObjectNames.Count
+    $AddressObjects = for ($i = 0; $i -lt $max; $i++) {
+        [PSCustomObject]@{
+            Name = $AddressObjectNames[$i]
+            CIDR = $AddressObjectCIDRs[$i]
         }
-        $query = Read-Host "Do you want to create more Address Objects? (yes/no)"
     }
-    Write-Host $AddressObjects
 
-    #Create Address Group
-    Write-Host "Creating Address Groups Config" -ForegroundColor Cyan
-    $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
-    $AddressGroups = while ($query2 -eq 'yes') {
-        if ($query2 -eq 'yes') {
-            New-AddressGroup
-        }
-        $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
+    $ConfAddressObjects = Foreach ($AddressObject in $AddressObjects) {
+        New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
     }
-    Write-Host $AddressGroups
 
-    #Create Phase 1 Interface
-    Write-Host "Creating Phase 1 Interface Config" -ForegroundColor Cyan
-    $Phase1 = New-P2PPhase1Interface
-    Write-Host $Phase1
-
-    #Create Phase 2 Interfaces
-    Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
-    $query3 = 'yes'
-    $Phase2 = while ($query3 -eq 'yes') {
-        if ($query3 -eq 'yes') {
-            New-P2PPhase2Interface
-        }
-        $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
-    }
-    Write-Host $Phase2
-
-    #Create Static Routes
-    Write-Host "Creating Static Routes Config" -ForegroundColor Cyan
-    $query4 = 'yes'
-    $StaticRoute = while ($query4 -eq 'yes') {
-        if ($query4 -eq 'yes') {
-            New-StaticRouteTunnel
-        }
-        $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
-    }
-    Write-Host $StaticRoute
-
-    #Create Services
-    Write-Host "Creating Services Config" -ForegroundColor Cyan
-    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
-    $Service = while ($query5 -eq 'yes') {
-        if ($query5 -eq 'yes') {
-            $Protocol = Read-Host "Specify if this is a TCP or UDP Service (TCP/UDP)"
-
-            if ($Protocol -eq 'TCP') {
-                $Params = @{
-                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-                    TCPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-                }
-            }
-            if ($Protocol -eq 'UDP') {
-                $Params = @{
-                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-                    UDPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-                }
-            }
-
-            New-ServiceObject @Params
-        }
-        $query5 = Read-Host "Do you want to create more services? (yes/no)"
-    }
-    Write-Host $Service
-
-    #Create Service Groups
-    Write-Host "Creating Service Groups Config" -ForegroundColor Cyan
-    $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
-    $ServiceGroup = while ($query6 -eq 'yes') {
-        if ($query6 -eq 'yes') {
-            New-ServiceGroup
-        }
-        $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
-    }
-    Write-Host $ServiceGroup
-
-    #Create Firewall Policies
-    Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
-    $FirewallPolicy = New-FirewallPolicyTunnel
-    Write-Host $FirewallPolicy
-
+    #    #Create Address Group
+    #    $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
+    #    $ConfAddressGroups = while ($query2 -eq 'yes') {
+    #        if ($query2 -eq 'yes') {
+    #            New-AddressGroup
+    #        }
+    #        $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
+    #    }
+    #
+    #    #Create Phase 1 Interface
+    #    $ConfPhase1 = New-P2PPhase1Interface
+    #
+    #    #Create Phase 2 Interfaces
+    #    $query3 = 'yes'
+    #    $ConfPhase2 = while ($query3 -eq 'yes') {
+    #        if ($query3 -eq 'yes') {
+    #            New-P2PPhase2Interface
+    #        }
+    #        $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
+    #    }
+    #
+    #    #Create Static Routes
+    #    $query4 = 'yes'
+    #    $ConfStaticRoute = while ($query4 -eq 'yes') {
+    #        if ($query4 -eq 'yes') {
+    #            New-StaticRouteTunnel
+    #        }
+    #        $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
+    #    }
+    #
+    #    #Create Services
+    #    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
+    #    $ConfService = while ($query5 -eq 'yes') {
+    #        if ($query5 -eq 'yes') {
+    #            $Protocol = Read-Host "Specify if this is a TCP or UDP Service (TCP/UDP)"
+    #
+    #            if ($Protocol -eq 'TCP') {
+    #                $Params = @{
+    #                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
+    #                    TCPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
+    #                }
+    #            }
+    #            if ($Protocol -eq 'UDP') {
+    #                $Params = @{
+    #                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
+    #                    UDPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
+    #                }
+    #            }
+    #
+    #            New-ServiceObject @Params
+    #        }
+    #        $query5 = Read-Host "Do you want to create more services? (yes/no)"
+    #    }
+    #
+    #    #Create Service Groups
+    #    $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
+    #    $ConfServiceGroup = while ($query6 -eq 'yes') {
+    #        if ($query6 -eq 'yes') {
+    #            New-ServiceGroup
+    #        }
+    #        $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
+    #    }
+    #
+    #    #Create Firewall Policies
+    #    $ConfFirewallPolicy = New-FirewallPolicyTunnel
+    #
     Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-    Write-Output $AddressObjects
-    Write-Output $AddressGroups
-    Write-Output $Phase1
-    Write-Output $Phase2
-    Write-Output $StaticRoute
-    Write-Output $Service
-    Write-Output $ServiceGroup
-    Write-Output $FirewallPolicy
+    Write-Output $ConfAddressObjects
+    #    Write-Output $ConfAddressGroups
+    #    Write-Output $ConfPhase1
+    #    Write-Output $ConfPhase2
+    #    Write-Output $ConfStaticRoute
+    #    Write-Output $ConfService
+    #    Write-Output $ConfServiceGroup
+    #    Write-Output $ConfFirewallPolicy
     Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-    Write-Host "If there is no output between the Omission delimiters, that is because you redirected the output elsewhere. Like into a variable." -ForegroundColor Green
     Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
-
-    $ErrorActionPreference = 'continue'
 }
