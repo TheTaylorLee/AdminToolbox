@@ -3,15 +3,70 @@ Function New-P2PTunnel {
     .Description
     This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
 
+    .Parameter AddressObjectCIDRs
+    This is the Address Object CIDRs that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
     .Parameter AddressObjectNames
     This is the Address Object Names that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectCIDRs parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
 
     ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
 
-    .Parameter AddressObjectCIDRs
-    This is the Address Object CIDRs that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+    .Parameter dhgroups
+    This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in space delimited format.
 
-    ex: "192.168.1.0/24", "10.100.0/24"
+    *These are the available DH Groups
+    32 31 30 29 28 27
+    21 20 19 18 17 16
+    15 14 5 2 1
+
+    .Parameter PeerAddress
+    This is the public IP Address for the remote side of the tunnel.
+
+    .Parameter Proposal
+    This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
+
+    ex: aes256-sha512 aes256-sha1
+
+    *These are the available proposals that can be used.
+    des-md5          des-md5
+    des-sha1         des-sha1
+    des-sha256       des-sha256
+    des-sha384       des-sha384
+    des-sha512       des-sha512
+    3des-md5         3des-md5
+    3des-sha1        3des-sha1
+    3des-sha256      3des-sha256
+    3des-sha384      3des-sha384
+    3des-sha512      3des-sha512
+    aes128-md5       aes128-md5
+    aes128-sha1      aes128-sha1
+    aes128-sha256    aes128-sha256
+    aes128-sha384    aes128-sha384
+    aes128-sha512    aes128-sha512
+    aes192-md5       aes192-md5
+    aes192-sha1      aes192-sha1
+    aes192-sha256    aes192-sha256
+    aes192-sha384    aes192-sha384
+    aes192-sha512    aes192-sha512
+    aes256-md5       aes256-md5
+    aes256-sha1      aes256-sha1
+    aes256-sha256    aes256-sha256
+    aes256-sha384    aes256-sha384
+    aes256-sha512    aes256-sha512
+
+    .Parameter PSK
+    This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
+
+    .Parameter TunnelName
+    This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
+
+    .Parameter TTL
+    This is the Time to Live for the Phase 1 and Phase 2 proposals.
+
+    .Parameter WANInterface
+    This is the name of the WAN interface that the tunnel will be built on.
 
     .Example
     New-P2PTunnel
@@ -47,6 +102,7 @@ Function New-P2PTunnel {
             })]
         [string[]]$AddressObjectCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        [ValidateLength(1, 15)]
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
         $WANInterface,
