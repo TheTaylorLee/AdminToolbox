@@ -45,7 +45,49 @@ Function New-P2PTunnel {
                     throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
             })]
-        [string[]]$AddressObjectCIDRs
+        [string[]]$AddressObjectCIDRs,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
+        $WANInterface,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
+        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "
+des-md5          des-md5
+des-sha1         des-sha1
+des-sha256       des-sha256
+des-sha384       des-sha384
+des-sha512       des-sha512
+3des-md5         3des-md5
+3des-sha1        3des-sha1
+3des-sha256      3des-sha256
+3des-sha384      3des-sha384
+3des-sha512      3des-sha512
+aes128-md5       aes128-md5
+aes128-sha1      aes128-sha1
+aes128-sha256    aes128-sha256
+aes128-sha384    aes128-sha384
+aes128-sha512    aes128-sha512
+aes192-md5       aes192-md5
+aes192-sha1      aes192-sha1
+aes192-sha256    aes192-sha256
+aes192-sha384    aes192-sha384
+aes192-sha512    aes192-sha512
+aes256-md5       aes256-md5
+aes256-sha1      aes256-sha1
+aes256-sha256    aes256-sha256
+aes256-sha384    aes256-sha384
+aes256-sha512    aes256-sha512
+
+Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
+")]
+        $Proposal,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
+        $dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
+        $PeerAddress,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
+        $PSK
     )
 
     Write-Host ""
@@ -71,11 +113,20 @@ Function New-P2PTunnel {
     #        }
     #        $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
     #    }
-    #
-    #    #Create Phase 1 Interface
-    #    $ConfPhase1 = New-P2PPhase1Interface
-    #
-    #    #Create Phase 2 Interfaces
+
+    #Create Phase 1 Proposals
+    $params = @{
+        TunnelName  = $TunnelName
+        Interface   = $WanInterface
+        Proposal    = $Proposal
+        dhgroups    = $dhgroups
+        PeerAddress = $PeerAddress
+        PSK         = $PSK
+        TTL         = $TTL
+    }
+    $ConfPhase1 = New-P2PPhase1Interface @params
+
+    #    #Create Phase 2 Proposals
     #    $query3 = 'yes'
     #    $ConfPhase2 = while ($query3 -eq 'yes') {
     #        if ($query3 -eq 'yes') {
@@ -83,7 +134,7 @@ Function New-P2PTunnel {
     #        }
     #        $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
     #    }
-    #
+
     #    #Create Static Routes
     #    $query4 = 'yes'
     #    $ConfStaticRoute = while ($query4 -eq 'yes') {
@@ -132,7 +183,7 @@ Function New-P2PTunnel {
     Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
     Write-Output $ConfAddressObjects
     #    Write-Output $ConfAddressGroups
-    #    Write-Output $ConfPhase1
+    Write-Output $ConfPhase1
     #    Write-Output $ConfPhase2
     #    Write-Output $ConfStaticRoute
     #    Write-Output $ConfService

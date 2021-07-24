@@ -13,7 +13,8 @@ Function New-P2PPhase1Interface {
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
         $Interface,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 Time to Live.")]$TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 Time to Live.")]
+        $TTL,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
