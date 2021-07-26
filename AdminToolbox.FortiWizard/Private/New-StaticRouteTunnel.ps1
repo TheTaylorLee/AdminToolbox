@@ -26,6 +26,5 @@ config router static
         set blackhole enable
         set dstaddr ""$DestinationAddressName""
     next
-end
-"
+end"
 }

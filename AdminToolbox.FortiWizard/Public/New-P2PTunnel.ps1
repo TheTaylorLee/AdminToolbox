@@ -3,16 +3,6 @@ Function New-P2PTunnel {
     .Description
     This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
 
-    .Parameter AddressObjectCIDRs
-    This is the Address Object CIDRs that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
-
-    ex: "192.168.1.0/24", "10.100.0/24"
-
-    .Parameter AddressObjectNames
-    This is the Address Object Names that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectCIDRs parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
-
-    ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
-
     .Parameter dhgroups
     This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in space delimited format.
 
@@ -20,6 +10,16 @@ Function New-P2PTunnel {
     32 31 30 29 28 27
     21 20 19 18 17 16
     15 14 5 2 1
+
+    .Parameter LocalAddressCIDRs
+    This is the Address Object CIDRs that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
+    .Parameter LocalAddressNames
+    This is the Address Object Names that will be created for the local and remote sides of the tunnel. This parameter matches up with the AddressObjectCIDRs parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+
+    ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
 
     .Parameter PeerAddress
     This is the public IP Address for the remote side of the tunnel.
@@ -89,8 +89,8 @@ Function New-P2PTunnel {
     #>
 
     Param (
-        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of Address Objects that will be used by this Tunnel. ex: ""LanSubnet"", ""PartnerSubnet""")]
-        [string[]]$AddressObjectNames,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
+        $dhgroups,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
         [ValidateScript( {
                 if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
@@ -100,14 +100,11 @@ Function New-P2PTunnel {
                     throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
             })]
-        [string[]]$AddressObjectCIDRs,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
-        [ValidateLength(1, 15)]
-        $TunnelName,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
-        $WANInterface,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
-        $TTL,
+        [string[]]$LocalAddressCIDRs,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of Address Objects that will be used by this Tunnel. ex: ""LanSubnet"", ""PartnerSubnet""")]
+        [string[]]$LocalAddressNames,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
+        $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
@@ -138,37 +135,66 @@ aes256-sha512    aes256-sha512
 Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
 ")]
         $Proposal,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
-        $dhgroups,
-        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
-        $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
-        $PSK
+        $PSK,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$RemoteAddressCIDRs,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of Address Objects that will be used by this Tunnel. ex: ""LanSubnet"", ""PartnerSubnet""")]
+        [string[]]$RemoteAddressNames,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
+        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        [ValidateLength(1, 15)]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
+        $WANInterface
     )
 
     Write-Host ""
 
-    #Create Address Objects
-    [int]$max = $AddressObjectNames.Count
-    $AddressObjects = for ($i = 0; $i -lt $max; $i++) {
+    #Create Local Address Objects
+    [int]$max = $LocalAddressNames.Count
+    $LocalAddressObjects = for ($i = 0; $i -lt $max; $i++) {
         [PSCustomObject]@{
-            Name = $AddressObjectNames[$i]
-            CIDR = $AddressObjectCIDRs[$i]
+            Name = $LocalAddressNames[$i]
+            CIDR = $LocalAddressCIDRs[$i]
         }
     }
 
-    $ConfAddressObjects = Foreach ($AddressObject in $AddressObjects) {
+    $ConfLocalAddressObjects = Foreach ($AddressObject in $LocalAddressObjects) {
         New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
     }
 
-    #    #Create Address Group
-    #    $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
-    #    $ConfAddressGroups = while ($query2 -eq 'yes') {
-    #        if ($query2 -eq 'yes') {
-    #            New-AddressGroup
-    #        }
-    #        $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
-    #    }
+    #Create Remote Address Objects
+    [int]$max = $RemoteAddressNames.Count
+    $RemoteAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+        [PSCustomObject]@{
+            Name = $RemoteAddressNames[$i]
+            CIDR = $RemoteAddressCIDRs[$i]
+        }
+    }
+
+    $ConfRemoteAddressObjects = Foreach ($AddressObject in $RemoteAddressObjects) {
+        New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+    }
+
+    #Create Local Address Group
+    $LocNames = $localaddressnames -join " "
+    $GroupName = "vpn_" + "$TunnelName" + "_Local"
+    $ConfLocalAddressGroups = New-AddressGroup -AddressNames $LocNames -GroupName $GroupName
+
+    #Create Remote Address Group
+    $RemNames = $Remoteaddressnames -join " "
+    $GroupName = "vpn_" + "$TunnelName" + "_Remote"
+    $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $GroupName
 
     #Create Phase 1 Proposals
     $params = @{
@@ -237,8 +263,10 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     #    $ConfFirewallPolicy = New-FirewallPolicyTunnel
     #
     Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-    Write-Output $ConfAddressObjects
-    #    Write-Output $ConfAddressGroups
+    Write-Output $ConfLocalAddressObjects
+    Write-Output $ConfRemoteAddressObjects
+    Write-Output $ConfLocalAddressGroups
+    Write-Output $ConfRemoteAddressGroups
     Write-Output $ConfPhase1
     #    Write-Output $ConfPhase2
     #    Write-Output $ConfStaticRoute

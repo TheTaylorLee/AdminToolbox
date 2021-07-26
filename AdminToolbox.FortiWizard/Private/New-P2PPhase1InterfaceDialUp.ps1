@@ -127,7 +127,6 @@ config vpn ipsec phase1-interface
         set remote-gw $Peeraddress
         set psksecret $PSK
     next
-end
-"
+end"
     }
 }

@@ -92,6 +92,5 @@ config firewall vip
         set extport $port
         set mappedport $port
     next
-end
-"
+end"
 }

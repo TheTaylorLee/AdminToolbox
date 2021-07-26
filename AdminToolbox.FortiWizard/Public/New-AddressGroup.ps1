@@ -66,6 +66,5 @@ config firewall addrgrp
         set member $AddressNames
         set allow-routing enable
     next
-end
-"
+end"
 }

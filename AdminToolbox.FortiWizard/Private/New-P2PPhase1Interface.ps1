@@ -64,6 +64,5 @@ config vpn ipsec phase1-interface
         set remote-gw $PeerAddress
         set psksecret $PSK
     next
-end
-"
+end"
 }

@@ -107,6 +107,5 @@ config system interface
     edit ""$WanInterfaceName""
         set allowaccess ftm
     next
-end
-"
+end"
 }

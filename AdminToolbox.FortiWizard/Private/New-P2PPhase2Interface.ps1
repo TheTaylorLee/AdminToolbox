@@ -71,6 +71,5 @@ config vpn ipsec phase2-interface
         set src-name ""$SourceAddressName""
         set dst-name ""$DestinationAddressName""
     next
-end
-"
+end"
 }

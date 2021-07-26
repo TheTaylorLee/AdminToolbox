@@ -79,6 +79,5 @@ config firewall address
         set subnet $IPAddress $SubnetMask
         set allow-routing enable
     next
-end
-"
+end"
 }

@@ -56,6 +56,5 @@ config firewall policy
         set ips-sensor default
         set logtraffic all
     next
-end
-"
+end"
 }
