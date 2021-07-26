@@ -260,9 +260,11 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
         if ($remote -gt $locals) {
             $ConfPhase2 = for ($i = 0; $i -lt $ProcessCount; $i++) {
+                #[int]$loopcount = $i
                 $remaddname = $LocalAddressNames[$i]
 
                 for ($ii = 0; $ii -lt $local; $ii++) {
+                    #$phasecount = $loopcount + $ii
                     $params = @{
                         DestinationAddressName = $RemoteAddressNames[$ii]
                         dhgroups               = $dhgroups
@@ -280,9 +282,11 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
         else {
             $ConfPhase2 = for ($i = 0; $i -lt $ProcessCount; $i++) {
+                #[int]$loopcount = $i
                 $locaddname = $LocalAddressNames[$i]
 
                 for ($ii = 0; $ii -lt $remotes; $ii++) {
+                    #$phasecount = $i + $ii
                     $params = @{
                         DestinationAddressName = $RemoteAddressNames[$ii]
                         dhgroups               = $dhgroups
@@ -298,9 +302,15 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             }
         }
 
-        #Create Static Routes
-        $ConfStaticRoute = New-StaticRouteTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
-
+        #    #Create Static Routes
+        #    $query4 = 'yes'
+        #    $ConfStaticRoute = while ($query4 -eq 'yes') {
+        #        if ($query4 -eq 'yes') {
+        #            New-StaticRouteTunnel
+        #        }
+        #        $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
+        #    }
+        #
         #    #Create Services
         #    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
         #    $ConfService = while ($query5 -eq 'yes') {
@@ -329,7 +339,8 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         #    $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
         #    $ConfServiceGroup = while ($query6 -eq 'yes') {
         #        if ($query6 -eq 'yes') {
-        #            New-ServiceGroup
+        #
+        Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green            New-ServiceGroup
         #        }
         #        $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
         #    }
@@ -347,7 +358,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfRemoteAddressGroups
         Write-Output $ConfPhase1
         Write-Output $ConfPhase2
-        Write-Output $ConfStaticRoute
+        #    Write-Output $ConfStaticRoute
         #    Write-Output $ConfService
         #    Write-Output $ConfServiceGroup
         #    Write-Output $ConfFirewallPolicy
