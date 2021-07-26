@@ -191,7 +191,6 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     begin {
         $ErrorActionPreference = 'Stop'
         $dhgroups = $dhgroups -join " "
-        Write-Host ""
     }
 
     process {
@@ -364,5 +363,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         #    Write-Output $ConfFirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
+
+        $ErrorActionPreference = 'continue'
     }
 }
