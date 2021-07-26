@@ -260,11 +260,9 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
         if ($remote -gt $locals) {
             $ConfPhase2 = for ($i = 0; $i -lt $ProcessCount; $i++) {
-                #[int]$loopcount = $i
                 $remaddname = $LocalAddressNames[$i]
 
                 for ($ii = 0; $ii -lt $local; $ii++) {
-                    #$phasecount = $loopcount + $ii
                     $params = @{
                         DestinationAddressName = $RemoteAddressNames[$ii]
                         dhgroups               = $dhgroups
@@ -282,11 +280,9 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
         else {
             $ConfPhase2 = for ($i = 0; $i -lt $ProcessCount; $i++) {
-                #[int]$loopcount = $i
                 $locaddname = $LocalAddressNames[$i]
 
                 for ($ii = 0; $ii -lt $remotes; $ii++) {
-                    #$phasecount = $i + $ii
                     $params = @{
                         DestinationAddressName = $RemoteAddressNames[$ii]
                         dhgroups               = $dhgroups
