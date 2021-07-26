@@ -302,15 +302,9 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             }
         }
 
-        #    #Create Static Routes
-        #    $query4 = 'yes'
-        #    $ConfStaticRoute = while ($query4 -eq 'yes') {
-        #        if ($query4 -eq 'yes') {
-        #            New-StaticRouteTunnel
-        #        }
-        #        $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
-        #    }
-        #
+        #Create Static Routes
+        $ConfStaticRoute = New-StaticRouteTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
+
         #    #Create Services
         #    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
         #    $ConfService = while ($query5 -eq 'yes') {
@@ -357,7 +351,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfRemoteAddressGroups
         Write-Output $ConfPhase1
         Write-Output $ConfPhase2
-        #    Write-Output $ConfStaticRoute
+        Write-Output $ConfStaticRoute
         #    Write-Output $ConfService
         #    Write-Output $ConfServiceGroup
         #    Write-Output $ConfFirewallPolicy
