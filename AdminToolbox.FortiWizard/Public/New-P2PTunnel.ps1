@@ -1,13 +1,13 @@
 <#example
+    #LocalAddressNames  = "local1", "local2", "local3"
+    #RemoteAddressNames = "remote1", "remote2", "remote3"
 $params = @{
     dhgroups           = "5", "14"
     LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    LocalAddressNames  = "local1", "local2", "local3"
     PeerAddress        = "56.98.75.32"
     Proposal           = "aes256-sha512"
     PSK                = "dfdayb%^4356456"
     RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    RemoteAddressNames = "remote1", "remote2", "remote3"
     TTL                = "28800"
     TunnelName         = "TestTunnel"
     WANInterface       = "wan3"
@@ -37,7 +37,7 @@ Function New-P2PTunnel {
     ex: "192.168.1.0/24", "10.100.0/24"
 
     .Parameter LocalAddressNames
-    This is the Address Object Names that will be created for the local side of the tunnel. This parameter matches up with the AddressObjectCIDRs parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+    This is the Address Object Names that will be created for the local side of the tunnel.
 
     ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
 
@@ -80,14 +80,9 @@ Function New-P2PTunnel {
     This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
 
     .Parameter RemoteAddressCIDRs
-    This is the Address Object CIDRs that will be created for the remote side of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+    This is the Address Object CIDRs that will be created for the remote side of the tunnel.
 
     ex: "192.168.1.0/24", "10.100.0/24"
-
-    .Parameter RemoteAddressNames
-    This is the Address Object Names that will be created for the remote side of the tunnel. This parameter matches up with the AddressObjectCIDRs parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
-
-    ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
 
     .Parameter TunnelName
     This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
@@ -131,8 +126,6 @@ Function New-P2PTunnel {
                 }
             })]
         [string[]]$LocalAddressCIDRs,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of Address Objects that will be used by this Tunnel. ex: ""LanSubnet"", ""PartnerSubnet""")]
-        [string[]]$LocalAddressNames,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
@@ -177,8 +170,6 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
                 }
             })]
         [string[]]$RemoteAddressCIDRs,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of Address Objects that will be used by this Tunnel. ex: ""LanSubnet"", ""PartnerSubnet""")]
-        [string[]]$RemoteAddressNames,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
         $TTL,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
@@ -195,38 +186,38 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
     process {
         #Create Local Address Objects
-        [int]$max = $LocalAddressNames.Count
-        $LocalAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+        [int]$max = $LocalAddressCIDRs.Count
+        $script:LocalAddressObjects = for ($i = 0; $i -lt $max; $i++) {
             [PSCustomObject]@{
-                Name = $LocalAddressNames[$i]
+                Name = "VPN_" + $TunnelName + "_Local_" + $i
                 CIDR = $LocalAddressCIDRs[$i]
             }
         }
 
-        $ConfLocalAddressObjects = Foreach ($AddressObject in $LocalAddressObjects) {
+        $ConfLocalAddressObjects = Foreach ($AddressObject in $script:LocalAddressObjects) {
             New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create Remote Address Objects
-        [int]$max = $RemoteAddressNames.Count
-        $RemoteAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+        [int]$max = $RemoteAddressCIDRs.Count
+        $script:RemoteAddressObjects = for ($i = 0; $i -lt $max; $i++) {
             [PSCustomObject]@{
-                Name = $RemoteAddressNames[$i]
+                Name = "VPN_" + $TunnelName + "_Remote_" + $i
                 CIDR = $RemoteAddressCIDRs[$i]
             }
         }
 
-        $ConfRemoteAddressObjects = Foreach ($AddressObject in $RemoteAddressObjects) {
+        $ConfRemoteAddressObjects = Foreach ($AddressObject in $script:RemoteAddressObjects) {
             New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create Local Address Group
-        $LocNames = $localaddressnames -join " "
+        $LocNames = ($script:LocalAddressObjects).name -join " "
         $LocalGroupName = "vpn_" + "$TunnelName" + "_Local"
         $ConfLocalAddressGroups = New-AddressGroup -AddressNames $LocNames -GroupName $LocalGroupName
 
         #Create Remote Address Group
-        $RemNames = $Remoteaddressnames -join " "
+        $RemNames = ($script:RemoteAddressObjects).name -join " "
         $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
         $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
@@ -243,62 +234,26 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $ConfPhase1 = New-P2PPhase1Interface @params
 
         #Create Phase 2 Proposals
-        [int]$Locals = $LocalAddressNames.count
-        [int]$Remotes = $RemoteAddressNames.count
-
-        if ($locals -gt $remotes) {
-            $ProcessCount = $locals
-        }
-        elseif ($remotes -gt $locals) {
-            $ProcessCount = $remotes
-        }
-        else {
-            $ProcessCount = $locals
-        }
-
+        [int]$localcount = $script:LocalAddressObjects.count
+        [int]$remotecount = $script:RemoteAddressObjects.count
         [int]$Script:PhaseCount = 1
 
-        if ($remote -gt $locals) {
-            $ConfPhase2 = for ($i = 0; $i -lt $ProcessCount; $i++) {
-                #[int]$loopcount = $i
-                $remaddname = $LocalAddressNames[$i]
-
-                for ($ii = 0; $ii -lt $local; $ii++) {
-                    #$phasecount = $loopcount + $ii
-                    $params = @{
-                        DestinationAddressName = $RemoteAddressNames[$ii]
-                        dhgroups               = $dhgroups
-                        PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
-                        Proposal               = $Proposal
-                        SourceAddressName      = $remaddname
-                        TTL                    = $TTL
-                        TunnelName             = $TunnelName
-                    }
-                    New-P2PPhase2Interface @params
-                    $Script:phasecount++
+        $ConfPhase2 = for ($i = 0; $i -lt $localcount; $i++) {
+            $locals = ($script:LocalAddressObjects).name
+            $sourceaddressname = $locals[$i]
+            for ($ii = 0; $ii -lt $remotecount; $ii++) {
+                $remotes = ($script:RemoteAddressObjects).name
+                $params = @{
+                    DestinationAddressName = $remotes[$ii]
+                    dhgroups               = $dhgroups
+                    PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
+                    Proposal               = $Proposal
+                    SourceAddressName      = $sourceaddressname
+                    TTL                    = $TTL
+                    TunnelName             = $TunnelName
                 }
-            }
-        }
-
-        else {
-            $ConfPhase2 = for ($i = 0; $i -lt $ProcessCount; $i++) {
-                #[int]$loopcount = $i
-                $locaddname = $LocalAddressNames[$i]
-
-                for ($ii = 0; $ii -lt $remotes; $ii++) {
-                    #$phasecount = $i + $ii
-                    $params = @{
-                        DestinationAddressName = $RemoteAddressNames[$ii]
-                        dhgroups               = $dhgroups
-                        PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
-                        Proposal               = $Proposal
-                        SourceAddressName      = $locaddname
-                        TTL                    = $TTL
-                        TunnelName             = $TunnelName
-                    }
-                    New-P2PPhase2Interface @params
-                    $Script:phasecount++
-                }
+                New-P2PPhase2Interface @params
+                $Script:phasecount++
             }
         }
 
