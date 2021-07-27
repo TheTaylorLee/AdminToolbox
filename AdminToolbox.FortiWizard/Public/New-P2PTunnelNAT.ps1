@@ -2,11 +2,11 @@
 $params = @{
     dhgroups           = "5", "14"
     #LANInterface       = "port1"
-    #LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
     PeerAddress        = "56.98.75.32"
     Proposal           = "aes256-sha512"
     PSK                = "dfdayb%^4356456"
-    #RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     #Services           = "RDP/3389/TCP", "DNS/53/UDP"
     TTL                = "28800"
     TunnelName         = "TestTunnel"
@@ -38,6 +38,16 @@ Function New-P2PTunnelNAT {
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
         [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$LocalAddressCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
@@ -72,6 +82,16 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
         $PSK,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$RemoteAddressCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
         $TTL,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
@@ -99,16 +119,39 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         }
         $ConfPhase1 = New-P2PPhase1Interface @params
 
-        #        #Create Address Objects
-        #        Write-Host "Creating Address Objects Config" -ForegroundColor Cyan
-        #        $query = Read-Host "Do you want to create one or more Address Objects? (yes/no)"
-        #        $AddressObjects = while ($query -eq 'yes') {
-        #            if ($query -eq 'yes') {
-        #                New-AddressObject
-        #            }
-        #            $query = Read-Host "Do you want to create more Address Objects? (yes/no)"
-        #        }
-        #        Write-Host $AddressObjects
+        #Create Local Address Objects
+        [int]$max = $LocalAddressCIDRs.Count
+        $script:LocalAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_Local_" + $i
+                CIDR = $LocalAddressCIDRs[$i]
+            }
+        }
+
+        $ConfLocalAddressObjects = Foreach ($AddressObject in $script:LocalAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
+        #Create Remote Address Objects
+        [int]$max = $RemoteAddressCIDRs.Count
+        $script:RemoteAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_Remote_" + $i
+                CIDR = $RemoteAddressCIDRs[$i]
+            }
+        }
+
+        $ConfRemoteAddressObjects = Foreach ($AddressObject in $script:RemoteAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
+
+        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
+        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
+        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
+        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
+        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
+
         #
         #        #Create Address Group
         #        Write-Host "Creating Address Groups Config" -ForegroundColor Cyan
@@ -212,7 +255,8 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Output $ConfPhase1
-        # Write-Output $AddressObjects
+        Write-Output $ConfLocalAddressObjects
+        Write-Output $ConfRemoteAddressObjects
         # Write-Output $AddressGroups
         # Write-Output $IPPool
         # Write-Output $VIPRange
