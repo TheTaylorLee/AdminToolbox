@@ -148,6 +148,7 @@
 * **9.0.4.0**  Updated Admintoolbox.Fortiwizard Module Requirements
 * **9.0.5.0**  Updated Admintoolbox.Fortiwizard Module Requirements
 * **9.0.6.0**  Updated Admintoolbox.Fortiwizard Module Requirements
+* **9.1.0** Update versioning standard, added LicenseURI, and updated required modules.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-9.0.6.0
+9.1.0
