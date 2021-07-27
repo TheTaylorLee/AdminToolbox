@@ -1,3 +1,20 @@
+<#
+$params = @{
+    dhgroups           = "5", "14"
+    #LANInterface       = "port1"
+    #LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    PeerAddress        = "56.98.75.32"
+    Proposal           = "aes256-sha512"
+    PSK                = "dfdayb%^4356456"
+    #RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    #Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    TTL                = "28800"
+    TunnelName         = "TestTunnel"
+    WANInterface       = "wan3"
+    }
+    New-P2PTunnelNAT @params
+#>
+
 Function New-P2PTunnelNAT {
     <#
     .Description
@@ -19,7 +36,49 @@ Function New-P2PTunnelNAT {
     #>
 
     Param (
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
+        [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
+        $PeerAddress,
+        [Parameter(Mandatory = $true, HelpMessage = "
+des-md5          des-md5
+des-sha1         des-sha1
+des-sha256       des-sha256
+des-sha384       des-sha384
+des-sha512       des-sha512
+3des-md5         3des-md5
+3des-sha1        3des-sha1
+3des-sha256      3des-sha256
+3des-sha384      3des-sha384
+3des-sha512      3des-sha512
+aes128-md5       aes128-md5
+aes128-sha1      aes128-sha1
+aes128-sha256    aes128-sha256
+aes128-sha384    aes128-sha384
+aes128-sha512    aes128-sha512
+aes192-md5       aes192-md5
+aes192-sha1      aes192-sha1
+aes192-sha256    aes192-sha256
+aes192-sha384    aes192-sha384
+aes192-sha512    aes192-sha512
+aes256-md5       aes256-md5
+aes256-sha1      aes256-sha1
+aes256-sha256    aes256-sha256
+aes256-sha384    aes256-sha384
+aes256-sha512    aes256-sha512
 
+Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
+")]
+        $Proposal,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
+        $PSK,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
+        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        [ValidateLength(1, 15)]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
+        $WANInterface
     )
 
     begin {
@@ -28,9 +87,17 @@ Function New-P2PTunnelNAT {
     }
 
     process {
-        #Create Phase 1 Interface
-        $Phase1 = New-P2PPhase1Interface
-        Write-Host $Phase1
+        #Create Phase 1 Proposal
+        $params = @{
+            TunnelName  = $TunnelName
+            Interface   = $WanInterface
+            Proposal    = $Proposal
+            dhgroups    = $dhgroups
+            PeerAddress = $PeerAddress
+            PSK         = $PSK
+            TTL         = $TTL
+        }
+        $ConfPhase1 = New-P2PPhase1Interface @params
 
         #        #Create Address Objects
         #        Write-Host "Creating Address Objects Config" -ForegroundColor Cyan
@@ -144,7 +211,7 @@ Function New-P2PTunnelNAT {
     end {
         Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-        # Write-Output $Phase1
+        Write-Output $ConfPhase1
         # Write-Output $AddressObjects
         # Write-Output $AddressGroups
         # Write-Output $IPPool
