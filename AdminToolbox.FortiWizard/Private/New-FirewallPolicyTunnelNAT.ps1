@@ -32,7 +32,7 @@ config firewall policy
         set dstaddr ""$DestinationAddress""
         set action accept
         set schedule always
-        set service ""$Service""
+        set service $Service
         set utm-status enable
         set ssl-ssh-profile no-inspection
         set ips-sensor default
@@ -52,7 +52,7 @@ config firewall policy
         set dstaddr ""$VIPName""
         set action accept
         set schedule always
-        set service ""$Service""
+        set service $Service
         set utm-status enable
         set ssl-ssh-profile no-inspection
         set ips-sensor default

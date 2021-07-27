@@ -14,11 +14,6 @@ Function New-DialUPTunnelStatic {
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
 
-    .Notes
-    Capitalization and spacing is very important when running this function. Typos should also be avoided. Any errors resultant from adding spaces, creating typos, or not focusing on persisint casing will lead to errors. The function will fail, or the config script when pushed to the firewall will fail to produce desired results.
-
-    Better parameter validation may be added in future versions of this function.
-
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
     #>

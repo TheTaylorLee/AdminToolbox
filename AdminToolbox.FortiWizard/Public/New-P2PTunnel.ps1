@@ -1,19 +1,3 @@
-<#example
-$params = @{
-    dhgroups           = "5", "14"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
-}
-$conf = New-P2PTunnel @params
-#>
-
 Function New-P2PTunnel {
     <#
     .Description
@@ -29,15 +13,13 @@ Function New-P2PTunnel {
     21 20 19 18 17 16
     15 14 5 2 1
 
+    .Parameter LANInterface
+    This is the name of the local or lan interface.
+
     .Parameter LocalAddressCIDRs
-    This is the Address Object CIDRs that will be created for the local side of the tunnel. This parameter matches up with the AddressObjectNames parameter for generating the Address Objects. Be sure that your order the items in the arrays to match up.
+    This is the Address Object CIDRs that will be created for the local side of the tunnel.
 
     ex: "192.168.1.0/24", "10.100.0/24"
-
-    .Parameter LocalAddressNames
-    This is the Address Object Names that will be created for the local side of the tunnel.
-
-    ex: "Local_192.168.1.0/24", "Remote_10.100.0/24"
 
     .Parameter PeerAddress
     This is the public IP Address for the remote side of the tunnel.
@@ -97,20 +79,43 @@ Function New-P2PTunnel {
     This is the name of the WAN interface that the tunnel will be built on.
 
     .Example
-    New-P2PTunnel
+    $params = @{
+    dhgroups           = "5", "14"
+    LANInterface       = "port1"
+    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    PeerAddress        = "56.98.75.32"
+    Proposal           = "aes256-sha512"
+    PSK                = "dfdayb%^4356456"
+    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    TTL                = "28800"
+    TunnelName         = "TestTunnel"
+    WANInterface       = "wan3"
+    }
+    New-P2PTunnel @params
+
+    This example will generate a VPN tunnel config.
 
     .Example
-    This example generates an SSH session and invokes the output of this function against that session.
-
     New-SSHSession -computername 192.168.0.1
-    $command = New-P2PTunnel
+    $params = @{
+    dhgroups           = "5", "14"
+    LANInterface       = "port1"
+    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    PeerAddress        = "56.98.75.32"
+    Proposal           = "aes256-sha512"
+    PSK                = "dfdayb%^4356456"
+    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    TTL                = "28800"
+    TunnelName         = "TestTunnel"
+    WANInterface       = "wan3"
+    }
+    $command = New-P2PTunnel @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
 
-    .Notes
-    Capitalization and spacing is very important when running this function. Typos should also be avoided. Any errors resultant from adding spaces, creating typos, or not focusing on persisint casing will lead to errors. The function will fail, or the config script when pushed to the firewall will fail to produce desired results.
-
-    Better parameter validation may be added in future versions of this function.
+    This example generates an SSH session and invokes the output of this function against that session.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
@@ -119,6 +124,8 @@ Function New-P2PTunnel {
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
         [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Lan Interface Name")]
+        $LANInterface,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
         [ValidateScript( {
                 if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
@@ -273,14 +280,14 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
                 if ($split[2] -eq 'TCP') {
                     $Params = @{
-                        ServiceName  = $split[0]
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
                         TCPPortRange = $split[1]
                     }
                 }
 
                 if ($split[2] -eq 'UDP') {
                     $Params = @{
-                        ServiceName  = $split[0]
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
                         UDPPortRange = $split[1]
                     }
                 }
@@ -293,18 +300,20 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             $proc = $services -split "/"
             [int]$count = $proc.count
             $svcs = for ($i = 0; $i -lt $count) {
-                $proc[$i]
+                [string]"vpn_" + $tunnelname + [string]"_" + $proc[$i]
                 $i = $i + [int]3
             }
-            $result = $svcs -join " "
-            $groupname = "vpn_" + $tunnelname
-            New-ServiceGroup -ServiceGroupName $groupname -Members $result
+            $svcresult = $svcs -join " "
+            $svcgroupname = "vpn_" + $tunnelname
+            New-ServiceGroup -ServiceGroupName $groupname -Members $svcresult
         }
 
 
-        #    #Create Firewall Policies
-        #    $ConfFirewallPolicy = New-FirewallPolicyTunnel
-        #
+        #Create Firewall Policies
+        if ($null -eq $svcresult) {
+            $svcgroupname = [string]"ALL"
+        }
+        $ConfFirewallPolicy = New-FirewallPolicyTunnel -TunnelName $TunnelName -SourceInterfaceName $LANInterface -SourceAddress $LocalGroupName -DestinationAddress $RemoteGroupName -service $svcgroupname
     }
 
     end {
@@ -319,7 +328,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfStaticRoute
         Write-Output $ConfService
         Write-Output $ConfServiceGroup
-        #    Write-Output $ConfFirewallPolicy
+        Write-Output $ConfFirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 
