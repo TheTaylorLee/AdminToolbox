@@ -233,7 +233,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
         $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
-        #Create Phase 1 Proposals
+        #Create Phase 1 Proposal
         $params = @{
             TunnelName  = $TunnelName
             Interface   = $WanInterface
@@ -334,4 +334,4 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
         $ErrorActionPreference = 'continue'
     }
-} 
+}
