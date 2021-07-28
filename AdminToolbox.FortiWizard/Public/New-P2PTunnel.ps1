@@ -248,7 +248,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         #Create Phase 2 Proposals
         [int]$localcount = $script:LocalAddressObjects.count
         [int]$remotecount = $script:RemoteAddressObjects.count
-        [int]$Script:PhaseCount = 1
+        [int]$Script:PhaseCount = 0
 
         $ConfPhase2 = for ($i = 0; $i -lt $localcount; $i++) {
             $locals = ($script:LocalAddressObjects).name

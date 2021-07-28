@@ -156,6 +156,19 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
+        #Create NAT Address Objects
+        [int]$max = $NATCIDRs.Count
+        $script:NATAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_NAT_" + $i
+                CIDR = $NATCIDRs[$i]
+            }
+        }
+
+        $ConfNATAddressObjects = Foreach ($AddressObject in $script:NATAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
         #Create Local Address Group
         $LocNames = ($script:LocalAddressObjects).name -join " "
         $LocalGroupName = "vpn_" + "$TunnelName" + "_Local"
@@ -185,26 +198,40 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $VIPObjects = for ($i = 0; $i -lt $max; $i++) {
             [PSCustomObject]@{
                 VIPName      = "vpn_" + $TunnelName + "_" + $i
+                TunnelName   = $TunnelName
                 ExternalCIDR = $NATCIDRs[$i]
                 InternalCIDR = $LocalAddressCIDRs[$i]
             }
         }
 
         $VIPRange = Foreach ($VIPObject in $VIPObjects) {
-            New-VIPRange -VIPName $VIPObject.VIPName -ExternalCIDR $VIPObject.ExternalCIDR -InternalCIDR $VIPObject.InternalCIDR -Interface $TunnelName
+            New-VIPRange -VIPName $VIPObject.VIPName -ExternalCIDR $VIPObject.ExternalCIDR -InternalCIDR $VIPObject.InternalCIDR -Interface $VIPObject.TunnelName
         }
 
-        #        #Create Phase 2 Interfaces
-        #        Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
-        #        $query3 = 'yes'
-        #        $Phase2 = while ($query3 -eq 'yes') {
-        #            if ($query3 -eq 'yes') {
-        #                New-P2PPhase2Interface
-        #            }
-        #            $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
-        #        }
-        #        Write-Host $Phase2
-        #
+        #Create Phase 2 Interfaces
+        [int]$localcount = $script:NATAddressObjects.count
+        [int]$remotecount = $script:RemoteAddressObjects.count
+        [int]$Script:PhaseCount = 0
+
+        $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
+            $locals = ($script:NATAddressObjects).name
+            $sourceaddressname = $locals[$i]
+            for ($ii = 0; $ii -lt $remotecount; $ii++) {
+                $remotes = ($script:RemoteAddressObjects).name
+                $params = @{
+                    DestinationAddressName = $remotes[$ii]
+                    dhgroups               = $dhgroups
+                    PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
+                    Proposal               = $Proposal
+                    SourceAddressName      = $sourceaddressname
+                    TTL                    = $TTL
+                    TunnelName             = $TunnelName
+                }
+                New-P2PPhase2Interface @params
+                $Script:phasecount++
+            }
+        }
+
         #        #Create Static Routes
         #        Write-Host "Creating Static Routes Config" -ForegroundColor Cyan
         #        $query4 = 'yes'
@@ -266,11 +293,12 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfPhase1
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
+        Write-Output $ConfNATAddressObjects
         Write-Output $ConfLocalAddressGroups
         Write-Output $ConfRemoteAddressGroups
         Write-Output $IPPool
         Write-Output $VIPRange
-        # Write-Output $Phase2
+        Write-Output $Phase2
         # Write-Output $StaticRoute
         # Write-Output $Service
         # Write-Output $ServiceGroup
