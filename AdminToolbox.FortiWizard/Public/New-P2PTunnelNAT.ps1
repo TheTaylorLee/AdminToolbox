@@ -3,6 +3,7 @@ $params = @{
     dhgroups           = "5", "14"
     #LANInterface       = "port1"
     LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    NATCIDRs           = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
     PeerAddress        = "56.98.75.32"
     Proposal           = "aes256-sha512"
     PSK                = "dfdayb%^4356456"
@@ -48,6 +49,16 @@ Function New-P2PTunnelNAT {
                 }
             })]
         [string[]]$LocalAddressCIDRs,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that are to be the NAT CIDRS for the Local CIDRS. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$NATCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
@@ -155,17 +166,20 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
         $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
-        #        #Create IP Pool
-        #        Write-Host "Creating IPPool (Source NAT)" -ForegroundColor Cyan
-        #        $query7 = 'yes'
-        #        $IPPool = while ($query7 -eq 'yes') {
-        #            if ($query7 -eq 'yes') {
-        #                New-IPPoolFixedRange
-        #            }
-        #            $query7 = Read-Host "Did you run into an error and still need to add an IPPool? (yes/no)"
-        #        }
-        #        Write-Host $IPPool
-        #
+        #Create IP Pool
+        [int]$max = $LocalAddressCIDRs.Count
+        $IPPoolObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                IPPoolName   = "vpn_" + $TunnelName + "_" + $i
+                ExternalCIDR = $NATCIDRs[$i]
+                InternalCIDR = $LocalAddressCIDRs[$i]
+            }
+        }
+
+        $IPPool = Foreach ($IPPoolObject in $IPPoolObjects) {
+            New-IPPoolFixedRange -IPPoolName $IPPoolObject.IPPoolName -ExternalCIDR $IPPoolObject.ExternalCIDR -InternalCIDR $IPPoolObject.InternalCIDR
+        }
+
         #        #Create VIPRange
         #        Write-Host "Creating VIPRange (Destination NAT)" -ForegroundColor Cyan
         #        $query7 = 'yes'
@@ -237,6 +251,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         #        Write-Host $ServiceGroup
         #
         #        #Create Firewall Policies
+        #        #Firewall Policies will need to generate multiple policies to address the fact only one ippool may exist per policy.
         #        Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
         #        $FirewallPolicy = New-FirewallPolicyTunnelNAT
         #        Write-Host $FirewallPolicy
@@ -250,7 +265,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfRemoteAddressObjects
         Write-Output $ConfLocalAddressGroups
         Write-Output $ConfRemoteAddressGroups
-        # Write-Output $IPPool
+        Write-Output $IPPool
         # Write-Output $VIPRange
         # Write-Output $Phase2
         # Write-Output $StaticRoute
