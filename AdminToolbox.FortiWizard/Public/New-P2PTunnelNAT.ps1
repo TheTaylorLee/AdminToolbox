@@ -145,25 +145,16 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
+        #Create Local Address Group
+        $LocNames = ($script:LocalAddressObjects).name -join " "
+        $LocalGroupName = "vpn_" + "$TunnelName" + "_Local"
+        $ConfLocalAddressGroups = New-AddressGroup -AddressNames $LocNames -GroupName $LocalGroupName
 
-        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
-        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
-        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
-        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
-        #REVIEW EXISTING CONFIG SCRIPT AND CONSIDER HOW BEST TO HANDLE THE FUNCTION FLOW.
+        #Create Remote Address Group
+        $RemNames = ($script:RemoteAddressObjects).name -join " "
+        $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
+        $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
-        #
-        #        #Create Address Group
-        #        Write-Host "Creating Address Groups Config" -ForegroundColor Cyan
-        #        $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
-        #        $AddressGroups = while ($query2 -eq 'yes') {
-        #            if ($query2 -eq 'yes') {
-        #                New-AddressGroup
-        #            }
-        #            $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
-        #        }
-        #        Write-Host $AddressGroups
-        #
         #        #Create IP Pool
         #        Write-Host "Creating IPPool (Source NAT)" -ForegroundColor Cyan
         #        $query7 = 'yes'
@@ -257,7 +248,8 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfPhase1
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
-        # Write-Output $AddressGroups
+        Write-Output $ConfLocalAddressGroups
+        Write-Output $ConfRemoteAddressGroups
         # Write-Output $IPPool
         # Write-Output $VIPRange
         # Write-Output $Phase2
