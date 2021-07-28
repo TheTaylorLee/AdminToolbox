@@ -180,17 +180,20 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             New-IPPoolFixedRange -IPPoolName $IPPoolObject.IPPoolName -ExternalCIDR $IPPoolObject.ExternalCIDR -InternalCIDR $IPPoolObject.InternalCIDR
         }
 
-        #        #Create VIPRange
-        #        Write-Host "Creating VIPRange (Destination NAT)" -ForegroundColor Cyan
-        #        $query7 = 'yes'
-        #        $VIPRange = while ($query7 -eq 'yes') {
-        #            if ($query7 -eq 'yes') {
-        #                New-VIPRange
-        #            }
-        #            $query7 = Read-Host "Did you run into an error and still need to add a VIP Range? (yes/no)"
-        #        }
-        #        Write-Host $VIPRange
-        #
+        #Create VIPRange
+        [int]$max = $LocalAddressCIDRs.Count
+        $VIPObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                VIPName      = "vpn_" + $TunnelName + "_" + $i
+                ExternalCIDR = $NATCIDRs[$i]
+                InternalCIDR = $LocalAddressCIDRs[$i]
+            }
+        }
+
+        $VIPRange = Foreach ($VIPObject in $VIPObjects) {
+            New-VIPRange -VIPName $VIPObject.VIPName -ExternalCIDR $VIPObject.ExternalCIDR -InternalCIDR $VIPObject.InternalCIDR -Interface $TunnelName
+        }
+
         #        #Create Phase 2 Interfaces
         #        Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
         #        $query3 = 'yes'
@@ -266,7 +269,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfLocalAddressGroups
         Write-Output $ConfRemoteAddressGroups
         Write-Output $IPPool
-        # Write-Output $VIPRange
+        Write-Output $VIPRange
         # Write-Output $Phase2
         # Write-Output $StaticRoute
         # Write-Output $Service
