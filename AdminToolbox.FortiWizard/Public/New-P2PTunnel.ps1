@@ -308,7 +308,6 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             New-ServiceGroup -ServiceGroupName $groupname -Members $svcresult
         }
 
-
         #Create Firewall Policies
         if ($null -eq $svcresult) {
             $svcgroupname = [string]"ALL"

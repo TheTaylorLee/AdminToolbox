@@ -8,7 +8,7 @@ $params = @{
     Proposal           = "aes256-sha512"
     PSK                = "dfdayb%^4356456"
     RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    #Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    Services           = "RDP/3389/TCP", "DNS/53/UDP"
     TTL                = "28800"
     TunnelName         = "TestTunnel"
     WANInterface       = "wan3"
@@ -232,54 +232,45 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             }
         }
 
-        #        #Create Static Routes
-        #        Write-Host "Creating Static Routes Config" -ForegroundColor Cyan
-        #        $query4 = 'yes'
-        #        $StaticRoute = while ($query4 -eq 'yes') {
-        #            if ($query4 -eq 'yes') {
-        #                New-StaticRouteTunnel
-        #            }
-        #            $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
-        #        }
-        #        Write-Host $StaticRoute
-        #
-        #        #Create Services
-        #        Write-Host "Creating Services Config" -ForegroundColor Cyan
-        #        $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
-        #        $Service = while ($query5 -eq 'yes') {
-        #            if ($query5 -eq 'yes') {
-        #                $Protocol = Read-Host "Specify if this is a TCP or UDP Service (TCP/UDP)"
-        #
-        #                if ($Protocol -eq 'TCP') {
-        #                    $Params = @{
-        #                        ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-        #                        TCPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-        #                    }
-        #                }
-        #                if ($Protocol -eq 'UDP') {
-        #                    $Params = @{
-        #                        ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-        #                        UDPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-        #                    }
-        #                }
-        #
-        #                New-ServiceObject @Params
-        #            }
-        #            $query5 = Read-Host "Do you want to create more services? (yes/no)"
-        #        }
-        #        Write-Host $Service
-        #
-        #        #Create Service Groups
-        #        Write-Host "Creating Service Groups Config" -ForegroundColor Cyan
-        #        $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
-        #        $ServiceGroup = while ($query6 -eq 'yes') {
-        #            if ($query6 -eq 'yes') {
-        #                New-ServiceGroup
-        #            }
-        #            $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
-        #        }
-        #        Write-Host $ServiceGroup
-        #
+        #Create Static Routes
+        $StaticRoute = New-StaticRouteTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
+
+        #Create Services
+        $Service = if ($services) {
+
+            foreach ($service in $services) {
+                $split = $service -split "/"
+
+                if ($split[2] -eq 'TCP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        TCPPortRange = $split[1]
+                    }
+                }
+
+                if ($split[2] -eq 'UDP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        UDPPortRange = $split[1]
+                    }
+                }
+                New-ServiceObject @Params
+            }
+        }
+
+        #Create Service Groups
+        $ServiceGroup = if ($services) {
+            $proc = $services -split "/"
+            [int]$count = $proc.count
+            $svcs = for ($i = 0; $i -lt $count) {
+                [string]"vpn_" + $tunnelname + [string]"_" + $proc[$i]
+                $i = $i + [int]3
+            }
+            $svcresult = $svcs -join " "
+            $svcgroupname = "vpn_" + $tunnelname
+            New-ServiceGroup -ServiceGroupName $groupname -Members $svcresult
+        }
+
         #        #Create Firewall Policies
         #        #Firewall Policies will need to generate multiple policies to address the fact only one ippool may exist per policy.
         #        Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
@@ -299,9 +290,9 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $IPPool
         Write-Output $VIPRange
         Write-Output $Phase2
-        # Write-Output $StaticRoute
-        # Write-Output $Service
-        # Write-Output $ServiceGroup
+        Write-Output $StaticRoute
+        Write-Output $Service
+        Write-Output $ServiceGroup
         # Write-Output $FirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
