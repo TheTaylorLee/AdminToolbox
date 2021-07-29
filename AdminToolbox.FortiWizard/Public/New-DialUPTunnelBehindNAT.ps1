@@ -1,10 +1,94 @@
-<#
+Function New-DialUPTunnelBehindNAT {
+
+    <#
+    .Description
+    This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the remote side of the tunnel whose public IP is subject to change or Sits behind another firewall.
+
+    .Parameter dhgroups
+    This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
+
+    ex: "5", "14"
+
+    *These are the available DH Groups
+    32 31 30 29 28 27
+    21 20 19 18 17 16
+    15 14 5 2 1
+
+    .Parameter LANInterface
+    This is the name of the local or lan interface.
+
+    .Parameter LocalAddressCIDRs
+    This is the Address Object CIDRs that will be created for the local side of the tunnel.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
+    .Parameter PeerAddress
+    This is the public IP Address for the remote side of the tunnel.
+
+    .Parameter PeerID
+    This is a unique 3 numeric character long Identifer for this tunnel.
+
+    .Parameter Proposal
+    This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
+
+    ex: aes256-sha512 aes256-sha1
+
+    *These are the available proposals that can be used.
+    des-md5          des-md5
+    des-sha1         des-sha1
+    des-sha256       des-sha256
+    des-sha384       des-sha384
+    des-sha512       des-sha512
+    3des-md5         3des-md5
+    3des-sha1        3des-sha1
+    3des-sha256      3des-sha256
+    3des-sha384      3des-sha384
+    3des-sha512      3des-sha512
+    aes128-md5       aes128-md5
+    aes128-sha1      aes128-sha1
+    aes128-sha256    aes128-sha256
+    aes128-sha384    aes128-sha384
+    aes128-sha512    aes128-sha512
+    aes192-md5       aes192-md5
+    aes192-sha1      aes192-sha1
+    aes192-sha256    aes192-sha256
+    aes192-sha384    aes192-sha384
+    aes192-sha512    aes192-sha512
+    aes256-md5       aes256-md5
+    aes256-sha1      aes256-sha1
+    aes256-sha256    aes256-sha256
+    aes256-sha384    aes256-sha384
+    aes256-sha512    aes256-sha512
+
+    .Parameter PSK
+    This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
+
+    .Parameter RemoteAddressCIDRs
+    This is the Address Object CIDRs that will be created for the remote side of the tunnel.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
+    .Parameter Services
+    Specify the Service or services that will be applied to the Firewall Policy for this tunnel.
+
+    ex: "RDP/3389/TCP", "piov/5060-5061/UDP"
+
+    .Parameter TTL
+    This is the Time to Live for the Phase 1 and Phase 2 proposals.
+
+    .Parameter TunnelName
+    This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
+
+    .Parameter WANInterface
+    This is the name of the WAN interface that the tunnel will be built on.
+
+    .Example
     $params = @{
        dhgroups           = "5", "14"
        LANInterface       = "port1"
        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
        PeerAddress        = "56.98.75.32"
-       PeerID             = 187
+       PeerID             = "187"
        Proposal           = "aes256-sha512"
        PSK                = "dfdayb%^4356456"
        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
@@ -14,29 +98,31 @@
        WANInterface       = "wan3"
     }
     New-DialUPTunnelBehindNAT @params
-#>
 
-<#
-$dhgroups           = "5", "14"
-$LANInterface       = "port1"
-$LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-$PeerAddress        = "56.98.75.32"
-$PeerID             = "187"
-$Proposal           = "aes256-sha512"
-$PSK                = "dfdayb%^4356456"
-$RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-$Services           = "RDP/3389/TCP", "DNS/53/UDP"
-$TTL                = "28800"
-$TunnelName         = "TestTunnel"
-$WANInterface       = "wan3"
-#>
+    This example will generate a Dial-up VPN tunnel config.
 
+    .Example
+    New-SSHSession -computername 192.168.0.1
+    $params = @{
+       dhgroups           = "5", "14"
+       LANInterface       = "port1"
+       LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+       PeerAddress        = "56.98.75.32"
+       PeerID             = "187"
+       Proposal           = "aes256-sha512"
+       PSK                = "dfdayb%^4356456"
+       RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+       Services           = "RDP/3389/TCP", "DNS/53/UDP"
+       TTL                = "28800"
+       TunnelName         = "TestTunnel"
+       WANInterface       = "wan3"
+    }
+    $command = New-DialUPTunnelBehindNAT @params
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
 
-Function New-DialUPTunnelBehindNAT {
+    This example generates an SSH session and invokes the output of this function against that session.
 
-    <#
-    .Description
-    This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the remote side of the tunnel whose public IP is subject to change or Sits behind another firewall.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
@@ -195,49 +281,49 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         }
 
         #Create Static Routes
-        $StaticRoute = New-StaticRouteDialupTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
+        $StaticRoute = New-StaticRouteDialupTunnel -DestinationAddressName $RemoteGroupName
 
-        #    #Create Services
-        #    Write-Host "Creating Services Config" -ForegroundColor Cyan
-        #    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
-        #    $Service = while ($query5 -eq 'yes') {
-        #        if ($query5 -eq 'yes') {
-        #            $Protocol = Read-Host "Specify if this is a TCP or UDP Service (TCP/UDP)"
-        #
-        #            if ($Protocol -eq 'TCP') {
-        #                $Params = @{
-        #                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-        #                    TCPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-        #                }
-        #            }
-        #            if ($Protocol -eq 'UDP') {
-        #                $Params = @{
-        #                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-        #                    UDPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-        #                }
-        #            }
-        #
-        #            New-ServiceObject @Params
-        #        }
-        #        $query5 = Read-Host "Do you want to create more services? (yes/no)"
-        #    }
-        #    Write-Host $Service
-        #
-        #    #Create Service Groups
-        #    Write-Host "Creating Service Groups Config" -ForegroundColor Cyan
-        #    $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
-        #    $ServiceGroup = while ($query6 -eq 'yes') {
-        #        if ($query6 -eq 'yes') {
-        #            New-ServiceGroup
-        #        }
-        #        $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
-        #    }
-        #    Write-Host $ServiceGroup
-        #
-        #    #Create Firewall Policies
-        #    Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
-        #    $FirewallPolicy = New-FirewallPolicyTunnel
-        #    Write-Host $FirewallPolicy
+        #Create Services
+        $Service = if ($services) {
+
+            foreach ($service in $services) {
+                $split = $service -split "/"
+
+                if ($split[2] -eq 'TCP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        TCPPortRange = $split[1]
+                    }
+                }
+
+                if ($split[2] -eq 'UDP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        UDPPortRange = $split[1]
+                    }
+                }
+                New-ServiceObject @Params
+            }
+        }
+
+        #Create Service Groups
+        $ServiceGroup = if ($services) {
+            $proc = $services -split "/"
+            [int]$count = $proc.count
+            $svcs = for ($i = 0; $i -lt $count) {
+                [string]"vpn_" + $tunnelname + [string]"_" + $proc[$i]
+                $i = $i + [int]3
+            }
+            $svcresult = $svcs -join " "
+            $svcgroupname = "vpn_" + $tunnelname
+            New-ServiceGroup -ServiceGroupName $svcgroupname -Members $svcresult
+        }
+
+        #Create Firewall Policies
+        if ($null -eq $svcresult) {
+            $svcgroupname = [string]"ALL"
+        }
+        $FirewallPolicy = New-FirewallPolicyTunnel -TunnelName $TunnelName -SourceInterfaceName $LANInterface -SourceAddress $LocalGroupName -DestinationAddress $RemoteGroupName -service $svcgroupname
     }
 
     end {
@@ -250,9 +336,9 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $Phase1
         Write-Output $Phase2
         Write-Output $StaticRoute
-        #        Write-Output $Service
-        #        Write-Output $ServiceGroup
-        #        Write-Output $FirewallPolicy
+        Write-Output $Service
+        Write-Output $ServiceGroup
+        Write-Output $FirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 

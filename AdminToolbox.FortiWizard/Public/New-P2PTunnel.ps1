@@ -80,17 +80,17 @@ Function New-P2PTunnel {
 
     .Example
     $params = @{
-    dhgroups           = "5", "14"
-    LANInterface       = "port1"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
+        dhgroups           = "5", "14"
+        LANInterface       = "port1"
+        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+        PeerAddress        = "56.98.75.32"
+        Proposal           = "aes256-sha512"
+        PSK                = "dfdayb%^4356456"
+        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+        Services           = "RDP/3389/TCP", "DNS/53/UDP"
+        TTL                = "28800"
+        TunnelName         = "TestTunnel"
+        WANInterface       = "wan3"
     }
     New-P2PTunnel @params
 
@@ -99,17 +99,17 @@ Function New-P2PTunnel {
     .Example
     New-SSHSession -computername 192.168.0.1
     $params = @{
-    dhgroups           = "5", "14"
-    LANInterface       = "port1"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
+        dhgroups           = "5", "14"
+        LANInterface       = "port1"
+        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+        PeerAddress        = "56.98.75.32"
+        Proposal           = "aes256-sha512"
+        PSK                = "dfdayb%^4356456"
+        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+        Services           = "RDP/3389/TCP", "DNS/53/UDP"
+        TTL                = "28800"
+        TunnelName         = "TestTunnel"
+        WANInterface       = "wan3"
     }
     $command = New-P2PTunnel @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
