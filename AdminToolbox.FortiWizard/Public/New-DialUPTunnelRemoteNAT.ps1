@@ -1,18 +1,7 @@
-Function New-DialUPTunnelStatic {
+Function New-DialUPTunnelRemoteNAT {
     <#
     .Description
-    This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the local side of the tunnel whose public IP is static and whose end does not sit behind another NAT firewall.
-
-    .Example
-    New-DialupTunnelStatic
-
-    .Example
-    This example generates an SSH session and invokes the output of this function against that session.
-
-    New-SSHSession -computername 192.168.0.1
-    $command = New-DialupTunnelStatic
-    $result = Invoke-SSHCommand -Command $command -SessionId 0
-    $result.output
+    This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the firewall whose public IP is static and whose end does not sit behind another NAT firewall.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
