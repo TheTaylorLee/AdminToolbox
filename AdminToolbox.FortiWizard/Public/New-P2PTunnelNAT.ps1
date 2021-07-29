@@ -1,9 +1,94 @@
-<#
-$params = @{
+Function New-P2PTunnelNAT {
+    <#
+    .Description
+    This is a CLI wizard that generates a new IPSec Tunnel Config and related objects. The source Subnet will be Natted by this policy.
+
+    .Parameter dhgroups
+    This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
+
+    ex: "5", "14"
+
+    *These are the available DH Groups
+    32 31 30 29 28 27
+    21 20 19 18 17 16
+    15 14 5 2 1
+
+    .Parameter LANInterface
+    This is the name of the local or lan interface.
+
+    .Parameter LocalAddressCIDRs
+    This is the Address Object CIDRs that will be created for the local side of the tunnel. If there is more than one CIDR, it must be ordered in conjunction with the NAT CIDRS. So that each local CIDR in the array matches it's NAT CIDR.
+
+    ex: "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+
+    .Parameter NATAddressCIDRS
+    This is the Address Object NAT CIDRs that will be created for the local side of the tunnel. If there is more than one CIDR, it must be ordered in conjunction with the Local CIDRS. So that each NAT CIDR in the array matches it's Local CIDR.
+
+    ex: "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+
+    .Parameter PeerAddress
+    This is the public IP Address for the remote side of the tunnel.
+
+    .Parameter Proposal
+    This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
+
+    ex: aes256-sha512 aes256-sha1
+
+    *These are the available proposals that can be used.
+    des-md5          des-md5
+    des-sha1         des-sha1
+    des-sha256       des-sha256
+    des-sha384       des-sha384
+    des-sha512       des-sha512
+    3des-md5         3des-md5
+    3des-sha1        3des-sha1
+    3des-sha256      3des-sha256
+    3des-sha384      3des-sha384
+    3des-sha512      3des-sha512
+    aes128-md5       aes128-md5
+    aes128-sha1      aes128-sha1
+    aes128-sha256    aes128-sha256
+    aes128-sha384    aes128-sha384
+    aes128-sha512    aes128-sha512
+    aes192-md5       aes192-md5
+    aes192-sha1      aes192-sha1
+    aes192-sha256    aes192-sha256
+    aes192-sha384    aes192-sha384
+    aes192-sha512    aes192-sha512
+    aes256-md5       aes256-md5
+    aes256-sha1      aes256-sha1
+    aes256-sha256    aes256-sha256
+    aes256-sha384    aes256-sha384
+    aes256-sha512    aes256-sha512
+
+    .Parameter PSK
+    This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
+
+    .Parameter RemoteAddressCIDRs
+    This is the Address Object CIDRs that will be created for the remote side of the tunnel.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
+    .Parameter Services
+    Specify the Service or services that will be applied to the Firewall Policy for this tunnel.
+
+    ex: "RDP/3389/TCP", "piov/5060-5061/UDP"
+
+    .Parameter TTL
+    This is the Time to Live for the Phase 1 and Phase 2 proposals.
+
+    .Parameter TunnelName
+    This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
+
+    .Parameter WANInterface
+    This is the name of the WAN interface that the tunnel will be built on.
+
+    .Example
+    $params = @{
     dhgroups           = "5", "14"
-    #LANInterface       = "port1"
+    LANInterface       = "port1"
     LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    NATCIDRs           = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+    NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
     PeerAddress        = "56.98.75.32"
     Proposal           = "aes256-sha512"
     PSK                = "dfdayb%^4356456"
@@ -14,23 +99,30 @@ $params = @{
     WANInterface       = "wan3"
     }
     New-P2PTunnelNAT @params
-#>
 
-Function New-P2PTunnelNAT {
-    <#
-    .Description
-    This is a CLI wizard that generates a new IPSec Tunnel Config and related objects. The source Subnet will be Natted by this policy.
+    This example will generate a NAT VPN tunnel config.
 
     .Example
-    New-P2PTunnelNAT
-
-    .Example
-    This example generates an SSH session and invokes the output of this function against that session.
-
     New-SSHSession -computername 192.168.0.1
-    $command = New-P2PTunnelNAT
+    $params = @{
+    dhgroups           = "5", "14"
+    LANInterface       = "port1"
+    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+    PeerAddress        = "56.98.75.32"
+    Proposal           = "aes256-sha512"
+    PSK                = "dfdayb%^4356456"
+    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    TTL                = "28800"
+    TunnelName         = "TestTunnel"
+    WANInterface       = "wan3"
+    }
+    $command = New-P2PTunnelNAT @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
+
+    This example generates an SSH session and invokes the output of this function against that session.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
@@ -39,6 +131,8 @@ Function New-P2PTunnelNAT {
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
         [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Lan Interface Name")]
+        $LANInterface,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
         [ValidateScript( {
                 if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
@@ -58,7 +152,7 @@ Function New-P2PTunnelNAT {
                     throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
             })]
-        [string[]]$NATCIDRs,
+        [string[]]$NATAddressCIDRS,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
@@ -103,6 +197,8 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
                 }
             })]
         [string[]]$RemoteAddressCIDRs,
+        [Parameter(Mandatory = $false, HelpMessage = "Specify services in the following format. ex: ""RDP/3389/TCP"", ""piov/5060-5061/UDP""")]
+        [string[]]$Services,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
         $TTL,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
@@ -157,11 +253,11 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         }
 
         #Create NAT Address Objects
-        [int]$max = $NATCIDRs.Count
+        [int]$max = $NATAddressCIDRS.Count
         $script:NATAddressObjects = for ($i = 0; $i -lt $max; $i++) {
             [PSCustomObject]@{
                 Name = "VPN_" + $TunnelName + "_NAT_" + $i
-                CIDR = $NATCIDRs[$i]
+                CIDR = $NATAddressCIDRS[$i]
             }
         }
 
@@ -184,7 +280,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $IPPoolObjects = for ($i = 0; $i -lt $max; $i++) {
             [PSCustomObject]@{
                 IPPoolName   = "vpn_" + $TunnelName + "_" + $i
-                ExternalCIDR = $NATCIDRs[$i]
+                ExternalCIDR = $NATAddressCIDRS[$i]
                 InternalCIDR = $LocalAddressCIDRs[$i]
             }
         }
@@ -199,7 +295,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             [PSCustomObject]@{
                 VIPName      = "vpn_" + $TunnelName + "_" + $i
                 TunnelName   = $TunnelName
-                ExternalCIDR = $NATCIDRs[$i]
+                ExternalCIDR = $NATAddressCIDRS[$i]
                 InternalCIDR = $LocalAddressCIDRs[$i]
             }
         }
@@ -268,14 +364,27 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             }
             $svcresult = $svcs -join " "
             $svcgroupname = "vpn_" + $tunnelname
-            New-ServiceGroup -ServiceGroupName $groupname -Members $svcresult
+            New-ServiceGroup -ServiceGroupName $svcgroupname -Members $svcresult
         }
 
-        #        #Create Firewall Policies
-        #        #Firewall Policies will need to generate multiple policies to address the fact only one ippool may exist per policy.
-        #        Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
-        #        $FirewallPolicy = New-FirewallPolicyTunnelNAT
-        #        Write-Host $FirewallPolicy
+        #Create Firewall Policies
+        if ($null -eq $svcresult) {
+            $svcgroupname = [string]"ALL"
+        }
+
+        [int]$max = $LocalAddressCIDRs.Count
+        $FirewallPolicy = for ($i = 0; $i -lt $max; $i++) {
+            $params = @{
+                TunnelName          = $TunnelName
+                SourceInterfaceName = $LANInterface
+                SourceAddress       = $script:LocalAddressObjects.name[$i]
+                DestinationAddress  = $RemoteGroupName
+                service             = $svcgroupname
+                IPPoolName          = $IPPoolObjects.IPPoolName[$i]
+                Vipname             = $VIPObjects.VIPName[$i]
+            }
+            New-FirewallPolicyTunnelNAT @params
+        }
     }
 
     end {
@@ -293,7 +402,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $StaticRoute
         Write-Output $Service
         Write-Output $ServiceGroup
-        # Write-Output $FirewallPolicy
+        Write-Output $FirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 

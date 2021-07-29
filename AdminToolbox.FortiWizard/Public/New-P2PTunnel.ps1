@@ -69,11 +69,11 @@ Function New-P2PTunnel {
 
     ex: "RDP/3389/TCP", "piov/5060-5061/UDP"
 
-    .Parameter TunnelName
-    This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
-
     .Parameter TTL
     This is the Time to Live for the Phase 1 and Phase 2 proposals.
+
+    .Parameter TunnelName
+    This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
 
     .Parameter WANInterface
     This is the name of the WAN interface that the tunnel will be built on.
@@ -305,7 +305,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             }
             $svcresult = $svcs -join " "
             $svcgroupname = "vpn_" + $tunnelname
-            New-ServiceGroup -ServiceGroupName $groupname -Members $svcresult
+            New-ServiceGroup -ServiceGroupName $svcgroupname -Members $svcresult
         }
 
         #Create Firewall Policies
