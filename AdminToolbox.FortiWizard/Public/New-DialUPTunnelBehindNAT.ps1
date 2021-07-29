@@ -1,19 +1,35 @@
 <#
     $params = @{
-    #   dhgroups           = "5", "14"
+       dhgroups           = "5", "14"
     #   LANInterface       = "port1"
        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    #   PeerAddress        = "56.98.75.32"
-    #   Proposal           = "aes256-sha512"
-    #   PSK                = "dfdayb%^4356456"
+       PeerAddress        = "56.98.75.32"
+       PeerID             = 187
+       Proposal           = "aes256-sha512"
+       PSK                = "dfdayb%^4356456"
        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     #   Services           = "RDP/3389/TCP", "DNS/53/UDP"
     #   TTL                = "28800"
        TunnelName         = "TestTunnel"
-    #   WANInterface       = "wan3"
+       WANInterface       = "wan3"
     }
     New-P2PTunnel @params
-    #>
+#>
+
+<#
+$dhgroups           = "5", "14"
+$LANInterface       = "port1"
+$LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+$PeerAddress        = "56.98.75.32"
+$PeerID             = "187"
+$Proposal           = "aes256-sha512"
+$PSK                = "dfdayb%^4356456"
+$RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+$Services           = "RDP/3389/TCP", "DNS/53/UDP"
+$TTL                = "28800"
+$TunnelName         = "TestTunnel"
+$WANInterface       = "wan3"
+#>
 
 
 Function New-DialUPTunnelBehindNAT {
@@ -43,6 +59,8 @@ Function New-DialUPTunnelBehindNAT {
         [string[]]$LocalAddressCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
         $PeerAddress,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify a unique 3 digit numeric peer ID to use for the tunnel.")]
+        $PeerID,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
@@ -139,11 +157,19 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
         $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
-        #    #Create Phase 1 Interface
-        #    Write-Host "Creating Phase 1 Interface Config" -ForegroundColor Cyan
-        #    $Phase1 = New-P2PPhase1InterfaceDialUp -Dynamic
-        #    Write-Host $Phase1
-        #
+        #Create Phase 1 Proposal
+        $params = @{
+            BehindNat   = $true
+            TunnelName  = $TunnelName
+            Interface   = $WanInterface
+            Proposal    = $Proposal
+            PeerID      = $PeerID
+            dhgroups    = $dhgroups
+            PeerAddress = $PeerAddress
+            PSK         = $PSK
+        }
+        $Phase1 = New-P2PPhase1InterfaceDialUp @params
+
         #    #Create Phase 2 Interfaces
         #    Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
         #    $query3 = 'yes'
@@ -216,7 +242,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfRemoteAddressObjects
         Write-Output $ConfLocalAddressGroups
         Write-Output $ConfRemoteAddressGroups
-        #        Write-Output $Phase1
+        Write-Output $Phase1
         #        Write-Output $Phase2
         #        Write-Output $StaticRoute
         #        Write-Output $Service

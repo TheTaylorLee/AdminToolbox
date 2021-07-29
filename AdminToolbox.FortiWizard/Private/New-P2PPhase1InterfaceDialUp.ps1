@@ -21,6 +21,8 @@ Function New-P2PPhase1InterfaceDialUp {
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Dynamic")]
         $Interface,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer", ParameterSetName = "Dynamic")]
+        $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
@@ -112,7 +114,6 @@ end
 "
     }
     if ($BehindNat) {
-        $PeerAddress = Read-Host "Specify the Peer address for the Tunnel Peer (Peer Address)"
         Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
