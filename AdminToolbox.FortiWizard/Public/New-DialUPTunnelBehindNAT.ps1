@@ -1,19 +1,19 @@
 <#
     $params = @{
        dhgroups           = "5", "14"
-    #   LANInterface       = "port1"
+       LANInterface       = "port1"
        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
        PeerAddress        = "56.98.75.32"
        PeerID             = 187
        Proposal           = "aes256-sha512"
        PSK                = "dfdayb%^4356456"
        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    #   Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    #   TTL                = "28800"
+       Services           = "RDP/3389/TCP", "DNS/53/UDP"
+       TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
     }
-    New-P2PTunnel @params
+    New-DialUPTunnelBehindNAT @params
 #>
 
 <#
@@ -170,28 +170,33 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         }
         $Phase1 = New-P2PPhase1InterfaceDialUp @params
 
-        #    #Create Phase 2 Interfaces
-        #    Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
-        #    $query3 = 'yes'
-        #    $Phase2 = while ($query3 -eq 'yes') {
-        #        if ($query3 -eq 'yes') {
-        #            New-P2PPhase2Interface
-        #        }
-        #        $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
-        #    }
-        #    Write-Host $Phase2
-        #
-        #    #Create Static Routes
-        #    Write-Host "Creating Blackhole Static Routes" -ForegroundColor Cyan
-        #    $query4 = 'yes'
-        #    $StaticRoute = while ($query4 -eq 'yes') {
-        #        if ($query4 -eq 'yes') {
-        #            New-StaticRouteDialupTunnel
-        #        }
-        #        $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
-        #    }
-        #    Write-Host $StaticRoute
-        #
+        #Create Phase 2 Proposals
+        [int]$localcount = $script:LocalAddressObjects.count
+        [int]$remotecount = $script:RemoteAddressObjects.count
+        [int]$Script:PhaseCount = 0
+
+        $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
+            $locals = ($script:LocalAddressObjects).name
+            $sourceaddressname = $locals[$i]
+            for ($ii = 0; $ii -lt $remotecount; $ii++) {
+                $remotes = ($script:RemoteAddressObjects).name
+                $params = @{
+                    DestinationAddressName = $remotes[$ii]
+                    dhgroups               = $dhgroups
+                    PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
+                    Proposal               = $Proposal
+                    SourceAddressName      = $sourceaddressname
+                    TTL                    = $TTL
+                    TunnelName             = $TunnelName
+                }
+                New-P2PPhase2Interface @params
+                $Script:phasecount++
+            }
+        }
+
+        #Create Static Routes
+        $StaticRoute = New-StaticRouteDialupTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
+
         #    #Create Services
         #    Write-Host "Creating Services Config" -ForegroundColor Cyan
         #    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
@@ -243,8 +248,8 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Output $ConfLocalAddressGroups
         Write-Output $ConfRemoteAddressGroups
         Write-Output $Phase1
-        #        Write-Output $Phase2
-        #        Write-Output $StaticRoute
+        Write-Output $Phase2
+        Write-Output $StaticRoute
         #        Write-Output $Service
         #        Write-Output $ServiceGroup
         #        Write-Output $FirewallPolicy
