@@ -22,11 +22,13 @@ Function New-FirewallPolicyTunnel {
         $Service
     )
 
+    $policynamelocal = "vpn_" + $TunnelName + "_local"
+    $policynameremote = "vpn_" + $TunnelName + "_remote"
 
     Write-Output "
 config firewall policy
     edit 0
-        set name ""vpn_local_$TunnelName""
+        set name ""$policynamelocal""
         set srcintf ""$SourceInterfaceName""
         set dstintf ""$TunnelName""
         set srcaddr ""$SourceAddress""
@@ -43,7 +45,7 @@ end
 
 config firewall policy
     edit 0
-        set name ""vpn_remote_$TunnelName""
+        set name ""$policynameremote""
         set srcintf ""$TunnelName""
         set dstintf ""$SourceInterfaceName""
         set srcaddr ""$DestinationAddress""
