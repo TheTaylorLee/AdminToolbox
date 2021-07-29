@@ -11,10 +11,10 @@ Function New-P2PPhase1InterfaceDialUp {
     Param (
         [Parameter(Mandatory = $true, ParameterSetName = "Static")]
         [switch]
-        $Static,
+        $RemoteNat,
         [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
         [switch]
-        $Dynamic,
+        $BehindNat,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.", ParameterSetName = "Dynamic")]
         $TunnelName,
@@ -91,7 +91,7 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
         $PeerID
     )
 
-    if ($Static) {
+    if ($RemoteNat) {
         Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
@@ -111,7 +111,7 @@ config vpn ipsec phase1-interface
 end
 "
     }
-    if ($Dynamic) {
+    if ($BehindNat) {
         $PeerAddress = Read-Host "Specify the Peer address for the Tunnel Peer (Peer Address)"
         Write-Output "
 config vpn ipsec phase1-interface

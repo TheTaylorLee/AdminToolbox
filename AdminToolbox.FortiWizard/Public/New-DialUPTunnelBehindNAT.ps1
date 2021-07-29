@@ -2,14 +2,14 @@
     $params = @{
     #   dhgroups           = "5", "14"
     #   LANInterface       = "port1"
-    #   LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+       LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
     #   PeerAddress        = "56.98.75.32"
     #   Proposal           = "aes256-sha512"
     #   PSK                = "dfdayb%^4356456"
-    #   RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+       RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     #   Services           = "RDP/3389/TCP", "DNS/53/UDP"
     #   TTL                = "28800"
-    #   TunnelName         = "TestTunnel"
+       TunnelName         = "TestTunnel"
     #   WANInterface       = "wan3"
     }
     New-P2PTunnel @params
@@ -41,6 +41,8 @@ Function New-DialUPTunnelBehindNAT {
                 }
             })]
         [string[]]$LocalAddressCIDRs,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
+        $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
@@ -82,7 +84,16 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
                     throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
             })]
-        [string[]]$RemoteAddressCIDRs
+        [string[]]$RemoteAddressCIDRs,
+        [Parameter(Mandatory = $false, HelpMessage = "Specify services in the following format. ex: ""RDP/3389/TCP"", ""piov/5060-5061/UDP""")]
+        [string[]]$Services,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
+        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        [ValidateLength(1, 15)]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
+        $WANInterface
     )
 
     begin {
@@ -118,17 +129,16 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
-        #    #Create Address Group
-        #    Write-Host "Creating Address Groups Config" -ForegroundColor Cyan
-        #    $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
-        #    $AddressGroups = while ($query2 -eq 'yes') {
-        #        if ($query2 -eq 'yes') {
-        #            New-AddressGroup
-        #        }
-        #        $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
-        #    }
-        #    Write-Host $AddressGroups
-        #
+        #Create Local Address Group
+        $LocNames = ($script:LocalAddressObjects).name -join " "
+        $LocalGroupName = "vpn_" + "$TunnelName" + "_Local"
+        $ConfLocalAddressGroups = New-AddressGroup -AddressNames $LocNames -GroupName $LocalGroupName
+
+        #Create Remote Address Group
+        $RemNames = ($script:RemoteAddressObjects).name -join " "
+        $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
+        $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
+
         #    #Create Phase 1 Interface
         #    Write-Host "Creating Phase 1 Interface Config" -ForegroundColor Cyan
         #    $Phase1 = New-P2PPhase1InterfaceDialUp -Dynamic
@@ -204,6 +214,8 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
+        Write-Output $ConfLocalAddressGroups
+        Write-Output $ConfRemoteAddressGroups
         #        Write-Output $Phase1
         #        Write-Output $Phase2
         #        Write-Output $StaticRoute
