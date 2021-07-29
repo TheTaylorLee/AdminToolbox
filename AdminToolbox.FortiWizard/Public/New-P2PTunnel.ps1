@@ -62,7 +62,7 @@ Function New-P2PTunnel {
     .Parameter RemoteAddressCIDRs
     This is the Address Object CIDRs that will be created for the remote side of the tunnel.
 
-    ex: "192.168.1.0/24", "10.100.0/24"
+    ex: "192.168.1.0/24", "10.100.10.0/24"
 
     .Parameter Services
     Specify the Service or services that will be applied to the Firewall Policy for this tunnel.
