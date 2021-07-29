@@ -375,7 +375,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         [int]$max = $LocalAddressCIDRs.Count
         $FirewallPolicy = for ($i = 0; $i -lt $max; $i++) {
             $params = @{
-                TunnelName          = $TunnelName
+                TunnelName          = $TunnelName[$i]
                 SourceInterfaceName = $LANInterface
                 SourceAddress       = $script:LocalAddressObjects.name[$i]
                 DestinationAddress  = $RemoteGroupName
