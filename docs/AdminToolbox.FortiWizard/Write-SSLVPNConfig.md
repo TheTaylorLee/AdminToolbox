@@ -13,7 +13,7 @@ schema: 2.0.0
 
 ```
 Write-SSLVPNConfig [-CommaSeperatedDNSSuffixes] <Object> [-DNofParentOU] <Object> [-DNSServerIP] <Object>
- [-InternalLanSubnetMask] <Object> [-InternalLanIP] <Object> [-LanInterfaceName] <Object>
+ [[-InternalCIDR] <Object>] [[-SSLClientCIDR] <Object>] [-LanInterfaceName] <Object>
  [-LDAPServerFriendlyName] <Object> [-ServiceAccountPassword] <Object> [-ServiceAccountsAMAccountName] <Object>
  [-WanInterfaceName] <Object> [<CommonParameters>]
 ```
@@ -29,8 +29,8 @@ $Params = @{
     CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
     DNofParentOU                 = "DC=domain,DC=COM"
     DNSServerIP                  = "192.168.0.1"
-    InternalLanIP                = "192.168.0.0"
-    InternalLanSubnetMask        = "255.255.255.0"
+    InternalCIDR                 = "192.168.56.0/24"
+    SSLClientCIDR                = "10.212.134.0/24"
     LanInterfaceName             = "port2"
     LDAPSERVERFriendlyName       = "DomainLdap"
     ServiceAccountPassword       = "Password"
@@ -52,8 +52,8 @@ $Params = @{
     CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
     DNofParentOU                 = "DC=domain,DC=COM"
     DNSServerIP                  = "192.168.0.1"
-    InternalLanIP                = "192.168.0.0"
-    InternalLanSubnetMask        = "255.255.255.0"
+    InternalCIDR                 = "192.168.56.0/24"
+    SSLClientCIDR                = "10.212.134.0/24"
     LanInterfaceName             = "port2"
     LDAPSERVERFriendlyName       = "DomainLdap"
     ServiceAccountPassword       = "Password"
@@ -77,8 +77,8 @@ $Params = @{
     CommaSeperatedDNSSuffixes    = "domain.com,domain2.com"
     DNofParentOU                 = "DC=domain,DC=COM"
     DNSServerIP                  = "192.168.0.1"
-    InternalLanIP                = "192.168.0.0"
-    InternalLanSubnetMask        = "255.255.255.0"
+    InternalCIDR                 = "192.168.56.0/24"
+    SSLClientCIDR                = "10.212.134.0/24"
     LanInterfaceName             = "port2"
     LDAPSERVERFriendlyName       = "DomainLdap"
     ServiceAccountPassword       = "Password"
@@ -141,30 +141,30 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InternalLanSubnetMask
-Subnet mask of the LANIP to be accessed ex: 255.255.255.0
+### -InternalCIDR
+CIDR Address for the allowed LAN subnet
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InternalLanIP
-IP Address thats matches the Host Minimum for the Subnet
+### -SSLClientCIDR
+CIDR Address for the subnet being handed out to SSLVPN Clients
 
 ```yaml
 Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 5
 Default value: None
 Accept pipeline input: False

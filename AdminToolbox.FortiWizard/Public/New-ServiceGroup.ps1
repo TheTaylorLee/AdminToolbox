@@ -65,6 +65,5 @@ config firewall service group
     edit ""$ServiceGroupName""
         set member $Members
     next
-end
-"
+end"
 }

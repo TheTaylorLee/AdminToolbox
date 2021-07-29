@@ -30,6 +30,7 @@
 * **2.3.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 * **2.3.0.1** Fixed for invalid comment character in function Get-TenantDiagrams
 * **2.4.0.0** Added Markdown Documentation and link help
+* **2.5.0** Update versioning standard and added LicenseURI.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.4.0.0
+2.5.0

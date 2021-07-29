@@ -44,8 +44,6 @@ Function Disable-SipALG {
 
     if ($LessThanMajor6Minor2) {
         Write-Output "
-#Disable Sip Settings
-
 config system settings
     set sip-helper disable
     set sip-nat-trace disable
@@ -67,8 +65,6 @@ end"
 
     else {
         Write-Output "
-#Disable Sip Settings
-
 config system settings
     set default-voip-alg-mode kernel-helper-based
     set sip-expectation disable

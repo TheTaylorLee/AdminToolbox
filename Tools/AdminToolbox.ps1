@@ -26,21 +26,22 @@ Function out-manifests {
         Description          = "Parent module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "9.0.6.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "9.1.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
         RequiredModules      = (
-            @{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion = '1.5.0.0'; },
-            @{ModuleName = 'AdminToolbox.EndpointManagement'; ModuleVersion = '4.6.0.0'; },
-            @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.7.0.0'; },
-            @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.6.0.0'; },
-            @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.6.0.0'; },
-            @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '1.2.2.0'; },
-            @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.4.0.0'; },
-            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.8.1.0'; },
-            @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.4.0.0'; },
-            @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.7.0.0'; },
-            @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.5.1.0'; },
+            @{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion = '1.6.0'; },
+            @{ModuleName = 'AdminToolbox.EndpointManagement'; ModuleVersion = '4.7.0'; },
+            @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.8.0'; },
+            @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.7.0'; },
+            @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.7.0'; },
+            @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.0.0'; },
+            @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.0'; },
+            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.9.0'; },
+            @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
+            @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.0'; },
+            @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
             @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
             @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; },
             @{ModuleName = 'PSNmap'; ModuleVersion = '1.3.1'; }
@@ -62,7 +63,8 @@ Function out-manifests {
         Description          = "Functions for Active Directory"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "1.5.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "1.6.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -85,7 +87,8 @@ Function out-manifests {
         Description          = "Functions for management of endpoints"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "4.6.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "4.7.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -109,7 +112,8 @@ Function out-manifests {
         Description          = "Functions for Exchange Management"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "1.7.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "1.8.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -132,7 +136,8 @@ Function out-manifests {
         Description          = "Expedite simple ffmpeg actions"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "4.6.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "4.7.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -155,7 +160,8 @@ Function out-manifests {
         Description          = "File Management Functions"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "1.6.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "1.7.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -172,16 +178,17 @@ Function out-manifests {
     $savepath = "$env:gitrootpath\AdminToolbox.FortiWizard"
     $Params = @{
         CompatiblePSEditions = "Desktop", "Core"
-        FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelStatic', 'New-DialUPTunnelDynamic'
+        FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT'
         Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
         Author               = "Taylor Lee"
         Description          = "Functions that generate configuration scripts and manage FortiOS. This Module is unofficial and in no way affiliated with Fortinet."
-        ModuleVersion        = "1.2.2.0"
+        ModuleVersion        = "2.0.0"
         Powershellversion    = "5.1"
         RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
         ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         Tags                 = 'Fortinet', 'FortiGate', 'FortiOS'
         RequiredModules      = (
@@ -203,7 +210,8 @@ Function out-manifests {
         Description          = "Functions that have no purpose"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "1.4.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "1.5.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -226,7 +234,8 @@ Function out-manifests {
         Description          = "Network Troubleshooting Functions"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "2.8.1.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "2.9.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -250,7 +259,8 @@ Function out-manifests {
         Description          = "Functions for working with Office365 and Azure modules"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "2.4.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "2.5.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -273,7 +283,8 @@ Function out-manifests {
         Description          = "Functions for remote management and access."
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "1.7.0.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "1.8.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
@@ -296,7 +307,8 @@ Function out-manifests {
         Description          = "Functions to Automate Bulk VMWare Tasks"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
-        ModuleVersion        = "4.5.1.0"
+        LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+        ModuleVersion        = "4.6.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (

@@ -49,8 +49,6 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
         $TTL,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Peer address for the Tunnel Peer.")]
         $dhgroups,
-        [Parameter(Mandatory = $true, HelpMessage = "Specify PFS enable/disable.")]
-        $PFS,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Source Address Object or Group Name.")]
         $SourceAddressName,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Destination Address Object or Group Name.")]
@@ -62,7 +60,6 @@ config vpn ipsec phase2-interface
     edit ""$PhaseName""
         set phase1name ""$TunnelName""
         set proposal $Proposal
-        set pfs $PFS
         set dhgrp $dhgroups
         set replay disable
         set keylifeseconds $TTL
@@ -71,6 +68,5 @@ config vpn ipsec phase2-interface
         set src-name ""$SourceAddressName""
         set dst-name ""$DestinationAddressName""
     next
-end
-"
+end"
 }

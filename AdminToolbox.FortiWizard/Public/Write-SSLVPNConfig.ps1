@@ -145,8 +145,6 @@ Function Write-SSLVPNConfig {
 
 
     Write-Output "
-#initial setup for enabling the Forticlient VPN Config
-
 config user ldap
     edit ""$LDAPSERVERFriendlyName""
         set server $DNSServerIP

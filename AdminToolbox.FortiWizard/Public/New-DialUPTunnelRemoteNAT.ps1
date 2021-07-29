@@ -1,7 +1,7 @@
-Function New-P2PTunnel {
+Function New-DialUPTunnelRemoteNAT {
     <#
     .Description
-    This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
+    This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the firewall whose public IP is static and whose end does not sit behind another NAT firewall.
 
     .Parameter dhgroups
     This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
@@ -21,8 +21,8 @@ Function New-P2PTunnel {
 
     ex: "192.168.1.0/24", "10.100.0/24"
 
-    .Parameter PeerAddress
-    This is the public IP Address for the remote side of the tunnel.
+    .Parameter PeerID
+    This is a unique 3 numeric character long Identifer for this tunnel.
 
     .Parameter Proposal
     This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
@@ -80,38 +80,38 @@ Function New-P2PTunnel {
 
     .Example
     $params = @{
-        dhgroups           = "5", "14"
-        LANInterface       = "port1"
-        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-        PeerAddress        = "56.98.75.32"
-        Proposal           = "aes256-sha512"
-        PSK                = "dfdayb%^4356456"
-        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-        Services           = "RDP/3389/TCP", "DNS/53/UDP"
-        TTL                = "28800"
-        TunnelName         = "TestTunnel"
-        WANInterface       = "wan3"
+       dhgroups           = "5", "14"
+       LANInterface       = "port1"
+       LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+       PeerID             = "187"
+       Proposal           = "aes256-sha512"
+       PSK                = "dfdayb%^4356456"
+       RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+       Services           = "RDP/3389/TCP", "DNS/53/UDP"
+       TTL                = "28800"
+       TunnelName         = "TestTunnel"
+       WANInterface       = "wan3"
     }
-    New-P2PTunnel @params
+    New-DialUPTunnelRemoteNAT @params
 
-    This example will generate a VPN tunnel config.
+    This example will generate a Dial-up VPN tunnel config.
 
     .Example
     New-SSHSession -computername 192.168.0.1
     $params = @{
-        dhgroups           = "5", "14"
-        LANInterface       = "port1"
-        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-        PeerAddress        = "56.98.75.32"
-        Proposal           = "aes256-sha512"
-        PSK                = "dfdayb%^4356456"
-        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-        Services           = "RDP/3389/TCP", "DNS/53/UDP"
-        TTL                = "28800"
-        TunnelName         = "TestTunnel"
-        WANInterface       = "wan3"
+       dhgroups           = "5", "14"
+       LANInterface       = "port1"
+       LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+       PeerID             = "187"
+       Proposal           = "aes256-sha512"
+       PSK                = "dfdayb%^4356456"
+       RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+       Services           = "RDP/3389/TCP", "DNS/53/UDP"
+       TTL                = "28800"
+       TunnelName         = "TestTunnel"
+       WANInterface       = "wan3"
     }
-    $command = New-P2PTunnel @params
+    $command = New-DialUPTunnelRemoteNAT @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
 
@@ -136,8 +136,8 @@ Function New-P2PTunnel {
                 }
             })]
         [string[]]$LocalAddressCIDRs,
-        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
-        $PeerAddress,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify a unique 3 digit numeric peer ID to use for the tunnel.")]
+        $PeerID,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
@@ -192,7 +192,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     )
 
     begin {
-        $ErrorActionPreference = 'Stop'
+        $ErrorActionPreference = 'stop'
         $dhgroups = $dhgroups -join " "
     }
 
@@ -235,22 +235,22 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
         #Create Phase 1 Proposal
         $params = @{
-            TunnelName  = $TunnelName
-            Interface   = $WanInterface
-            Proposal    = $Proposal
-            dhgroups    = $dhgroups
-            PeerAddress = $PeerAddress
-            PSK         = $PSK
-            TTL         = $TTL
+            RemoteNat  = $true
+            TunnelName = $TunnelName
+            Interface  = $WanInterface
+            Proposal   = $Proposal
+            PeerID     = $PeerID
+            dhgroups   = $dhgroups
+            PSK        = $PSK
         }
-        $ConfPhase1 = New-P2PPhase1Interface @params
+        $Phase1 = New-P2PPhase1InterfaceDialUp @params
 
         #Create Phase 2 Proposals
         [int]$localcount = $script:LocalAddressObjects.count
         [int]$remotecount = $script:RemoteAddressObjects.count
         [int]$Script:PhaseCount = 0
 
-        $ConfPhase2 = for ($i = 0; $i -lt $localcount; $i++) {
+        $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
             $locals = ($script:LocalAddressObjects).name
             $sourceaddressname = $locals[$i]
             for ($ii = 0; $ii -lt $remotecount; $ii++) {
@@ -270,10 +270,10 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         }
 
         #Create Static Routes
-        $ConfStaticRoute = New-StaticRouteTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
+        $StaticRoute = New-StaticRouteDialupTunnel -DestinationAddressName $RemoteGroupName
 
         #Create Services
-        $ConfService = if ($services) {
+        $Service = if ($services) {
 
             foreach ($service in $services) {
                 $split = $service -split "/"
@@ -296,7 +296,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         }
 
         #Create Service Groups
-        $ConfServiceGroup = if ($services) {
+        $ServiceGroup = if ($services) {
             $proc = $services -split "/"
             [int]$count = $proc.count
             $svcs = for ($i = 0; $i -lt $count) {
@@ -312,22 +312,22 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         if ($null -eq $svcresult) {
             $svcgroupname = [string]"ALL"
         }
-        $ConfFirewallPolicy = New-FirewallPolicyTunnel -TunnelName $TunnelName -SourceInterfaceName $LANInterface -SourceAddress $LocalGroupName -DestinationAddress $RemoteGroupName -service $svcgroupname
+        $FirewallPolicy = New-FirewallPolicyTunnel -TunnelName $TunnelName -SourceInterfaceName $LANInterface -SourceAddress $LocalGroupName -DestinationAddress $RemoteGroupName -service $svcgroupname
     }
 
     end {
-        Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
+        Write-Host "If there is no output between the Omission delimiters, that is because you redirected the output elsewhere. Like into a variable." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
         Write-Output $ConfLocalAddressGroups
         Write-Output $ConfRemoteAddressGroups
-        Write-Output $ConfPhase1
-        Write-Output $ConfPhase2
-        Write-Output $ConfStaticRoute
-        Write-Output $ConfService
-        Write-Output $ConfServiceGroup
-        Write-Output $ConfFirewallPolicy
+        Write-Output $Phase1
+        Write-Output $Phase2
+        Write-Output $StaticRoute
+        Write-Output $Service
+        Write-Output $ServiceGroup
+        Write-Output $FirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 

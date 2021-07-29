@@ -11,16 +11,18 @@ Function New-P2PPhase1InterfaceDialUp {
     Param (
         [Parameter(Mandatory = $true, ParameterSetName = "Static")]
         [switch]
-        $Static,
+        $RemoteNat,
         [Parameter(Mandatory = $true, ParameterSetName = "Dynamic")]
         [switch]
-        $Dynamic,
+        $BehindNat,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.", ParameterSetName = "Dynamic")]
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Dynamic")]
         $Interface,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer", ParameterSetName = "Dynamic")]
+        $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5          des-md5
 des-sha1         des-sha1
@@ -91,7 +93,7 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
         $PeerID
     )
 
-    if ($Static) {
+    if ($RemoteNat) {
         Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
@@ -111,8 +113,7 @@ config vpn ipsec phase1-interface
 end
 "
     }
-    if ($Dynamic) {
-        $PeerAddress = Read-Host "Specify the Peer address for the Tunnel Peer (Peer Address)"
+    if ($BehindNat) {
         Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
@@ -127,7 +128,6 @@ config vpn ipsec phase1-interface
         set remote-gw $Peeraddress
         set psksecret $PSK
     next
-end
-"
+end"
     }
 }

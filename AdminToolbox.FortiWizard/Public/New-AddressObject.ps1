@@ -74,13 +74,10 @@ Function New-AddressObject {
     $SubnetMask = ($calc).SubnetMask
 
     Write-Output "
-#Create Addresses
-
 config firewall address
     edit ""$AddressName""
         set subnet $IPAddress $SubnetMask
         set allow-routing enable
     next
-end
-"
+end"
 }

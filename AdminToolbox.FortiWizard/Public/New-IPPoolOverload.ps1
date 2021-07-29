@@ -86,6 +86,5 @@ config firewall ippool
         set startip $StartIP
         set endip $EndIP
     next
-end
-"
+end"
 }

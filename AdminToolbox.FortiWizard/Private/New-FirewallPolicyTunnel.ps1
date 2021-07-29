@@ -22,18 +22,20 @@ Function New-FirewallPolicyTunnel {
         $Service
     )
 
+    $policynamelocal = "vpn_" + $TunnelName + "_local"
+    $policynameremote = "vpn_" + $TunnelName + "_remote"
 
     Write-Output "
 config firewall policy
     edit 0
-        set name ""vpn_local_$TunnelName""
+        set name ""$policynamelocal""
         set srcintf ""$SourceInterfaceName""
         set dstintf ""$TunnelName""
         set srcaddr ""$SourceAddress""
         set dstaddr ""$DestinationAddress""
         set action accept
         set schedule always
-        set service ""$Service""
+        set service $Service
         set utm-status enable
         set ssl-ssh-profile no-inspection
         set ips-sensor default
@@ -43,19 +45,18 @@ end
 
 config firewall policy
     edit 0
-        set name ""vpn_remote_$TunnelName""
+        set name ""$policynameremote""
         set srcintf ""$TunnelName""
         set dstintf ""$SourceInterfaceName""
         set srcaddr ""$DestinationAddress""
         set dstaddr ""$SourceAddress""
         set action accept
         set schedule always
-        set service ""$Service""
+        set service $Service
         set utm-status enable
         set ssl-ssh-profile no-inspection
         set ips-sensor default
         set logtraffic all
     next
-end
-"
+end"
 }

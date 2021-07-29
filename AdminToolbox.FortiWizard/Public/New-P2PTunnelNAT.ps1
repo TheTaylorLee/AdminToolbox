@@ -3,157 +3,409 @@ Function New-P2PTunnelNAT {
     .Description
     This is a CLI wizard that generates a new IPSec Tunnel Config and related objects. The source Subnet will be Natted by this policy.
 
-    .Example
-    New-P2PTunnelNAT
+    .Parameter dhgroups
+    This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
+
+    ex: "5", "14"
+
+    *These are the available DH Groups
+    32 31 30 29 28 27
+    21 20 19 18 17 16
+    15 14 5 2 1
+
+    .Parameter LANInterface
+    This is the name of the local or lan interface.
+
+    .Parameter LocalAddressCIDRs
+    This is the Address Object CIDRs that will be created for the local side of the tunnel. If there is more than one CIDR, it must be ordered in conjunction with the NAT CIDRS. So that each local CIDR in the array matches it's NAT CIDR.
+
+    ex: "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+
+    .Parameter NATAddressCIDRS
+    This is the Address Object NAT CIDRs that will be created for the local side of the tunnel. If there is more than one CIDR, it must be ordered in conjunction with the Local CIDRS. So that each NAT CIDR in the array matches it's Local CIDR.
+
+    ex: "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+
+    .Parameter PeerAddress
+    This is the public IP Address for the remote side of the tunnel.
+
+    .Parameter Proposal
+    This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
+
+    ex: aes256-sha512 aes256-sha1
+
+    *These are the available proposals that can be used.
+    des-md5          des-md5
+    des-sha1         des-sha1
+    des-sha256       des-sha256
+    des-sha384       des-sha384
+    des-sha512       des-sha512
+    3des-md5         3des-md5
+    3des-sha1        3des-sha1
+    3des-sha256      3des-sha256
+    3des-sha384      3des-sha384
+    3des-sha512      3des-sha512
+    aes128-md5       aes128-md5
+    aes128-sha1      aes128-sha1
+    aes128-sha256    aes128-sha256
+    aes128-sha384    aes128-sha384
+    aes128-sha512    aes128-sha512
+    aes192-md5       aes192-md5
+    aes192-sha1      aes192-sha1
+    aes192-sha256    aes192-sha256
+    aes192-sha384    aes192-sha384
+    aes192-sha512    aes192-sha512
+    aes256-md5       aes256-md5
+    aes256-sha1      aes256-sha1
+    aes256-sha256    aes256-sha256
+    aes256-sha384    aes256-sha384
+    aes256-sha512    aes256-sha512
+
+    .Parameter PSK
+    This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
+
+    .Parameter RemoteAddressCIDRs
+    This is the Address Object CIDRs that will be created for the remote side of the tunnel.
+
+    ex: "192.168.1.0/24", "10.100.0/24"
+
+    .Parameter Services
+    Specify the Service or services that will be applied to the Firewall Policy for this tunnel.
+
+    ex: "RDP/3389/TCP", "piov/5060-5061/UDP"
+
+    .Parameter TTL
+    This is the Time to Live for the Phase 1 and Phase 2 proposals.
+
+    .Parameter TunnelName
+    This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
+
+    .Parameter WANInterface
+    This is the name of the WAN interface that the tunnel will be built on.
 
     .Example
-    This example generates an SSH session and invokes the output of this function against that session.
+    $params = @{
+    dhgroups           = "5", "14"
+    LANInterface       = "port1"
+    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+    PeerAddress        = "56.98.75.32"
+    Proposal           = "aes256-sha512"
+    PSK                = "dfdayb%^4356456"
+    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    TTL                = "28800"
+    TunnelName         = "TestTunnel"
+    WANInterface       = "wan3"
+    }
+    New-P2PTunnelNAT @params
 
+    This example will generate a NAT VPN tunnel config.
+
+    .Example
     New-SSHSession -computername 192.168.0.1
-    $command = New-P2PTunnelNAT
+    $params = @{
+    dhgroups           = "5", "14"
+    LANInterface       = "port1"
+    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+    NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+    PeerAddress        = "56.98.75.32"
+    Proposal           = "aes256-sha512"
+    PSK                = "dfdayb%^4356456"
+    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+    Services           = "RDP/3389/TCP", "DNS/53/UDP"
+    TTL                = "28800"
+    TunnelName         = "TestTunnel"
+    WANInterface       = "wan3"
+    }
+    $command = New-P2PTunnelNAT @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
 
-    .Notes
-    Capitalization and spacing is very important when running this function. Typos should also be avoided. Any errors resultant from adding spaces, creating typos, or not focusing on persisint casing will lead to errors. The function will fail, or the config script when pushed to the firewall will fail to produce desired results.
-
-    Better parameter validation may be added in future versions of this function.
+    This example generates an SSH session and invokes the output of this function against that session.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
     #>
-    $ErrorActionPreference = 'inquire'
 
-    Write-Host "Each function called by this VPN wizard will write to host it's config. This is for referencing as other functions are called. When this wizard is complete, the full config will be written as output for manipulation and use." -ForegroundColor Green
-    Write-Host ""
-
-    #Create Phase 1 Interface
-    Write-Host "Creating Phase 1 Interface Config" -ForegroundColor Cyan
-    $Phase1 = New-P2PPhase1Interface
-    Write-Host $Phase1
-
-    #Create Address Objects
-    Write-Host "Creating Address Objects Config" -ForegroundColor Cyan
-    $query = Read-Host "Do you want to create one or more Address Objects? (yes/no)"
-    $AddressObjects = while ($query -eq 'yes') {
-        if ($query -eq 'yes') {
-            New-AddressObject
-        }
-        $query = Read-Host "Do you want to create more Address Objects? (yes/no)"
-    }
-    Write-Host $AddressObjects
-
-    #Create Address Group
-    Write-Host "Creating Address Groups Config" -ForegroundColor Cyan
-    $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
-    $AddressGroups = while ($query2 -eq 'yes') {
-        if ($query2 -eq 'yes') {
-            New-AddressGroup
-        }
-        $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
-    }
-    Write-Host $AddressGroups
-
-    #Create IP Pool
-    Write-Host "Creating IPPool (Source NAT)" -ForegroundColor Cyan
-    $query7 = 'yes'
-    $IPPool = while ($query7 -eq 'yes') {
-        if ($query7 -eq 'yes') {
-            New-IPPoolFixedRange
-        }
-        $query7 = Read-Host "Did you run into an error and still need to add an IPPool? (yes/no)"
-    }
-    Write-Host $IPPool
-
-    #Create VIPRange
-    Write-Host "Creating VIPRange (Destination NAT)" -ForegroundColor Cyan
-    $query7 = 'yes'
-    $VIPRange = while ($query7 -eq 'yes') {
-        if ($query7 -eq 'yes') {
-            New-VIPRange
-        }
-        $query7 = Read-Host "Did you run into an error and still need to add a VIP Range? (yes/no)"
-    }
-    Write-Host $VIPRange
-
-    #Create Phase 2 Interfaces
-    Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
-    $query3 = 'yes'
-    $Phase2 = while ($query3 -eq 'yes') {
-        if ($query3 -eq 'yes') {
-            New-P2PPhase2Interface
-        }
-        $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
-    }
-    Write-Host $Phase2
-
-    #Create Static Routes
-    Write-Host "Creating Static Routes Config" -ForegroundColor Cyan
-    $query4 = 'yes'
-    $StaticRoute = while ($query4 -eq 'yes') {
-        if ($query4 -eq 'yes') {
-            New-StaticRouteTunnel
-        }
-        $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
-    }
-    Write-Host $StaticRoute
-
-    #Create Services
-    Write-Host "Creating Services Config" -ForegroundColor Cyan
-    $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
-    $Service = while ($query5 -eq 'yes') {
-        if ($query5 -eq 'yes') {
-            $Protocol = Read-Host "Specify if this is a TCP or UDP Service (TCP/UDP)"
-
-            if ($Protocol -eq 'TCP') {
-                $Params = @{
-                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-                    TCPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
+    Param (
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
+        [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Lan Interface Name")]
+        $LANInterface,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
                 }
-            }
-            if ($Protocol -eq 'UDP') {
-                $Params = @{
-                    ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-                    UDPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
+            })]
+        [string[]]$LocalAddressCIDRs,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that are to be the NAT CIDRS for the Local CIDRS. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$NATAddressCIDRS,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
+        $PeerAddress,
+        [Parameter(Mandatory = $true, HelpMessage = "
+des-md5          des-md5
+des-sha1         des-sha1
+des-sha256       des-sha256
+des-sha384       des-sha384
+des-sha512       des-sha512
+3des-md5         3des-md5
+3des-sha1        3des-sha1
+3des-sha256      3des-sha256
+3des-sha384      3des-sha384
+3des-sha512      3des-sha512
+aes128-md5       aes128-md5
+aes128-sha1      aes128-sha1
+aes128-sha256    aes128-sha256
+aes128-sha384    aes128-sha384
+aes128-sha512    aes128-sha512
+aes192-md5       aes192-md5
+aes192-sha1      aes192-sha1
+aes192-sha256    aes192-sha256
+aes192-sha384    aes192-sha384
+aes192-sha512    aes192-sha512
+aes256-md5       aes256-md5
+aes256-sha1      aes256-sha1
+aes256-sha256    aes256-sha256
+aes256-sha384    aes256-sha384
+aes256-sha512    aes256-sha512
+
+Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
+")]
+        $Proposal,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
+        $PSK,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        [string[]]$RemoteAddressCIDRs,
+        [Parameter(Mandatory = $false, HelpMessage = "Specify services in the following format. ex: ""RDP/3389/TCP"", ""piov/5060-5061/UDP""")]
+        [string[]]$Services,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
+        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
+        [ValidateLength(1, 15)]
+        $TunnelName,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
+        $WANInterface
+    )
+
+    begin {
+        $ErrorActionPreference = 'Stop'
+        $dhgroups = $dhgroups -join " "
+    }
+
+    process {
+        #Create Phase 1 Proposal
+        $params = @{
+            TunnelName  = $TunnelName
+            Interface   = $WanInterface
+            Proposal    = $Proposal
+            dhgroups    = $dhgroups
+            PeerAddress = $PeerAddress
+            PSK         = $PSK
+            TTL         = $TTL
+        }
+        $ConfPhase1 = New-P2PPhase1Interface @params
+
+        #Create Local Address Objects
+        [int]$max = $LocalAddressCIDRs.Count
+        $script:LocalAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_Local_" + $i
+                CIDR = $LocalAddressCIDRs[$i]
             }
-
-            New-ServiceObject @Params
         }
-        $query5 = Read-Host "Do you want to create more services? (yes/no)"
-    }
-    Write-Host $Service
 
-    #Create Service Groups
-    Write-Host "Creating Service Groups Config" -ForegroundColor Cyan
-    $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
-    $ServiceGroup = while ($query6 -eq 'yes') {
-        if ($query6 -eq 'yes') {
-            New-ServiceGroup
+        $ConfLocalAddressObjects = Foreach ($AddressObject in $script:LocalAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
-        $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
+
+        #Create Remote Address Objects
+        [int]$max = $RemoteAddressCIDRs.Count
+        $script:RemoteAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_Remote_" + $i
+                CIDR = $RemoteAddressCIDRs[$i]
+            }
+        }
+
+        $ConfRemoteAddressObjects = Foreach ($AddressObject in $script:RemoteAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
+        #Create NAT Address Objects
+        [int]$max = $NATAddressCIDRS.Count
+        $script:NATAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_NAT_" + $i
+                CIDR = $NATAddressCIDRS[$i]
+            }
+        }
+
+        $ConfNATAddressObjects = Foreach ($AddressObject in $script:NATAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
+        #Create Local Address Group
+        $LocNames = ($script:LocalAddressObjects).name -join " "
+        $LocalGroupName = "vpn_" + "$TunnelName" + "_Local"
+        $ConfLocalAddressGroups = New-AddressGroup -AddressNames $LocNames -GroupName $LocalGroupName
+
+        #Create Remote Address Group
+        $RemNames = ($script:RemoteAddressObjects).name -join " "
+        $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
+        $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
+
+        #Create IP Pool
+        [int]$max = $LocalAddressCIDRs.Count
+        $IPPoolObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                IPPoolName   = "vpn_" + $TunnelName + "_" + $i
+                ExternalCIDR = $NATAddressCIDRS[$i]
+                InternalCIDR = $LocalAddressCIDRs[$i]
+            }
+        }
+
+        $IPPool = Foreach ($IPPoolObject in $IPPoolObjects) {
+            New-IPPoolFixedRange -IPPoolName $IPPoolObject.IPPoolName -ExternalCIDR $IPPoolObject.ExternalCIDR -InternalCIDR $IPPoolObject.InternalCIDR
+        }
+
+        #Create VIPRange
+        [int]$max = $LocalAddressCIDRs.Count
+        $VIPObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                VIPName      = "vpn_" + $TunnelName + "_" + $i
+                TunnelName   = $TunnelName
+                ExternalCIDR = $NATAddressCIDRS[$i]
+                InternalCIDR = $LocalAddressCIDRs[$i]
+            }
+        }
+
+        $VIPRange = Foreach ($VIPObject in $VIPObjects) {
+            New-VIPRange -VIPName $VIPObject.VIPName -ExternalCIDR $VIPObject.ExternalCIDR -InternalCIDR $VIPObject.InternalCIDR -Interface $VIPObject.TunnelName
+        }
+
+        #Create Phase 2 Interfaces
+        [int]$localcount = $script:NATAddressObjects.count
+        [int]$remotecount = $script:RemoteAddressObjects.count
+        [int]$Script:PhaseCount = 0
+
+        $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
+            $locals = ($script:NATAddressObjects).name
+            $sourceaddressname = $locals[$i]
+            for ($ii = 0; $ii -lt $remotecount; $ii++) {
+                $remotes = ($script:RemoteAddressObjects).name
+                $params = @{
+                    DestinationAddressName = $remotes[$ii]
+                    dhgroups               = $dhgroups
+                    PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
+                    Proposal               = $Proposal
+                    SourceAddressName      = $sourceaddressname
+                    TTL                    = $TTL
+                    TunnelName             = $TunnelName
+                }
+                New-P2PPhase2Interface @params
+                $Script:phasecount++
+            }
+        }
+
+        #Create Static Routes
+        $StaticRoute = New-StaticRouteTunnel -TunnelName $TunnelName -DestinationAddressName $RemoteGroupName
+
+        #Create Services
+        $Service = if ($services) {
+
+            foreach ($service in $services) {
+                $split = $service -split "/"
+
+                if ($split[2] -eq 'TCP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        TCPPortRange = $split[1]
+                    }
+                }
+
+                if ($split[2] -eq 'UDP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        UDPPortRange = $split[1]
+                    }
+                }
+                New-ServiceObject @Params
+            }
+        }
+
+        #Create Service Groups
+        $ServiceGroup = if ($services) {
+            $proc = $services -split "/"
+            [int]$count = $proc.count
+            $svcs = for ($i = 0; $i -lt $count) {
+                [string]"vpn_" + $tunnelname + [string]"_" + $proc[$i]
+                $i = $i + [int]3
+            }
+            $svcresult = $svcs -join " "
+            $svcgroupname = "vpn_" + $tunnelname
+            New-ServiceGroup -ServiceGroupName $svcgroupname -Members $svcresult
+        }
+
+        #Create Firewall Policies
+        if ($null -eq $svcresult) {
+            $svcgroupname = [string]"ALL"
+        }
+
+        [int]$max = $LocalAddressCIDRs.Count
+        $FirewallPolicy = for ($i = 0; $i -lt $max; $i++) {
+            $params = @{
+                TunnelName          = $TunnelName + " $i"
+                SourceInterfaceName = $LANInterface
+                SourceAddress       = $script:LocalAddressObjects.name[$i]
+                DestinationAddress  = $RemoteGroupName
+                service             = $svcgroupname
+                IPPoolName          = $IPPoolObjects.IPPoolName[$i]
+                Vipname             = $VIPObjects.VIPName[$i]
+            }
+            New-FirewallPolicyTunnelNAT @params
+        }
     }
-    Write-Host $ServiceGroup
 
-    #Create Firewall Policies
-    Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
-    $FirewallPolicy = New-FirewallPolicyTunnelNAT
-    Write-Host $FirewallPolicy
+    end {
+        Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
+        Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
+        Write-Output $ConfPhase1
+        Write-Output $ConfLocalAddressObjects
+        Write-Output $ConfRemoteAddressObjects
+        Write-Output $ConfNATAddressObjects
+        Write-Output $ConfLocalAddressGroups
+        Write-Output $ConfRemoteAddressGroups
+        Write-Output $IPPool
+        Write-Output $VIPRange
+        Write-Output $Phase2
+        Write-Output $StaticRoute
+        Write-Output $Service
+        Write-Output $ServiceGroup
+        Write-Output $FirewallPolicy
+        Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
+        Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 
-    Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-    Write-Output $Phase1
-    Write-Output $AddressObjects
-    Write-Output $AddressGroups
-    Write-Output $IPPool
-    Write-Output $VIPRange
-    Write-Output $Phase2
-    Write-Output $StaticRoute
-    Write-Output $Service
-    Write-Output $ServiceGroup
-    Write-Output $FirewallPolicy
-    Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-    Write-Host "If there is no output between the Omission delimiters, that is because you redirected the output elsewhere. Like into a variable." -ForegroundColor Green
-    Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
-
-    $ErrorActionPreference = 'continue'
+        $ErrorActionPreference = 'continue'
+    }
 }

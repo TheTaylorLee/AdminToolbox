@@ -84,7 +84,6 @@ Function Enable-PushNotifications {
     $pass = Read-Host "Provide a password for an unprivileged admin. This is required for Push Notifications to be enable. One admin account must not have 2fa enabled. (Password)"
 
     Write-Output "
-#Enable SSL Client VPN Push Notifications
 config system accprofile
     edit no_access
         set system-diagnostics disable
@@ -108,6 +107,5 @@ config system interface
     edit ""$WanInterfaceName""
         set allowaccess ftm
     next
-end
-"
+end"
 }

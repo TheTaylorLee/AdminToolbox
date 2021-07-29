@@ -61,13 +61,10 @@ Function New-AddressGroup {
     )
 
     Write-Output "
-#Create Address Group
-
 config firewall addrgrp
     edit ""$GroupName""
         set member $AddressNames
         set allow-routing enable
     next
-end
-"
+end"
 }
