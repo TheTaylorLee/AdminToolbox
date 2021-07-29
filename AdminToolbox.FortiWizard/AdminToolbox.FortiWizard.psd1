@@ -18,7 +18,7 @@ ModuleVersion = '2.0.0'
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '29e7629c-1dfa-443b-ab4f-a2c74943e097'
+GUID = '6073002f-22f7-4097-825c-35b7c184edeb'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -76,7 +76,7 @@ FunctionsToExport = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotificat
                'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 
                'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 
                'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 
-               'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelLocalNAT'
+               'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = '*'

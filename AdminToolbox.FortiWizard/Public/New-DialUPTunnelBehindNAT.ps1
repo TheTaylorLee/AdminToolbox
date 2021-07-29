@@ -1,4 +1,4 @@
-Function New-DialUPTunnelLocalNAT {
+Function New-DialUPTunnelBehindNAT {
     <#
     .Description
     This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the remote side of the tunnel whose public IP is subject to change or Sits behind another firewall.
