@@ -5,60 +5,61 @@ online version: https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 schema: 2.0.0
 ---
 
-# New-P2PTunnel
+# New-DialUPTunnelRemoteNAT
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-New-P2PTunnel [-dhgroups] <String[]> [-LANInterface] <Object> [-LocalAddressCIDRs] <String[]>
- [-PeerAddress] <Object> [-Proposal] <Object> [-PSK] <Object> [-RemoteAddressCIDRs] <String[]>
+New-DialUPTunnelRemoteNAT [-dhgroups] <String[]> [-LANInterface] <Object> [-LocalAddressCIDRs] <String[]>
+ [-PeerID] <Object> [-Proposal] <Object> [-PSK] <Object> [-RemoteAddressCIDRs] <String[]>
  [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object> [-WANInterface] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
+This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects.
+This will be for the firewall whose public IP is static and whose end does not sit behind another NAT firewall.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
 $params = @{
-    dhgroups           = "5", "14"
-    LANInterface       = "port1"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
+   dhgroups           = "5", "14"
+   LANInterface       = "port1"
+   LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+   PeerID             = "187"
+   Proposal           = "aes256-sha512"
+   PSK                = "dfdayb%^4356456"
+   RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+   Services           = "RDP/3389/TCP", "DNS/53/UDP"
+   TTL                = "28800"
+   TunnelName         = "TestTunnel"
+   WANInterface       = "wan3"
 }
-New-P2PTunnel @params
+New-DialUPTunnelRemoteNAT @params
 ```
 
-This example will generate a VPN tunnel config.
+This example will generate a Dial-up VPN tunnel config.
 
 ### EXAMPLE 2
 ```
 New-SSHSession -computername 192.168.0.1
 $params = @{
-    dhgroups           = "5", "14"
-    LANInterface       = "port1"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
+   dhgroups           = "5", "14"
+   LANInterface       = "port1"
+   LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+   PeerID             = "187"
+   Proposal           = "aes256-sha512"
+   PSK                = "dfdayb%^4356456"
+   RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+   Services           = "RDP/3389/TCP", "DNS/53/UDP"
+   TTL                = "28800"
+   TunnelName         = "TestTunnel"
+   WANInterface       = "wan3"
 }
-$command = New-P2PTunnel @params
+$command = New-DialUPTunnelRemoteNAT @params
 $result = Invoke-SSHCommand -Command $command -SessionId 0
 $result.output
 ```
@@ -122,8 +123,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PeerAddress
-This is the public IP Address for the remote side of the tunnel.
+### -PeerID
+This is a unique 3 numeric character long Identifer for this tunnel.
 
 ```yaml
 Type: Object

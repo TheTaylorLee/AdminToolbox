@@ -11,43 +11,43 @@ schema: 2.0.0
 
 ## SYNTAX
 
-### TrustedHost6
+### TrustedCIDR6
 ```
 Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
- -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object>
- -TrustedHost5 <Object> -TrustedHost6 <Object> [<CommonParameters>]
+ -TrustedCIDR1 <Object> -TrustedCIDR2 <Object> -TrustedCIDR3 <Object> -TrustedCIDR4 <Object>
+ -TrustedCIDR5 <Object> -TrustedCIDR6 <Object> [<CommonParameters>]
 ```
 
-### TrustedHost5
+### TrustedCIDR5
 ```
 Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
- -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object>
- -TrustedHost5 <Object> [<CommonParameters>]
+ -TrustedCIDR1 <Object> -TrustedCIDR2 <Object> -TrustedCIDR3 <Object> -TrustedCIDR4 <Object>
+ -TrustedCIDR5 <Object> [<CommonParameters>]
 ```
 
-### TrustedHost4
+### TrustedCIDR4
 ```
 Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
- -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> -TrustedHost4 <Object>
+ -TrustedCIDR1 <Object> -TrustedCIDR2 <Object> -TrustedCIDR3 <Object> -TrustedCIDR4 <Object>
  [<CommonParameters>]
 ```
 
-### TrustedHost3
+### TrustedCIDR3
 ```
 Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
- -TrustedHost1 <Object> -TrustedHost2 <Object> -TrustedHost3 <Object> [<CommonParameters>]
+ -TrustedCIDR1 <Object> -TrustedCIDR2 <Object> -TrustedCIDR3 <Object> [<CommonParameters>]
 ```
 
-### TrustedHost2
+### TrustedCIDR2
 ```
 Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
- -TrustedHost1 <Object> -TrustedHost2 <Object> [<CommonParameters>]
+ -TrustedCIDR1 <Object> -TrustedCIDR2 <Object> [<CommonParameters>]
 ```
 
-### TrustedHost1
+### TrustedCIDR1
 ```
 Enable-Management -AdminUsername <String> -AllowAccess <String> -WANInterfaceName <Object>
- -TrustedHost1 <Object> [<CommonParameters>]
+ -TrustedCIDR1 <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -64,10 +64,10 @@ This example allows management from all Private Class ranges and one public IP
 $Params = @{
 AdminUsername    = "admin"
 AllowAccess      = "ping https ssh ftm fgfm"
-TrustedHost1     = "192.168.0.0 255.255.0.0"
-TrustedHost2     = "10.0.0.0 255.0.0.0"
-TrustedHost3     = "172.16.0.0 255.240.0.0"
-TrustedHost4     = "8.8.8.8 255.255.255.255"
+TrustedCIDR1     = "192.168.0.0/16"
+TrustedCIDR2     = "10.0.0.0/8"
+TrustedCIDR3     = "172.16.0.0/12"
+TrustedCIDR4     = "8.8.8.8/32"
 WANInterfaceName = "port1"
 }
 
@@ -81,8 +81,8 @@ This example allows management from a single /24 subnet and a single public rang
 $Params = @{
     AdminUsername    = "admin"
     AllowAccess      = "https"
-    TrustedHost1     = "192.168.0.0 255.255.255.0"
-    TrustedHost2     = "8.8.8.8 255.255.255.255"
+    TrustedCIDR1     = "192.168.0.0/24"
+    TrustedCIDR2     = "8.8.8.8/32"
     WANInterfaceName = "port1"
 }
 
@@ -98,10 +98,10 @@ New-SSHSession -computername 192.168.0.1
 $Params = @{
     AdminUsername    = "admin"
     AllowAccess      = "ping https ssh ftm fgfm"
-    TrustedHost1     = "192.168.0.0 255.255.0.0"
-    TrustedHost2     = "10.0.0.0 255.0.0.0"
-    TrustedHost3     = "172.16.0.0 255.240.0.0"
-    TrustedHost4     = "8.8.8.8 255.255.255.255"
+    TrustedCIDR1     = "192.168.0.0/16"
+    TrustedCIDR2     = "10.0.0.0/8"
+    TrustedCIDR3     = "172.16.0.0/12"
+    TrustedCIDR4     = "8.8.8.8/32"
     WANInterfaceName = "port1"
 }
 $command = Enable-Management @Params
@@ -120,10 +120,10 @@ New-SSHSession -computername 192.168.1.1
 $Params = @{
     AdminUsername    = "admin"
     AllowAccess      = "ping https ssh ftm fgfm"
-    TrustedHost1     = "192.168.0.0 255.255.0.0"
-    TrustedHost2     = "10.0.0.0 255.0.0.0"
-    TrustedHost3     = "172.16.0.0 255.240.0.0"
-    TrustedHost4     = "8.8.8.8 255.255.255.255"
+    TrustedCIDR1     = "192.168.0.0/16"
+    TrustedCIDR2     = "10.0.0.0/8"
+    TrustedCIDR3     = "172.16.0.0/12"
+    TrustedCIDR4     = "8.8.8.8/32"
     WANInterfaceName = "port1"
 }
 $command = Enable-Management @Params
@@ -195,8 +195,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrustedHost1
-Set the first Trusted subnet allowed to access the Fortigate
+### -TrustedCIDR1
+Set the first Trusted CIDR address allowed to access the Fortigate.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
@@ -210,12 +211,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrustedHost2
-Set the second Trusted subnet allowed to access the Fortigate
+### -TrustedCIDR2
+Set the second Trusted CIDR address allowed to access the Fortigate.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
-Parameter Sets: TrustedHost6, TrustedHost5, TrustedHost4, TrustedHost3, TrustedHost2
+Parameter Sets: TrustedCIDR6, TrustedCIDR5, TrustedCIDR4, TrustedCIDR3, TrustedCIDR2
 Aliases:
 
 Required: True
@@ -225,12 +227,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrustedHost3
-Set the third Trusted subnet allowed to access the Fortigate
+### -TrustedCIDR3
+Set the third Trusted CIDR address allowed to access the Fortigate.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
-Parameter Sets: TrustedHost6, TrustedHost5, TrustedHost4, TrustedHost3
+Parameter Sets: TrustedCIDR6, TrustedCIDR5, TrustedCIDR4, TrustedCIDR3
 Aliases:
 
 Required: True
@@ -240,12 +243,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrustedHost4
-Set the fourth Trusted subnet allowed to access the Fortigate
+### -TrustedCIDR4
+Set the fourth Trusted CIDR address allowed to access the Fortigate.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
-Parameter Sets: TrustedHost6, TrustedHost5, TrustedHost4
+Parameter Sets: TrustedCIDR6, TrustedCIDR5, TrustedCIDR4
 Aliases:
 
 Required: True
@@ -255,12 +259,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrustedHost5
-Set the fifth Trusted subnet allowed to access the Fortigate
+### -TrustedCIDR5
+Set the fifth Trusted CIDR address allowed to access the Fortigate.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
-Parameter Sets: TrustedHost6, TrustedHost5
+Parameter Sets: TrustedCIDR6, TrustedCIDR5
 Aliases:
 
 Required: True
@@ -270,12 +275,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrustedHost6
-Set the sixth Trusted subnet allowed to access the Fortigate
+### -TrustedCIDR6
+Set the sixth Trusted CIDR address allowed to access the Fortigate.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
-Parameter Sets: TrustedHost6
+Parameter Sets: TrustedCIDR6
 Aliases:
 
 Required: True
@@ -293,7 +299,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-This function currently supports up to 6 Trusted Host subnets
+This function currently supports up to 6 Trusted Host subnets.
+Open a Github issue to request more added.
 
 ## RELATED LINKS
 

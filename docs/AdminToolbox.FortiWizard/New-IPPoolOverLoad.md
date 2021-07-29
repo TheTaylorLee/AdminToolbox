@@ -12,7 +12,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-IPPoolOverLoad [-IPPoolName] <Object> [-StartIP] <Object> [-EndIP] <Object> [<CommonParameters>]
+New-IPPoolOverLoad [-IPPoolName] <Object> [-CIDR] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,8 +24,7 @@ Create a New Overload IP Pool
 ```
 $Params = @{
     IPPoolName    = "SSLVPNNAT"
-    StartIP       = "10.155.127.1"
-    EndIP         = "10.155.127.254"
+    CIDR          = "192.168.1.0/24"
 }
 ```
 
@@ -40,8 +39,7 @@ New-SSHSession -computername 192.168.0.1
 
 $Params = @{
     IPPoolName    = "SSLVPNNAT"
-    StartIP       = "10.155.127.1"
-    EndIP         = "10.155.127.254"
+    CIDR          = "192.168.1.0/24"
 }
 $command = New-IPPoolOverload @params
 
@@ -58,8 +56,7 @@ New-SSHSession -computername 192.168.1.1
 
 $Params = @{
     IPPoolName    = "SSLVPNNAT"
-    StartIP       = "10.155.127.1"
-    EndIP         = "10.155.127.254"
+    CIDR          = "192.168.1.0/24"
 }
 $command = New-IPPoolOverload @params
 
@@ -87,8 +84,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StartIP
-Specify an IPAddress that will be at the begining of the Overload NAT
+### -CIDR
+Specify a CIDR address.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
@@ -97,21 +95,6 @@ Aliases:
 
 Required: True
 Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -EndIP
-Specify an IPAddress that will be at the end of the Overload NAT
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

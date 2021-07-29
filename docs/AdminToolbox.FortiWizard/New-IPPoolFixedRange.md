@@ -12,8 +12,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-IPPoolFixedRange [-IPPoolName] <Object> [-StartIPRangeExternal] <Object> [-EndIPRangeExternal] <Object>
- [-StartIPRangeInternal] <Object> [-EndIPRangeInternal] <Object> [<CommonParameters>]
+New-IPPoolFixedRange [-IPPoolName] <Object> [-ExternalCIDR] <Object> [-InternalCIDR] <Object>
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -25,10 +25,8 @@ Create a New Fixed Range IP Pool
 ```
 $Params = @{
     IPPoolName            = "CompanyIPSECPool"
-    StartIPRangeExternal  = "10.155.127.1"
-    EndIPRangeExternal    = "10.155.127.254"
-    StartIPRangeInternal  = "192.168.0.1"
-    EndIPRangeInternal    = "192.168.0.254"
+    ExternalCIDR          = "10.155.127.0/24"
+    InternalCIDR          = "192.168.1.0/24"
 }
 ```
 
@@ -43,10 +41,8 @@ New-SSHSession -computername 192.168.0.1
 
 $Params = @{
     IPPoolName            = "CompanyIPSECPool"
-    StartIPRangeExternal  = "10.155.127.1"
-    EndIPRangeExternal    = "10.155.127.254"
-    StartIPRangeInternal  = "192.168.0.1"
-    EndIPRangeInternal    = "192.168.0.254"
+    ExternalCIDR          = "10.155.127.0/24"
+    InternalCIDR          = "192.168.1.0/24"
 }
 $command = New-IPPoolFixedRange @params
 
@@ -63,10 +59,8 @@ New-SSHSession -computername 192.168.1.1
 
 $Params = @{
     IPPoolName            = "CompanyIPSECPool"
-    StartIPRangeExternal  = "10.155.127.1"
-    EndIPRangeExternal    = "10.155.127.254"
-    StartIPRangeInternal  = "192.168.0.1"
-    EndIPRangeInternal    = "192.168.0.254"
+    ExternalCIDR          = "10.155.127.0/24"
+    InternalCIDR          = "192.168.1.0/24"
 }
 $command = New-IPPoolFixedRange @params
 
@@ -94,8 +88,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StartIPRangeExternal
-Specify an IPAddress that will be at the begining of the external IP Range
+### -ExternalCIDR
+Specify the external CIDR range for the IPPool
 
 ```yaml
 Type: Object
@@ -109,8 +103,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -EndIPRangeExternal
-Specify an IPAddress that will be at the end of the external IP Range
+### -InternalCIDR
+Specify the internal CIDR range for the IPPool
 
 ```yaml
 Type: Object
@@ -119,36 +113,6 @@ Aliases:
 
 Required: True
 Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -StartIPRangeInternal
-Specify an IPAddress that will be at the begining of the internal IP Range
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 4
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -EndIPRangeInternal
-Specify an IPAddress that will be at the end of the internal IP Range
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

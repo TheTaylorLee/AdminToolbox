@@ -12,7 +12,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-AddressObject [-AddressName] <Object> [-IPAddress] <Object> [-SubnetMask] <Object> [<CommonParameters>]
+New-AddressObject [-AddressName] <Object> [-CIDR] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,8 +24,7 @@ Create a New Address Object
 ```
 $Params = @{
     AddressName   = "ComanyLan_192.168.0.1/26"
-    IPAddress     = "192.168.0.1"
-    SubnetMask    = "255.255.255.192"
+    CIDR          = "192.168.0.1/26"
 }
 ```
 
@@ -40,8 +39,7 @@ New-SSHSession -computername 192.168.0.1
 
 $Params = @{
     AddressName   = "ComanyLan_192.168.0.1/26"
-    IPAddress     = "192.168.0.1"
-    SubnetMask    = "255.255.255.192"
+    CIDR          = "192.168.0.1/26"
 }
 $command = New-AddressObject @params
 
@@ -58,8 +56,7 @@ New-SSHSession -computername 192.168.1.1
 
 $Params = @{
     AddressName   = "ComanyLan_192.168.0.1/26"
-    IPAddress     = "192.168.0.1"
-    SubnetMask    = "255.255.255.192"
+    CIDR          = "192.168.0.1/26"
 }
 $command = New-AddressObject @params
 
@@ -87,8 +84,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IPAddress
-Specify a IPAddress that will be ranged by the subnet mask
+### -CIDR
+Specify a CIDR address.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
@@ -97,21 +95,6 @@ Aliases:
 
 Required: True
 Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SubnetMask
-Specify a SubnetMask for the IPAddress
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

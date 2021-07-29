@@ -12,7 +12,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-VIPRange [-VIPName] <Object> [-ExternalIPRange] <Object> [-Interface] <Object> [-InternalIPRange] <Object>
+New-VIPRange [-VIPName] <Object> [-Interface] <Object> [-ExternalCIDR] <Object> [-InternalCIDR] <Object>
  [<CommonParameters>]
 ```
 
@@ -25,9 +25,9 @@ Create a New Virtual IP for a range
 ```
 $Params = @{
     VIPName               = "PatientPortal"
-    ExternalIP            = "192.168.8.1-192.168.8.254"
+    ExternalCIDR          = "192.168.8.0/24"
     Interface             = "IPSecTunnel"
-    InternalIP            = "192.168.1.1-192.168.1.254"
+    InternalCIDR          = "192.168.1.0/24"
 }
 ```
 
@@ -42,9 +42,9 @@ New-SSHSession -computername 192.168.0.1
 
 $Params = @{
     VIPName               = "PatientPortal"
-    ExternalIP            = "192.168.8.1-192.168.8.254"
+    ExternalCIDR          = "192.168.8.0/24"
     Interface             = "IPSecTunnel"
-    InternalIP            = "192.168.1.1-192.168.1.254"
+    InternalCIDR          = "192.168.1.0/24"
 }
 $command = New-VIPRange @params
 
@@ -61,9 +61,9 @@ New-SSHSession -computername 192.168.1.1
 
 $Params = @{
     VIPName               = "PatientPortal"
-    ExternalIP            = "192.168.8.1-192.168.8.254"
+    ExternalCIDR          = "192.168.8.0/24"
     Interface             = "IPSecTunnel"
-    InternalIP            = "192.168.1.1-192.168.1.254"
+    InternalCIDR          = "192.168.1.0/24"
 }
 $command = New-VIPRange @params
 
@@ -91,8 +91,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ExternalIPRange
-Specify the External IP used for the VIP Range
+### -Interface
+Specify the Name of the External Interface for the VIP
 
 ```yaml
 Type: Object
@@ -106,8 +106,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Interface
-Specify the Name of the External Interface for the VIP
+### -ExternalCIDR
+Specify the External CIDR address used for the VIP Range.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object
@@ -121,8 +122,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InternalIPRange
-Specify the Internal IP used for the VIP Range
+### -InternalCIDR
+Specify the Internal CIDR address used for the VIP Range.
+ex: 192.168.0.0/24
 
 ```yaml
 Type: Object

@@ -12,7 +12,10 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-P2PTunnelNAT
+New-P2PTunnelNAT [-dhgroups] <String[]> [-LANInterface] <Object> [-LocalAddressCIDRs] <String[]>
+ [-NATAddressCIDRS] <String[]> [-PeerAddress] <Object> [-Proposal] <Object> [-PSK] <Object>
+ [-RemoteAddressCIDRs] <String[]> [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object>
+ [-WANInterface] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,32 +26,290 @@ The source Subnet will be Natted by this policy.
 
 ### EXAMPLE 1
 ```
-New-P2PTunnelNAT
+$params = @{
+dhgroups           = "5", "14"
+LANInterface       = "port1"
+LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+PeerAddress        = "56.98.75.32"
+Proposal           = "aes256-sha512"
+PSK                = "dfdayb%^4356456"
+RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+Services           = "RDP/3389/TCP", "DNS/53/UDP"
+TTL                = "28800"
+TunnelName         = "TestTunnel"
+WANInterface       = "wan3"
+}
+New-P2PTunnelNAT @params
 ```
+
+This example will generate a NAT VPN tunnel config.
 
 ### EXAMPLE 2
 ```
-This example generates an SSH session and invokes the output of this function against that session.
-```
-
 New-SSHSession -computername 192.168.0.1
-$command = New-P2PTunnelNAT
+$params = @{
+dhgroups           = "5", "14"
+LANInterface       = "port1"
+LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+PeerAddress        = "56.98.75.32"
+Proposal           = "aes256-sha512"
+PSK                = "dfdayb%^4356456"
+RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+Services           = "RDP/3389/TCP", "DNS/53/UDP"
+TTL                = "28800"
+TunnelName         = "TestTunnel"
+WANInterface       = "wan3"
+}
+$command = New-P2PTunnelNAT @params
 $result = Invoke-SSHCommand -Command $command -SessionId 0
 $result.output
+```
+
+This example generates an SSH session and invokes the output of this function against that session.
 
 ## PARAMETERS
+
+### -dhgroups
+This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces.
+If providing multiple values input them in comma delimited format.
+
+ex: "5", "14"
+
+*These are the available DH Groups
+32 31 30 29 28 27
+21 20 19 18 17 16
+15 14 5 2 1
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LANInterface
+This is the name of the local or lan interface.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LocalAddressCIDRs
+This is the Address Object CIDRs that will be created for the local side of the tunnel.
+If there is more than one CIDR, it must be ordered in conjunction with the NAT CIDRS.
+So that each local CIDR in the array matches it's NAT CIDR.
+
+ex: "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NATAddressCIDRS
+This is the Address Object NAT CIDRs that will be created for the local side of the tunnel.
+If there is more than one CIDR, it must be ordered in conjunction with the Local CIDRS.
+So that each NAT CIDR in the array matches it's Local CIDR.
+
+ex: "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PeerAddress
+This is the public IP Address for the remote side of the tunnel.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Proposal
+This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces.
+Provide in space delimited format.
+
+ex: aes256-sha512 aes256-sha1
+
+*These are the available proposals that can be used.
+des-md5          des-md5
+des-sha1         des-sha1
+des-sha256       des-sha256
+des-sha384       des-sha384
+des-sha512       des-sha512
+3des-md5         3des-md5
+3des-sha1        3des-sha1
+3des-sha256      3des-sha256
+3des-sha384      3des-sha384
+3des-sha512      3des-sha512
+aes128-md5       aes128-md5
+aes128-sha1      aes128-sha1
+aes128-sha256    aes128-sha256
+aes128-sha384    aes128-sha384
+aes128-sha512    aes128-sha512
+aes192-md5       aes192-md5
+aes192-sha1      aes192-sha1
+aes192-sha256    aes192-sha256
+aes192-sha384    aes192-sha384
+aes192-sha512    aes192-sha512
+aes256-md5       aes256-md5
+aes256-sha1      aes256-sha1
+aes256-sha256    aes256-sha256
+aes256-sha384    aes256-sha384
+aes256-sha512    aes256-sha512
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PSK
+This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 7
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RemoteAddressCIDRs
+This is the Address Object CIDRs that will be created for the remote side of the tunnel.
+
+ex: "192.168.1.0/24", "10.100.0/24"
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 8
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Services
+Specify the Service or services that will be applied to the Firewall Policy for this tunnel.
+
+ex: "RDP/3389/TCP", "piov/5060-5061/UDP"
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 9
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TTL
+This is the Time to Live for the Phase 1 and Phase 2 proposals.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 10
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TunnelName
+This is the name for the VPN Tunnel.
+Maximum 15 Alphanumeric characters.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 11
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WANInterface
+This is the name of the WAN interface that the tunnel will be built on.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 12
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ## OUTPUTS
 
 ## NOTES
-Capitalization and spacing is very important when running this function.
-Typos should also be avoided.
-Any errors resultant from adding spaces, creating typos, or not focusing on persisint casing will lead to errors.
-The function will fail, or the config script when pushed to the firewall will fail to produce desired results.
-
-Better parameter validation may be added in future versions of this function.
 
 ## RELATED LINKS
 

@@ -5,60 +5,64 @@ online version: https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 schema: 2.0.0
 ---
 
-# New-P2PTunnel
+# New-DialUPTunnelBehindNAT
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-New-P2PTunnel [-dhgroups] <String[]> [-LANInterface] <Object> [-LocalAddressCIDRs] <String[]>
- [-PeerAddress] <Object> [-Proposal] <Object> [-PSK] <Object> [-RemoteAddressCIDRs] <String[]>
- [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object> [-WANInterface] <Object> [<CommonParameters>]
+New-DialUPTunnelBehindNAT [-dhgroups] <String[]> [-LANInterface] <Object> [-LocalAddressCIDRs] <String[]>
+ [-PeerAddress] <Object> [-PeerID] <Object> [-Proposal] <Object> [-PSK] <Object>
+ [-RemoteAddressCIDRs] <String[]> [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object>
+ [-WANInterface] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
+This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects.
+This will be for the remote side of the tunnel whose public IP is subject to change or Sits behind another firewall.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
 $params = @{
-    dhgroups           = "5", "14"
-    LANInterface       = "port1"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
+   dhgroups           = "5", "14"
+   LANInterface       = "port1"
+   LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+   PeerAddress        = "56.98.75.32"
+   PeerID             = "187"
+   Proposal           = "aes256-sha512"
+   PSK                = "dfdayb%^4356456"
+   RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+   Services           = "RDP/3389/TCP", "DNS/53/UDP"
+   TTL                = "28800"
+   TunnelName         = "TestTunnel"
+   WANInterface       = "wan3"
 }
-New-P2PTunnel @params
+New-DialUPTunnelBehindNAT @params
 ```
 
-This example will generate a VPN tunnel config.
+This example will generate a Dial-up VPN tunnel config.
 
 ### EXAMPLE 2
 ```
 New-SSHSession -computername 192.168.0.1
 $params = @{
-    dhgroups           = "5", "14"
-    LANInterface       = "port1"
-    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
-    PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
-    PSK                = "dfdayb%^4356456"
-    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
-    Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
-    TunnelName         = "TestTunnel"
-    WANInterface       = "wan3"
+   dhgroups           = "5", "14"
+   LANInterface       = "port1"
+   LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
+   PeerAddress        = "56.98.75.32"
+   PeerID             = "187"
+   Proposal           = "aes256-sha512"
+   PSK                = "dfdayb%^4356456"
+   RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
+   Services           = "RDP/3389/TCP", "DNS/53/UDP"
+   TTL                = "28800"
+   TunnelName         = "TestTunnel"
+   WANInterface       = "wan3"
 }
-$command = New-P2PTunnel @params
+$command = New-DialUPTunnelBehindNAT @params
 $result = Invoke-SSHCommand -Command $command -SessionId 0
 $result.output
 ```
@@ -137,6 +141,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -PeerID
+This is a unique 3 numeric character long Identifer for this tunnel.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Proposal
 This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces.
 Provide in space delimited format.
@@ -176,7 +195,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 5
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -191,7 +210,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 6
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -208,7 +227,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 7
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -225,7 +244,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 8
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -240,7 +259,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 9
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -256,7 +275,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 10
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -271,7 +290,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 11
+Position: 12
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
