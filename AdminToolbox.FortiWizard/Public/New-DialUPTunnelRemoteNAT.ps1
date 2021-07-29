@@ -21,9 +21,6 @@ Function New-DialUPTunnelRemoteNAT {
 
     ex: "192.168.1.0/24", "10.100.0/24"
 
-    .Parameter PeerAddress
-    This is the public IP Address for the remote side of the tunnel.
-
     .Parameter PeerID
     This is a unique 3 numeric character long Identifer for this tunnel.
 
@@ -200,109 +197,137 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     }
 
     process {
-        #        #Create Address Objects
-        #        Write-Host "Creating Address Objects Config" -ForegroundColor Cyan
-        #        $query = Read-Host "Do you want to create one or more Address Objects? (yes/no)"
-        #        $AddressObjects = while ($query -eq 'yes') {
-        #            if ($query -eq 'yes') {
-        #                New-AddressObject
-        #            }
-        #            $query = Read-Host "Do you want to create more Address Objects? (yes/no)"
-        #        }
-        #        Write-Host $AddressObjects
-        #
-        #        #Create Address Group
-        #        Write-Host "Creating Address Groups Config" -ForegroundColor Cyan
-        #        $query2 = Read-Host "Do you want to create one or more Address Groups? (yes/no)"
-        #        $AddressGroups = while ($query2 -eq 'yes') {
-        #            if ($query2 -eq 'yes') {
-        #                New-AddressGroup
-        #            }
-        #            $query2 = Read-Host "Do you want to create more Address Groups? (yes/no)"
-        #        }
-        #        Write-Host $AddressGroups
-        #
-        #        #Create Phase 1 Interface
-        #        Write-Host "Creating Phase 1 Interface Config" -ForegroundColor Cyan
-        #        $Phase1 = New-P2PPhase1InterfaceDialUp -Static
-        #        Write-Host $Phase1
-        #
-        #        #Create Phase 2 Interfaces
-        #        Write-Host "Creating Phase 2 Interfaces Config" -ForegroundColor Cyan
-        #        $query3 = 'yes'
-        #        $Phase2 = while ($query3 -eq 'yes') {
-        #            if ($query3 -eq 'yes') {
-        #                New-P2PPhase2Interface
-        #            }
-        #            $query3 = Read-Host "Do you want to create more Phase 2 Interfaces? (yes/no)"
-        #        }
-        #        Write-Host $Phase2
-        #
-        #        #Create Static Routes
-        #        Write-Host "Creating Blackhole Static Routes" -ForegroundColor Cyan
-        #        $query4 = 'yes'
-        #        $StaticRoute = while ($query4 -eq 'yes') {
-        #            if ($query4 -eq 'yes') {
-        #                New-StaticRouteDialupTunnel
-        #            }
-        #            $query4 = Read-Host "Do you want to create more static routes? (yes/no)"
-        #        }
-        #        Write-Host $StaticRoute
-        #
-        #        #Create Services
-        #        Write-Host "Creating Services Config" -ForegroundColor Cyan
-        #        $query5 = Read-Host "Do you need to create new service objects for use with the firewall policies? (yes/no)"
-        #        $Service = while ($query5 -eq 'yes') {
-        #            if ($query5 -eq 'yes') {
-        #                $Protocol = Read-Host "Specify if this is a TCP or UDP Service (TCP/UDP)"
-        #
-        #                if ($Protocol -eq 'TCP') {
-        #                    $Params = @{
-        #                        ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-        #                        TCPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-        #                    }
-        #                }
-        #                if ($Protocol -eq 'UDP') {
-        #                    $Params = @{
-        #                        ServiceName  = Read-Host "Specify the ServiceName (Service Name)"
-        #                        UDPPortRange = Read-Host "Specify the port or Port range. eg 443 or 443-445 (Port)"
-        #                    }
-        #                }
-        #
-        #                New-ServiceObject @Params
-        #            }
-        #            $query5 = Read-Host "Do you want to create more services? (yes/no)"
-        #        }
-        #        Write-Host $Service
-        #
-        #        #Create Service Groups
-        #        Write-Host "Creating Service Groups Config" -ForegroundColor Cyan
-        #        $query6 = Read-Host "Do you need to create a service group for use with Firewall Policies? (yes/no)"
-        #        $ServiceGroup = while ($query6 -eq 'yes') {
-        #            if ($query6 -eq 'yes') {
-        #                New-ServiceGroup
-        #            }
-        #            $query6 = Read-Host "Do you want to create more service groups? (yes/no)"
-        #        }
-        #        Write-Host $ServiceGroup
-        #
-        #        #Create Firewall Policies
-        #        Write-Host "Creating Firewall Policy Config" -ForegroundColor Cyan
-        #        $FirewallPolicy = New-FirewallPolicyTunnel
-        #        Write-Host $FirewallPolicy
+        #Create Local Address Objects
+        [int]$max = $LocalAddressCIDRs.Count
+        $script:LocalAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_Local_" + $i
+                CIDR = $LocalAddressCIDRs[$i]
+            }
+        }
+
+        $ConfLocalAddressObjects = Foreach ($AddressObject in $script:LocalAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
+        #Create Remote Address Objects
+        [int]$max = $RemoteAddressCIDRs.Count
+        $script:RemoteAddressObjects = for ($i = 0; $i -lt $max; $i++) {
+            [PSCustomObject]@{
+                Name = "VPN_" + $TunnelName + "_Remote_" + $i
+                CIDR = $RemoteAddressCIDRs[$i]
+            }
+        }
+
+        $ConfRemoteAddressObjects = Foreach ($AddressObject in $script:RemoteAddressObjects) {
+            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+        }
+
+        #Create Local Address Group
+        $LocNames = ($script:LocalAddressObjects).name -join " "
+        $LocalGroupName = "vpn_" + "$TunnelName" + "_Local"
+        $ConfLocalAddressGroups = New-AddressGroup -AddressNames $LocNames -GroupName $LocalGroupName
+
+        #Create Remote Address Group
+        $RemNames = ($script:RemoteAddressObjects).name -join " "
+        $RemoteGroupName = "vpn_" + "$TunnelName" + "_Remote"
+        $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
+
+        #Create Phase 1 Proposal
+        $params = @{
+            RemoteNat  = $true
+            TunnelName = $TunnelName
+            Interface  = $WanInterface
+            Proposal   = $Proposal
+            PeerID     = $PeerID
+            dhgroups   = $dhgroups
+            PSK        = $PSK
+        }
+        $Phase1 = New-P2PPhase1InterfaceDialUp @params
+
+        #Create Phase 2 Proposals
+        [int]$localcount = $script:LocalAddressObjects.count
+        [int]$remotecount = $script:RemoteAddressObjects.count
+        [int]$Script:PhaseCount = 0
+
+        $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
+            $locals = ($script:LocalAddressObjects).name
+            $sourceaddressname = $locals[$i]
+            for ($ii = 0; $ii -lt $remotecount; $ii++) {
+                $remotes = ($script:RemoteAddressObjects).name
+                $params = @{
+                    DestinationAddressName = $remotes[$ii]
+                    dhgroups               = $dhgroups
+                    PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
+                    Proposal               = $Proposal
+                    SourceAddressName      = $sourceaddressname
+                    TTL                    = $TTL
+                    TunnelName             = $TunnelName
+                }
+                New-P2PPhase2Interface @params
+                $Script:phasecount++
+            }
+        }
+
+        #Create Static Routes
+        $StaticRoute = New-StaticRouteDialupTunnel -DestinationAddressName $RemoteGroupName
+
+        #Create Services
+        $Service = if ($services) {
+
+            foreach ($service in $services) {
+                $split = $service -split "/"
+
+                if ($split[2] -eq 'TCP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        TCPPortRange = $split[1]
+                    }
+                }
+
+                if ($split[2] -eq 'UDP') {
+                    $Params = @{
+                        ServiceName  = [string]"vpn_" + $tunnelname + [string]"_" + $split[0]
+                        UDPPortRange = $split[1]
+                    }
+                }
+                New-ServiceObject @Params
+            }
+        }
+
+        #Create Service Groups
+        $ServiceGroup = if ($services) {
+            $proc = $services -split "/"
+            [int]$count = $proc.count
+            $svcs = for ($i = 0; $i -lt $count) {
+                [string]"vpn_" + $tunnelname + [string]"_" + $proc[$i]
+                $i = $i + [int]3
+            }
+            $svcresult = $svcs -join " "
+            $svcgroupname = "vpn_" + $tunnelname
+            New-ServiceGroup -ServiceGroupName $svcgroupname -Members $svcresult
+        }
+
+        #Create Firewall Policies
+        if ($null -eq $svcresult) {
+            $svcgroupname = [string]"ALL"
+        }
+        $FirewallPolicy = New-FirewallPolicyTunnel -TunnelName $TunnelName -SourceInterfaceName $LANInterface -SourceAddress $LocalGroupName -DestinationAddress $RemoteGroupName -service $svcgroupname
     }
 
     end {
         Write-Host "If there is no output between the Omission delimiters, that is because you redirected the output elsewhere. Like into a variable." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-        #Write-Output $AddressObjects
-        #Write-Output $AddressGroups
-        #Write-Output $Phase1
-        #Write-Output $Phase2
-        #Write-Output $StaticRoute
-        #Write-Output $Service
-        #Write-Output $ServiceGroup
-        #Write-Output $FirewallPolicy
+        Write-Output $ConfLocalAddressObjects
+        Write-Output $ConfRemoteAddressObjects
+        Write-Output $ConfLocalAddressGroups
+        Write-Output $ConfRemoteAddressGroups
+        Write-Output $Phase1
+        Write-Output $Phase2
+        Write-Output $StaticRoute
+        Write-Output $Service
+        Write-Output $ServiceGroup
+        Write-Output $FirewallPolicy
         Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 
