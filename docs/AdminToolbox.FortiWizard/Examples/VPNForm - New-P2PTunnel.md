@@ -2,7 +2,7 @@
 
 This Example will demonstrate how to use a VPN form saved as an excel file to import the tunnel parameters and buildout the tunnel configuration script. This is particularly useful because it allows for building tunnels with the only time consuming work being filling out the VPN form itself. The rest of the work can be fully automated. Check out the SSH examples for ideas on how to load the configuration script into a variable and use Posh-SSH to push the vpn Tunnel config.
 
-You can use the Sample VPN form and customize it or buildout your own. Ultimately for this to work you just need a way of importing the VPN parameters from the form. In this example I use Import Excel, but you can use and method that is preferred.
+You can use the Sample VPN form and customize it or buildout your own. Ultimately for this to work you just need a way of importing the VPN parameters from the form. In this example I use Import Excel, but you can use any method that is preferred.
 
 **Generate The Tunnel Config**
 ```Powershell
