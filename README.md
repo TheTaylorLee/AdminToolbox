@@ -13,7 +13,7 @@ Install-Module AdminToolbox -Allowclobber -Force
 
 ### Helpful Links
 
-[Docs](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/AdminToolbox.FortiWizard) Markdown help and examples can be found here.
+[Docs](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/) Markdown help and examples can be found here.
 
 [Powershell Gallery](https://www.powershellgallery.com/packages/AdminToolbox/) has all versions of the AdminToolbox Modules.
 
