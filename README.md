@@ -11,6 +11,8 @@ If the above workflow shows a status other than passing, the code is being devel
 Install-Module AdminToolbox -Allowclobber -Force
 ```
 
-[![VPN from VPN Form](https://img.youtube.com/vi/stIkaeUwJ4c/0.jpg)](http://www.youtube.com/watch?v=stIkaeUwJ4c)
+![VPN from VPN Form Admintoolbox.FortiWizard](https://github.com/TheTaylorLee/AdminToolbox/blob/ReadMe/Images/AdminToolbox.png)
+
+[Docs](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/AdminToolbox.FortiWizard) Markdown help and examples can be found here.
 
 [Powershell Gallery](https://www.powershellgallery.com/packages/AdminToolbox/) has all versions of the AdminToolbox Modules. Most recent versions will be maintained in this repository.
