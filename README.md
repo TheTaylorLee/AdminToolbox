@@ -5,10 +5,18 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 
 If the above workflow shows a status other than passing, the code is being developed. Wait for it to show passed, or download the module from Powershell Gallery.
 
-* *__To get started__*
+### To get started
 
 ```Powershell
 Install-Module AdminToolbox -Allowclobber -Force
 ```
 
-[Powershell Gallery](https://www.powershellgallery.com/packages/AdminToolbox/) has all versions of the AdminToolbox Modules. Most recent versions will be maintained in this repository.
+### Helpful Links
+
+[Docs](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/AdminToolbox.FortiWizard) Markdown help and examples can be found here.
+
+[Powershell Gallery](https://www.powershellgallery.com/packages/AdminToolbox/) has all versions of the AdminToolbox Modules.
+
+### Sample Videos
+
+[New-P2PTunnel](https://www.youtube.com/watch?v=stIkaeUwJ4c)
