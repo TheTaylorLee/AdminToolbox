@@ -34,6 +34,7 @@ New-VIPRange              ..Creates New Virtual IP Range
 Enable-PushNotifications  ..Enables push notifications for the Fortitoken Mobile app
 New-DialUPTunnelBehindNAT ..Creates a Dialup Tunnel for the static site
 New-DialUPTunnelRemoteNAT ..Creates a Dialup tunnel for the Dynamic site
+New-FormTunnel            ..Creates a tunnel from provided Example VPN Form of 1 of 4 VPN types
 New-P2PTunnel             ..Creates a Typical IPSec Tunnel
 New-P2PTunnelNAT          ..Creates a new IPSec tunnel with the local subnet NATTed
 Write-SSLVPNConfig        ..Writes an initial setup script for enabling the Forticlient VPN Config
