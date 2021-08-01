@@ -1,3 +1,9 @@
+#Required by functions
+#New-P2PTunnel
+#New-P2PTunnelNAT
+#New-DialUPTunnelDynamic
+#New-DialUPTunnelStatic
+
 Function New-AddressObject {
     <#
     .Description

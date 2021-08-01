@@ -1,3 +1,6 @@
+#Required by functions
+#New-P2PTunnelNAT
+
 Function New-VIPRange {
     <#
     .Description

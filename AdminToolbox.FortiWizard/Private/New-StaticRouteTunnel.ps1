@@ -1,5 +1,6 @@
-#Used By New-P2PTunnel
-#Used By New-P2PTunnelNAT
+#Required by functions
+#New-P2PTunnel
+#New-P2PTunnelNAT
 
 Function New-StaticRouteTunnel {
     <#

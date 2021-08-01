@@ -1,7 +1,8 @@
-#Used By New-P2PTunnel
-#Used By New-P2PTunnelNAT
-#Used By New-DialUPTunnelDynamic
-#Used By New-DialUPTunnelStatic
+#Required by functions
+#New-P2PTunnel
+#New-P2PTunnelNAT
+#New-DialUPTunnelDynamic
+#New-DialUPTunnelStatic
 
 Function New-P2PPhase2Interface {
     <#

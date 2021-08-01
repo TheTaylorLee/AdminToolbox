@@ -1,4 +1,5 @@
-#Used By New-P2PTunnelNAT
+#Required by functions
+#New-P2PTunnelNAT
 
 Function New-FirewallPolicyTunnelNAT {
     <#

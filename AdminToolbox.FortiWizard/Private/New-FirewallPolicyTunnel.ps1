@@ -1,6 +1,7 @@
-#Used By New-P2PTunnel
-#Used By New-DialUPTunnelDynamic
-#Used By New-DialUPTunnelStatic
+#Required by functions
+#New-P2PTunnel
+#New-DialUPTunnelDynamic
+#New-DialUPTunnelStatic
 
 Function New-FirewallPolicyTunnel {
     <#

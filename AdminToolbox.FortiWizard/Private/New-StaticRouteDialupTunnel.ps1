@@ -1,5 +1,6 @@
-#Used By New-DialUPTunnelDynamic
-#Used By New-DialUPTunnelStatic
+#Required by functions
+#New-DialUPTunnelDynamic
+#New-DialUPTunnelStatic
 
 Function New-StaticRouteDialupTunnel {
     <#
