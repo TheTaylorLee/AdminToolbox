@@ -22,6 +22,7 @@
 * **1.6.1.0** Removed reliance on Internet explorer web engine by updating invoke-webrequest functions to use basic parsing
 * **1.7.0.0** Added Markdown Documentation and link help
 * **1.8.0** Update versioning standard and added LicenseURI.
+* **1.8.1** Invoke-ServiceRecovery doesn't work in Powershell Core. Added a function break with an error to use Legacy Powershell.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.8.0
+1.8.1

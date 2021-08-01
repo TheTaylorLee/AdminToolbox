@@ -27,7 +27,7 @@ Function out-manifests {
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-        ModuleVersion        = "9.2.0"
+        ModuleVersion        = "9.3.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
         RequiredModules      = (
@@ -40,7 +40,7 @@ Function out-manifests {
             @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.0'; },
             @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.9.0'; },
             @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
-            @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.0'; },
+            @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
             @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
             @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
             @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; },
@@ -284,7 +284,7 @@ Function out-manifests {
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-        ModuleVersion        = "1.8.0"
+        ModuleVersion        = "1.8.1"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
