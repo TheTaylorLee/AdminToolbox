@@ -9,6 +9,15 @@ function Get-Excuse {
     #>
 
     [CmdletBinding(SupportsShouldProcess)]
+    param (
+
+    )
+
+    if ($host.version.major -gt '5') {
+        Write-Host " "
+        Write-Error "This function only works in powershell version 5.1 or less."
+        break
+    }
 
     $ex = (Invoke-WebRequest http://pages.cs.wisc.edu/~ballard/bofh/excuses -OutVariable excuses).content.split([Environment]::NewLine)[(Get-Random $excuses.content.split([Environment]::NewLine).count)]
 
