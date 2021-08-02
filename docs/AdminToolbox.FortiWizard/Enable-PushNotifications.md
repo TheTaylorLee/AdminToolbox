@@ -126,7 +126,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-https://kb.fortinet.com/kb/documentLink.do?externalID=FD48702
+https://kb.fortinet.com/kb/documentLink.do?externalID=FD48702 /
 https://docs.fortinet.com/document/fortigate/6.2.0/cookbook/183204/ssl-vpn-with-fortitoken-mobile-push-authentication
 
 * There must be at least one administrator account with no trusted hosts configured:
