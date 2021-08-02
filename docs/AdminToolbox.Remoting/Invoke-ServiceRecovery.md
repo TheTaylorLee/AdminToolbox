@@ -25,17 +25,17 @@ Example would be an antivirus service or Remote Access Agents providing trouble.
 
 ### EXAMPLE 1
 ```
-Restart specified service on all domain endpoints
+Invoke-ServiceRecovery -DisplayNameLike Kaseya
 ```
 
-Invoke-ServiceRecovery -DisplayNameLike Kaseya
+Restart specified service on all domain endpoints
 
 ### EXAMPLE 2
 ```
-Restart specified service on all remaining endpoints using the failed endpoints log.
+Invoke-ServiceRecovery -DisplayNameLike Kaseya -FromLog .\servicerecovery_log_0911.txt
 ```
 
-Invoke-ServiceRecovery -DisplayNameLike Kaseya -FromLog .\servicerecovery_log_0911.txt
+Restart specified service on all remaining endpoints using the failed endpoints log.
 
 ## PARAMETERS
 

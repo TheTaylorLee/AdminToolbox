@@ -13,9 +13,9 @@ Function Enable-ToolsAutoUpgrade {
     Enable-ToolsAutoUpgrade
 
     .EXAMPLE
-    Include VM's Without Guest Tools Installed
-
     Enable-ToolsAutoUpgrade -Unmanaged
+
+    Include VM's Without Guest Tools Installed
 
     .NOTES
     Requires the VMware.PowerCLI Module

@@ -29,10 +29,11 @@ Authentication Policies that are created are named...
 
 ### EXAMPLE 1
 ```
-Creates two Authentication Policies. One Basic and One Modern.
+Set-AuthPolicy -CreatePolicies
 ```
 
-Set-AuthPolicy -CreatePolicies
+Creates two Authentication Policies.
+One Basic and One Modern.
 
 ## PARAMETERS
 

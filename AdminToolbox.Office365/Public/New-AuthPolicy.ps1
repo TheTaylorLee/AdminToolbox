@@ -10,9 +10,9 @@ function New-AuthPolicy {
     "Basic Auth Allowed"
 
     .EXAMPLE
-    Creates two Authentication Policies. One Basic and One Modern.
-
     Set-AuthPolicy -CreatePolicies
+
+    Creates two Authentication Policies. One Basic and One Modern.
 
     .NOTES
     Requires the Exchange Online module be installed, imported, and Connected.

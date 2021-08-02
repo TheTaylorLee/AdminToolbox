@@ -7,9 +7,9 @@ function Invoke-QWinSta {
     specify the target server to run qwinsta against
 
     .EXAMPLE
-    Find remote sessions
-
     Invoke-QWinSta -Server name.domain.tld
+
+    Find remote sessions
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

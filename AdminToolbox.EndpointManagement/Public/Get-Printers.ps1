@@ -11,19 +11,19 @@ function Get-Printers {
     Specifies to additional information on the printers
 
     .EXAMPLE
-    Returns printers for the local computer only.
-
     Get-Printers
 
-    .EXAMPLE
-    -Computer is used to pull printers from remote computers.
+    Returns printers for the local computer only.
 
+    .EXAMPLE
     Get-Printers -computer PCName
 
-    .EXAMPLE
-    Return long list of info on the printers
+    -Computer is used to pull printers from remote computers.
 
+    .EXAMPLE
     Get-Printers -computer PCName -complex
+
+    Return long list of info on the printers
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

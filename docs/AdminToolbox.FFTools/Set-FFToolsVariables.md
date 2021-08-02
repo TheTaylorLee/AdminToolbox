@@ -25,10 +25,11 @@ Variables created are a source folder for media processed, and an output folder 
 
 ### EXAMPLE 1
 ```
-Creates persistent environment variables. Be sure to include a closing backslash for the parameters.
+Set-FFToolsVariables -Source "c:\media\"" -Target "c:\media\out\"
 ```
 
-Set-FFToolsVariables -Source "c:\media\"" -Target "c:\media\out\"
+Creates persistent environment variables.
+Be sure to include a closing backslash for the parameters.
 
 ## PARAMETERS
 

@@ -10,9 +10,9 @@ function Invoke-RWinSta {
     specify the target server to run rwinsta against
 
     .EXAMPLE
-    Find remote sessions
-
     Invoke-RWinSta -ID 2 -Server name.domain.tld
+
+    Find remote sessions
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

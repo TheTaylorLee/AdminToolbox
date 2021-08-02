@@ -19,19 +19,19 @@ function Start-Iperf {
     specify the port for the client and server connections
 
     .EXAMPLE
-    Setup a iperf server connection
-
     Start-Iperf -server -port 10555
 
-    .EXAMPLE
-    Initiate a client bandwidth test
+    Setup a iperf server connection
 
+    .EXAMPLE
     Start-Iperf -client -serverip 0.0.0.0 -port 10555
 
-    .EXAMPLE
     Initiate a client bandwidth test
 
+    .EXAMPLE
     Start-Iperf -Client -serverip 0.0.0.0 --port 10555 udp
+
+    Initiate a client bandwidth test
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

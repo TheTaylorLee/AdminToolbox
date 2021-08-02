@@ -5,9 +5,9 @@ Function Install-PSPortableLight {
     A smaller version of PSPortable that contains less packaged modules. Downloads and Deploys a portable PowerShell 7 package, an included custom profile, and multiple useful modules. Used by the developer of the Admintoolbox modules as a repeatable Powershell environment with little effort.
 
     .EXAMPLE
-    Downloads the PSPortableLight package, unzips it to programdata, and launces it.
-
     Install-PSPortableLight
+
+    Downloads the PSPortableLight package, unzips it to programdata, and launces it.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

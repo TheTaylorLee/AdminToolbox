@@ -43,8 +43,6 @@ Function Enable-Management {
     Name of the Wan Interface
 
     .Example
-    This example allows management from all Private Class ranges and one public IP
-
     $Params = @{
     AdminUsername    = "admin"
     AllowAccess      = "ping https ssh ftm fgfm"
@@ -54,12 +52,11 @@ Function Enable-Management {
     TrustedCIDR4     = "8.8.8.8/32"
     WANInterfaceName = "port1"
     }
-
     Enable-Management @Params
 
-    .Example
-    This example allows management from a single /24 subnet and a single public range. It also limits access to HTTPS
+    This example allows management from all Private Class ranges and one public IP
 
+    .Example
     $Params = @{
         AdminUsername    = "admin"
         AllowAccess      = "https"
@@ -67,14 +64,12 @@ Function Enable-Management {
         TrustedCIDR2     = "8.8.8.8/32"
         WANInterfaceName = "port1"
     }
-
     Enable-Management @Params
 
+    This example allows management from a single /24 subnet and a single public range. It also limits access to HTTPS
+
     .Example
-    This example generates an SSH session and invokes the output of this function against that session.
-
     New-SSHSession -computername 192.168.0.1
-
     $Params = @{
         AdminUsername    = "admin"
         AllowAccess      = "ping https ssh ftm fgfm"
@@ -85,16 +80,14 @@ Function Enable-Management {
         WANInterfaceName = "port1"
     }
     $command = Enable-Management @Params
-
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
 
-    .Example
-    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+    This example generates an SSH session and invokes the output of this function against that session.
 
+    .Example
     New-SSHSession -computername 192.168.0.1
     New-SSHSession -computername 192.168.1.1
-
     $Params = @{
         AdminUsername    = "admin"
         AllowAccess      = "ping https ssh ftm fgfm"
@@ -105,13 +98,14 @@ Function Enable-Management {
         WANInterfaceName = "port1"
     }
     $command = Enable-Management @Params
-
     $sessions = Get-SSHSession
     foreach ($session in $sessions) {
         Write-Output "Invoking Command against $session.host"
         $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
         $result.output
     }
+
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
 
     .Notes
     This function currently supports up to 6 Trusted Host subnets. Open a Github issue to request more added.

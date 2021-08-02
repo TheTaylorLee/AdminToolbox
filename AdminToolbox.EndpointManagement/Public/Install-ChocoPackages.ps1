@@ -7,14 +7,14 @@ function Install-ChocoPackages {
     Specify applications to install
 
     .EXAMPLE
-    Install a single application
-
     Install-ChocoPackages -install firefox
 
-    .EXAMPLE
-    Install Multiple Applications.
+    Install a single application
 
+    .EXAMPLE
     Install-ChocoPackages -install firefox, chrome, nmap
+
+    Install Multiple Applications.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

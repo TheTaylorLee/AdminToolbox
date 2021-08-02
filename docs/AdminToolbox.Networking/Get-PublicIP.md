@@ -22,17 +22,17 @@ Returns WhoIS public IP info for your location or any specified public IP
 
 ### EXAMPLE 1
 ```
-Returns local Public IP Info
+Get-PublicIP
 ```
 
-Get-PublicIP
+Returns local Public IP Info
 
 ### EXAMPLE 2
 ```
-Returns your Public IP Info
+Get-PublicIP -IP 8.8.8.8
 ```
 
-Get-PublicIP -IP 8.8.8.8
+Returns your Public IP Info
 
 ## PARAMETERS
 

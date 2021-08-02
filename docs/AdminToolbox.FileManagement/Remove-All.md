@@ -24,17 +24,18 @@ Run for the local or a remote PC.
 
 ### EXAMPLE 1
 ```
-Free up space on the local computer
+Remove-All
 ```
 
-Remove-All
+Free up space on the local computer
 
 ### EXAMPLE 2
 ```
-Free up space on a remote PC. May be more effective if run locally depending on in place security.
+Remove-All -Computer JackPC10
 ```
 
-Remove-All -Computer JackPC10
+Free up space on a remote PC.
+May be more effective if run locally depending on in place security.
 
 ## PARAMETERS
 

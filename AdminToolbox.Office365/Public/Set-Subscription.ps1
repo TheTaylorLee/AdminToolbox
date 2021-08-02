@@ -4,9 +4,9 @@ Function Set-Subscription {
     Presents a gridview of all subscriptions. On subscription from that view should be selected, for setting the subscription context where additional functions will be run from.
 
     .EXAMPLE
-    This command has no parameters
-
     Set-Subscription
+
+    This command has no parameters
 
     .NOTES
     Requires the AZ module be installed, imported, and Connected.

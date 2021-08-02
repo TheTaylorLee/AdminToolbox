@@ -11,9 +11,9 @@ function Get-FileOwner {
     Output path and filename for the report
 
     .Example
-    Specify the parent folder from which all subfolders are queried and where the report should be saved.
-
     Get-FileOwner -Path c:\users -Report c:\FileOwners.csv
+
+    Specify the parent folder from which all subfolders are queried and where the report should be saved.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

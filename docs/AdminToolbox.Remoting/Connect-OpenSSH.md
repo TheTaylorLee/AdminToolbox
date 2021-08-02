@@ -22,17 +22,17 @@ Use this function to connect to an SSH Session
 
 ### EXAMPLE 1
 ```
-Connect using a domain account and DNS Name
+Connect-SSH -User "domain\username" -server "Hostname"
 ```
 
-Connect-SSH -User "domain\username" -server "Hostname"
+Connect using a domain account and DNS Name
 
 ### EXAMPLE 2
 ```
-Connect using a local account and ipv4
+Connect-SSH -User "username" -server "192.168.0.1"
 ```
 
-Connect-SSH -User "username" -server "192.168.0.1"
+Connect using a local account and ipv4
 
 ## PARAMETERS
 
@@ -74,7 +74,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Requires the OpenSSH client feature be installed locally and SSH enabled on the server
+Requires the OpenSSH client feature be installed locally and SSH enabled on the server \
 https://github.com/PowerShell/Win32-OpenSSH
 
 ## RELATED LINKS

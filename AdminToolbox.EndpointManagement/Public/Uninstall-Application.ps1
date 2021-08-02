@@ -8,9 +8,9 @@ function Uninstall-Application {
     This removes the requirement to change accounts for uninstalling an application when otherwise it would of been faster to do so.
 
     .EXAMPLE
-    Run the command, Select and application from the list, and click ok.
-
     Uninstall-Application
+
+    Run the command, Select and application from the list, and click ok.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

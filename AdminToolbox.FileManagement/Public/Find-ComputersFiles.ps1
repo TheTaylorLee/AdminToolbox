@@ -17,15 +17,14 @@ function Find-ComputersFiles {
     Patch on the computers that are being search
 
     .EXAMPLE
-    Searches computers listed in the text file for pst files and outputs the findings to a spreadsheet.
-    (Computers should be line delimited)
-
     find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst
 
-    .EXAMPLE
-    Performs the same function as the first example, except it only searches the specified path and it's subfolders.
+    Searches computers listed in the text file for pst files and outputs the findings to a spreadsheet.
 
+    .EXAMPLE
     find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst -path "c$\users\*\appdata\local"
+
+    Performs the same function as the first example, except it only searches the specified path and it's subfolders.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
@@ -34,7 +33,7 @@ function Find-ComputersFiles {
     [CmdletBinding(SupportsShouldProcess)]
     Param (
         #Variable containing computers being queried
-        [Parameter(Position = 0, Mandatory = $true)]$computers,
+        [Parameter(Position = 0, Mandatory = $true)][string[]]$computers,
         #Variable containing output path for csv file
         [Parameter(Position = 1, Mandatory = $true)]$csvout,
         #Variable specifying search parameter

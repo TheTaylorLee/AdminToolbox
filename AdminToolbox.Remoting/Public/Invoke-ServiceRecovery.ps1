@@ -13,14 +13,14 @@ function Invoke-ServiceRecovery {
     Specifies to pickup failed service recoveries from a log file
 
     .EXAMPLE
-    Restart specified service on all domain endpoints
-
     Invoke-ServiceRecovery -DisplayNameLike Kaseya
 
-    .EXAMPLE
-    Restart specified service on all remaining endpoints using the failed endpoints log.
+    Restart specified service on all domain endpoints
 
+    .EXAMPLE
     Invoke-ServiceRecovery -DisplayNameLike Kaseya -FromLog .\servicerecovery_log_0911.txt
+
+    Restart specified service on all remaining endpoints using the failed endpoints log.
 
     .NOTES
     Must be Run from a DC or have the ActiveDirectory Module imported

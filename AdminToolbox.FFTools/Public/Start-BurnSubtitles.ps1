@@ -16,9 +16,9 @@ function Start-BurnSubtitles {
     Default is set to 21. Use this parameter to change it to another value.
 
     .Example
-    If the transcode switch parameter is used then the file will be transcoded in addition to the subtitles being burned.
-
     Start-BurnSubtitles -video "Action Jackson.mkv" -srtfile "Action Jackson.srt" -Transcode
+
+    If the transcode switch parameter is used then the file will be transcoded in addition to the subtitles being burned.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

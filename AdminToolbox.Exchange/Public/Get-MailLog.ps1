@@ -17,9 +17,9 @@ function Get-MailLog {
     Requires the Microsoft Exchange module.
 
     .EXAMPLE
-    Specify the date range, report path, and amount of records to return.
-
     Get-MailLog -Start 05/14/2017 -End 05/14/2018 -Resultsize 10000
+
+    Specify the date range, report path, and amount of records to return.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

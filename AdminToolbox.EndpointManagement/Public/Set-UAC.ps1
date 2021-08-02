@@ -14,19 +14,19 @@ function Set-UAC {
     Enables UAC
 
     .Example
-    Disabled UAC Prompting for Admins, but keeps UAC enabled
-
     Set-UACState -DisablePrompt
 
-    .Example
-    Disabled UAC Entirely
+    Disabled UAC Prompting for Admins, but keeps UAC enabled
 
+    .Example
     Set-UACState -Disable
 
-    .Example
-    Enable UAC Entirely
+    Disabled UAC Entirely
 
+    .Example
     Set-UACState -Enable
+
+    Enable UAC Entirely
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

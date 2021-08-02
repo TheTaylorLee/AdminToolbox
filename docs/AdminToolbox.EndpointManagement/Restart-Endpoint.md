@@ -24,24 +24,24 @@ You can use decimals to return shorter than an hour restart times or get X hours
 
 ### EXAMPLE 1
 ```
-Restarts the Endpoint in 5 Hours
+Restart-Endpoint -Hours 5
 ```
 
-Restart-Endpoint -Hours 5
+Restarts the Endpoint in 5 Hours
 
 ### EXAMPLE 2
 ```
-Restarts the Endpoint in 5 hours and 15 minutes
+Restart-Endpoint -Hours 5.25
 ```
 
-Restart-Endpoint -Hours 5.25
+Restarts the Endpoint in 5 hours and 15 minutes
 
 ### EXAMPLE 3
 ```
-Restarts the Endpoint in 15 minutes
+Restart-Endpoint -Hours 0.25
 ```
 
-Restart-Endpoint -Hours 0.25
+Restarts the Endpoint in 15 minutes
 
 ## PARAMETERS
 
@@ -70,10 +70,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 The parameter must be typed when entering the command and not after.
 If you typed the command and then entered the parameter when prompted the command will fail.
+\
 
 When using decimal values understand that the value is multiplying against the number of seconds in an hour.
+\
 So all multiplication needs to be done as a fraction of 1.
 Don't try thinking that it needs to be done against the value of 60 for seconds or hours.
+\
 View the Examples for clarification.
 
 ## RELATED LINKS

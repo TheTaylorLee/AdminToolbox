@@ -33,24 +33,24 @@ Get-VMTools
 
 ### EXAMPLE 2
 ```
-Show tools versions for all VM's
+Get-VMTools -Alltools
 ```
 
-Get-VMTools -Alltools
+Show tools versions for all VM's
 
 ### EXAMPLE 3
 ```
-Only show VM's with Outdated Tools
+Get-VMTools -OutDatedTools
 ```
 
-Get-VMTools -OutDatedTools
+Only show VM's with Outdated Tools
 
 ### EXAMPLE 4
 ```
-Show VM's with Outdated Tools and include unmanaged tools
+Get-VMTools -OutDatedTools -Unmanaged
 ```
 
-Get-VMTools -OutDatedTools -Unmanaged
+Show VM's with Outdated Tools and include unmanaged tools
 
 ## PARAMETERS
 

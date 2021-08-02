@@ -25,17 +25,17 @@ Additional tabs are created with Active Directroy groups and their members for c
 
 ### EXAMPLE 1
 ```
-Get a share report for all Shares
+Get-ShareReport -DomainController DCHostname
 ```
 
-Get-ShareReport -DomainController DCHostname
+Get a share report for all Shares
 
 ### EXAMPLE 2
 ```
-Get a Share report for a single share
+Get-ShareReport -DomainController DCHostname -smbShares Sharename
 ```
 
-Get-ShareReport -DomainController DCHostname -smbShares Sharename
+Get a Share report for a single share
 
 ## PARAMETERS
 

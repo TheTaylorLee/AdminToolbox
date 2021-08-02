@@ -22,10 +22,10 @@ Sets a Active Directory Password and provides an option to require a password ch
 
 ### EXAMPLE 1
 ```
-Specifies the username being set and then prompts for a password.
+Set-Password -username domain\username
 ```
 
-Set-Password -username domain\username
+Specifies the username being set and then prompts for a password.
 
 ## PARAMETERS
 

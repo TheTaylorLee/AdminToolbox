@@ -15,14 +15,14 @@ function Invoke-NetworkScan {
     Specify the number of threads that run on the port scan. Default is 64
 
     .Example
-    Get details for all devices on the local subnet and sort by their OUI
-
     Invoke-NetworkScan -CIDR 192.168.0.0/24 | Sort-Object Vendor
 
-    .Example
-    Perform a more thorough port scan and output to gridview
+    Get details for all devices on the local subnet and sort by their OUI
 
+    .Example
     Invoke-NetworkScan -CIDR 192.168.0.0/24 -DeepScan | Out-GridView
+
+    Perform a more thorough port scan and output to gridview
 
     .Notes
     Does not work in Powershell Core

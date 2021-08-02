@@ -25,10 +25,10 @@ New attacks on Basic authentication allow for taking control of an Exchange Onli
 
 ### EXAMPLE 1
 ```
-Gets the Authentication Policy out to a grid view
+Get-AuthPolicy | Out-GridView
 ```
 
-Get-AuthPolicy | Out-GridView
+Gets the Authentication Policy out to a grid view
 
 ## PARAMETERS
 

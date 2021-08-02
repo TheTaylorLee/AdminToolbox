@@ -4,7 +4,7 @@ Function Disable-Cortana {
     Simply disables Cortana Functionality
 
     .Notes
-    To undo this change delete the following registry key or change the value to 1
+    To undo this change delete the following registry key or change the value to 1 \
     'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search\AllowCortana'
 
     .Link

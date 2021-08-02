@@ -8,9 +8,9 @@ function Get-Management {
     Specify remote computer to manage
 
     .Example
-    Specify the computer you are connecting to.
-
     Get-Management -computer PCName
+
+    Specify the computer you are connecting to.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

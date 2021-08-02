@@ -24,10 +24,10 @@ If a profile matches a missing or disable Active Directroy account it will be de
 
 ### EXAMPLE 1
 ```
-Use Computername to specify the Domain Controller to be queried for active domain accounts
+Remove-DisabledADProfiles -domaincontroller DomainControllerDNSName
 ```
 
-Remove-DisabledADProfiles -domaincontroller DomainControllerDNSName
+Use Computername to specify the Domain Controller to be queried for active domain accounts
 
 ## PARAMETERS
 

@@ -63,42 +63,42 @@ function Connect-Office365 {
     Connects to multiple specified modules
 
     .Notes
-    #Sharepoint Online Module
-    The SharePoint Online Management Shell is a Windows PowerShell module that you can use to manage SharePoint Online users, sites, and site collections.
+    #Sharepoint Online Module \
+    The SharePoint Online Management Shell is a Windows PowerShell module that you can use to manage SharePoint Online users, sites, and site collections. \
     Sharepoint Online Module https://www.microsoft.com/en-us/download/details.aspx?id=35588
 
-    #Azure AD Module
-    Windows Azure AD tenant-based administrative tasks such as user management, domain management and for configuring single sign-on
+    #Azure AD Module \
+    Windows Azure AD tenant-based administrative tasks such as user management, domain management and for configuring single sign-on \
     Install-Module AzureAD
 
-    #Microsoft Online (MSOnline) Module: aka Azure AD V1 Module
-    Original Azure AD module for user management and has legacy functions not include with the Azure AD Module
+    #Microsoft Online (MSOnline) Module: aka Azure AD V1 Module \
+    Original Azure AD module for user management and has legacy functions not include with the Azure AD Module \
        Install-Module MSOnline
 
-    #Exchange Online Module
-    Exchange Online PowerShell allows you to manage your Exchange Online settings from the command line.
+    #Exchange Online Module \
+    Exchange Online PowerShell allows you to manage your Exchange Online settings from the command line. \
     Install-Module Exchangeonline
 
-    #Exchange Online Module v2
-    Exchange Online PowerShell allows you to manage your Exchange Online settings from the command line.
+    #Exchange Online Module v2 \
+    Exchange Online PowerShell allows you to manage your Exchange Online settings from the command line. \
     Install-Module ExchangeOnlineManagement
 
-    #Security and Compliance Module
-    Office 365 Security & Compliance Center PowerShell allows you to manage your Office 365 Security & Compliance Center settings from the command line.
+    #Security and Compliance Module \
+    Office 365 Security & Compliance Center PowerShell allows you to manage your Office 365 Security & Compliance Center settings from the command line. \
     Install-Module Exchangeonline
 
-    #Skype For Business Module
-    Skype For Business Module allows managing Skype for Business settings from the Command Line.
-    Download and install Skype for Business Module https://www.microsoft.com/en-us/download/details.aspx?id=39366
+    #Skype For Business Module \
+    Skype For Business Module allows managing Skype for Business settings from the Command Line. \
+    Download and install Skype for Business Module https://www.microsoft.com/en-us/download/details.aspx?id=39366 \
     If bug still exists, Visual C++ 2017 x64 14.10.25008 is needed to work with this module.
 
-    #Microsoft Teams Module
-    Microsoft Teams Module Module allows managing Microsoft Teams settings from the Command Line.
+    #Microsoft Teams Module \
+    Microsoft Teams Module Module allows managing Microsoft Teams settings from the Command Line. \
     Install-module MicrosoftTeams
 
-    #Azure AZ Module
-    Azure Az Module Module allows managing Azure settings, subscriptions, VM, Resource groups, and more from the Command Line.
-    Replaces AzureRM
+    #Azure AZ Module \
+    Azure Az Module Module allows managing Azure settings, subscriptions, VM, Resource groups, and more from the Command Line. \
+    Replaces AzureRM \
     Install-Module -Name Az
 
     .Link

@@ -28,24 +28,25 @@ Launch most applications using powershell and the name of the executable
 
 ### EXAMPLE 1
 ```
-Launch and Application
+Start-Application -Application outlook
 ```
 
-Start-Application -Application outlook
+Launch and Application
 
 ### EXAMPLE 2
 ```
-Launch an application using the function alias and without specifying the application parameter
+app outlook
 ```
 
-app outlook
+Launch an application using the function alias and without specifying the application parameter
 
 ### EXAMPLE 3
 ```
-Build the index used for launching applications. Can be run again to update the index when needed
+Start-Application -index
 ```
 
-Start-Application -index
+Build the index used for launching applications.
+Can be run again to update the index when needed
 
 ## PARAMETERS
 

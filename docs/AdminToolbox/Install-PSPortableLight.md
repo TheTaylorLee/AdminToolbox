@@ -24,10 +24,10 @@ Used by the developer of the Admintoolbox modules as a repeatable Powershell env
 
 ### EXAMPLE 1
 ```
-Downloads the PSPortableLight package, unzips it to programdata, and launces it.
+Install-PSPortableLight
 ```
 
-Install-PSPortableLight
+Downloads the PSPortableLight package, unzips it to programdata, and launces it.
 
 ## PARAMETERS
 

@@ -11,7 +11,7 @@ Function Get-HostSerialNumber {
     Get-HostSerialNumber
 
     .NOTES
-    Requires the VMware.PowerCLI Module
+    Requires the VMware.PowerCLI Module \
 
     Connect to Host or Vcenter First
 

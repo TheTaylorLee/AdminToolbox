@@ -11,10 +11,10 @@ function Unlock-Account {
     Requires the Active Directory Module.
 
     .Example
-    Use Get-lockedAccounts to quickly obtain the identity to use in the command.
-
     Get-LockedAccounts
     Unlock-ADAccount -identity JohnD
+
+    Use Get-lockedAccounts to quickly obtain the identity to use for unlock-ADAccount
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

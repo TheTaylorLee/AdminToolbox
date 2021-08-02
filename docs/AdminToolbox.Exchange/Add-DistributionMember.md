@@ -23,24 +23,24 @@ Wildcards can be used to add the whole organization to a distribution group.
 
 ### EXAMPLE 1
 ```
-Add a single mailbox to a single distribution group
+Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees"
 ```
 
-Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees"
+Add a single mailbox to a single distribution group
 
 ### EXAMPLE 2
 ```
-Allows shortening the command or adding multiple mailboxes with a shared name to a Distribution Group
+Add-DistributionMember -Mailbox *@company.com -DistributionGroup "All Emp*"
 ```
 
-Add-DistributionMember -Mailbox *@company.com -DistributionGroup "All Emp*"
+Allows shortening the command or adding multiple mailboxes with a shared name to a Distribution Group
 
 ### EXAMPLE 3
 ```
-Add a single mailbox to multiple Distribution Groups.
+Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees,Worker Bees"
 ```
 
-Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees,Worker Bees"
+Add a single mailbox to multiple Distribution Groups.
 
 ## PARAMETERS
 

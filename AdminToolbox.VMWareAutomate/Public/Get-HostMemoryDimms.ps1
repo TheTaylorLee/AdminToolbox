@@ -14,7 +14,7 @@ Function Get-HostMemoryDimms {
         Password for user root inside esxi
 
     .EXAMPLE
-        PS C:\> Get-HostMemoryDimms -VMHost 'Esxi048.domain.local' -rootpw 'password.123' | ft *
+    get-HostMemoryDimms -VMHost 'Esxi048.domain.local' -rootpw 'password.123' | ft *
         BankLabel               Manufacturer Description SizeGB MemoryType MemoryDef
         ---------               ------------ ----------- ------ ---------- ---------
         P0_Node0_Channel0_Dimm0 Samsung      P1-DIMMA1       16 24         DDR3

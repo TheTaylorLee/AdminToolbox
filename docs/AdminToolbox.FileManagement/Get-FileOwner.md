@@ -22,10 +22,10 @@ This function produces a CSV listing file owners within a given path
 
 ### EXAMPLE 1
 ```
-Specify the parent folder from which all subfolders are queried and where the report should be saved.
+Get-FileOwner -Path c:\users -Report c:\FileOwners.csv
 ```
 
-Get-FileOwner -Path c:\users -Report c:\FileOwners.csv
+Specify the parent folder from which all subfolders are queried and where the report should be saved.
 
 ## PARAMETERS
 

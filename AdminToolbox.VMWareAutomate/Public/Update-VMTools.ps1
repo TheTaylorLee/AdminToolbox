@@ -8,14 +8,14 @@ Function Update-VMTools {
     Specifies if vmtools should be installd on VM's that don't have them installed.
 
     .EXAMPLE
-    Upgrades only tools that are installed an require it. Specify a path for a log file.
-
     Update-VMTools
 
-    .EXAMPLE
-    Include unmanaged VM's
+    Upgrades only tools that are installed an require it. Specify a path for a log file.
 
+    .EXAMPLE
     Update-VMTools -Unmanaged
+
+    Include unmanaged VM's
 
     .NOTES
     Requires the VMware.PowerCLI Module

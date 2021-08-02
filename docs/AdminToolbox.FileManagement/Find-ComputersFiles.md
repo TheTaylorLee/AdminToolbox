@@ -12,7 +12,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Find-ComputersFiles [-computers] <Object> [-csvout] <Object> [-include] <Object> [[-Path] <Object>] [-WhatIf]
+Find-ComputersFiles [-computers] <String[]> [-csvout] <Object> [-include] <Object> [[-Path] <Object>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -23,18 +23,17 @@ Discover queried files meeting a specific search parameter and output the findin
 
 ### EXAMPLE 1
 ```
-Searches computers listed in the text file for pst files and outputs the findings to a spreadsheet.
-(Computers should be line delimited)
+find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst
 ```
 
-find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst
+Searches computers listed in the text file for pst files and outputs the findings to a spreadsheet.
 
 ### EXAMPLE 2
 ```
-Performs the same function as the first example, except it only searches the specified path and it's subfolders.
+find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst -path "c$\users\*\appdata\local"
 ```
 
-find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include *.pst -path "c$\users\*\appdata\local"
+Performs the same function as the first example, except it only searches the specified path and it's subfolders.
 
 ## PARAMETERS
 
@@ -42,7 +41,7 @@ find-computersfiles -computers C:\computers.txt -csvout c:\results.csv -include 
 A list of computers that are being searched
 
 ```yaml
-Type: Object
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 

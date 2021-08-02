@@ -8,14 +8,14 @@ function Remove-All {
     Specify a remote computer run cleanup against
 
     .EXAMPLE
-    Free up space on the local computer
-
     Remove-All
 
-    .EXAMPLE
-    Free up space on a remote PC. May be more effective if run locally depending on in place security.
+    Free up space on the local computer
 
+    .EXAMPLE
     Remove-All -Computer JackPC10
+
+    Free up space on a remote PC. May be more effective if run locally depending on in place security.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

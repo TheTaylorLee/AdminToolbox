@@ -22,17 +22,17 @@ Launch a drop-down command console.
 
 ### EXAMPLE 1
 ```
-Launch Cmder
+Cmder
 ```
 
-Cmder
+Launch Cmder
 
 ### EXAMPLE 2
 ```
-Add Cmder to startup login startup
+Cmder -Startup
 ```
 
-Cmder -Startup
+Add Cmder to startup login startup
 
 ## PARAMETERS
 

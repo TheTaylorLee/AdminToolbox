@@ -10,19 +10,19 @@ Function Invoke-Sync365 {
     Specify a sync policy other than delta
 
     .Example
-    Specify the Azure Sync Server for future use
-
     Invoke-Sync365 -AzureSyncServer server.domain.com
 
-    .Example
-    If the Azure Sync Server has been specified simply type the alias to initiate an azure sync
+    Specify the Azure Sync Server for future use
 
+    .Example
     Sync365
 
-    .Example
-    Specify a sync policy other than delta
+    If the Azure Sync Server has been specified simply type the alias to initiate an azure sync
 
+    .Example
     Sync365 -Policy Initial
+
+    Specify a sync policy other than delta
 
     .Notes
     If attempting to run this on a server that doesn't have PSRemoting enabled and Azure AD Sync setup, then this function will fail.

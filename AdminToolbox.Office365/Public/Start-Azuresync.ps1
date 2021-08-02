@@ -11,14 +11,14 @@ function Start-AzureSync {
     Specify a Delta or Initial sync
 
     .Example
-    Performs a full sync with Azure Active Directory
-
     Start-AzureSync -Policy Initial
 
-    .EXAMPLE
-    Performs an incrmental sync with Azure Active Directroy
+    Performs a full sync with Azure Active Directory
 
+    .EXAMPLE
     Start-AzureSync -Policy Delta
+
+    Performs an incrmental sync with Azure Active Directroy
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

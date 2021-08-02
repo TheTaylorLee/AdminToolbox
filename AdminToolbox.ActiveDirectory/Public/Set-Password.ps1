@@ -14,9 +14,9 @@ function Set-Password {
     Password that is being set for the account
 
     .EXAMPLE
-    Specifies the username being set and then prompts for a password.
-
     Set-Password -username domain\username
+
+    Specifies the username being set and then prompts for a password.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

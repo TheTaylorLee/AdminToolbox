@@ -16,9 +16,9 @@ function Enable-Remoting {
     Password that is associated with the username used
 
     .EXAMPLE
-    This will enable remoting and then prompt for credentials
-
     Enable-PSRemoting -computer PCName -username domain\username
+
+    This will enable remoting and then prompt for credentials
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

@@ -22,10 +22,10 @@ Configure Virtual Directories for Exchange
 
 ### EXAMPLE 1
 ```
-Specify the mail server directories are being set on and the url that matches the mail records.
+Set-VirtualDirectories -Servername exch2016-01 -url mail.domain.com
 ```
 
-Set-VirtualDirectories -Servername exch2016-01 -url mail.domain.com
+Specify the mail server directories are being set on and the url that matches the mail records.
 
 ## PARAMETERS
 

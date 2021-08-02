@@ -10,9 +10,9 @@
     Get a list of guest users older no older than x days
 
     .Example
-    Shows all guest users accounts older than 90 days old
-
     Get-GuestUsers -StaleGuest 90
+
+    Shows all guest users accounts older than 90 days old
 
     .Notes
     Requires the AzureAD and Import excel modules be imported and the AzureAD module connected

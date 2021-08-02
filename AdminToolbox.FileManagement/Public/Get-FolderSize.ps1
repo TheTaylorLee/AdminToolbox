@@ -10,19 +10,19 @@ function Get-FolderSize {
     Measurement used for displaying the folder size
 
     .EXAMPLE
-    Finds the size of the C:\users folder in MegaBytes
-
     Get-Foldersize -Folder c:\users\ -ByteSize MB
 
-    .EXAMPLE
-    Finds the size of the C:\users folder in GigaBytes
-
-    Get-Foldersize -Folder c:\users\ -ByteSize GB
-
-    .EXAMPLE
     Finds the size of the C:\users folder in MegaBytes
 
+    .EXAMPLE
+    Get-Foldersize -Folder c:\users\ -ByteSize GB
+
+    Finds the size of the C:\users folder in GigaBytes
+
+    .EXAMPLE
     Get-Foldersize -Folder c:\users\ -ByteSize TB
+
+    Finds the size of the C:\users folder in MegaBytes
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

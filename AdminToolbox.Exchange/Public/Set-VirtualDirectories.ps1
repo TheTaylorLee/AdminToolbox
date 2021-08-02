@@ -10,9 +10,9 @@ function Set-VirtualDirectories {
     Domail specific url being set for the virtual directories
 
     .Example
-    Specify the mail server directories are being set on and the url that matches the mail records.
-
     Set-VirtualDirectories -Servername exch2016-01 -url mail.domain.com
+
+    Specify the mail server directories are being set on and the url that matches the mail records.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

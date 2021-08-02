@@ -22,24 +22,24 @@ Quickly Finds the size of a path
 
 ### EXAMPLE 1
 ```
-Finds the size of the C:\users folder in MegaBytes
+Get-Foldersize -Folder c:\users\ -ByteSize MB
 ```
 
-Get-Foldersize -Folder c:\users\ -ByteSize MB
+Finds the size of the C:\users folder in MegaBytes
 
 ### EXAMPLE 2
 ```
-Finds the size of the C:\users folder in GigaBytes
+Get-Foldersize -Folder c:\users\ -ByteSize GB
 ```
 
-Get-Foldersize -Folder c:\users\ -ByteSize GB
+Finds the size of the C:\users folder in GigaBytes
 
 ### EXAMPLE 3
 ```
-Finds the size of the C:\users folder in MegaBytes
+Get-Foldersize -Folder c:\users\ -ByteSize TB
 ```
 
-Get-Foldersize -Folder c:\users\ -ByteSize TB
+Finds the size of the C:\users folder in MegaBytes
 
 ## PARAMETERS
 

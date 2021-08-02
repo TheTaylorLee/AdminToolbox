@@ -31,17 +31,18 @@ If the issue continues then further troubleshooting is required.
 
 ### EXAMPLE 1
 ```
-Running the function without specifying the identity will deliver a grid view to select the group from, and populate the parameter that way.
+Set-365GroupVisibility
 ```
 
-Set-365GroupVisibility
+Running the function without specifying the identity will deliver a grid view to select the group from, and populate the parameter that way.
 
 ### EXAMPLE 2
 ```
-Specifying the identity parameter will run the function without delivering a Grid View for selecting the identity. This is faster if you already know the team identity
+Set-365GroupVisibility -identity groupname@companyname.com
 ```
 
-Set-365GroupVisibility -identity groupname@companyname.com
+Specifying the identity parameter will run the function without delivering a Grid View for selecting the identity.
+This is faster if you already know the team identity
 
 ## PARAMETERS
 

@@ -10,9 +10,9 @@ function DisMount-ProfileRegistry {
     Domain Controller that has Powershell Remoting enabled on it. For importing a session with the Active directory Module.
 
     .EXAMPLE
-    DisMounts the Mounted ProfileRegistry
-
     DisMount-ProfileRegistry -SamAccountName JohnS
+
+    DisMounts the Mounted ProfileRegistry
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

@@ -22,10 +22,10 @@ Create a report of Active Directory users
 
 ### EXAMPLE 1
 ```
-Specify is where the report is to be saved.
+Get-UserReport -path C:\UserReport.csv
 ```
 
-Get-UserReport -path C:\UserReport.csv
+Specify is where the report is to be saved.
 
 ## PARAMETERS
 

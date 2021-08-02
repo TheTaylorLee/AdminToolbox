@@ -11,9 +11,9 @@ Function Grant-MailboxAccessOWAOnly {
     Alias of user that should have access to the mailbox
 
     .EXAMPLE
-    Grants Jane access to John's mailbox
-
     Grant-MailboxAccessOWAOnly -user jane -mailbox john
+
+    Grants Jane access to John's mailbox
 
     .NOTES
     Must have the Exchange module loaded and importexcel module

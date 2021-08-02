@@ -26,24 +26,24 @@ Use Get-QuarantineMessage to restrict results further.
 
 ### EXAMPLE 1
 ```
-Specify the number of pages with 1000 results to return
+Get-Quarantine -pages 15
 ```
 
-Get-Quarantine -pages 15
+Specify the number of pages with 1000 results to return
 
 ### EXAMPLE 2
 ```
-Return the default of 1 page with up to 1000 results
+Get-Quarantine
 ```
 
-Get-Quarantine
+Return the default of 1 page with up to 1000 results
 
 ### EXAMPLE 3
 ```
-Specify the pagesize to limit output to only x number of results
+Get-Quarantine -pagesize 15
 ```
 
-Get-Quarantine -pagesize 15
+Specify the pagesize to limit output to only x number of results
 
 ## PARAMETERS
 

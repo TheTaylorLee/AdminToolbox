@@ -22,17 +22,17 @@ Install one or Multiple Choclatey Packages
 
 ### EXAMPLE 1
 ```
-Install a single application
+Install-ChocoPackages -install firefox
 ```
 
-Install-ChocoPackages -install firefox
+Install a single application
 
 ### EXAMPLE 2
 ```
-Install Multiple Applications.
+Install-ChocoPackages -install firefox, chrome, nmap
 ```
 
-Install-ChocoPackages -install firefox, chrome, nmap
+Install Multiple Applications.
 
 ## PARAMETERS
 

@@ -28,24 +28,24 @@ Setup and iperf server or client connection for testing connection speeds
 
 ### EXAMPLE 1
 ```
-Setup a iperf server connection
+Start-Iperf -server -port 10555
 ```
 
-Start-Iperf -server -port 10555
+Setup a iperf server connection
 
 ### EXAMPLE 2
 ```
-Initiate a client bandwidth test
+Start-Iperf -client -serverip 0.0.0.0 -port 10555
 ```
 
-Start-Iperf -client -serverip 0.0.0.0 -port 10555
+Initiate a client bandwidth test
 
 ### EXAMPLE 3
 ```
-Initiate a client bandwidth test
+Start-Iperf -Client -serverip 0.0.0.0 --port 10555 udp
 ```
 
-Start-Iperf -Client -serverip 0.0.0.0 --port 10555 udp
+Initiate a client bandwidth test
 
 ## PARAMETERS
 

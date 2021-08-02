@@ -26,10 +26,10 @@ This removes the requirement to change accounts for uninstalling an application 
 
 ### EXAMPLE 1
 ```
-Run the command, Select and application from the list, and click ok.
+Uninstall-Application
 ```
 
-Uninstall-Application
+Run the command, Select and application from the list, and click ok.
 
 ## PARAMETERS
 

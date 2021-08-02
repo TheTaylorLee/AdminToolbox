@@ -23,10 +23,10 @@ Allows specifying up to 5 streams to include in a transcode file
 
 ### EXAMPLE 1
 ```
-Includes streams 0, 2, and 5 from the file movie.mkv and transcodes with a crf of 23
+Start-TranscodeStreams -video .\movie.mkv -m1 0:0 -m2 0:2 -m3 0:5 -crf 23
 ```
 
-Start-TranscodeStreams -video .\movie.mkv -m1 0:0 -m2 0:2 -m3 0:5 -crf 23
+Includes streams 0, 2, and 5 from the file movie.mkv and transcodes with a crf of 23
 
 ## PARAMETERS
 

@@ -19,25 +19,24 @@ Function Invoke-PowerState {
     Specifies showing the status of the VM or VMs
 
     .EXAMPLE
-    Specifies the selected VM's will be shutdown forcefully
-
     Invoke-Powerstate -Shutdown -Force
 
-    .EXAMPLE
-    Specifies the selected VM's will be restarted
+    Specifies the selected VM's will be shutdown forcefully
 
+    .EXAMPLE
     Invoke-Powerstate -Restart
 
-    .EXAMPLE
-    Specifies the selected VM's will be Started
+    Specifies the selected VM's will be restarted
 
+    .EXAMPLE
     Invoke-Powerstate -Start
 
-    .EXAMPLE
-    Specifies the discover of VM statuses
+    Specifies the selected VM's will be Started
 
+    .EXAMPLE
     Invoke-Powerstate -status
 
+    Specifies the discover of VM statuses
 
     .NOTES
     Requires the AZ module be installed, imported, and Connected.

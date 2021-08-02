@@ -25,17 +25,17 @@ Initiates a replication sync on all Domain sites
 
 ### EXAMPLE 1
 ```
-Starts a sync on the current domain environment
+Start-Replication
 ```
 
-Start-Replication
+Starts a sync on the current domain environment
 
 ### EXAMPLE 2
 ```
-Starts a sync on the specified domain environment
+Start-Replication -Domain Domain2.net
 ```
 
-Start-Replication -Domain Domain2.net
+Starts a sync on the specified domain environment
 
 ## PARAMETERS
 

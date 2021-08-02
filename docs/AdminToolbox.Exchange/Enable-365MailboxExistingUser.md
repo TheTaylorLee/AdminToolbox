@@ -26,10 +26,10 @@ If they have a mailbox in Exchange Online, but it's not visible in the on-premis
 
 ### EXAMPLE 1
 ```
-Enable an office 365 mailbox for an existing Active Directory User
+Enable-365Mailbox -Identity Domain\Username -PrimarySmtpAddress email@company.com -RemoteRoutingAddres email@company.onmicrosoft.com -DomainController server.domain.com
 ```
 
-Enable-365Mailbox -Identity Domain\Username -PrimarySmtpAddress email@company.com -RemoteRoutingAddres email@company.onmicrosoft.com -DomainController server.domain.com
+Enable an office 365 mailbox for an existing Active Directory User
 
 ## PARAMETERS
 

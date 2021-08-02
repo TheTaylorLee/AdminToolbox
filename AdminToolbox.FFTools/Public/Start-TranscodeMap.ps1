@@ -25,9 +25,9 @@ function Start-TranscodeMap {
     Specify an optional 5th stream to include
 
     .Example
-    Includes streams 0, 2, and 5 from the file movie.mkv and transcodes with a crf of 23
-
     Start-TranscodeStreams -video .\movie.mkv -m1 0:0 -m2 0:2 -m3 0:5 -crf 23
+
+    Includes streams 0, 2, and 5 from the file movie.mkv and transcodes with a crf of 23
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

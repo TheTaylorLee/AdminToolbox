@@ -18,15 +18,15 @@ Function Get-DRBackup {
     Vcenter Server Host and VM data is pulled from
 
     .EXAMPLE
+    Get-DRRecords -DNSZone DNSZone.com -PrimaryDNSServer DNSServer -OutPath c:\drbackup -Vcenter vcentername
+
     Specify the DNS Zone Name containing the VMware DNS Records.
     Specify a Domain Controller containing the Primary DNS Zone.
     Specify the folder where the records are to be saved.
     Specify the Vcenter Server hosting the VM's.
 
-    Get-DRRecords -DNSZone DNSZone.com -PrimaryDNSServer DNSServer -OutPath c:\drbackup -Vcenter vcentername
-
     .NOTES
-    Requires the VMware.PowerCLI Module
+    Requires the VMware.PowerCLI Module \
     Requires the ImportExcel Module
 
     .Link

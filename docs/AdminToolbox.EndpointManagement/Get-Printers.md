@@ -22,24 +22,24 @@ This command returns a list of local or remote printers
 
 ### EXAMPLE 1
 ```
-Returns printers for the local computer only.
+Get-Printers
 ```
 
-Get-Printers
+Returns printers for the local computer only.
 
 ### EXAMPLE 2
 ```
--Computer is used to pull printers from remote computers.
+Get-Printers -computer PCName
 ```
 
-Get-Printers -computer PCName
+-Computer is used to pull printers from remote computers.
 
 ### EXAMPLE 3
 ```
-Return long list of info on the printers
+Get-Printers -computer PCName -complex
 ```
 
-Get-Printers -computer PCName -complex
+Return long list of info on the printers
 
 ## PARAMETERS
 

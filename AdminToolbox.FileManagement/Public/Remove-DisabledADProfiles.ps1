@@ -13,9 +13,9 @@ function Remove-DisabledADProfiles {
     Specify a a domain controller that has Powershell remoting enabled
 
     .EXAMPLE
-    Use Computername to specify the Domain Controller to be queried for active domain accounts
-
     Remove-DisabledADProfiles -domaincontroller DomainControllerDNSName
+
+    Use Computername to specify the Domain Controller to be queried for active domain accounts
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

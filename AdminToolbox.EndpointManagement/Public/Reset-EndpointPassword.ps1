@@ -10,9 +10,9 @@ function Reset-EndpointPassword {
     Used to specify a domain admin account
 
     .Example
-    Reaches out to a specified domain controller using a domain admin account to rebuild the trust relationship
-
     Reset-EndpintPassword CompanyDC01 Domain\Username
+
+    Reaches out to a specified domain controller using a domain admin account to rebuild the trust relationship
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

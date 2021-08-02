@@ -43,38 +43,38 @@ Use to alter VM Power states and reboot VM's.
 
 ### EXAMPLE 1
 ```
-Gracefully Restart the Guest
+Invoke-Power -restartguest -VM vmname
 ```
 
-Invoke-Power -restartguest -VM vmname
+Gracefully Restart the Guest
 
 ### EXAMPLE 2
 ```
-Gracefully shutdown the Guest
+Invoke-Power -poweroffguest -VM vmname
 ```
 
-Invoke-Power -poweroffguest -VM vmname
+Gracefully shutdown the Guest
 
 ### EXAMPLE 3
 ```
-Hard Power Cycle VM
+Invoke-Power -powercycle -VM vmname
 ```
 
-Invoke-Power -powercycle -VM vmname
+Hard Power Cycle VM
 
 ### EXAMPLE 4
 ```
-Hard Power Off Vm
+Invoke-Power -poweroff -VM vmname
 ```
 
-Invoke-Power -poweroff -VM vmname
+Hard Power Off Vm
 
 ### EXAMPLE 5
 ```
-Hard power on VM
+Invoke-Power -poweron -VM vmname
 ```
 
-Invoke-Power -poweron -VM vmname
+Hard power on VM
 
 ## PARAMETERS
 

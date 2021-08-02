@@ -22,29 +22,29 @@ function Invoke-Power {
     Specifies the VM Name
 
     .EXAMPLE
-    Gracefully Restart the Guest
-
     Invoke-Power -restartguest -VM vmname
 
-    .EXAMPLE
-    Gracefully shutdown the Guest
+    Gracefully Restart the Guest
 
+    .EXAMPLE
     Invoke-Power -poweroffguest -VM vmname
 
-    .EXAMPLE
-    Hard Power Cycle VM
+    Gracefully shutdown the Guest
 
+    .EXAMPLE
     Invoke-Power -powercycle -VM vmname
 
-    .EXAMPLE
-    Hard Power Off Vm
+    Hard Power Cycle VM
 
+    .EXAMPLE
     Invoke-Power -poweroff -VM vmname
 
-    .EXAMPLE
-    Hard power on VM
+    Hard Power Off Vm
 
+    .EXAMPLE
     Invoke-Power -poweron -VM vmname
+
+    Hard power on VM
 
     .NOTES
     Requires the VMware.PowerCLI Module

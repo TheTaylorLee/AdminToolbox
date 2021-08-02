@@ -23,17 +23,17 @@ Useful for modifying a users registry without the need of them being logged in l
 
 ### EXAMPLE 1
 ```
-If you have the AD module locally installed there is no need to specify the domain controller.
+Mount-ProfileRegistry -SamAccountName JohnS
 ```
 
-Mount-ProfileRegistry -SamAccountName JohnS
+If you have the AD module locally installed there is no need to specify the domain controller.
 
 ### EXAMPLE 2
 ```
-Specify the domain controller to implicitly import the active directory module from a Domain Controller with Powershell Remoting.
+Mount-ProfileRegistry -SamAccountName JohnS -DomainController TexasDC2016
 ```
 
-Mount-ProfileRegistry -SamAccountName JohnS -DomainController TexasDC2016
+Specify the domain controller to implicitly import the active directory module from a Domain Controller with Powershell Remoting.
 
 ## PARAMETERS
 

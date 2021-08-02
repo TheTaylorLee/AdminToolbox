@@ -25,13 +25,13 @@ Get's Domain DNS Records, Hosts, and VM's, saves the Gatered data to 3 separate 
 
 ### EXAMPLE 1
 ```
+Get-DRRecords -DNSZone DNSZone.com -PrimaryDNSServer DNSServer -OutPath c:\drbackup -Vcenter vcentername
+```
+
 Specify the DNS Zone Name containing the VMware DNS Records.
 Specify a Domain Controller containing the Primary DNS Zone.
 Specify the folder where the records are to be saved.
 Specify the Vcenter Server hosting the VM's.
-```
-
-Get-DRRecords -DNSZone DNSZone.com -PrimaryDNSServer DNSServer -OutPath c:\drbackup -Vcenter vcentername
 
 ## PARAMETERS
 
@@ -134,7 +134,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Requires the VMware.PowerCLI Module
+Requires the VMware.PowerCLI Module \
 Requires the ImportExcel Module
 
 ## RELATED LINKS

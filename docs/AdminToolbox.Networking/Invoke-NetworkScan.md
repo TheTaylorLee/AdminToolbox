@@ -24,17 +24,17 @@ Mac resolution only works on locally attached networks.
 
 ### EXAMPLE 1
 ```
-Get details for all devices on the local subnet and sort by their OUI
+Invoke-NetworkScan -CIDR 192.168.0.0/24 | Sort-Object Vendor
 ```
 
-Invoke-NetworkScan -CIDR 192.168.0.0/24 | Sort-Object Vendor
+Get details for all devices on the local subnet and sort by their OUI
 
 ### EXAMPLE 2
 ```
-Perform a more thorough port scan and output to gridview
+Invoke-NetworkScan -CIDR 192.168.0.0/24 -DeepScan | Out-GridView
 ```
 
-Invoke-NetworkScan -CIDR 192.168.0.0/24 -DeepScan | Out-GridView
+Perform a more thorough port scan and output to gridview
 
 ## PARAMETERS
 

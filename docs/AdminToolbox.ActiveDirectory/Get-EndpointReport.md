@@ -22,10 +22,10 @@ Create a CSV report of Active Directory Endpoints
 
 ### EXAMPLE 1
 ```
-Be sure to specify a filename and extension for the report.
+Get-EndpointReport -path C:\UserReport.csv
 ```
 
-Get-EndpointReport -path C:\UserReport.csv
+Be sure to specify a filename and extension for the report.
 
 ## PARAMETERS
 

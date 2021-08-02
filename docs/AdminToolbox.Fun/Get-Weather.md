@@ -22,10 +22,10 @@ Shows weather for a location or the moon phase
 
 ### EXAMPLE 1
 ```
-Multiple Location Options Available
+Get-Weather -Location houston+texas
 ```
 
-Get-Weather -Location houston+texas
+Multiple Location Options Available
 
 paris                 # city name
 Eiffel+tower          # any location

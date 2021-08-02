@@ -22,10 +22,10 @@ This Command will enable PowerShell Remoting on a remote PC.
 
 ### EXAMPLE 1
 ```
-This will enable remoting and then prompt for credentials
+Enable-PSRemoting -computer PCName -username domain\username
 ```
 
-Enable-PSRemoting -computer PCName -username domain\username
+This will enable remoting and then prompt for credentials
 
 ## PARAMETERS
 

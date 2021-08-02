@@ -21,14 +21,14 @@ Function Invoke-HotAdd {
     Specify a specific VM to change HotAdd settings for
 
     .EXAMPLE
-    Disable Memory HotAdd on all VM's
-
     Invoke-HotAdd -DisableMem
 
-    .EXAMPLE
-    Disable Memory HotAdd on a single vm
+    Disable Memory HotAdd on all VM's
 
+    .EXAMPLE
     Invoke-HotAdd -DisableMem -VMName ExchangeServer
+
+    Disable Memory HotAdd on a single vm
 
     .NOTES
     Requires the VMware.PowerCLI Module

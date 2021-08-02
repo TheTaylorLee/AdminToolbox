@@ -23,10 +23,10 @@ Used by the developer of the Admintoolbox modules as a repeatable Powershell env
 
 ### EXAMPLE 1
 ```
-Downloads the PSPortable package, unzips it to programdata, and launces it.
+Install-PSPortable
 ```
 
-Install-PSPortable
+Downloads the PSPortable package, unzips it to programdata, and launces it.
 
 ## PARAMETERS
 

@@ -10,17 +10,17 @@ function Connect-OpenSSH {
     SSH Server that is being connected to.
 
     .EXAMPLE
-    Connect using a domain account and DNS Name
-
     Connect-SSH -User "domain\username" -server "Hostname"
 
-    .EXAMPLE
-    Connect using a local account and ipv4
+    Connect using a domain account and DNS Name
 
+    .EXAMPLE
     Connect-SSH -User "username" -server "192.168.0.1"
 
+    Connect using a local account and ipv4
+
     .NOTES
-    Requires the OpenSSH client feature be installed locally and SSH enabled on the server
+    Requires the OpenSSH client feature be installed locally and SSH enabled on the server \
     https://github.com/PowerShell/Win32-OpenSSH
 
     .Link

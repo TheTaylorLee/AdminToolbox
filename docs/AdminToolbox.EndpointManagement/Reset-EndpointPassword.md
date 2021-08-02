@@ -22,10 +22,10 @@ This function rebuilds the trust relationship for a workstation or server to a D
 
 ### EXAMPLE 1
 ```
-Reaches out to a specified domain controller using a domain admin account to rebuild the trust relationship
+Reset-EndpintPassword CompanyDC01 Domain\Username
 ```
 
-Reset-EndpintPassword CompanyDC01 Domain\Username
+Reaches out to a specified domain controller using a domain admin account to rebuild the trust relationship
 
 ## PARAMETERS
 

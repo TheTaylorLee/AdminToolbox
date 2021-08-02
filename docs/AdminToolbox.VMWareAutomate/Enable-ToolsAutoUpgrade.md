@@ -29,10 +29,10 @@ Enable-ToolsAutoUpgrade
 
 ### EXAMPLE 2
 ```
-Include VM's Without Guest Tools Installed
+Enable-ToolsAutoUpgrade -Unmanaged
 ```
 
-Enable-ToolsAutoUpgrade -Unmanaged
+Include VM's Without Guest Tools Installed
 
 ## PARAMETERS
 

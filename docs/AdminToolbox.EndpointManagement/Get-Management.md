@@ -22,10 +22,10 @@ Opens Computer management connected for another PC
 
 ### EXAMPLE 1
 ```
-Specify the computer you are connecting to.
+Get-Management -computer PCName
 ```
 
-Get-Management -computer PCName
+Specify the computer you are connecting to.
 
 ## PARAMETERS
 

@@ -23,24 +23,24 @@ Saves time having to login to the Azure AD Synced server or type out the Full In
 
 ### EXAMPLE 1
 ```
-Specify the Azure Sync Server for future use
+Invoke-Sync365 -AzureSyncServer server.domain.com
 ```
 
-Invoke-Sync365 -AzureSyncServer server.domain.com
+Specify the Azure Sync Server for future use
 
 ### EXAMPLE 2
 ```
-If the Azure Sync Server has been specified simply type the alias to initiate an azure sync
+Sync365
 ```
 
-Sync365
+If the Azure Sync Server has been specified simply type the alias to initiate an azure sync
 
 ### EXAMPLE 3
 ```
-Specify a sync policy other than delta
+Sync365 -Policy Initial
 ```
 
-Sync365 -Policy Initial
+Specify a sync policy other than delta
 
 ## PARAMETERS
 

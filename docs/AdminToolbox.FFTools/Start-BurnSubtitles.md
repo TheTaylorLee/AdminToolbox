@@ -22,10 +22,10 @@ Burn subtitles from an srt file.
 
 ### EXAMPLE 1
 ```
-If the transcode switch parameter is used then the file will be transcoded in addition to the subtitles being burned.
+Start-BurnSubtitles -video "Action Jackson.mkv" -srtfile "Action Jackson.srt" -Transcode
 ```
 
-Start-BurnSubtitles -video "Action Jackson.mkv" -srtfile "Action Jackson.srt" -Transcode
+If the transcode switch parameter is used then the file will be transcoded in addition to the subtitles being burned.
 
 ## PARAMETERS
 

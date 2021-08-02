@@ -42,24 +42,24 @@ New attacks on Basic authentication allow for taking control of an Exchange Onli
 
 ### EXAMPLE 1
 ```
-Apply "Modern Auth Only" To all Exchange Online Mailboxes
+Set-AuthPolicy -ApplyAllModern
 ```
 
-Set-AuthPolicy -ApplyAllModern
+Apply "Modern Auth Only" To all Exchange Online Mailboxes
 
 ### EXAMPLE 2
 ```
-Apply "Modern Auth Only" Policy to a single Mailbox or multiple that have a Display Name Like "John Smith".
+Set-AuthPolicy -ApplyPolicySingle -DisplayNameLike "John Smith" -Policy "Modern Auth Only"
 ```
 
-Set-AuthPolicy -ApplyPolicySingle -DisplayNameLike "John Smith" -Policy "Modern Auth Only"
+Apply "Modern Auth Only" Policy to a single Mailbox or multiple that have a Display Name Like "John Smith".
 
 ### EXAMPLE 3
 ```
-Apply "Modern Auth Only" Policy to all mailboxes with a $null policy
+Set-AuthPolicy -ApplytoNull -Policy "Modern Auth Only"
 ```
 
-Set-AuthPolicy -ApplytoNull -Policy "Modern Auth Only"
+Apply "Modern Auth Only" Policy to all mailboxes with a $null policy
 
 ## PARAMETERS
 

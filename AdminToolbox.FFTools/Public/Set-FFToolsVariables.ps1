@@ -12,9 +12,9 @@ function Set-FFToolsVariables {
     Target path for processed Media
 
     .Example
-    Creates persistent environment variables. Be sure to include a closing backslash for the parameters.
-
     Set-FFToolsVariables -Source "c:\media\"" -Target "c:\media\out\"
+
+    Creates persistent environment variables. Be sure to include a closing backslash for the parameters.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

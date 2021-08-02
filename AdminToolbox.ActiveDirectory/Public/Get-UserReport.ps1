@@ -8,9 +8,9 @@ function Get-UserReport {
     Requires Active Directory Module
 
     .Example
-    Specify is where the report is to be saved.
-
     Get-UserReport -path C:\UserReport.csv
+
+    Specify is where the report is to be saved.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

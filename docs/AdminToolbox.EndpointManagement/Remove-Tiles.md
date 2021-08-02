@@ -16,7 +16,8 @@ Remove-Tiles [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Removes all start menu tiles
+Removes all start menu tiles in Windows 10.
+Not tested in Windows 11.
 
 ## EXAMPLES
 

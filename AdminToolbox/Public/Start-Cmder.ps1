@@ -4,14 +4,14 @@ function Start-Cmder {
     Launch a drop-down command console.
 
     .EXAMPLE
-    Launch Cmder
-
     Cmder
 
-    .Example
-    Add Cmder to startup login startup
+    Launch Cmder
 
+    .Example
     Cmder -Startup
+
+    Add Cmder to startup login startup
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

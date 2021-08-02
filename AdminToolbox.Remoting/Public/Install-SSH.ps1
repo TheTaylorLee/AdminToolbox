@@ -18,14 +18,14 @@ function Install-SSH {
     Started the ssh services
 
     .EXAMPLE
-    Enable-OpenSSH features but don't set the services to Automatic
-
     Install-OpenSSH
 
-    .EXAMPLE
-    Enable-OpenSSH features and set the services to Automatic
+    Enable-OpenSSH features but don't set the services to Automatic
 
+    .EXAMPLE
     Install-OpenSSH -AutoServices
+
+    Enable-OpenSSH features and set the services to Automatic
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

@@ -12,14 +12,14 @@ function Start-Replication {
     Specify a domain to start a replication sync for
 
     .EXAMPLE
-    Starts a sync on the current domain environment
-
     Start-Replication
 
-    .EXAMPLE
-    Starts a sync on the specified domain environment
+    Starts a sync on the current domain environment
 
+    .EXAMPLE
     Start-Replication -Domain Domain2.net
+
+    Starts a sync on the specified domain environment
 
     .LINK
     https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/

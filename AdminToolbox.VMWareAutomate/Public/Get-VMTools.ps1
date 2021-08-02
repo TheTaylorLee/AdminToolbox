@@ -17,19 +17,19 @@ Function Get-VMTools {
     Get-VMTools
 
     .EXAMPLE
-    Show tools versions for all VM's
-
     Get-VMTools -Alltools
 
-    .EXAMPLE
-    Only show VM's with Outdated Tools
+    Show tools versions for all VM's
 
+    .EXAMPLE
     Get-VMTools -OutDatedTools
 
-    .EXAMPLE
-    Show VM's with Outdated Tools and include unmanaged tools
+    Only show VM's with Outdated Tools
 
+    .EXAMPLE
     Get-VMTools -OutDatedTools -Unmanaged
+
+    Show VM's with Outdated Tools and include unmanaged tools
 
     .NOTES
     Requires the VMware.PowerCLI Module

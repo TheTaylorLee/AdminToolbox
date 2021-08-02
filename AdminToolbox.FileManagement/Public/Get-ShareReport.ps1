@@ -15,14 +15,14 @@ Function Get-ShareReport {
     For Specifying one or more shares that should be reported on. Default parameter is set to pull for all shares
 
     .Example
-    Get a share report for all Shares
-
     Get-ShareReport -DomainController DCHostname
 
-    .Example
-    Get a Share report for a single share
+    Get a share report for all Shares
 
+    .Example
     Get-ShareReport -DomainController DCHostname -smbShares Sharename
+
+    Get a Share report for a single share
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

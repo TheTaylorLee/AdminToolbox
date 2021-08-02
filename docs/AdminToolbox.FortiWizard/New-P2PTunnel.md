@@ -200,7 +200,7 @@ Accept wildcard characters: False
 ### -RemoteAddressCIDRs
 This is the Address Object CIDRs that will be created for the remote side of the tunnel.
 
-ex: "192.168.1.0/24", "10.100.0/24"
+ex: "192.168.1.0/24", "10.100.10.0/24"
 
 ```yaml
 Type: String[]

@@ -22,17 +22,17 @@ Starts a local Active Directory sync to Azure Active Directory.
 
 ### EXAMPLE 1
 ```
-Performs a full sync with Azure Active Directory
+Start-AzureSync -Policy Initial
 ```
 
-Start-AzureSync -Policy Initial
+Performs a full sync with Azure Active Directory
 
 ### EXAMPLE 2
 ```
-Performs an incrmental sync with Azure Active Directroy
+Start-AzureSync -Policy Delta
 ```
 
-Start-AzureSync -Policy Delta
+Performs an incrmental sync with Azure Active Directroy
 
 ## PARAMETERS
 

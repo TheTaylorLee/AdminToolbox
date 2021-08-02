@@ -25,10 +25,10 @@ Get replication status for all Domain site connections
 
 ### EXAMPLE 1
 ```
-Get replication information, included extended details
+Get-ReplicationStatus -Extended
 ```
 
-Get-ReplicationStatus -Extended
+Get replication information, included extended details
 
 ## PARAMETERS
 

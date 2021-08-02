@@ -13,43 +13,37 @@ Function Enable-PushNotifications {
     WAN IP within the range of the chosen Wan Interface
 
     .Example
-
     $Params = @{
         UnusedPort        = "26357"
-        WanInterfaceName  = "port1"
+        WanInterfaceName  = "wan1"
         WanIP             = "1.1.1.1"
     }
-
     Enable-PushNotifications @params
 
+    This example enables push notifications on wan1 using port 26357
+
     .Example
-    This example generates an SSH session and invokes the output of this function against that session.
-
     New-SSHSession -computername 192.168.0.1
-
     $Params = @{
         UnusedPort        = "26357"
-        WanInterfaceName  = "port1"
+        WanInterfaceName  = "wan1"
         WanIP             = "1.1.1.1"
     }
     $command = Enable-PushNotifications @params
-
     $result = Invoke-SSHCommand -Command $command -SessionId 0
     $result.output
 
-    .Example
-    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+    This example generates an SSH session and invokes the output of this function against that session.
 
+    .Example
     New-SSHSession -computername 192.168.0.1
     New-SSHSession -computername 192.168.1.1
-
     $Params = @{
         UnusedPort        = "26357"
-        WanInterfaceName  = "port1"
+        WanInterfaceName  = "wan1"
         WanIP             = "1.1.1.1"
     }
     $command = Enable-PushNotifications @params
-
     $sessions = Get-SSHSession
     foreach ($session in $sessions) {
         Write-Output "Invoking Command against $session.host"
@@ -57,8 +51,10 @@ Function Enable-PushNotifications {
         $result.output
     }
 
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
     .Notes
-    https://kb.fortinet.com/kb/documentLink.do?externalID=FD48702
+    https://kb.fortinet.com/kb/documentLink.do?externalID=FD48702 \
     https://docs.fortinet.com/document/fortigate/6.2.0/cookbook/183204/ssl-vpn-with-fortitoken-mobile-push-authentication
 
     * There must be at least one administrator account with no trusted hosts configured:

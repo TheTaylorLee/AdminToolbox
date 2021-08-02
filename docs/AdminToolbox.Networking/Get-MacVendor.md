@@ -39,10 +39,10 @@ Get-MacVendor -MacAddress 00:00:00:00:00:00,11:11:11:11:11:11
 
 ### EXAMPLE 3
 ```
-Get Mac addresses for all devices on the local subnet and query their OUI
+Get-MacVendor -Subnet 192.168.0 | Sort-Object Vendor
 ```
 
-Get-MacVendor -Subnet 192.168.0 | Sort-Object Vendor
+Get Mac addresses for all devices on the local subnet and query their OUI
 
 ## PARAMETERS
 

@@ -24,26 +24,10 @@ Get detailed information on installed applications and their uninstall strings.
 
 ### EXAMPLE 1
 ```
-Get installed software outputted to a table
-```
-
 Get-Software | ft
-
-### EXAMPLE 2
-```
-Get installed software on all online domain joined Endpoints
 ```
 
-$Computername = get-adcomputer -filter *
-$computername = Get-Software
-
-### EXAMPLE 3
-```
-Get installed software on all computers listed in a text file
-```
-
-$Computername = get-content c:\computers.txt
-$computername = Get-Software
+Get installed software outputted to a table
 
 ## PARAMETERS
 

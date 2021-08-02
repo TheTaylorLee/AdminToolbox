@@ -11,19 +11,19 @@ Function Start-Application {
     Used to build an index of application executables and msc files
 
     .Example
-    Launch and Application
-
     Start-Application -Application outlook
 
-    .Example
-    Launch an application using the function alias and without specifying the application parameter
+    Launch and Application
 
+    .Example
     app outlook
 
-    .Example
-    Build the index used for launching applications. Can be run again to update the index when needed
+    Launch an application using the function alias and without specifying the application parameter
 
+    .Example
     Start-Application -index
+
+    Build the index used for launching applications. Can be run again to update the index when needed
 
     .Notes
     Uses the private function Get-Elevation

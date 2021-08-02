@@ -5,9 +5,9 @@ Function Show-IPInfo {
     Simply displays Address Spaces for Quick Reference
 
     .Example
-    Use the alias and type less
+    ipinfo
 
-    sip
+    Use the alias and type less
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

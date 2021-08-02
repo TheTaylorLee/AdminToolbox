@@ -24,9 +24,9 @@ Function Enable-365MailboxExistingUser {
     The DomainController parameter specifies the domain controller that's used by this cmdlet to read data from or write data to Active Directory. You identify the domain controller by its fully qualified domain name (FQDN). For example, dc01.contoso.com.
 
     .EXAMPLE
-    Enable an office 365 mailbox for an existing Active Directory User
-
     Enable-365Mailbox -Identity Domain\Username -PrimarySmtpAddress email@company.com -RemoteRoutingAddres email@company.onmicrosoft.com -DomainController server.domain.com
+
+    Enable an office 365 mailbox for an existing Active Directory User
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

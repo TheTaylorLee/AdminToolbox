@@ -22,10 +22,10 @@ This function will create an Excel report of guest users accounts from Azure AD,
 
 ### EXAMPLE 1
 ```
-Shows all guest users accounts older than 90 days old
+Get-GuestUsers -StaleGuest 90
 ```
 
-Get-GuestUsers -StaleGuest 90
+Shows all guest users accounts older than 90 days old
 
 ## PARAMETERS
 

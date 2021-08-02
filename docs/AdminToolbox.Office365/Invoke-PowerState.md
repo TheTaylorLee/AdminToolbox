@@ -39,31 +39,31 @@ This command can also be used to discover the statuses.
 
 ### EXAMPLE 1
 ```
-Specifies the selected VM's will be shutdown forcefully
+Invoke-Powerstate -Shutdown -Force
 ```
 
-Invoke-Powerstate -Shutdown -Force
+Specifies the selected VM's will be shutdown forcefully
 
 ### EXAMPLE 2
 ```
-Specifies the selected VM's will be restarted
+Invoke-Powerstate -Restart
 ```
 
-Invoke-Powerstate -Restart
+Specifies the selected VM's will be restarted
 
 ### EXAMPLE 3
 ```
-Specifies the selected VM's will be Started
+Invoke-Powerstate -Start
 ```
 
-Invoke-Powerstate -Start
+Specifies the selected VM's will be Started
 
 ### EXAMPLE 4
 ```
-Specifies the discover of VM statuses
+Invoke-Powerstate -status
 ```
 
-Invoke-Powerstate -status
+Specifies the discover of VM statuses
 
 ## PARAMETERS
 

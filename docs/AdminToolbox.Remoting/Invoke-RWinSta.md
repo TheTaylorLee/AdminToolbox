@@ -22,10 +22,10 @@ Wrapper function for rwinsta to get rdp sessions
 
 ### EXAMPLE 1
 ```
-Find remote sessions
+Invoke-RWinSta -ID 2 -Server name.domain.tld
 ```
 
-Invoke-RWinSta -ID 2 -Server name.domain.tld
+Find remote sessions
 
 ## PARAMETERS
 

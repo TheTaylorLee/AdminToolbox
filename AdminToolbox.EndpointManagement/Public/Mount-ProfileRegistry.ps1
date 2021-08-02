@@ -10,14 +10,14 @@ function Mount-ProfileRegistry {
     Domain Controller that has Powershell Remoting enabled on it. For importing a session with the Active directory Module.
 
     .EXAMPLE
-    If you have the AD module locally installed there is no need to specify the domain controller.
-
     Mount-ProfileRegistry -SamAccountName JohnS
 
-    .EXAMPLE
-    Specify the domain controller to implicitly import the active directory module from a Domain Controller with Powershell Remoting.
+    If you have the AD module locally installed there is no need to specify the domain controller.
 
+    .EXAMPLE
     Mount-ProfileRegistry -SamAccountName JohnS -DomainController TexasDC2016
+
+    Specify the domain controller to implicitly import the active directory module from a Domain Controller with Powershell Remoting.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

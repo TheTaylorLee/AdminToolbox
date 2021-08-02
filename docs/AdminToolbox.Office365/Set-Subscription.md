@@ -23,10 +23,10 @@ On subscription from that view should be selected, for setting the subscription 
 
 ### EXAMPLE 1
 ```
-This command has no parameters
+Set-Subscription
 ```
 
-Set-Subscription
+This command has no parameters
 
 ## PARAMETERS
 

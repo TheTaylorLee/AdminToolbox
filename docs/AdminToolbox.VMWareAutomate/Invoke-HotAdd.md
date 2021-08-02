@@ -38,17 +38,17 @@ Modify Hotadd settings for a single or all VM's
 
 ### EXAMPLE 1
 ```
-Disable Memory HotAdd on all VM's
+Invoke-HotAdd -DisableMem
 ```
 
-Invoke-HotAdd -DisableMem
+Disable Memory HotAdd on all VM's
 
 ### EXAMPLE 2
 ```
-Disable Memory HotAdd on a single vm
+Invoke-HotAdd -DisableMem -VMName ExchangeServer
 ```
 
-Invoke-HotAdd -DisableMem -VMName ExchangeServer
+Disable Memory HotAdd on a single vm
 
 ## PARAMETERS
 

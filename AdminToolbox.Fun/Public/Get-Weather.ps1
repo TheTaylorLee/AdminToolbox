@@ -14,9 +14,9 @@ function Get-Weather {
     https://winaero.com/blog/get-weather-forecast-powershell/
 
     .Example
-    Multiple Location Options Available
-
     Get-Weather -Location houston+texas
+
+    Multiple Location Options Available
 
     paris                 # city name
     Eiffel+tower          # any location

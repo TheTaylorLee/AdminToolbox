@@ -50,7 +50,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Requires the VMware.PowerCLI Module
+Requires the VMware.PowerCLI Module \
 
 Connect to Host or Vcenter First
 

@@ -23,10 +23,10 @@ Useful for modifying a users registry without the need of them being logged in l
 
 ### EXAMPLE 1
 ```
-DisMounts the Mounted ProfileRegistry
+DisMount-ProfileRegistry -SamAccountName JohnS
 ```
 
-DisMount-ProfileRegistry -SamAccountName JohnS
+DisMounts the Mounted ProfileRegistry
 
 ## PARAMETERS
 

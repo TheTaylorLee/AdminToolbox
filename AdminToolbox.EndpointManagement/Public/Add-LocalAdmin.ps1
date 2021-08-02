@@ -7,13 +7,13 @@ function Add-LocalAdmin {
     The user that is to be added as a local admin
 
     .NOTES
-    Azure AD Joined machines will require the user to first login to a computer with their domain account before adding their domain account as a local admin.
+    Azure AD Joined machines will require the user to first login to a computer with their domain account before adding their domain account as a local admin. \
     The user logging in registers their SID so that the command is successful.
 
     .EXAMPLE
-    Adds specified domain user to the local administrators group
-
     Add-LocalAdmin -user domain\user
+
+    Adds specified domain user to the local administrators group
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

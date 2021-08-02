@@ -35,17 +35,17 @@ Use PSRemoting to run the command on a remote endpoint.
 
 ### EXAMPLE 1
 ```
-Enable-OpenSSH features but don't set the services to Automatic
+Install-OpenSSH
 ```
 
-Install-OpenSSH
+Enable-OpenSSH features but don't set the services to Automatic
 
 ### EXAMPLE 2
 ```
-Enable-OpenSSH features and set the services to Automatic
+Install-OpenSSH -AutoServices
 ```
 
-Install-OpenSSH -AutoServices
+Enable-OpenSSH features and set the services to Automatic
 
 ## PARAMETERS
 

@@ -22,10 +22,10 @@ Creates a csv file containing logs of mail in a given time frame.
 
 ### EXAMPLE 1
 ```
-Specify the date range, report path, and amount of records to return.
+Get-MailLog -Start 05/14/2017 -End 05/14/2018 -Resultsize 10000
 ```
 
-Get-MailLog -Start 05/14/2017 -End 05/14/2018 -Resultsize 10000
+Specify the date range, report path, and amount of records to return.
 
 ## PARAMETERS
 

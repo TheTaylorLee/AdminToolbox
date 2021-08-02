@@ -11,24 +11,25 @@ Function Get-MailboxScaleReport {
     Where to export the excel file to
 
     .EXAMPLE
-    Gets a report for all mailboxes
-
     Get-MailboxScaleReport -Path C:\report.xlsx
 
-    .EXAMPLE
-    Gets a report for one mailbox
+    Gets a report for all mailboxes
 
+    .EXAMPLE
     Get-MailboxScaleReport -Path C:\report.xlsx -MailboxAliases JSmith
 
-    .EXAMPLE
-    Gets a report for some but not all mailboxes
+    Gets a report for one mailbox
 
+    .EXAMPLE
     Get-MailboxScaleReport -Path C:\report.xlsx -MailboxAliases JOSmith, JASmith, SSmith
 
+    Gets a report for some but not all mailboxes
+
     .NOTES
-    Must have the Exchange and importexcel modules loaded
-    Exchange 2007: 50000 messages per folder, 500 folders total
-    Exchange 2010/2013/2016/2019: 100000 messages per folder, 500 folders total
+    Must have the Exchange and importexcel modules loaded. \
+    Microsoft outlined limitations for mailboxes based on exchange versions noted below. \
+    * Exchange 2007: 50000 messages per folder, 500 folders total
+    * Exchange 2010/2013/2016/2019: 100000 messages per folder, 500 folders total
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

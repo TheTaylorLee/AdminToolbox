@@ -24,19 +24,19 @@ function Set-AuthPolicy {
     Apply policy to accounts with a null policy
 
     .EXAMPLE
-    Apply "Modern Auth Only" To all Exchange Online Mailboxes
-
     Set-AuthPolicy -ApplyAllModern
 
-    .EXAMPLE
-    Apply "Modern Auth Only" Policy to a single Mailbox or multiple that have a Display Name Like "John Smith".
+    Apply "Modern Auth Only" To all Exchange Online Mailboxes
 
+    .EXAMPLE
     Set-AuthPolicy -ApplyPolicySingle -DisplayNameLike "John Smith" -Policy "Modern Auth Only"
 
-    .EXAMPLE
-    Apply "Modern Auth Only" Policy to all mailboxes with a $null policy
+    Apply "Modern Auth Only" Policy to a single Mailbox or multiple that have a Display Name Like "John Smith".
 
+    .EXAMPLE
     Set-AuthPolicy -ApplytoNull -Policy "Modern Auth Only"
+
+    Apply "Modern Auth Only" Policy to all mailboxes with a $null policy
 
     .NOTES
     Requires the Exchange Online module be installed, imported, and Connected.

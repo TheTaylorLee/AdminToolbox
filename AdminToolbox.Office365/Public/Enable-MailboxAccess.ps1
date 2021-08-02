@@ -16,7 +16,7 @@ Function Enable-MailboxAccess {
     Enable-MailboxAccess -MailboxIdentity user@domain.com -ReaderIdentity user@domain.com
 
     .Notes
-    Requires the Exchange Online Powershell Module be installed and an Active exchange online session running.
+    Requires the Exchange Online Powershell Module be installed and an Active exchange online session running. \
 
     This is intended for Management purposes only. If you abuse this function to abuse Microsofts EULA that is on you.
 

@@ -6,9 +6,9 @@ function Get-AuthPolicy {
     Use of Modern Authentication Only is important for securing against Password Spray Attacks. New attacks on Basic authentication allow for taking control of an Exchange Online account by simply sending a malicious link to a target.
 
     .EXAMPLE
-    Gets the Authentication Policy out to a grid view
-
     Get-AuthPolicy | Out-GridView
+
+    Gets the Authentication Policy out to a grid view
 
     .NOTES
     Requires the Exchange Online module be installed, imported, and Connected.

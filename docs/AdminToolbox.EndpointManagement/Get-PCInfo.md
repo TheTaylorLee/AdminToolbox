@@ -22,17 +22,17 @@ Returns useful informaion on the local endpoint or another.
 
 ### EXAMPLE 1
 ```
-Returns PCinfo for the local computer
+Get-PCinfo
 ```
 
-Get-PCinfo
+Returns PCinfo for the local computer
 
 ### EXAMPLE 2
 ```
-Returns PCinfo for a remote computer
+Get-PCinfo -computer PCName
 ```
 
-Get-PCinfo -computer PCName
+Returns PCinfo for a remote computer
 
 ## PARAMETERS
 

@@ -11,21 +11,9 @@ function Get-Applications {
     For specifying a remote computer to get an application list from
 
     .EXAMPLE
-    Get installed software outputted to a table
-
     Get-Software | ft
 
-    .EXAMPLE
-    Get installed software on all online domain joined Endpoints
-
-    $Computername = get-adcomputer -filter *
-    $computername = Get-Software
-
-    .EXAMPLE
-    Get installed software on all computers listed in a text file
-
-    $Computername = get-content c:\computers.txt
-    $computername = Get-Software
+    Get installed software outputted to a table
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

@@ -11,9 +11,9 @@ function Get-EndpointReport {
     Requires the Active Directory Module
 
     .Example
-    Be sure to specify a filename and extension for the report.
-
     Get-EndpointReport -path C:\UserReport.csv
+
+    Be sure to specify a filename and extension for the report.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

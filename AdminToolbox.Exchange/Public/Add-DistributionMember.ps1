@@ -14,19 +14,19 @@ function Add-DistributionMember {
     The Distribution Group the Mailbox or Mailboxes are being added to
 
     .EXAMPLE
-    Add a single mailbox to a single distribution group
-
     Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees"
 
-    .EXAMPLE
-    Allows shortening the command or adding multiple mailboxes with a shared name to a Distribution Group
+    Add a single mailbox to a single distribution group
 
+    .EXAMPLE
     Add-DistributionMember -Mailbox *@company.com -DistributionGroup "All Emp*"
 
-    .EXAMPLE
-    Add a single mailbox to multiple Distribution Groups.
+    Allows shortening the command or adding multiple mailboxes with a shared name to a Distribution Group
 
+    .EXAMPLE
     Add-DistributionMember -Mailbox JohnD@company.com -DistributionGroup "All Employees,Worker Bees"
+
+    Add a single mailbox to multiple Distribution Groups.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

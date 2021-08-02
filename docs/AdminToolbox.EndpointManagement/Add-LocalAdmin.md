@@ -22,10 +22,10 @@ This function adds a local admin to the computer or server it is run from.
 
 ### EXAMPLE 1
 ```
-Adds specified domain user to the local administrators group
+Add-LocalAdmin -user domain\user
 ```
 
-Add-LocalAdmin -user domain\user
+Adds specified domain user to the local administrators group
 
 ## PARAMETERS
 
@@ -53,6 +53,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 Azure AD Joined machines will require the user to first login to a computer with their domain account before adding their domain account as a local admin.
+\
 The user logging in registers their SID so that the command is successful.
 
 ## RELATED LINKS

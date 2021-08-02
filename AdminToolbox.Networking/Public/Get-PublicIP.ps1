@@ -8,14 +8,14 @@ function Get-PublicIP {
     Specify an IP to get WhoIs info for
 
     .EXAMPLE
-    Returns local Public IP Info
-
     Get-PublicIP
 
-    .Example
-    Returns your Public IP Info
+    Returns local Public IP Info
 
+    .Example
     Get-PublicIP -IP 8.8.8.8
+
+    Returns your Public IP Info
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox

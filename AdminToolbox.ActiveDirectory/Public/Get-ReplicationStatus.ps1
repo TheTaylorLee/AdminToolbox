@@ -12,9 +12,9 @@ function Get-ReplicationStatus {
     Retrieves additional sync information
 
     .EXAMPLE
-    Get replication information, included extended details
-
     Get-ReplicationStatus -Extended
+
+    Get replication information, included extended details
 
     .LINK
     https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/

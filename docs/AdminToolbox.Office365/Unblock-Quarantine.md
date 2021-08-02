@@ -26,31 +26,33 @@ Use Get-QuarantineMessage to restrict results further.
 
 ### EXAMPLE 1
 ```
-Specify the number of pages with 1000 results to return
+Get-Quarantine -pages 15
 ```
 
-Get-Quarantine -pages 15
+Specify the number of pages with 1000 results to return
 
 ### EXAMPLE 2
 ```
-Return the default of 1 page with up to 1000 results of results from which emails can be released from quarantine.
+Release-Quarantine
 ```
 
-Release-Quarantine
+Return the default of 1 page with up to 1000 results of results from which emails can be released from quarantine.
 
 ### EXAMPLE 3
 ```
-Specify the pagesize to limit output to only x number of results that can then be used to choose emails to release.
+Release-Quarantine -pagesize 15
 ```
 
-Release-Quarantine -pagesize 15
+Specify the pagesize to limit output to only x number of results that can then be used to choose emails to release.
 
 ### EXAMPLE 4
 ```
-Allow sender to prevent future messages from the sender being quarantined. Additional steps may be required to guarantee results. Microsoft provides documentation on Mailflow rules for whitelisting senders.
+Release-Quarantine -AllowSender
 ```
 
-Release-Quarantine -AllowSender
+Allow sender to prevent future messages from the sender being quarantined.
+Additional steps may be required to guarantee results.
+Microsoft provides documentation on Mailflow rules for whitelisting senders.
 
 ## PARAMETERS
 

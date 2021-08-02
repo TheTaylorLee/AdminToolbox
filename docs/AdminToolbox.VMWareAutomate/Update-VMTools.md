@@ -23,17 +23,18 @@ Does not reboot the VM's.
 
 ### EXAMPLE 1
 ```
-Upgrades only tools that are installed an require it. Specify a path for a log file.
+Update-VMTools
 ```
 
-Update-VMTools
+Upgrades only tools that are installed an require it.
+Specify a path for a log file.
 
 ### EXAMPLE 2
 ```
-Include unmanaged VM's
+Update-VMTools -Unmanaged
 ```
 
-Update-VMTools -Unmanaged
+Include unmanaged VM's
 
 ## PARAMETERS
 

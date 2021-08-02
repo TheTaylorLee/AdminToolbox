@@ -22,10 +22,10 @@ Simply displays Address Spaces for Quick Reference
 
 ### EXAMPLE 1
 ```
-Use the alias and type less
+ipinfo
 ```
 
-sip
+Use the alias and type less
 
 ## PARAMETERS
 

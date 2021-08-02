@@ -11,14 +11,14 @@ function Get-PCInfo {
     Specify a remote computer to get info for
 
     .EXAMPLE
-    Returns PCinfo for the local computer
-
     Get-PCinfo
 
-    .EXAMPLE
-    Returns PCinfo for a remote computer
+    Returns PCinfo for the local computer
 
+    .EXAMPLE
     Get-PCinfo -computer PCName
+
+    Returns PCinfo for a remote computer
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
