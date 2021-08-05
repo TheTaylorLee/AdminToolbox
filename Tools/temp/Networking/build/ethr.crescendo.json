@@ -11,11 +11,11 @@
                     "OriginalName": "-h",
                     "ParameterType": "switch",
                     "Description": "Produces help from the native command",
-                    "Aliases": [
-                        "h"
-                    ],
                     "ParameterSetName": [
-                        "NativeHelp"
+                        "noLogServer",
+                        "noLogClient",
+                        "LogEnabledServer",
+                        "LogEnabledClient"
                     ]
                 },
                 {
@@ -25,7 +25,30 @@
                     "Description": "Disable logging to file. Logging to file is enabled by default.",
                     "Mandatory": true,
                     "ParameterSetName": [
-                        "Default"
+                        "noLogServer",
+                        "noLogClient"
+                    ]
+                },
+                {
+                    "Name": "logfile",
+                    "OriginalName": "-o",
+                    "ParameterType": "string",
+                    "DefaultValue": ".\\ethr.log",
+                    "Description": "Specify the file to log to. ex: c:\\output.log",
+                    "ParameterSetName": [
+                        "LogEnabledServer",
+                        "LogEnabledClient"
+                    ]
+                },
+                {
+                    "Name": "ServerMode",
+                    "OriginalName": "-s",
+                    "ParameterType": "switch",
+                    "Description": "Specifies to run Ethr in Server Mode.",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "LogEnabledServer"
                     ]
                 }
             ]
