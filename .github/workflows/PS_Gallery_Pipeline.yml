@@ -57,9 +57,9 @@ jobs:
 
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
-            $ActiveDirectoryGithub = Get-Content "$workingdirectory/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1
+            $ActiveDirectoryGithub = Get-Content "$workingdirectory/modules/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1
               if ([version]$ActiveDirectoryGithub -gt [version]$ActiveDirectoryPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.ActiveDirectory" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.ActiveDirectory" -NuGetApiKey $env:NUGET_KEY
                 $ActiveDirectory = Write-Output "[+] AdminToolbox.ActiveDirectory published to PSGalley"
               }
               else {
@@ -68,9 +68,9 @@ jobs:
 
             #EndpointManagement
             $EndpointManagementPSGallery = (Find-Module "AdminToolbox.EndpointManagement" -Repository PSGallery).version
-            $EndpointManagementGithub = Get-Content "$workingdirectory/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1
+            $EndpointManagementGithub = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1
               if ([version]$EndpointManagementGithub -gt [version]$EndpointManagementPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.EndpointManagement" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.EndpointManagement" -NuGetApiKey $env:NUGET_KEY
                 $EndpointManagement = Write-Output "[+] AdminToolbox.EndpointManagement published to PSGalley"
               }
               else {
@@ -79,9 +79,9 @@ jobs:
 
             #Exchange
             $ExchangePSGallery = (Find-Module "AdminToolbox.Exchange" -Repository PSGallery).version
-            $ExchangeGithub = Get-Content "$workingdirectory/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1
+            $ExchangeGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1
               if ([version]$ExchangeGithub -gt [version]$ExchangePSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Exchange" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Exchange" -NuGetApiKey $env:NUGET_KEY
                 $Exchange = Write-Output "[+] AdminToolbox.Exchange published to PSGalley"
               }
               else {
@@ -90,9 +90,9 @@ jobs:
 
             #FFTools
             $FFToolsPSGallery = (Find-Module "AdminToolbox.FFTools" -Repository PSGallery).version
-            $FFToolsGithub = Get-Content "$workingdirectory/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1
+            $FFToolsGithub = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1
               if ([version]$FFToolsGithub -gt [version]$FFToolsPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.FFTools" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FFTools" -NuGetApiKey $env:NUGET_KEY
                 $FFTools = Write-Output "[+] AdminToolbox.FFTools published to PSGalley"
               }
               else {
@@ -101,9 +101,9 @@ jobs:
 
             #FileManagement
             $FileManagementPSGallery = (Find-Module "AdminToolbox.FileManagement" -Repository PSGallery).version
-            $FileManagementGithub = Get-Content "$workingdirectory/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1
+            $FileManagementGithub = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1
               if ([version]$FileManagementGithub -gt [version]$FileManagementPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.FileManagement" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FileManagement" -NuGetApiKey $env:NUGET_KEY
                 $FileManagement = Write-Output "[+] AdminToolbox.FileManagement published to PSGalley"
               }
               else {
@@ -112,9 +112,9 @@ jobs:
 
             #FortiWizard
             $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
-            $GithubVersion = Get-Content "$workingdirectory/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
+            $GithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
               if ([version]$GithubVersion -gt [version]$PSGalleryVersion ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
                 $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
               }
               else {
@@ -123,9 +123,9 @@ jobs:
 
             #Fun
             $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
-            $FunGithub = Get-Content "$workingdirectory/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
+            $FunGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
               if ([version]$FunGithub -gt [version]$FunPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Fun" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Fun" -NuGetApiKey $env:NUGET_KEY
                 $Fun = Write-Output "[+] AdminToolbox.Fun published to PSGalley"
               }
               else {
@@ -134,9 +134,9 @@ jobs:
 
             #Networking
             $NetworkingPSGallery = (Find-Module "AdminToolbox.Networking" -Repository PSGallery).version
-            $NetworkingGithub = Get-Content "$workingdirectory/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
+            $NetworkingGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
               if ([version]$NetworkingGithub -gt [version]$NetworkingPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Networking" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Networking" -NuGetApiKey $env:NUGET_KEY
                 $Networking = Write-Output "[+] AdminToolbox.Networking published to PSGalley"
               }
               else {
@@ -145,9 +145,9 @@ jobs:
 
             #Office365
             $Office365PSGallery = (Find-Module "AdminToolbox.Office365" -Repository PSGallery).version
-            $Office365Github = Get-Content "$workingdirectory/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
+            $Office365Github = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
               if ([version]$Office365Github -gt [version]$Office365PSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Office365" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Office365" -NuGetApiKey $env:NUGET_KEY
                 $Office365 = Write-Output "[+] AdminToolbox.Office365 published to PSGalley"
               }
               else {
@@ -156,9 +156,9 @@ jobs:
 
             #Remoting
             $RemotingPSGallery = (Find-Module "AdminToolbox.Remoting" -Repository PSGallery).version
-            $RemotingGithub = Get-Content "$workingdirectory/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
+            $RemotingGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
               if ([version]$RemotingGithub -gt [version]$RemotingPSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.Remoting" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Remoting" -NuGetApiKey $env:NUGET_KEY
                 $Remoting = Write-Output "[+] AdminToolbox.Remoting published to PSGalley"
               }
               else {
@@ -167,9 +167,9 @@ jobs:
 
             #VMWareAutomate
             $VMWareAutomatePSGallery = (Find-Module "AdminToolbox.VMWareAutomate" -Repository PSGallery).version
-            $VMWareAutomateGithub = Get-Content "$workingdirectory/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
+            $VMWareAutomateGithub = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
               if ([version]$VMWareAutomateGithub -gt [version]$VMWareAutomatePSGallery ) {
-                Publish-Module -Path "$workingdirectory/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY
                 $VMWareAutomate = Write-Output "[+] AdminToolbox.VMWareAutomate published to PSGalley"
               }
               else {
@@ -178,7 +178,7 @@ jobs:
 
             #AdminToolbox
             $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
-            $AdminToolboxGithub = Get-Content "$workingdirectory/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
+            $AdminToolboxGithub = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
               if ([version]$AdminToolboxGithub -gt [version]$AdminToolboxPSGallery ) {
                 Install-Module AdminToolbox.ActiveDirectory -AllowClobber -Force; Import-Module AdminToolbox.ActiveDirectory -Force -Global
                 Install-Module AdminToolbox.EndpointManagement -AllowClobber -Force; Import-Module AdminToolbox.EndpointManagement -Force -Global
@@ -191,7 +191,7 @@ jobs:
                 Install-Module AdminToolbox.Office365 -AllowClobber -Force; Import-Module AdminToolbox.Office365 -Force -Global
                 Install-Module AdminToolbox.Remoting -AllowClobber -Force; Import-Module AdminToolbox.Remoting -Force -Global
                 Install-Module AdminToolbox.VMWareAutomate -AllowClobber -Force; Import-Module AdminToolbox.VMWareAutomate -Force -Global
-                Publish-Module -Path "$workingdirectory/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
                 $AdminToolbox = Write-Output "[+] AdminToolbox published to PSGalley"
               }
               else {
