@@ -38,7 +38,7 @@ Function out-manifests {
             @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.7.0'; },
             @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.1.0'; },
             @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
-            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.9.0'; },
+            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.10.0'; },
             @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
             @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
             @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
@@ -48,7 +48,7 @@ Function out-manifests {
         )
         RootModule           = "AdminToolboxManifest.psm1"
         ReleaseNotes         = "The release notes can be found in the ChangeLog.md file at the scriptroot path."
-        Tags                 = '365', 'Active', 'ActiveDirectory', 'Automate', 'Application', 'Directory', 'Exchange', 'FileManagement', 'Fortinet', 'FortiGate', 'FortiOS', 'Iperf', 'Network', 'Networking', 'NetworkScan', 'Office', 'Office365', 'OpenSSH', 'PC', 'PCSetup', 'Print', 'Printer', 'Remoting', 'Robocopy', 'Setup', 'SSH', 'vmware', 'Windows'
+        Tags                 = '365', 'Active', 'ActiveDirectory', 'Automate', 'Application', 'Crescendo', 'Directory', 'Exchange', 'FileManagement', 'Fortinet', 'FortiGate', 'FortiOS', 'Iperf', 'Network', 'Networking', 'NetworkScan', 'Office', 'Office365', 'OpenSSH', 'PC', 'PCSetup', 'Print', 'Printer', 'Remoting', 'Robocopy', 'Setup', 'SSH', 'vmware', 'Windows'
     }
 
     New-ModuleManifest @Params
@@ -228,14 +228,14 @@ Function out-manifests {
     $savepath = "$env:gitrootpath\AdminToolbox.Networking"
     $Params = @{
         CompatiblePSEditions = "Desktop", "Core"
-        FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Start-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-Trace'
+        FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Start-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-Trace', 'Invoke-Ethr'
         Path                 = "$savepath\AdminToolbox.Networking.psd1"
         Author               = "Taylor Lee"
         Description          = "Network Troubleshooting Functions"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-        ModuleVersion        = "2.9.0"
+        ModuleVersion        = "2.10.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (

@@ -1,0 +1,23 @@
+{
+   "$schema": "../src/Microsoft.PowerShell.Crescendo.Schema.json",
+   "Commands": [
+        {
+            "Verb": "Get",
+            "Noun": "DockerImage",
+            "OriginalName": "docker",
+            "OriginalCommandElements": [
+                "image",
+                "ls",
+                "--format",
+                "{{json .}}"
+            ],
+            "OutputHandlers": [
+                {
+                "ParameterSetName": "Default",
+                "Handler": "$input | convertfrom-json | add-member -typename DockerImage -PassThru",
+                "StreamOutput": true
+                }
+            ]
+        }
+    ]
+}
