@@ -244,7 +244,7 @@ Function out-manifests {
         )
         RootModule           = "AdminToolbox.NetworkingManifest.psm1"
         ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-        Tags                 = 'iperf', 'Networking', 'NetworkScan'
+        Tags                 = 'iperf', 'ethr', 'Networking', 'NetworkScan'
     }
 
     New-ModuleManifest @Params
