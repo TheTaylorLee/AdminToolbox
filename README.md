@@ -24,7 +24,7 @@ Install-Module AdminToolbox -Allowclobber -Force
 ## AdminToolbox.Required Modules
 
 ##### ActiveDirectory
-> Active Directory Related functions. This module focuses on Account & Group management, & discovery.
+> Active Directory Related functions. This module focuses on Account & Group, management & discovery.
 
 ##### EndpointManagement
 > Functions for management of endpoints and servers. This module focuses on new endpoint setups and common management tasks for them.
