@@ -15,7 +15,7 @@ Install-Module AdminToolbox -Allowclobber -Force
 
 [Docs](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/) Markdown help and examples can be found here.
 
-[Powershell Gallery](https://www.powershellgallery.com/packages/AdminToolbox/) has all versions of the AdminToolbox Modules.
+[Powershell Gallery](https://www.powershellgallery.com/profiles/TaylorLee) has all versions of the AdminToolbox Modules.
 
 ### Sample Videos
 
