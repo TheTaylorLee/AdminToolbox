@@ -6,7 +6,8 @@
             "Noun": "Iperf",
             "OriginalName": "iperf3.exe",
             "Description": "This is a PowerShell Crescendo wrapper function for Iperf3",
-            "Parameters": []
+            "Parameters": [test
+            ]
         }
     ]
 }
