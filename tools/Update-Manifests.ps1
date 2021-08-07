@@ -38,7 +38,7 @@ Function out-manifests {
             @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.7.0'; },
             @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.1.0'; },
             @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
-            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.0'; },
+            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.1'; },
             @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
             @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
             @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
@@ -235,7 +235,7 @@ Function out-manifests {
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-        ModuleVersion        = "2.11.0"
+        ModuleVersion        = "2.11.1"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (

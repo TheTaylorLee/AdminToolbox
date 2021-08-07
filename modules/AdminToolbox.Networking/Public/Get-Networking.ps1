@@ -13,7 +13,8 @@ function Get-Networking {
     Write-Host "Get-NetworkStatistics      ..Gets active connections and associated processes"               -ForegroundColor cyan
     Write-Host "Get-PublicIP               ..Gets Public IP info and Geolocation"                            -ForegroundColor cyan
     Write-Host "Get-Whois                  ..Gets whois information for an IP address or DNS Name"           -ForegroundColor cyan
-    Write-Host "Invoke-Ethr                ..Invoke crescendo wrapped Microsoft Ethr"                        -ForegroundColor cyan
+    Write-Host "Invoke-Ethr                ..Invoke crescendo wrapped function for Microsoft Ethr"           -ForegroundColor cyan
+    Write-Host "Invoke-Iperf               ..Invoke crescendo wrapped function for Iperf3"                   -ForegroundColor cyan
     Write-Host "Invoke-Monitor             ..Invokes a service Monitor for tracking when it comes online"    -ForegroundColor cyan
     Write-Host "Invoke-NetworkScan         ..Invoke a network scan for Hostnames, IPv4, MAC, OUI, and Ports" -ForegroundColor cyan
     Write-Host "Invoke-PSNmap              ..Invoke nmap scan on targets"                                    -ForegroundColor cyan
@@ -21,7 +22,6 @@ function Get-Networking {
     Write-Host "Reset-NetworkAdapter       ..Reset Network Adapters"                                         -ForegroundColor cyan
     Write-Host "Reset-NetworkStack         ..Reset TCP/IP and Winsock"                                       -ForegroundColor cyan
     Write-Host "Show-IpInfo                ..Shows Address Spaces and a CIDR Table"                          -ForegroundColor cyan
-    Write-Host "Start-Iperf                ..Starts an Iperf client or host bandwidth test"                  -ForegroundColor cyan
     Write-Host "Start-Speedtest            ..Starts a wan speed test"                                        -ForegroundColor cyan
     Write-Host "Start-Trace                ..Starts a trace route tool"                                      -ForegroundColor cyan
     Write-Host "Test-Netconnection         ..Tests Ping, Traceroute, Route Diagnosing, and Port Testing"     -ForegroundColor cyan
