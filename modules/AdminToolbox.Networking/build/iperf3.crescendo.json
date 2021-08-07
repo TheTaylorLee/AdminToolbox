@@ -1,0 +1,349 @@
+{
+    "$schema": "../Microsoft.PowerShell.Crescendo.Schema.json",
+    "Commands": [
+        {
+            "Verb": "Invoke",
+            "Noun": "Iperf",
+            "OriginalName": "iperf3.exe",
+            "Description": "This is a PowerShell Crescendo wrapper function for Iperf3 \n[KMG] indicates options that support a K/M/G suffix for kilo-, mega-, or giga- \nIf string input is accepted for a parameter, the first line fo the description help indicates the expected value type.",
+            "Parameters": [
+                {
+                    "Name": "help",
+                    "OriginalName": "-h",
+                    "ParameterType": "switch",
+                    "Description": "Get native help for Iperf3.exe",
+                    "ParameterSetName": [
+                        "help"
+                    ]
+                },
+                {
+                    "Name": "version",
+                    "OriginalName": "-v",
+                    "ParameterType": "switch",
+                    "Description": "show version information and quit",
+                    "ParameterSetName": [
+                        "help"
+                    ]
+                },
+                {
+                    "Name": "port",
+                    "OriginalName": "-p",
+                    "ParameterType": "string",
+                    "Description": "# \nserver port to listen on/connect to",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "format",
+                    "OriginalName": "-f",
+                    "ParameterType": "string",
+                    "Description": "[kmgKMG] \nformat to report: Kbits, Mbits, KBytes, MBytes",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "interval",
+                    "OriginalName": "-f",
+                    "ParameterType": "string",
+                    "Description": "# \nseconds between periodic bandwidth reports",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "file",
+                    "OriginalName": "-F",
+                    "ParameterType": "string",
+                    "Description": "xmit/recv the specified file",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "bind",
+                    "OriginalName": "-B",
+                    "ParameterType": "string",
+                    "Description": "host \nbind to a specific interface",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "verboseout",
+                    "OriginalName": "-V",
+                    "ParameterType": "switch",
+                    "Description": "more detailed output",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "json",
+                    "OriginalName": "-J",
+                    "ParameterType": "switch",
+                    "Description": "output in JSON format",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "logfile",
+                    "OriginalName": "--logfile",
+                    "ParameterType": "string",
+                    "Description": "f \nsend output to logfile",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "debugout",
+                    "OriginalName": "-d",
+                    "ParameterType": "switch",
+                    "Description": "emit debugging output",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "server",
+                    "OriginalName": "-s",
+                    "ParameterType": "switch",
+                    "Mandatory": true,
+                    "Description": "run in server mode",
+                    "ParameterSetName": [
+                        "Server"
+                    ]
+                },
+                {
+                    "Name": "daemon",
+                    "OriginalName": "-D",
+                    "ParameterType": "switch",
+                    "Description": "run the server as a daemon",
+                    "ParameterSetName": [
+                        "Server",
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "pidfile",
+                    "OriginalName": "-I",
+                    "ParameterType": "switch",
+                    "Description": "file \nwrite PID file",
+                    "ParameterSetName": [
+                        "Server"
+                    ]
+                },
+                {
+                    "Name": "oneoff",
+                    "OriginalName": "-1",
+                    "ParameterType": "switch",
+                    "Description": "handle one client connection then exit",
+                    "ParameterSetName": [
+                        "Server"
+                    ]
+                },
+                {
+                    "Name": "client",
+                    "OriginalName": "-c",
+                    "ParameterType": "string",
+                    "Mandatory": true,
+                    "Description": "host \nrun in client mode, connecting to <host>",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "udp",
+                    "OriginalName": "-u",
+                    "ParameterType": "switch",
+                    "Description": "use UDP rather than TCP",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "bandwidth",
+                    "OriginalName": "-b",
+                    "ParameterType": "string",
+                    "Description": "#[KMG][/#] \ntarget bandwidth in bits/sec (0 for unlimited) \n(default 1 Mbit/sec for UDP, unlimited for TCP) \n(optional slash and packet count for burst mode)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "time",
+                    "OriginalName": "-t",
+                    "ParameterType": "string",
+                    "Description": "# \ntime in seconds to transmit for (default 10 secs)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "bytes",
+                    "OriginalName": "-n",
+                    "ParameterType": "string",
+                    "Description": "#[KMG] \nnumber of bytes to transmit (instead of -t)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "blockcount",
+                    "OriginalName": "-k",
+                    "ParameterType": "string",
+                    "Description": "#[KMG] \nnumber of blocks (packets) to transmit (instead of -t or -n)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "bufferlength",
+                    "OriginalName": "-l",
+                    "ParameterType": "string",
+                    "Description": "#[KMG] \nlength of buffer to read or write \n(default 128 KB for TCP, 8 KB for UDP)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "cport",
+                    "OriginalName": "--cport",
+                    "ParameterType": "string",
+                    "Description": "port \nbind to a specific client port (TCP and UDP, default: ephemeral port)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "parallel",
+                    "OriginalName": "-P",
+                    "ParameterType": "string",
+                    "Description": "# \nnumber of parallel client streams to run",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "reverse",
+                    "OriginalName": "-R",
+                    "ParameterType": "switch",
+                    "Description": "run in reverse mode (server sends, client receives)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "window",
+                    "OriginalName": "-w",
+                    "ParameterType": "string",
+                    "Description": "#[KMG] \nset window size / socket buffer size",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "mtu",
+                    "OriginalName": "-M",
+                    "ParameterType": "string",
+                    "Description": "# \nset TCP/SCTP maximum segment size (MTU - 40 bytes)",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "nodelay",
+                    "OriginalName": "-N",
+                    "ParameterType": "switch",
+                    "Description": "set TCP/SCTP no delay, disabling Nagle's Algorithm",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "ipv4only",
+                    "OriginalName": "-4",
+                    "ParameterType": "switch",
+                    "Description": "only use IPv4",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "ipv6only",
+                    "OriginalName": "-6",
+                    "ParameterType": "switch",
+                    "Description": "only use IPv6",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "tos",
+                    "OriginalName": "-S",
+                    "ParameterType": "string",
+                    "Description": "set the IP 'type of service'",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "zerocopy",
+                    "OriginalName": "-Z",
+                    "ParameterType": "switch",
+                    "Description": "use a 'zero copy' method of sending data",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "omitseconds",
+                    "OriginalName": "-O",
+                    "ParameterType": "string",
+                    "Description": "omit the first n seconds",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "Title",
+                    "OriginalName": "-T",
+                    "ParameterType": "string",
+                    "Description": "prefix every output line with this string",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "showserveroutput",
+                    "OriginalName": "--get-server-output",
+                    "ParameterType": "string",
+                    "Description": "get results from server",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                },
+                {
+                    "Name": "udp64bitcounters",
+                    "OriginalName": "--udp-counters-64bit",
+                    "ParameterType": "string",
+                    "Description": "use 64-bit counters in UDP test packets",
+                    "ParameterSetName": [
+                        "Client"
+                    ]
+                }
+            ]
+        }
+    ]
+}

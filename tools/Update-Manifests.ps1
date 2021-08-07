@@ -1,6 +1,6 @@
 #First set environment variable. This will be the root save path where repository folders are cloned to.
 #Be sure not to include a backslash at the end.
-$gitrootpath = "G:\Github\modules\AdminToolbox"
+$gitrootpath = "G:\Github\Admintoolbox\modules"
 
 #Set variable for current session
 $env:gitrootpath = $gitrootpath
@@ -38,7 +38,7 @@ Function out-manifests {
             @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.7.0'; },
             @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.1.0'; },
             @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
-            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.10.0'; },
+            @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.0'; },
             @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
             @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
             @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
@@ -228,14 +228,14 @@ Function out-manifests {
     $savepath = "$env:gitrootpath\AdminToolbox.Networking"
     $Params = @{
         CompatiblePSEditions = "Desktop", "Core"
-        FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Start-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-Trace', 'Invoke-Ethr'
+        FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-Trace', 'Invoke-Ethr'
         Path                 = "$savepath\AdminToolbox.Networking.psd1"
         Author               = "Taylor Lee"
         Description          = "Network Troubleshooting Functions"
         HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
         IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-        ModuleVersion        = "2.10.0"
+        ModuleVersion        = "2.11.0"
         Powershellversion    = "5.1"
         ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
         RequiredModules      = (
