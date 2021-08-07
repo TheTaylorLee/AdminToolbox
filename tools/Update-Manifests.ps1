@@ -357,4 +357,4 @@ Function out-manifests {
 
         New-ModuleManifest @Params
     }
-}; out-manifests
+}; Show-Command out-manifests
