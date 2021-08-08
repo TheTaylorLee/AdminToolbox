@@ -10,7 +10,7 @@
                 {
                     "Name": "Source",
                     "ParameterType": "string",
-                    "Description": "Specify the source directory or file to be copied.",
+                    "Description": "Copy options \nSpecify the source directory or file to be copied.",
                     "Mandatory": true,
                     "Position": 1,
                     "OriginalPosition": 1,
@@ -21,7 +21,7 @@
                 {
                     "Name": "Destination",
                     "ParameterType": "string",
-                    "Description": "Specify the target directory or filename to be copied to.",
+                    "Description": "Copy options \nSpecify the target directory or filename to be copied to.",
                     "Mandatory": true,
                     "Position": 2,
                     "OriginalPosition": 2,
@@ -32,7 +32,7 @@
                 {
                     "Name": "Files",
                     "ParameterType": "string",
-                    "Description": "File(s) to copy  (names/wildcards: default is *.*).",
+                    "Description": "Copy options \nFile(s) to copy  (names/wildcards: default is *.*).",
                     "Position": 3,
                     "OriginalPosition": 3,
                     "ParameterSetName": [
@@ -53,7 +53,7 @@
                     "Name": "SubDirectories",
                     "OriginalName": "/S",
                     "ParameterType": "switch",
-                    "Description": "copy Subdirectories, but not empty ones.",
+                    "Description": "Copy options \ncopy Subdirectories, but not empty ones.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -62,7 +62,7 @@
                     "Name": "AllDirectories",
                     "OriginalName": "/E",
                     "ParameterType": "switch",
-                    "Description": "copy subdirectories, including Empty ones.",
+                    "Description": "Copy options \ncopy subdirectories, including Empty ones.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -71,7 +71,7 @@
                     "Name": "nLevels",
                     "OriginalName": "/LEV:",
                     "ParameterType": "string",
-                    "Description": "only copy the top n LEVels of the source directory tree.",
+                    "Description": "Copy options \nonly copy the top n LEVels of the source directory tree.",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -81,7 +81,7 @@
                     "Name": "Restartable",
                     "OriginalName": "/Z",
                     "ParameterType": "switch",
-                    "Description": "copy files in restartable mode.",
+                    "Description": "Copy options \ncopy files in restartable mode.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -90,7 +90,7 @@
                     "Name": "BackupMode",
                     "OriginalName": "/B",
                     "ParameterType": "switch",
-                    "Description": "copy files in Backup mode.",
+                    "Description": "Copy options \ncopy files in Backup mode.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -99,7 +99,7 @@
                     "Name": "RestartableBackup",
                     "OriginalName": "/ZB",
                     "ParameterType": "switch",
-                    "Description": "use restartable mode; if access denied use Backup mode.",
+                    "Description": "Copy options \nuse restartable mode; if access denied use Backup mode.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -108,7 +108,7 @@
                     "Name": "UnBuffered",
                     "OriginalName": "/J",
                     "ParameterType": "switch",
-                    "Description": "copy using unbuffered I/O (recommended for large files).",
+                    "Description": "Copy options \ncopy using unbuffered I/O (recommended for large files).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -117,7 +117,7 @@
                     "Name": "EFSRAW",
                     "OriginalName": "/EFSRAW",
                     "ParameterType": "switch",
-                    "Description": "copy all encrypted files in EFS RAW mode.",
+                    "Description": "Copy options \ncopy all encrypted files in EFS RAW mode.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -126,7 +126,7 @@
                     "Name": "CopyFlags",
                     "OriginalName": "/COPY:",
                     "ParameterType": "string",
-                    "Description": "what to COPY for files (default is /COPY:DAT). \n(copyflags : D=Data, A=Attributes, T=Timestamps, X=Skip alt data streams). \n(S=Security=NTFS ACLs, O=Owner info, U=aUditing info).",
+                    "Description": "Copy options \nwhat to COPY for files (default is /COPY:DAT). \n(copyflags : D=Data, A=Attributes, T=Timestamps, X=Skip alt data streams). \n(S=Security=NTFS ACLs, O=Owner info, U=aUditing info).",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -136,7 +136,7 @@
                     "Name": "CopySEC",
                     "OriginalName": "/SEC",
                     "ParameterType": "switch",
-                    "Description": "copy files with SECurity (equivalent to /COPY:DATS).",
+                    "Description": "Copy options \ncopy files with SECurity (equivalent to /COPY:DATS).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -145,7 +145,7 @@
                     "Name": "CopyALL",
                     "OriginalName": "/COPYALL",
                     "ParameterType": "switch",
-                    "Description": "COPY ALL file info (equivalent to /COPY:DATSOU).",
+                    "Description": "Copy options \nCOPY ALL file info (equivalent to /COPY:DATSOU).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -154,7 +154,7 @@
                     "Name": "NoCopy",
                     "OriginalName": "/NOCOPY",
                     "ParameterType": "switch",
-                    "Description": "COPY NO file info (useful with /PURGE).",
+                    "Description": "Copy options \nCOPY NO file info (useful with /PURGE).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -163,7 +163,7 @@
                     "Name": "SECFix",
                     "OriginalName": "/SECFIX",
                     "ParameterType": "switch",
-                    "Description": "FIX file SECurity on all files, even skipped files.",
+                    "Description": "Copy options \nFIX file SECurity on all files, even skipped files.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -172,7 +172,7 @@
                     "Name": "TimeFix",
                     "OriginalName": "/TIMFIX",
                     "ParameterType": "switch",
-                    "Description": "FIX file TIMes on all files, even skipped files.",
+                    "Description": "Copy options \nFIX file TIMes on all files, even skipped files.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -181,7 +181,7 @@
                     "Name": "Purge",
                     "OriginalName": "/PURGE",
                     "ParameterType": "switch",
-                    "Description": "delete dest files/dirs that no longer exist in source.",
+                    "Description": "Copy options \ndelete dest files/dirs that no longer exist in source.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -190,7 +190,7 @@
                     "Name": "Mirror",
                     "OriginalName": "/MIR",
                     "ParameterType": "switch",
-                    "Description": "MIRror a directory tree (equivalent to /E plus /PURGE).",
+                    "Description": "Copy options \nMIRror a directory tree (equivalent to /E plus /PURGE).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -199,7 +199,7 @@
                     "Name": "MoveFiles",
                     "OriginalName": "/MOV",
                     "ParameterType": "switch",
-                    "Description": "MOVe files (delete from source after copying).",
+                    "Description": "Copy options \nMOVe files (delete from source after copying).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -208,7 +208,7 @@
                     "Name": "MoveAll",
                     "OriginalName": "/MOVE",
                     "ParameterType": "switch",
-                    "Description": "MOVE files AND dirs (delete from source after copying).",
+                    "Description": "Copy options \nMOVE files AND dirs (delete from source after copying).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -217,7 +217,7 @@
                     "Name": "AddAttributes",
                     "OriginalName": "/A+:",
                     "ParameterType": "string",
-                    "Description": "Adds the specified attributes to copied files. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary",
+                    "Description": "Copy options \nAdds the specified attributes to copied files. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -227,7 +227,7 @@
                     "Name": "RemoveAttributes",
                     "OriginalName": "/A-:",
                     "ParameterType": "string",
-                    "Description": "Removes the specified attributes to copied files. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary",
+                    "Description": "Copy options \nRemoves the specified attributes to copied files. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -237,7 +237,7 @@
                     "Name": "CreateTree",
                     "OriginalName": "/CREATE",
                     "ParameterType": "switch",
-                    "Description": "CREATE directory tree and zero-length files only.",
+                    "Description": "Copy options \nCREATE directory tree and zero-length files only.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -246,7 +246,7 @@
                     "Name": "FAT",
                     "OriginalName": "/FAT",
                     "ParameterType": "switch",
-                    "Description": "create destination files using 8.3 FAT file names only.",
+                    "Description": "Copy options \ncreate destination files using 8.3 FAT file names only.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -255,7 +255,7 @@
                     "Name": "256",
                     "OriginalName": "/256",
                     "ParameterType": "switch",
-                    "Description": "turn off very long path (> 256 characters) support.",
+                    "Description": "Copy options \nturn off very long path (> 256 characters) support.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -264,7 +264,7 @@
                     "Name": "MonitorChanges",
                     "OriginalName": "/MON:",
                     "ParameterType": "string",
-                    "Description": "MONitor source; run again when more than n changes seen.",
+                    "Description": "Copy options \nMONitor source; run again when more than n changes seen.",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -274,7 +274,7 @@
                     "Name": "MonitorTime",
                     "OriginalName": "/MOT:",
                     "ParameterType": "string",
-                    "Description": "MOnitor source; run again in m minutes Time, if changed.",
+                    "Description": "Copy options \nMOnitor source; run again in m minutes Time, if changed.",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -284,7 +284,7 @@
                     "Name": "RunHours",
                     "OriginalName": "/RH:",
                     "ParameterType": "string",
-                    "Description": "24hr Format hhmm-hhmm \nRun Hours - times when new copies may be started.",
+                    "Description": "Copy options \n24hr Format hhmm-hhmm \nRun Hours - times when new copies may be started.",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -294,7 +294,7 @@
                     "Name": "PerFilePass",
                     "OriginalName": "/PF",
                     "ParameterType": "switch",
-                    "Description": "check run hours on a Per File (not per pass) basis.",
+                    "Description": "Copy options \ncheck run hours on a Per File (not per pass) basis.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -303,7 +303,7 @@
                     "Name": "InterPacketGap",
                     "OriginalName": "/IPG:",
                     "ParameterType": "string",
-                    "Description": "Inter-Packet Gap (ms), to free bandwidth on slow lines.",
+                    "Description": "Copy options \nInter-Packet Gap (ms), to free bandwidth on slow lines.",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -313,7 +313,7 @@
                     "Name": "copyJunctions",
                     "OriginalName": "/SJ",
                     "ParameterType": "switch",
-                    "Description": "copy Junctions as junctions instead of as the junction targets.",
+                    "Description": "Copy options \ncopy Junctions as junctions instead of as the junction targets.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -322,7 +322,7 @@
                     "Name": "copySymbolicLinks",
                     "OriginalName": "/SL",
                     "ParameterType": "switch",
-                    "Description": "copy Symbolic Links as links instead of as the link targets.",
+                    "Description": "Copy options \ncopy Symbolic Links as links instead of as the link targets.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -331,7 +331,7 @@
                     "Name": "MultiThread",
                     "OriginalName": "/MT:",
                     "ParameterType": "string",
-                    "Description": "Do multi-threaded copies with n threads (default 8). \nn must be at least 1 and not greater than 128. \nThis option is incompatible with the /IPG and /EFSRAW options. \nRedirect output using /LOG option for better performance.",
+                    "Description": "Copy options \nDo multi-threaded copies with n threads (default 8). \nn must be at least 1 and not greater than 128. \nThis option is incompatible with the /IPG and /EFSRAW options. \nRedirect output using /LOG option for better performance.",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -341,7 +341,7 @@
                     "Name": "dCopyFlags",
                     "OriginalName": "/DCOPY:",
                     "ParameterType": "string",
-                    "Description": "what to COPY for directories (default is /DCOPY:DA). \n(copyflags : D=Data, A=Attributes, T=Timestamps, E=EAs, X=Skip alt data streams).",
+                    "Description": "Copy options \nwhat to COPY for directories (default is /DCOPY:DA). \n(copyflags : D=Data, A=Attributes, T=Timestamps, E=EAs, X=Skip alt data streams).",
                     "NoGap": true,
                     "ParameterSetName": [
                         "Default"
@@ -351,7 +351,7 @@
                     "Name": "dNoCopy",
                     "OriginalName": "/NODCOPY",
                     "ParameterType": "switch",
-                    "Description": "COPY NO directory info (by default /DCOPY:DA is done).",
+                    "Description": "Copy options \nCOPY NO directory info (by default /DCOPY:DA is done).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -360,7 +360,7 @@
                     "Name": "NoOffload",
                     "OriginalName": "/NOOFFLOAD",
                     "ParameterType": "switch",
-                    "Description": "copy files without using the Windows Copy Offload mechanism.",
+                    "Description": "Copy options \ncopy files without using the Windows Copy Offload mechanism.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -369,7 +369,7 @@
                     "Name": "Compress",
                     "OriginalName": "/COMPRESS",
                     "ParameterType": "switch",
-                    "Description": "Request network compression during file transfer, if applicable.",
+                    "Description": "Copy options \nRequest network compression during file transfer, if applicable.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -379,7 +379,7 @@
                     "OriginalName": "/IoMaxSize:",
                     "ParameterType": "string",
                     "NoGap": true,
-                    "Description": "Format n[KMG] \nRequested max i/o size per {read,write} cycle, in n [KMG] bytes.",
+                    "Description": "Copy Throttling options \nFormat n[KMG] \nRequested max i/o size per {read,write} cycle, in n [KMG] bytes.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -389,7 +389,7 @@
                     "OriginalName": "/IoRate:",
                     "ParameterType": "string",
                     "NoGap": true,
-                    "Description": "Format n[KMG] \nRequested i/o rate, in n [KMG] bytes per second.",
+                    "Description": "Copy Throttling options \nFormat n[KMG] \nRequested i/o rate, in n [KMG] bytes per second.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -399,17 +399,7 @@
                     "OriginalName": "/Threshold:",
                     "ParameterType": "string",
                     "NoGap": true,
-                    "Description": "Format n[KMG] \nFile size threshold for throttling, in n [KMG] bytes (see Remarks).",
-                    "ParameterSetName": [
-                        "Default"
-                    ]
-                },
-                {
-                    "Name": "Threshold",
-                    "OriginalName": "/Threshold:",
-                    "ParameterType": "switch",
-                    "NoGap": true,
-                    "Description": "Format n[KMG] \nFile size threshold for throttling, in n [KMG] bytes (see Remarks).",
+                    "Description": "Copy Throttling options \nFormat n[KMG] \nFile size threshold for throttling, in n [KMG] bytes (see Remarks).",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -418,7 +408,7 @@
                     "Name": "ArchiveOnly",
                     "OriginalName": "/A",
                     "ParameterType": "switch",
-                    "Description": "copy only files with the Archive attribute set.",
+                    "Description": "File Selection Options \ncopy only files with the Archive attribute set.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -427,7 +417,7 @@
                     "Name": "ArchiveOnlyReset",
                     "OriginalName": "/M",
                     "ParameterType": "switch",
-                    "Description": "copy only files with the Archive attribute and reset it.",
+                    "Description": "File Selection Options \ncopy only files with the Archive attribute and reset it.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -435,9 +425,9 @@
                 {
                     "Name": "IncludeAttributes",
                     "OriginalName": "/IA:",
-                    "ParameterType": "switch",
+                    "ParameterType": "string",
                     "NoGap": true,
-                    "Description": "Includes only files for which any of the specified attributes are set. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary \nO - Offline",
+                    "Description": "File Selection Options \nIncludes only files for which any of the specified attributes are set. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary \nO - Offline",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -445,9 +435,9 @@
                 {
                     "Name": "ExcludeAttributes",
                     "OriginalName": "/XA:",
-                    "ParameterType": "switch",
+                    "ParameterType": "string",
                     "NoGap": true,
-                    "Description": "Excludes files for which any of the specified attributes are set. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary \nO - Offline",
+                    "Description": "File Selection Options \nExcludes files for which any of the specified attributes are set. The valid values for this option are: \nR - Read only \nA - Archive \nS - System \nH - Hidden \nC - Compressed \nN - Not content indexed \nE - Encrypted \nT - Temporary \nO - Offline",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -456,7 +446,7 @@
                     "Name": "ExcludeFileName",
                     "OriginalName": "/XF",
                     "ParameterType": "switch",
-                    "Description": "eXclude Files matching given names/paths/wildcards.",
+                    "Description": "File Selection Options \neXclude Files matching given names/paths/wildcards.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -465,7 +455,7 @@
                     "Name": "ExcludeDirName",
                     "OriginalName": "/XD",
                     "ParameterType": "switch",
-                    "Description": "eXclude Directories matching given names/paths.",
+                    "Description": "File Selection Options \neXclude Directories matching given names/paths.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -474,7 +464,7 @@
                     "Name": "ExcludeChanged",
                     "OriginalName": "/XC",
                     "ParameterType": "switch",
-                    "Description": "eXclude Changed files.",
+                    "Description": "File Selection Options \neXclude Changed files.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -483,7 +473,7 @@
                     "Name": "ExcludeNewer",
                     "OriginalName": "/XN",
                     "ParameterType": "switch",
-                    "Description": "eXclude Newer files.",
+                    "Description": "File Selection Options \neXclude Newer files.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -492,7 +482,7 @@
                     "Name": "ExcludeOlder",
                     "OriginalName": "/XO",
                     "ParameterType": "switch",
-                    "Description": "eXclude Older files.",
+                    "Description": "File Selection Options \neXclude Older files.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -501,7 +491,7 @@
                     "Name": "ExcludeExtra",
                     "OriginalName": "/XX",
                     "ParameterType": "switch",
-                    "Description": "eXclude eXtra files and directories. \nAn "extra" file is present in destination but not source; excluding extras will prevent any deletions from the destination.",
+                    "Description": "File Selection Options \neXclude eXtra files and directories. \nAn extra file is present in destination but not source; excluding extras will prevent any deletions from the destination.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -510,7 +500,7 @@
                     "Name": "ExcludeLonely",
                     "OriginalName": "/XL",
                     "ParameterType": "switch",
-                    "Description": "eXclude Lonely files and directories. \nA "lonely" file is present in source but not destination; excluding lonely will prevent any new files being added to the destination.",
+                    "Description": "File Selection Options \neXclude Lonely files and directories. \nA lonely file is present in source but not destination; excluding lonely will prevent any new files being added to the destination.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -519,7 +509,7 @@
                     "Name": "IncludeSame",
                     "OriginalName": "/IS",
                     "ParameterType": "switch",
-                    "Description": "Include Same files.",
+                    "Description": "File Selection Options \nInclude Same files.",
                     "ParameterSetName": [
                         "Default"
                     ]
@@ -528,7 +518,232 @@
                     "Name": "IncludeTweaked",
                     "OriginalName": "/IT",
                     "ParameterType": "switch",
-                    "Description": "Include Tweaked files. \nA Tweaked file is defined to be one that exists in both the source and destination, with identical size and timestamp, but different attribute settings.",
+                    "Description": "File Selection Options \nInclude Tweaked files. \nA Tweaked file is defined to be one that exists in both the source and destination, with identical size and timestamp, but different attribute settings.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "MaxBytes",
+                    "OriginalName": "/MAX:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "File Selection Options \nMAXimum file size - exclude files bigger than n bytes.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "MinBytes",
+                    "OriginalName": "/MIN:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "File Selection Options \nMINimum file size - exclude files smaller than n bytes.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "MaxAGE",
+                    "OriginalName": "/MAXAGE:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "File Selection Options \nMAXimum file AGE - exclude files older than n days/date.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "MinAge",
+                    "OriginalName": "/MINAGE:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "File Selection Options \nMINimum file AGE - exclude files newer than n days/date.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "MaxLastAccess",
+                    "OriginalName": "/MAXLAD:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "File Selection Options \nMAXimum Last Access Date - exclude files unused since n.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "MinLastAccess",
+                    "OriginalName": "/MINLAD:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "File Selection Options \nMINimum Last Access Date - exclude files used since n. \n(If n < 1900 then n = n days, else n = YYYYMMDD date).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "FATFileTime",
+                    "OriginalName": "/FFT",
+                    "ParameterType": "switch",
+                    "Description": "File Selection Options \nassume FAT File Times (2-second granularity).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "DST",
+                    "OriginalName": "/DST",
+                    "ParameterType": "switch",
+                    "Description": "File Selection Options \ncompensate for one-hour DST time differences.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "ExcludeSymbolic",
+                    "OriginalName": "/XJ",
+                    "ParameterType": "switch",
+                    "Description": "File Selection Options \neXclude symbolic links (for both files and directories) and Junction points.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "ExcludeSymbolicDir",
+                    "OriginalName": "/XJD",
+                    "ParameterType": "switch",
+                    "Description": "File Selection Options \neXclude symbolic links for Directories and Junction points.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "ExcludeSymbolicFiles",
+                    "OriginalName": "/XJF",
+                    "ParameterType": "switch",
+                    "Description": "File Selection Options \neXclude symbolic links for Files.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "IncludeModified",
+                    "OriginalName": "/IM",
+                    "ParameterType": "switch",
+                    "Description": "File Selection Options \nInclude Modified files (differing change times).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "Retries",
+                    "OriginalName": "/R:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Retry Options \nnumber of Retries on failed copies: default 1 million.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "Wait",
+                    "OriginalName": "/W:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Retry Options \nWait time between retries: default is 30 seconds.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "Registry",
+                    "OriginalName": "/REG",
+                    "ParameterType": "switch",
+                    "Description": "Retry Options \nSave /R:n and /W:n in the Registry as default settings.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "ToBeDefined",
+                    "OriginalName": "/TBD",
+                    "ParameterType": "switch",
+                    "Description": "Retry Options \nWait for sharenames To Be Defined (retry error 67).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LowFreeSpace",
+                    "OriginalName": "/LFSM",
+                    "ParameterType": "switch",
+                    "Description": "Retry Options \nOperate in low free space mode, enabling copy pause and resume (see Remarks).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LFSMFloor",
+                    "OriginalName": "/LFSM:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Retry Options \nFormat n[KMG] \n/LFSM, specifying the floor size in n [K:kilo,M:mega,G:giga] bytes.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogListOnly",
+                    "OriginalName": "/L",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nList only - don't copy, timestamp or delete any files.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogExtra",
+                    "OriginalName": "/X",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nreport all eXtra files, not just those selected.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogVerbose",
+                    "OriginalName": "/V",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nproduce Verbose output, showing skipped files.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogTimeStamps",
+                    "OriginalName": "/TS",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \ninclude source file Time Stamps in the output.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogFullPath",
+                    "OriginalName": "/FP",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \ninclude Full Pathname of files in the output.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogasBytes",
+                    "OriginalName": "/BYTES",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nPrint sizes as bytes.",
                     "ParameterSetName": [
                         "Default"
                     ]
