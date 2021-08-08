@@ -76,7 +76,7 @@
 ::
   /IoMaxSize:n[KMG] :: Requested max i/o size per {read,write} cycle, in n [KMG] bytes.
 
-     /IoRate:n[KMG] :: Requested i/o rate, in n [KMG] bytes per second.
+  /IoRate:n[KMG] :: Requested i/o rate, in n [KMG] bytes per second.
 
   /Threshold:n[KMG] :: File size threshold for throttling, in n [KMG] bytes (see Remarks).
 
