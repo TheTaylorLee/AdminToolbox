@@ -59,7 +59,7 @@
                     ]
                 },
                 {
-                    "Name": "AllDirectories",
+                    "Name": "EmptyDirectories",
                     "OriginalName": "/E",
                     "ParameterType": "switch",
                     "Description": "Copy options \ncopy subdirectories, including Empty ones.",
@@ -695,7 +695,7 @@
                     ]
                 },
                 {
-                    "Name": "LogListOnly",
+                    "Name": "LogL",
                     "OriginalName": "/L",
                     "ParameterType": "switch",
                     "Description": "Logging Options \nList only - don't copy, timestamp or delete any files.",
@@ -704,7 +704,7 @@
                     ]
                 },
                 {
-                    "Name": "LogExtra",
+                    "Name": "LogX",
                     "OriginalName": "/X",
                     "ParameterType": "switch",
                     "Description": "Logging Options \nreport all eXtra files, not just those selected.",
@@ -713,7 +713,7 @@
                     ]
                 },
                 {
-                    "Name": "LogVerbose",
+                    "Name": "LogV",
                     "OriginalName": "/V",
                     "ParameterType": "switch",
                     "Description": "Logging Options \nproduce Verbose output, showing skipped files.",
@@ -722,7 +722,7 @@
                     ]
                 },
                 {
-                    "Name": "LogTimeStamps",
+                    "Name": "LogTS",
                     "OriginalName": "/TS",
                     "ParameterType": "switch",
                     "Description": "Logging Options \ninclude source file Time Stamps in the output.",
@@ -731,7 +731,7 @@
                     ]
                 },
                 {
-                    "Name": "LogFullPath",
+                    "Name": "LogFP",
                     "OriginalName": "/FP",
                     "ParameterType": "switch",
                     "Description": "Logging Options \ninclude Full Pathname of files in the output.",
@@ -740,7 +740,7 @@
                     ]
                 },
                 {
-                    "Name": "LogasBytes",
+                    "Name": "LogBytes",
                     "OriginalName": "/BYTES",
                     "ParameterType": "switch",
                     "Description": "Logging Options \nPrint sizes as bytes.",
@@ -748,6 +748,192 @@
                         "Default"
                     ]
                 },
+                {
+                    "Name": "LogNS",
+                    "OriginalName": "/NS",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo Size - don't log file sizes.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogNC",
+                    "OriginalName": "/NC",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo Class - don't log file classes.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogNFL",
+                    "OriginalName": "/NFL",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo File List - don't log file names.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogNDL",
+                    "OriginalName": "/NDL",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo Directory List - don't log directory names.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogNP",
+                    "OriginalName": "/NP",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo Progress - don't display percentage copied.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogETA",
+                    "OriginalName": "/ETA",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nshow Estimated Time of Arrival of copied files.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LOGFile",
+                    "OriginalName": "/LOG:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Logging Options \noutput status to LOG file (overwrite existing log).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LOGFileAppend",
+                    "OriginalName": "/LOG+:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Logging Options \noutput status to LOG file (append to existing log).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LOGFileUnicode",
+                    "OriginalName": "/UNILOG:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Logging Options \noutput status to LOG file as UNICODE (overwrite existing log).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LOGFileAppendUnicode",
+                    "OriginalName": "/UNILOG+:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Logging Options \noutput status to LOG file as UNICODE (append to existing log).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogTEE",
+                    "OriginalName": "/TEE",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \noutput to console window, as well as the log file.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogNJH",
+                    "OriginalName": "/NJH",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo Job Header.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogNJS",
+                    "OriginalName": "/NJS",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \nNo Job Summary.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "LogUnicode",
+                    "OriginalName": "/UNICODE",
+                    "ParameterType": "switch",
+                    "Description": "Logging Options \noutput status as UNICODE.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "JobName",
+                    "OriginalName": "/JOB:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Job Options \ntake parameters from the named JOB file.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "JobSave",
+                    "OriginalName": "/SAVE:",
+                    "ParameterType": "string",
+                    "NoGap": true,
+                    "Description": "Job Options \nSAVE parameters to the named job file",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "JobQuit",
+                    "OriginalName": "/QUIT",
+                    "ParameterType": "switch",
+                    "Description": "Job Options \nQUIT after processing command line (to view parameters).",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "JobNOSD",
+                    "OriginalName": "/NOSD",
+                    "ParameterType": "switch",
+                    "Description": "Job Options \nNO Source Directory is specified.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "JobNODD",
+                    "OriginalName": "/NODD",
+                    "ParameterType": "switch",
+                    "Description": "Job Options \nNO Destination Directory is specified.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                },
+                {
+                    "Name": "JobIF",
+                    "OriginalName": "/IF",
+                    "ParameterType": "switch",
+                    "Description": "Job Options \nInclude the following Files.",
+                    "ParameterSetName": [
+                        "Default"
+                    ]
+                }
             ]
         }
     ]
