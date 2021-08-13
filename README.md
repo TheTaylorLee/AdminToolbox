@@ -39,9 +39,6 @@ Install-Module AdminToolbox -Allowclobber -Force
 > File Management Functions. This module offers some share and file management options. One of it's most useful features is free space cleanup.
 
 ##### FortiWizard
-
-Disclaimer: This module is in no way associated with Fortinet.
-
 > This module was born from a desire to use variables for generating Fortinet config scripts. It has since developed as a way to take the output of a config function and push it to a FortiGate through invoked SSH commands, and generate full VPN configs from a VPN form.
 
 [Examples](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/AdminToolbox.FortiWizard/Examples)
