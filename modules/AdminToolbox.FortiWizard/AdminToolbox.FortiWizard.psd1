@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.FortiWizardManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.2.0'
+ModuleVersion = '2.3.0'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'ca3d13e7-a668-40a5-9eb7-47dbfd0927bb'
+GUID = '4ff422b5-437d-4616-9e67-59adbd7f1f5f'
 
 # Author of this module
 Author = 'Taylor Lee'
