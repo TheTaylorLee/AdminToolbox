@@ -50,7 +50,7 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.8.0'; },
                 @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.7.0'; },
                 @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.8.0'; },
-                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.2.0'; },
+                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.3.0'; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.1'; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
@@ -208,7 +208,7 @@ Function out-manifests {
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS. This Module is unofficial and in no way affiliated with Fortinet."
-            ModuleVersion        = "2.2.0"
+            ModuleVersion        = "2.3.0"
             Powershellversion    = "5.1"
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
             ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"
