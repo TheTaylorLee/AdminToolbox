@@ -12,6 +12,7 @@
 * **2.0.0** Published release of all change made since Dev version 1.3.0.0 [Github Issue #11](https://github.com/TheTaylorLee/AdminToolbox/issues/11)
 * **2.1.0** Add Function New-FormTunnel
 * **2.1.1** Added Dependency comments for each function.
+* **2.2.0** Fix for null services parameter on function New-FormTunnel
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.1.0
+2.2.0
