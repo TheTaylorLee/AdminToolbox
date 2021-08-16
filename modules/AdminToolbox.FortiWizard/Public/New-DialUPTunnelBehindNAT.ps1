@@ -265,12 +265,12 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
         [int]$Script:PhaseCount = 0
 
         $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
-            $locals = ($script:LocalAddressObjects).name
-            $sourceaddressname = $locals[$i]
+            [string[]]$locals = ($script:LocalAddressObjects).name
+            [string[]]$sourceaddressname = $locals[$i]
             for ($ii = 0; $ii -lt $remotecount; $ii++) {
-                $remotes = ($script:RemoteAddressObjects).name
+                [string[]]$remotes = ($script:RemoteAddressObjects).name
                 $params = @{
-                    DestinationAddressName = $remotes[$ii]
+                    DestinationAddressName = [string[]]$remotes[$ii]
                     dhgroups               = $dhgroups
                     PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
                     Proposal               = $Proposal
