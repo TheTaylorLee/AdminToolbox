@@ -1,4 +1,4 @@
-function Start-Trace {
+function Start-TraceNG {
     <#
     .DESCRIPTION
     Launches TraceNG tool

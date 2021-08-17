@@ -32,7 +32,7 @@ Returns local Public IP Info
 Get-PublicIP -IP 8.8.8.8
 ```
 
-Returns your Public IP Info
+Returns Public IP Info for 8.8.8.8
 
 ## PARAMETERS
 

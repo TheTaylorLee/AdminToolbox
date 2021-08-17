@@ -5,14 +5,14 @@ online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
-# Start-Trace
+# Start-TraceNG
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-Start-Trace [<CommonParameters>]
+Start-TraceNG [<CommonParameters>]
 ```
 
 ## DESCRIPTION

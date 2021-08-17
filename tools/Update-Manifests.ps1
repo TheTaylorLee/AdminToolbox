@@ -41,7 +41,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.4.0"
+            ModuleVersion        = "9.5.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
@@ -52,7 +52,7 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.8.0'; },
                 @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.1.0'; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
-                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.1'; },
+                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.2'; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
@@ -258,14 +258,14 @@ Function out-manifests {
         $savepath = "$env:gitrootpath\AdminToolbox.Networking"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-Trace', 'Invoke-Ethr'
+            FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr'
             Path                 = "$savepath\AdminToolbox.Networking.psd1"
             Author               = "Taylor Lee"
             Description          = "Network Troubleshooting Functions"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "2.11.1"
+            ModuleVersion        = "2.11.2"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (

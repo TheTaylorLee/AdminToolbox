@@ -23,7 +23,7 @@ function Get-Networking {
     Write-Host "Reset-NetworkStack         ..Reset TCP/IP and Winsock"                                       -ForegroundColor cyan
     Write-Host "Show-IpInfo                ..Shows Address Spaces and a CIDR Table"                          -ForegroundColor cyan
     Write-Host "Start-Speedtest            ..Starts a wan speed test"                                        -ForegroundColor cyan
-    Write-Host "Start-Trace                ..Starts a trace route tool"                                      -ForegroundColor cyan
+    Write-Host "Start-TraceNG              ..Starts a trace route tool"                                      -ForegroundColor cyan
     Write-Host "Test-Netconnection         ..Tests Ping, Traceroute, Route Diagnosing, and Port Testing"     -ForegroundColor cyan
     Write-Host " "
 
