@@ -152,6 +152,7 @@
 * **9.2.0** Updated Admintoolbox.Fortiwizard Module Requirements
 * **9.3.0** Updated Module requirements for Admintoolbox.Remoting
 * **9.4.0** Update required modules
+* **9.5.0** Update required modules
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-9.4.0
+9.5.0
