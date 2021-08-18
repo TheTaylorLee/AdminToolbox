@@ -169,6 +169,7 @@ jobs:
             $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
             $GithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
               if ([version]$GithubVersion -gt [version]$PSGalleryVersion ) {
+                Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
                 Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
                 $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
               }
