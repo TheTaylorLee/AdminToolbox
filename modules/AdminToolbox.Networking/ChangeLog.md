@@ -42,6 +42,7 @@
 * **2.11.0** Added Invoke-Iperf a crescendo wrapper for Microsoft Iperf3.
 * **2.11.1** Update Get-Networking to show function changes.
 * **2.11.2** Updated Start-Trace to now be Start-TraceNG. This addresses clobber issues outlined in issues #23
+* **2.12.0** Incorporated PSNmap functions directly to remove the external dependency
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
 2.11.2

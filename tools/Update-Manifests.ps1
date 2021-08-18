@@ -41,7 +41,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.5.0"
+            ModuleVersion        = "9.6.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
@@ -50,15 +50,14 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.8.0'; },
                 @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.7.0'; },
                 @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.8.0'; },
-                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.3.0'; },
+                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.4.0'; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
-                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.11.2'; },
+                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.0'; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
                 @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
-                @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; },
-                @{ModuleName = 'PSNmap'; ModuleVersion = '1.3.1'; }
+                @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; }
             )
             RootModule           = "AdminToolboxManifest.psm1"
             ReleaseNotes         = "The release notes can be found in the ChangeLog.md file at the scriptroot path."
@@ -208,7 +207,7 @@ Function out-manifests {
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS. This Module is unofficial and in no way affiliated with Fortinet."
-            ModuleVersion        = "2.3.0"
+            ModuleVersion        = "2.4.0"
             Powershellversion    = "5.1"
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
             ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"
@@ -218,9 +217,9 @@ Function out-manifests {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             Tags                 = 'Fortinet', 'FortiGate', 'FortiOS'
             RequiredModules      = (
+                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.0'; },
                 @{ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
-                @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' },
-                @{ModuleName = "PSNmap" ; ModuleVersion = "1.3.1" }
+                @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' }
             )
         }
 
@@ -258,20 +257,16 @@ Function out-manifests {
         $savepath = "$env:gitrootpath\AdminToolbox.Networking"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr'
+            FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr', 'Invoke-PSIPcalc'
             Path                 = "$savepath\AdminToolbox.Networking.psd1"
             Author               = "Taylor Lee"
             Description          = "Network Troubleshooting Functions"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "2.11.2"
+            ModuleVersion        = "2.12.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
-            RequiredModules      = (
-                @{ ModuleName = "PSNmap" ; ModuleVersion = "1.3.1" },
-                @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" }
-            )
             RootModule           = "AdminToolbox.NetworkingManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
             Tags                 = 'iperf', 'ethr', 'Networking', 'NetworkScan'

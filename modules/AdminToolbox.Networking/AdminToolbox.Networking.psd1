@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.NetworkingManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.11.2'
+ModuleVersion = '2.12.0'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '7f283d02-164b-412d-aa0b-dacd7772e7bc'
+GUID = '7eb5e5d2-d7d6-4654-a2b7-ef88dd36d07d'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -51,8 +51,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'PSNmap'; ModuleVersion = '1.3.1'; }, 
-               @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; })
+# RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -73,7 +72,8 @@ RequiredModules = @(@{ModuleName = 'PSNmap'; ModuleVersion = '1.3.1'; },
 FunctionsToExport = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 
                'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 
                'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 
-               'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr'
+               'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr', 
+               'Invoke-PSIPcalc'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = '*'

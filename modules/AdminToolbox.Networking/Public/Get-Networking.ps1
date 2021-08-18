@@ -17,7 +17,6 @@ function Get-Networking {
     Write-Host "Invoke-Iperf               ..Invoke crescendo wrapped function for Iperf3"                   -ForegroundColor cyan
     Write-Host "Invoke-Monitor             ..Invokes a service Monitor for tracking when it comes online"    -ForegroundColor cyan
     Write-Host "Invoke-NetworkScan         ..Invoke a network scan for Hostnames, IPv4, MAC, OUI, and Ports" -ForegroundColor cyan
-    Write-Host "Invoke-PSNmap              ..Invoke nmap scan on targets"                                    -ForegroundColor cyan
     Write-Host "Invoke-PSipcalc            ..Invoke CIDR IP Calculator"                                      -ForegroundColor cyan
     Write-Host "Reset-NetworkAdapter       ..Reset Network Adapters"                                         -ForegroundColor cyan
     Write-Host "Reset-NetworkStack         ..Reset TCP/IP and Winsock"                                       -ForegroundColor cyan

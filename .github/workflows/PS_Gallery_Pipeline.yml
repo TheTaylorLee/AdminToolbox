@@ -110,17 +110,6 @@ jobs:
                 $FileManagement = Write-Output "[-] AdminToolbox.FileManagement not published"
               }
 
-            #FortiWizard
-            $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
-            $GithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
-              if ([version]$GithubVersion -gt [version]$PSGalleryVersion ) {
-                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
-                $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
-              }
-              else {
-                $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
-              }
-
             #Fun
             $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
             $FunGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
@@ -174,6 +163,17 @@ jobs:
               }
               else {
                 $VMWareAutomate = Write-Output "[-] AdminToolbox.VMWareAutomate not published"
+              }
+
+            #FortiWizard
+            $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
+            $GithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
+              if ([version]$GithubVersion -gt [version]$PSGalleryVersion ) {
+                Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
+                $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
+              }
+              else {
+                $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
               }
 
             #AdminToolbox
