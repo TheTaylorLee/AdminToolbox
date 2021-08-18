@@ -5,7 +5,7 @@ name: Workflow Testing
 # Controls when the action will run.
 on: # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ testworkflow ]
   #pull_request:
     #branches: [ master ]
 
@@ -31,16 +31,17 @@ jobs:
         shell: pwsh
         run: |
           function test {
+            $workingdirectory = (get-location).path
             #FortiWizard
             $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
             $GithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
               if ([version]$GithubVersion -gt [version]$PSGalleryVersion ) {
                 Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
                 Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
-                $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
+                Write-Output "[+] Admintoolbox.FortiWizard published to PSGalley"
               }
               else {
-                $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
+                Write-Output "[-] Admintoolbox.FortiWizard not published"
               }
           }
           test
