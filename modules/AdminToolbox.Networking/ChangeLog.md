@@ -45,4 +45,4 @@
 * **2.12.0** Incorporated PSNmap functions directly to remove the external dependency
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.11.2
+2.12.0
