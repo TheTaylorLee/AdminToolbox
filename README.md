@@ -56,7 +56,7 @@ Functions for Exchange Management. A few functions focused on mailboxes, connect
 Expedite simple ffmpeg actions. This module focuses on simple transcoding tasks and batch processing of media.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.FFTools&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FFTools.svg?label=AdminToolbox.FFTools&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FFTools.svg"></a>
 </p>
 
@@ -64,7 +64,7 @@ Expedite simple ffmpeg actions. This module focuses on simple transcoding tasks 
 File Management Functions. This module offers some share and file management options. One of it's most useful features is free space cleanup.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.FileManagement&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FileManagement.svg?label=AdminToolbox.FileManagement&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FileManagement.svg"></a>
 </p>
 
@@ -76,7 +76,7 @@ This module was born from a desire to use variables for generating Fortinet conf
 [VPN Form](https://github.com/TheTaylorLee/AdminToolbox/raw/master/docs/AdminToolbox.FortiWizard/Examples/VPN%20Buildout%20Form.xlsx)
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.FortiWizard&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FortiWizard.svg?label=AdminToolbox.FortiWizard&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FortiWizard.svg"></a>
 </p>
 
@@ -84,7 +84,7 @@ This module was born from a desire to use variables for generating Fortinet conf
 Functions that are just for Fun. This includes functions that can play music, presenting powershell creed, and generating funny excuses.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Fun&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Fun.svg?label=AdminToolbox.Fun&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Fun.svg"></a>
 </p>
 
@@ -92,7 +92,7 @@ Functions that are just for Fun. This includes functions that can play music, pr
 Networking related Functions. Various functions for network discovery, troubleshooting, and resolution.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Networking&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Networking.svg?label=AdminToolbox.Networking&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Networking.svg"></a>
 </p>
 
@@ -100,7 +100,7 @@ Networking related Functions. Various functions for network discovery, troublesh
 Office 365 and Azure related functions. These functions vary greatly in their purpose, and are all related to Microsoft 365 differing cloud services.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Office365&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Office365.svg?label=AdminToolbox.Office365&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Office365.svg"></a>
 </p>
 
@@ -108,7 +108,7 @@ Office 365 and Azure related functions. These functions vary greatly in their pu
 Remoting related functions. This module focuses remote access and management tasks.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Remoting&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Remoting.svg?label=AdminToolbox.Remoting&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Remoting.svg"></a>
 </p>
 
@@ -116,6 +116,6 @@ Remoting related functions. This module focuses remote access and management tas
 VMWare related functions. This module focuses on Automateing Bulk VMWare Tasks.
 
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.VMWareAutomate&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.VmwareAutomate.svg?label=AdminToolbox.VMWareAutomate&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.VMWareAutomate.svg"></a>
 </p>
