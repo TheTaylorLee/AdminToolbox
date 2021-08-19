@@ -1,20 +1,17 @@
 # AdminToolbox
+
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. I recommend if using any of the modules, install the AdminToolbox module. It will install the other required modules, it has some functions that are useful for function discovery, and it provides some environment options.
 
-[![PSGallery Publish](https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml/badge.svg?branch=master)](https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml)
-
 <p align="Left">
-<a href="https://github.com/TheTaylorLee/AdminToolbox"><img src="https://img.shields.io/github/repo-size/thetaylorlee/admintoolbox?label=Repository%20Size"></a>
-<a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
-<a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aissue+is%3Aclosed"><img src ="https://img.shields.io/github/issues-closed/thetaylorlee/admintoolbox"></a>
+<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml/badge.svg?branch=master"></a>
+<a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
+<a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/thetaylorlee/admintoolbox"></a>
 </p>
 
 <p align="Left">
 <a href="https://www.powershellgallery.com/packages/AdminToolbox"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox&logo=powershell&ColorB=blue"></a>
 <a href="https://www.powershellgallery.com/packages/AdminToolbox"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.svg"></a>
 </p>
-
-
 
 ### To get started
 
