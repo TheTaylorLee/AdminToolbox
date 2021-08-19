@@ -37,7 +37,7 @@ Active Directory Related functions. This module focuses on Account & Group, mana
 </p>
 
 #### EndpointManagement
-> Functions for management of endpoints and servers. This module focuses on new endpoint setups and common management tasks for them.
+Functions for management of endpoints and servers. This module focuses on new endpoint setups and common management tasks for them.
 
 <p align="Left">
 <a href="https://www.powershellgallery.com/packages/AdminToolbox.EndpointManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.EndpointManagement.svg?label=AdminToolbox.EndpointManagement&logo=powershell&ColorB=blue"></a>
@@ -45,32 +45,77 @@ Active Directory Related functions. This module focuses on Account & Group, mana
 </p>
 
 #### Exchange
-> Functions for Exchange Management. A few functions focused on mailboxes, connecting to exchange PowerShell, and Exchange Virtual Directories.
+Functions for Exchange Management. A few functions focused on mailboxes, connecting to exchange PowerShell, and Exchange Virtual Directories.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Exchange"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Exchange.svg?label=AdminToolbox.Exchange&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Exchange"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Exchange.svg"></a>
+</p>
 
 #### FFTools
-> Expedite simple ffmpeg actions. This module focuses on simple transcoding tasks and batch processing of media.
+Expedite simple ffmpeg actions. This module focuses on simple transcoding tasks and batch processing of media.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.FFTools&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FFTools.svg"></a>
+</p>
 
 #### FileManagement
-> File Management Functions. This module offers some share and file management options. One of it's most useful features is free space cleanup.
+File Management Functions. This module offers some share and file management options. One of it's most useful features is free space cleanup.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.FileManagement&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FileManagement.svg"></a>
+</p>
 
 #### FortiWizard
-> This module was born from a desire to use variables for generating Fortinet config scripts. It has since developed as a way to take the output of a config function and push it to a FortiGate through invoked SSH commands, and generate full VPN configs from a VPN form.
+This module was born from a desire to use variables for generating Fortinet config scripts. It has since developed as a way to take the output of a config function and push it to a FortiGate through invoked SSH commands, and generate full VPN configs from a VPN form.
 
 [Examples](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/AdminToolbox.FortiWizard/Examples)
 
 [VPN Form](https://github.com/TheTaylorLee/AdminToolbox/raw/master/docs/AdminToolbox.FortiWizard/Examples/VPN%20Buildout%20Form.xlsx)
 
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.FortiWizard&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FortiWizard.svg"></a>
+</p>
+
 #### Fun
-> Functions that are just for Fun. This includes functions that can play music, presenting powershell creed, and generating funny excuses.
+Functions that are just for Fun. This includes functions that can play music, presenting powershell creed, and generating funny excuses.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Fun&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Fun.svg"></a>
+</p>
 
 #### Networking
-> Networking related Functions. Various functions for network discovery, troubleshooting, and resolution.
+Networking related Functions. Various functions for network discovery, troubleshooting, and resolution.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Networking&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Networking.svg"></a>
+</p>
 
 #### Office365
-> Office 365 and Azure related functions. These functions vary greatly in their purpose, and are all related to Microsoft 365 differing cloud services.
+Office 365 and Azure related functions. These functions vary greatly in their purpose, and are all related to Microsoft 365 differing cloud services.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Office365&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Office365.svg"></a>
+</p>
 
 #### Remoting
-> Remoting related functions. This module focuses remote access and management tasks.
+Remoting related functions. This module focuses remote access and management tasks.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.Remoting&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Remoting.svg"></a>
+</p>
 
 #### VmwareAutomate
-> VMWare related functions. This module focuses on Automateing Bulk VMWare Tasks.
+VMWare related functions. This module focuses on Automateing Bulk VMWare Tasks.
+
+<p align="Left">
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox.VMWareAutomate&logo=powershell&ColorB=blue"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.VMWareAutomate.svg"></a>
+</p>
