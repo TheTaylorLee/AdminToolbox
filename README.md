@@ -58,39 +58,39 @@ Install-Module AdminToolbox -Allowclobber -Force
 
 ##### Versions
 <p align="Left">
-<a href="https://www.powershellgallery.com/packages/AdminToolbox"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.svg?label=AdminToolbox&logo=powershell&ColorB=bluee&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.svg?style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.ActiveDirectory"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.ActiveDirectory.svg?label=ActiveDirectory&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.ActiveDirectory"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.ActiveDirectory.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.ActiveDirectory"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.ActiveDirectory.svg?label=ActiveDirectory&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.ActiveDirectory"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.ActiveDirectory.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.EndpointManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.EndpointManagement.svg?label=EndpointManagement&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.EndpointManagement"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.EndpointManagement.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.EndpointManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.EndpointManagement.svg?label=EndpointManagement&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.EndpointManagement"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.EndpointManagement.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Exchange"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Exchange.svg?label=Exchange&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Exchange"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Exchange.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Exchange"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Exchange.svg?label=Exchange&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Exchange"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Exchange.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FFTools.svg?label=FFTools&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FFTools.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FFTools.svg?label=FFTools&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FFTools"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FFTools.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FileManagement.svg?label=FileManagement&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FileManagement.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FileManagement.svg?label=FileManagement&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FileManagement"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FileManagement.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FortiWizard.svg?label=FortiWizard&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FortiWizard.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.FortiWizard.svg?label=FortiWizard&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.FortiWizard"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.FortiWizard.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Fun.svg?label=Fun&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Fun.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Fun.svg?label=Fun&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Fun"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Fun.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Networking.svg?label=Networking&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Networking.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Networking.svg?label=Networking&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Networking"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Networking.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Office365.svg?label=Office365&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Office365.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Office365.svg?label=Office365&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Office365"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Office365.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Remoting.svg?label=Remoting&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Remoting.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.Remoting.svg?label=Remoting&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.Remoting"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.Remoting.svg?&style=flat-square"></a>
 
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.VmwareAutomate.svg?label=VMWareAutomate&logo=powershell&ColorB=blue"></a>
-<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.VMWareAutomate.svg"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/v/Admintoolbox.VmwareAutomate.svg?label=VMWareAutomate&logo=powershell&ColorB=blue&style=flat-square"></a>
+<a href="https://www.powershellgallery.com/packages/AdminToolbox.VMWareAutomate"><img src="https://img.shields.io/powershellgallery/dt/Admintoolbox.VMWareAutomate.svg?&style=flat-square"></a>
 </p>
