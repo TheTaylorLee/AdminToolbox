@@ -1,7 +1,6 @@
 
 <p align="Right">
-<font size="10">AdminToolbox</font>
-<a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/toolboxShell2.png" width=15% height=15%></a>
+<a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/toolboxShell2.png" width=10% height=10%></a>
 </p>
 
 # AdminToolbox
