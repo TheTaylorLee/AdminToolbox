@@ -1,13 +1,16 @@
-
-<p align="Right">
+<p align="Center">
 <a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/toolboxShell2.png" width=10% height=10%></a>
 </p>
 
 # AdminToolbox
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. I recommend if using any of the modules, install the AdminToolbox module. It will install the other required modules, it has some functions that are useful for function discovery, and it provides some environment options.
 
-<p align="Left">
+
+<p align="Center">
 <a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/toolboxShell2.png" width=10% height=10%></a>
+</p>
+
+<p align="Left">
 <a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml/badge.svg?branch=master"></a>
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aissue+is%3Aclosed"><img src ="https://img.shields.io/github/issues-closed/thetaylorlee/admintoolbox"></a>
