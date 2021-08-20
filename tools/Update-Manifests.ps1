@@ -37,7 +37,7 @@ Function out-manifests {
             FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC', 'Start-Cmder', 'Install-PSPortableLight', 'Install-PSPortable'
             Path                 = "$savepath\AdminToolbox.psd1"
             Author               = "Taylor Lee"
-            Description          = "Parent module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
+            Description          = "MAster module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
@@ -206,7 +206,7 @@ Function out-manifests {
             FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT', 'New-FormTunnel'
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
-            Description          = "Functions that generate configuration scripts and manage FortiOS. This Module is unofficial and in no way affiliated with Fortinet."
+            Description          = "Functions that generate configuration scripts and manage FortiOS."
             ModuleVersion        = "2.4.0"
             Powershellversion    = "5.1"
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
