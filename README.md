@@ -1,5 +1,5 @@
 
-# AdminToolbox <p align="right"><a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/toolboxShell2.png" width=20% height=20%> </p>
+# AdminToolbox <p align="right"><a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/toolboxShell2.png" width=20% height=20%></a></p>
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. I recommend if using any of the modules, install the AdminToolbox module. It will install the other required modules, it has some functions that are useful for function discovery, and it provides some environment options.
 
 <p align="Left">
