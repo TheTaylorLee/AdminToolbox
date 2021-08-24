@@ -7,7 +7,6 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 <p align="Left">
 <a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml/badge.svg?branch=master"></a>
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
-<a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aissue+is%3Aclosed"><img src ="https://img.shields.io/github/issues-closed/thetaylorlee/admintoolbox"></a>
 </p>
 
 ### To get started
