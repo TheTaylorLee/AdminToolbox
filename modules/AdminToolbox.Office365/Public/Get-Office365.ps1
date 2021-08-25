@@ -40,4 +40,8 @@ function Get-Office365 {
     Write-Host "MSOnline Module Functions"                                                                   -ForegroundColor green
     Write-Host "Get-RoleMembers            ..Gets Office 365 roles and their members"                        -ForegroundColor cyan
     Write-Host " "
+
+    Write-Host "Teams Module Functions"                                                                      -ForegroundColor green
+    Write-Host "Clear-TeamsCache           ..Clears Cache files for Microsoft Teams"                         -ForegroundColor cyan
+    Write-Host " "
 }

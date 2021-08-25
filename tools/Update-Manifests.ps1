@@ -41,7 +41,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.6.0"
+            ModuleVersion        = "9.7.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
@@ -53,7 +53,7 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.4.0'; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.0'; },
-                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.5.0'; },
+                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.6.0'; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.1'; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.6.0'; },
                 @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
@@ -280,14 +280,14 @@ Function out-manifests {
         $savepath = "$env:gitrootpath\AdminToolbox.Office365"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-RoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess'
+            FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-RoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache'
             Path                 = "$savepath\AdminToolbox.Office365.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for working with Office365 and Azure modules"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "2.5.0"
+            ModuleVersion        = "2.6.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
