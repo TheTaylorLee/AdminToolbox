@@ -18,6 +18,7 @@
 * **1.6.0.0** Added Markdown Documentation and link help
 * **1.7.0** Update versioning standard and added LicenseURI.
 * **1.8.0** updated Invoke-Robocopy as a crescendo function and converted existing examples
+* **1.9.0** Updated Remove-all to also remove cache files.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.8.0
+1.9.0

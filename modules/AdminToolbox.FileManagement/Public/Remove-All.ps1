@@ -58,6 +58,8 @@ function Remove-All {
         Remove-Item $tempfolders -Force -Recurse
         $tempinternetfolders = @("\\$computer\C$\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "\\$computer\C$\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "\\$computer\C$\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
         Remove-Item $tempinternetfolders -Force -Recurse
+        $cachefolders = @("\\$computer\C$\users\*\appdata\roaming\zoom\*", "\\$computer\C$\users\*\AppData\Local\Google\*", "\\$computer\C$\users\*\Downloads\*", "\\$computer\C$\users\*\AppData\Roaming\Slack\Cache\*", "\\$computer\C$\users\*\AppData\Local\GoToMeeting\*", "\\$computer\C$\users\*\AppData\Roaming\RingCentralMeetings\*", "\\$computer\C$\users\*\AppData\Local\Microsoft\Terminal Server Client\*")
+        Remove-Item $cachefolders -Force -Recurse
         Get-Service -ComputerName $computer -Name TrustedInstaller | Start-Service
 
         $ErrorActionPreference = 'Continue'
@@ -85,6 +87,8 @@ function Remove-All {
         Remove-Item $tempfolders -Force -Recurse
         $tempinternetfolders = @("C:\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "C:\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "C:\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
         Remove-Item $tempinternetfolders -Force -Recurse
+        $cachefolders = @("c:\users\*\appdata\roaming\zoom\*", "c:\users\*\AppData\Local\Google\*", "c:\users\*\Downloads\*", "c:\users\*\AppData\Roaming\Slack\Cache\*", "c:\users\*\AppData\Local\GoToMeeting\*", "c:\users\*\AppData\Roaming\RingCentralMeetings\*", "c:\users\*\AppData\Local\Microsoft\Terminal Server Client\*")
+        Remove-Item $cachefolders -Force -Recurse
         powercfg.exe /hibernate off
         Remove-Item c:\hiberfile.sys -Force -ErrorAction 'silentlycontinue'
         Start-Service TrustedInstaller
