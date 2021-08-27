@@ -99,6 +99,7 @@ Function New-DialUPTunnelBehindNAT {
        TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
+       ikev               = "1"
     }
     New-DialUPTunnelBehindNAT @params
 
@@ -119,6 +120,7 @@ Function New-DialUPTunnelBehindNAT {
        TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
+       ikev               = "1"
     }
     $command = New-DialUPTunnelBehindNAT @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
@@ -134,6 +136,9 @@ Function New-DialUPTunnelBehindNAT {
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
         [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version")]
+        [ValidateSet('1', '2')]
+        $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Lan Interface Name")]
         $LANInterface,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
@@ -256,6 +261,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             dhgroups    = $dhgroups
             PeerAddress = $PeerAddress
             PSK         = $PSK
+            ikev        = $ikev
         }
         $Phase1 = New-P2PPhase1InterfaceDialUp @params
 
