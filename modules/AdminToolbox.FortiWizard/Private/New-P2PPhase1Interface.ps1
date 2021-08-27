@@ -14,6 +14,9 @@ Function New-P2PPhase1Interface {
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
         $Interface,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version")]
+        [ValidateSet('1', '2')]
+        $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 Time to Live.")]
         $TTL,
         [Parameter(Mandatory = $true, HelpMessage = "
@@ -64,6 +67,7 @@ config vpn ipsec phase1-interface
         set dhgrp $dhgroups
         set remote-gw $PeerAddress
         set psksecret $PSK
+        set ike-version $ikev
     next
 end"
 }

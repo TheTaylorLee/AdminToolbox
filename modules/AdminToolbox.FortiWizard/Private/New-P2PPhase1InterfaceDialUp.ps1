@@ -22,6 +22,10 @@ Function New-P2PPhase1InterfaceDialUp {
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Dynamic")]
         $Interface,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version", ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version", ParameterSetName = "Dynamic")]
+        [ValidateSet('1', '2')]
+        $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer", ParameterSetName = "Dynamic")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
@@ -110,6 +114,7 @@ config vpn ipsec phase1-interface
         set peerid $PeerID
         set dpd-retryinterval 60
         set psksecret $PSK
+        set ike-version $ikev
     next
 end
 "
@@ -128,6 +133,7 @@ config vpn ipsec phase1-interface
         set dhgrp $dhgroups
         set remote-gw $Peeraddress
         set psksecret $PSK
+        set ike-version $ikev
     next
 end"
     }
