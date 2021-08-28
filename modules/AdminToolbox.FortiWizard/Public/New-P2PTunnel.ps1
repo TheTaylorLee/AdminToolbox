@@ -16,6 +16,9 @@ Function New-P2PTunnel {
     21 20 19 18 17 16
     15 14 5 2 1
 
+    .Parameter Ikev
+    Provide the desired ike version 1 or 2
+
     .Parameter LANInterface
     This is the name of the local or lan interface.
 
