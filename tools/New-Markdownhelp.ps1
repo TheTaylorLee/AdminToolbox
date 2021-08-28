@@ -6,8 +6,7 @@ $gitdocspath = "G:\Github\AdminToolbox\docs"
 $env:gitdocspath = $gitdocspath
 
 #Set Persistent Environment Variables
-[Environment]::SetEnvironmentVariable("FFToolsTarget", "$gitdocspath", "User")
-
+[Environment]::SetEnvironmentVariable("gitdocspath" , "$gitdocspath", "User")
 
 
 #Generate Help using Platyps Module
