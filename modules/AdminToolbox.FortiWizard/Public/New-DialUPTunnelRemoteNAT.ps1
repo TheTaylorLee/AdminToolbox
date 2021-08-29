@@ -30,6 +30,9 @@ Function New-DialUPTunnelRemoteNAT {
     .Parameter PeerID
     This is a unique 3 numeric character long Identifer for this tunnel.
 
+    .Parameter PFS
+    Specify if PFS should be enabled on the Phase 2 interface.
+
     .Parameter Proposal
     This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
 
@@ -149,6 +152,9 @@ Function New-DialUPTunnelRemoteNAT {
         [string[]]$LocalAddressCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Specify a unique 3 digit numeric peer ID to use for the tunnel.")]
         $PeerID,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify if PFS should be enabled")]
+        [ValidateSet('yes', 'no')]
+        $PFS,
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5
 des-sha1
@@ -271,6 +277,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
                 $params = @{
                     DestinationAddressName = [string[]]$remotes[$ii]
                     dhgroups               = $dhgroups
+                    PFS                    = $PFS
                     PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
                     Proposal               = $Proposal
                     SourceAddressName      = $sourceaddressname

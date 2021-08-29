@@ -54,7 +54,10 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Source Address Object or Group Name.")]
         $SourceAddressName,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Destination Address Object or Group Name.")]
-        $DestinationAddressName
+        $DestinationAddressName,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify if PFS should be enabled")]
+        [ValidateSet('yes', 'no')]
+        $PFS
     )
 
     Write-Output "
