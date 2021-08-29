@@ -8,7 +8,6 @@ $env:gitdocspath = $gitdocspath
 #Set Persistent Environment Variables
 [Environment]::SetEnvironmentVariable("gitdocspath" , "$gitdocspath", "User")
 
-
 #Generate Help using Platyps Module
 Import-Module platyPS
 

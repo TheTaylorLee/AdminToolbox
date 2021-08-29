@@ -16,6 +16,9 @@ Function New-DialUPTunnelRemoteNAT {
     21 20 19 18 17 16
     15 14 5 2 1
 
+    .Parameter Ikev
+    Provide the desired ike version 1 or 2
+
     .Parameter LANInterface
     This is the name of the local or lan interface.
 
@@ -27,37 +30,40 @@ Function New-DialUPTunnelRemoteNAT {
     .Parameter PeerID
     This is a unique 3 numeric character long Identifer for this tunnel.
 
+    .Parameter PFS
+    Specify if PFS should be enabled on the Phase 2 interface.
+
     .Parameter Proposal
     This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
 
     ex: aes256-sha512 aes256-sha1
 
     *These are the available proposals that can be used.
-    des-md5          des-md5
-    des-sha1         des-sha1
-    des-sha256       des-sha256
-    des-sha384       des-sha384
-    des-sha512       des-sha512
-    3des-md5         3des-md5
-    3des-sha1        3des-sha1
-    3des-sha256      3des-sha256
-    3des-sha384      3des-sha384
-    3des-sha512      3des-sha512
-    aes128-md5       aes128-md5
-    aes128-sha1      aes128-sha1
-    aes128-sha256    aes128-sha256
-    aes128-sha384    aes128-sha384
-    aes128-sha512    aes128-sha512
-    aes192-md5       aes192-md5
-    aes192-sha1      aes192-sha1
-    aes192-sha256    aes192-sha256
-    aes192-sha384    aes192-sha384
-    aes192-sha512    aes192-sha512
-    aes256-md5       aes256-md5
-    aes256-sha1      aes256-sha1
-    aes256-sha256    aes256-sha256
-    aes256-sha384    aes256-sha384
-    aes256-sha512    aes256-sha512
+    des-md5
+    des-sha1
+    des-sha256
+    des-sha384
+    des-sha512
+    3des-md5
+    3des-sha1
+    3des-sha256
+    3des-sha384
+    3des-sha512
+    aes128-md5
+    aes128-sha1
+    aes128-sha256
+    aes128-sha384
+    aes128-sha512
+    aes192-md5
+    aes192-sha1
+    aes192-sha256
+    aes192-sha384
+    aes192-sha512
+    aes256-md5
+    aes256-sha1
+    aes256-sha256
+    aes256-sha384
+    aes256-sha512
 
     .Parameter PSK
     This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
@@ -94,6 +100,7 @@ Function New-DialUPTunnelRemoteNAT {
        TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
+       ikev               = "1"
     }
     New-DialUPTunnelRemoteNAT @params
 
@@ -113,6 +120,7 @@ Function New-DialUPTunnelRemoteNAT {
        TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
+       ikev               = "1"
     }
     $command = New-DialUPTunnelRemoteNAT @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
@@ -127,6 +135,9 @@ Function New-DialUPTunnelRemoteNAT {
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]
         [string[]]$dhgroups,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version")]
+        [ValidateSet('1', '2')]
+        $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Lan Interface Name")]
         $LANInterface,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
@@ -141,35 +152,39 @@ Function New-DialUPTunnelRemoteNAT {
         [string[]]$LocalAddressCIDRs,
         [Parameter(Mandatory = $true, HelpMessage = "Specify a unique 3 digit numeric peer ID to use for the tunnel.")]
         $PeerID,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify if PFS should be enabled")]
+        [ValidateSet('yes', 'no')]
+        $PFS,
         [Parameter(Mandatory = $true, HelpMessage = "
-des-md5          des-md5
-des-sha1         des-sha1
-des-sha256       des-sha256
-des-sha384       des-sha384
-des-sha512       des-sha512
-3des-md5         3des-md5
-3des-sha1        3des-sha1
-3des-sha256      3des-sha256
-3des-sha384      3des-sha384
-3des-sha512      3des-sha512
-aes128-md5       aes128-md5
-aes128-sha1      aes128-sha1
-aes128-sha256    aes128-sha256
-aes128-sha384    aes128-sha384
-aes128-sha512    aes128-sha512
-aes192-md5       aes192-md5
-aes192-sha1      aes192-sha1
-aes192-sha256    aes192-sha256
-aes192-sha384    aes192-sha384
-aes192-sha512    aes192-sha512
-aes256-md5       aes256-md5
-aes256-sha1      aes256-sha1
-aes256-sha256    aes256-sha256
-aes256-sha384    aes256-sha384
-aes256-sha512    aes256-sha512
+des-md5
+des-sha1
+des-sha256
+des-sha384
+des-sha512
+3des-md5
+3des-sha1
+3des-sha256
+3des-sha384
+3des-sha512
+aes128-md5
+aes128-sha1
+aes128-sha256
+aes128-sha384
+aes128-sha512
+aes192-md5
+aes192-sha1
+aes192-sha256
+aes192-sha384
+aes192-sha512
+aes256-md5
+aes256-sha1
+aes256-sha256
+aes256-sha384
+aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
 ")]
+        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
         $Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
         $PSK,
@@ -245,6 +260,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
             PeerID     = $PeerID
             dhgroups   = $dhgroups
             PSK        = $PSK
+            ikev       = $ikev
         }
         $Phase1 = New-P2PPhase1InterfaceDialUp @params
 
@@ -261,6 +277,7 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
                 $params = @{
                     DestinationAddressName = [string[]]$remotes[$ii]
                     dhgroups               = $dhgroups
+                    PFS                    = $PFS
                     PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
                     Proposal               = $Proposal
                     SourceAddressName      = $sourceaddressname
@@ -321,6 +338,11 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     end {
         Write-Host "If there is no output between the Omission delimiters, that is because you redirected the output elsewhere. Like into a variable." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
+        Write-Output "##############################################################################"
+        Write-Output "# Tunnel Generated using Admintoolbox.FortiWizard module from TheTaylorLee   #"
+        Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                       #"
+        Write-Output "# https://github.com/TheTaylorLee/AdminToolbox                               #"
+        Write-Output "##############################################################################"
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
         Write-Output $ConfLocalAddressGroups

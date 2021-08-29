@@ -17,34 +17,35 @@ Function New-P2PPhase2Interface {
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "
-des-md5          des-md5
-des-sha1         des-sha1
-des-sha256       des-sha256
-des-sha384       des-sha384
-des-sha512       des-sha512
-3des-md5         3des-md5
-3des-sha1        3des-sha1
-3des-sha256      3des-sha256
-3des-sha384      3des-sha384
-3des-sha512      3des-sha512
-aes128-md5       aes128-md5
-aes128-sha1      aes128-sha1
-aes128-sha256    aes128-sha256
-aes128-sha384    aes128-sha384
-aes128-sha512    aes128-sha512
-aes192-md5       aes192-md5
-aes192-sha1      aes192-sha1
-aes192-sha256    aes192-sha256
-aes192-sha384    aes192-sha384
-aes192-sha512    aes192-sha512
-aes256-md5       aes256-md5
-aes256-sha1      aes256-sha1
-aes256-sha256    aes256-sha256
-aes256-sha384    aes256-sha384
-aes256-sha512    aes256-sha512
+des-md5
+des-sha1
+des-sha256
+des-sha384
+des-sha512
+3des-md5
+3des-sha1
+3des-sha256
+3des-sha384
+3des-sha512
+aes128-md5
+aes128-sha1
+aes128-sha256
+aes128-sha384
+aes128-sha512
+aes192-md5
+aes192-sha1
+aes192-sha256
+aes192-sha384
+aes192-sha512
+aes256-md5
+aes256-sha1
+aes256-sha256
+aes256-sha384
+aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
 ")]
+        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
         $Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 2 Time to Live.")]
         $TTL,
@@ -53,10 +54,14 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Source Address Object or Group Name.")]
         $SourceAddressName,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Destination Address Object or Group Name.")]
-        $DestinationAddressName
+        $DestinationAddressName,
+        [Parameter(Mandatory = $true, HelpMessage = "Specify if PFS should be enabled")]
+        [ValidateSet('yes', 'no')]
+        $PFS
     )
 
-    Write-Output "
+    if ($pfs -eq 'yes') {
+        Write-Output "
 config vpn ipsec phase2-interface
     edit ""$PhaseName""
         set phase1name ""$TunnelName""
@@ -70,4 +75,21 @@ config vpn ipsec phase2-interface
         set dst-name ""$DestinationAddressName""
     next
 end"
+    }
+    else {
+        Write-Output "
+config vpn ipsec phase2-interface
+    edit ""$PhaseName""
+        set phase1name ""$TunnelName""
+        set proposal $Proposal
+        set pfs disable
+        set replay disable
+        set keylifeseconds $TTL
+        set src-addr-type name
+        set dst-addr-type name
+        set src-name ""$SourceAddressName""
+        set dst-name ""$DestinationAddressName""
+    next
+end"
+    }
 }

@@ -15,6 +15,7 @@
 * **2.2.0** Fix for null services parameter on function New-FormTunnel
 * **2.3.0** Fixes for Github issue #26 that address improperly named source and remote address when there is a single source and remore cidr provided.
 * **2.4.0** Updated required modules
+* **2.5.0** Updated VPN form and tunnel functions
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.4.0
+2.5.0

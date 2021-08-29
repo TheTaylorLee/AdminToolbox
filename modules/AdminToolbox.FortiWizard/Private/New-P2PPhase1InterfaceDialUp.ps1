@@ -22,66 +22,72 @@ Function New-P2PPhase1InterfaceDialUp {
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.", ParameterSetName = "Dynamic")]
         $Interface,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version", ParameterSetName = "Static")]
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the desired ike version", ParameterSetName = "Dynamic")]
+        [ValidateSet('1', '2')]
+        $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer", ParameterSetName = "Dynamic")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
-des-md5          des-md5
-des-sha1         des-sha1
-des-sha256       des-sha256
-des-sha384       des-sha384
-des-sha512       des-sha512
-3des-md5         3des-md5
-3des-sha1        3des-sha1
-3des-sha256      3des-sha256
-3des-sha384      3des-sha384
-3des-sha512      3des-sha512
-aes128-md5       aes128-md5
-aes128-sha1      aes128-sha1
-aes128-sha256    aes128-sha256
-aes128-sha384    aes128-sha384
-aes128-sha512    aes128-sha512
-aes192-md5       aes192-md5
-aes192-sha1      aes192-sha1
-aes192-sha256    aes192-sha256
-aes192-sha384    aes192-sha384
-aes192-sha512    aes192-sha512
-aes256-md5       aes256-md5
-aes256-sha1      aes256-sha1
-aes256-sha256    aes256-sha256
-aes256-sha384    aes256-sha384
-aes256-sha512    aes256-sha512
+des-md5
+des-sha1
+des-sha256
+des-sha384
+des-sha512
+3des-md5
+3des-sha1
+3des-sha256
+3des-sha384
+3des-sha512
+aes128-md5
+aes128-sha1
+aes128-sha256
+aes128-sha384
+aes128-sha512
+aes192-md5
+aes192-sha1
+aes192-sha256
+aes192-sha384
+aes192-sha512
+aes256-md5
+aes256-sha1
+aes256-sha256
+aes256-sha384
+aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
 ", ParameterSetName = "Static")]
+        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
         [Parameter(Mandatory = $true, HelpMessage = "
-des-md5          des-md5
-des-sha1         des-sha1
-des-sha256       des-sha256
-des-sha384       des-sha384
-des-sha512       des-sha512
-3des-md5         3des-md5
-3des-sha1        3des-sha1
-3des-sha256      3des-sha256
-3des-sha384      3des-sha384
-3des-sha512      3des-sha512
-aes128-md5       aes128-md5
-aes128-sha1      aes128-sha1
-aes128-sha256    aes128-sha256
-aes128-sha384    aes128-sha384
-aes128-sha512    aes128-sha512
-aes192-md5       aes192-md5
-aes192-sha1      aes192-sha1
-aes192-sha256    aes192-sha256
-aes192-sha384    aes192-sha384
-aes192-sha512    aes192-sha512
-aes256-md5       aes256-md5
-aes256-sha1      aes256-sha1
-aes256-sha256    aes256-sha256
-aes256-sha384    aes256-sha384
-aes256-sha512    aes256-sha512
+des-md5
+des-sha1
+des-sha256
+des-sha384
+des-sha512
+3des-md5
+3des-sha1
+3des-sha256
+3des-sha384
+3des-sha512
+aes128-md5
+aes128-sha1
+aes128-sha256
+aes128-sha384
+aes128-sha512
+aes192-md5
+aes192-sha1
+aes192-sha256
+aes192-sha384
+aes192-sha512
+aes256-md5
+aes256-sha1
+aes256-sha256
+aes256-sha384
+aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
 ", ParameterSetName = "Dynamic")]
+        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
         $Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format.", ParameterSetName = "Dynamic")]
@@ -110,6 +116,7 @@ config vpn ipsec phase1-interface
         set peerid $PeerID
         set dpd-retryinterval 60
         set psksecret $PSK
+        set ike-version $ikev
     next
 end
 "
@@ -128,6 +135,7 @@ config vpn ipsec phase1-interface
         set dhgrp $dhgroups
         set remote-gw $Peeraddress
         set psksecret $PSK
+        set ike-version $ikev
     next
 end"
     }
