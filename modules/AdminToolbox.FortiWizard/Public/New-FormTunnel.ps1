@@ -117,6 +117,7 @@ Function New-FormTunnel {
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
                 PeerID             = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1
+                PFS                = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 17 -EndRow 17 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 Proposal           = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 10 -EndRow 10 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 PSK                = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 11 -EndRow 11 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 RemoteAddressCIDRs = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 8 -EndRow 8 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -132,6 +133,7 @@ Function New-FormTunnel {
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
                 PeerID             = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1
+                PFS                = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 17 -EndRow 17 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 Proposal           = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 10 -EndRow 10 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 PSK                = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 11 -EndRow 11 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 RemoteAddressCIDRs = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 8 -EndRow 8 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -149,6 +151,7 @@ Function New-FormTunnel {
         if ($null -eq $services) {
             $params = @{
                 dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
                 PeerAddress        = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 5 -EndRow 5 -StartColumn 2 -EndColumn 2 -NoHeader).p1
@@ -165,6 +168,7 @@ Function New-FormTunnel {
         else {
             $params = @{
                 dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
                 PeerAddress        = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 5 -EndRow 5 -StartColumn 2 -EndColumn 2 -NoHeader).p1
