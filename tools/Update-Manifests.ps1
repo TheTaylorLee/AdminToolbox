@@ -50,7 +50,7 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.8.0'; },
                 @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.7.0'; },
                 @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.9.0'; },
-                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.4.0'; },
+                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.5.0'; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.0'; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.6.0'; },
