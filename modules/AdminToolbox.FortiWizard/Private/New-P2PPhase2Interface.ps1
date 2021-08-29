@@ -60,7 +60,8 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
         $PFS
     )
 
-    Write-Output "
+    if ($pfs -eq 'yes') {
+        Write-Output "
 config vpn ipsec phase2-interface
     edit ""$PhaseName""
         set phase1name ""$TunnelName""
@@ -74,4 +75,21 @@ config vpn ipsec phase2-interface
         set dst-name ""$DestinationAddressName""
     next
 end"
+    }
+    else {
+        Write-Output "
+config vpn ipsec phase2-interface
+    edit ""$PhaseName""
+        set phase1name ""$TunnelName""
+        set proposal $Proposal
+        set pfs disable
+        set replay disable
+        set keylifeseconds $TTL
+        set src-addr-type name
+        set dst-addr-type name
+        set src-name ""$SourceAddressName""
+        set dst-name ""$DestinationAddressName""
+    next
+end"
+    }
 }
