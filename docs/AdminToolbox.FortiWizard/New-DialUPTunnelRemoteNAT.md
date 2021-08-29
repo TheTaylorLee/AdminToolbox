@@ -12,9 +12,10 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-DialUPTunnelRemoteNAT [-dhgroups] <String[]> [-LANInterface] <Object> [-LocalAddressCIDRs] <String[]>
- [-PeerID] <Object> [-Proposal] <Object> [-PSK] <Object> [-RemoteAddressCIDRs] <String[]>
- [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object> [-WANInterface] <Object> [<CommonParameters>]
+New-DialUPTunnelRemoteNAT [-dhgroups] <String[]> [-ikev] <Object> [-LANInterface] <Object>
+ [-LocalAddressCIDRs] <String[]> [-PeerID] <Object> [-PFS] <Object> [-Proposal] <Object> [-PSK] <Object>
+ [-RemoteAddressCIDRs] <String[]> [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object>
+ [-WANInterface] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -37,6 +38,7 @@ $params = @{
    TTL                = "28800"
    TunnelName         = "TestTunnel"
    WANInterface       = "wan3"
+   ikev               = "1"
 }
 New-DialUPTunnelRemoteNAT @params
 ```
@@ -58,6 +60,7 @@ $params = @{
    TTL                = "28800"
    TunnelName         = "TestTunnel"
    WANInterface       = "wan3"
+   ikev               = "1"
 }
 $command = New-DialUPTunnelRemoteNAT @params
 $result = Invoke-SSHCommand -Command $command -SessionId 0
@@ -91,6 +94,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ikev
+Provide the desired ike version 1 or 2
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -LANInterface
 This is the name of the local or lan interface.
 
@@ -100,7 +118,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 2
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -117,7 +135,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 3
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -132,7 +150,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 4
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PFS
+Specify if PFS should be enabled on the Phase 2 interface.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -145,31 +178,31 @@ Provide in space delimited format.
 ex: aes256-sha512 aes256-sha1
 
 *These are the available proposals that can be used.
-des-md5          des-md5
-des-sha1         des-sha1
-des-sha256       des-sha256
-des-sha384       des-sha384
-des-sha512       des-sha512
-3des-md5         3des-md5
-3des-sha1        3des-sha1
-3des-sha256      3des-sha256
-3des-sha384      3des-sha384
-3des-sha512      3des-sha512
-aes128-md5       aes128-md5
-aes128-sha1      aes128-sha1
-aes128-sha256    aes128-sha256
-aes128-sha384    aes128-sha384
-aes128-sha512    aes128-sha512
-aes192-md5       aes192-md5
-aes192-sha1      aes192-sha1
-aes192-sha256    aes192-sha256
-aes192-sha384    aes192-sha384
-aes192-sha512    aes192-sha512
-aes256-md5       aes256-md5
-aes256-sha1      aes256-sha1
-aes256-sha256    aes256-sha256
-aes256-sha384    aes256-sha384
-aes256-sha512    aes256-sha512
+des-md5
+des-sha1
+des-sha256
+des-sha384
+des-sha512
+3des-md5
+3des-sha1
+3des-sha256
+3des-sha384
+3des-sha512
+aes128-md5
+aes128-sha1
+aes128-sha256
+aes128-sha384
+aes128-sha512
+aes192-md5
+aes192-sha1
+aes192-sha256
+aes192-sha384
+aes192-sha512
+aes256-md5
+aes256-sha1
+aes256-sha256
+aes256-sha384
+aes256-sha512
 
 ```yaml
 Type: Object
@@ -177,7 +210,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 5
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -192,7 +225,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 6
+Position: 8
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -209,7 +242,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 7
+Position: 9
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -226,7 +259,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 8
+Position: 10
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -241,7 +274,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 9
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -257,7 +290,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 10
+Position: 12
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -272,7 +305,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 11
+Position: 13
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
