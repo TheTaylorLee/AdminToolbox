@@ -101,7 +101,7 @@ Function New-P2PTunnel {
     }
     New-P2PTunnel @params
 
-        This example will generate a VPN tunnel config.
+    This example will generate a VPN tunnel config.
 
     .Example
     New-SSHSession -computername 192.168.0.1
