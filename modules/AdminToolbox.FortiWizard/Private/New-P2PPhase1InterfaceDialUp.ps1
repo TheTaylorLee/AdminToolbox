@@ -57,6 +57,7 @@ aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
 ", ParameterSetName = "Static")]
+        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
         [Parameter(Mandatory = $true, HelpMessage = "
 des-md5
 des-sha1
@@ -86,6 +87,7 @@ aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
 ", ParameterSetName = "Dynamic")]
+        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
         $Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format.", ParameterSetName = "Dynamic")]
