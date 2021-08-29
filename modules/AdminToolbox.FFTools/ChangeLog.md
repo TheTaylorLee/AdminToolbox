@@ -1,6 +1,6 @@
 # **AdminToolbox.FFTools**
 
-![AdminToolbox.FFTools](https://github.com/TheTaylorLee/AdminToolbox/blob/master/Images/AdminToolbox.fftools.png)
+![AdminToolbox.FFTools](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.fftools.png)
 
 * **1.0.0** Created the Module
 * **1.0.1** Added prompt for staging folder

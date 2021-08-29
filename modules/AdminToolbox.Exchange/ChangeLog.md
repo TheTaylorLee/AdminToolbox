@@ -1,6 +1,6 @@
 # **AdminToolbox.Exchange**
 
-![AdminToolbox.Exchange](https://github.com/TheTaylorLee/AdminToolbox/blob/master/Images/AdminToolbox.Exchange.png)
+![AdminToolbox.Exchange](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.Exchange.png)
 
 * **1.0.0.0** Created the Module
 * **1.0.1.0** Unknown

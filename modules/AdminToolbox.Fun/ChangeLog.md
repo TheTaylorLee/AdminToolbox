@@ -1,6 +1,7 @@
 # **AdminToolbox.Fun**
 
-![AdminToolbox.Fun](https://github.com/TheTaylorLee/AdminToolbox/blob/master/Images/AdminToolbox.Fun.png)
+![AdminToolbox.Fun](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.Fun.png)
+
 
 * **1.0.0.0** Created the Module
 * **1.0.1.0** Reduced the module load time using .net methods

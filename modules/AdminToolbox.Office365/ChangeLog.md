@@ -1,6 +1,6 @@
 # **AdminToolbox.Office365**
 
-![AdminToolbox.Office365](https://github.com/TheTaylorLee/AdminToolbox/blob/master/Images/AdminToolbox.Office365.png)
+![AdminToolbox.Office365](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.Office365.png)
 
 * **1.0.0.0** Created the Module
 * **1.0.1.0** Reduced the module load time using .net methods
