@@ -41,31 +41,31 @@ Function New-P2PTunnelNAT {
     ex: aes256-sha512 aes256-sha1
 
     *These are the available proposals that can be used.
-    des-md5          des-md5
-    des-sha1         des-sha1
-    des-sha256       des-sha256
-    des-sha384       des-sha384
-    des-sha512       des-sha512
-    3des-md5         3des-md5
-    3des-sha1        3des-sha1
-    3des-sha256      3des-sha256
-    3des-sha384      3des-sha384
-    3des-sha512      3des-sha512
-    aes128-md5       aes128-md5
-    aes128-sha1      aes128-sha1
-    aes128-sha256    aes128-sha256
-    aes128-sha384    aes128-sha384
-    aes128-sha512    aes128-sha512
-    aes192-md5       aes192-md5
-    aes192-sha1      aes192-sha1
-    aes192-sha256    aes192-sha256
-    aes192-sha384    aes192-sha384
-    aes192-sha512    aes192-sha512
-    aes256-md5       aes256-md5
-    aes256-sha1      aes256-sha1
-    aes256-sha256    aes256-sha256
-    aes256-sha384    aes256-sha384
-    aes256-sha512    aes256-sha512
+    des-md5
+    des-sha1
+    des-sha256
+    des-sha384
+    des-sha512
+    3des-md5
+    3des-sha1
+    3des-sha256
+    3des-sha384
+    3des-sha512
+    aes128-md5
+    aes128-sha1
+    aes128-sha256
+    aes128-sha384
+    aes128-sha512
+    aes192-md5
+    aes192-sha1
+    aes192-sha256
+    aes192-sha384
+    aes192-sha512
+    aes256-md5
+    aes256-sha1
+    aes256-sha256
+    aes256-sha384
+    aes256-sha512
 
     .Parameter PSK
     This is the Private Shared Key for the Phase 1 and Phase 2 interfaces.
@@ -167,31 +167,31 @@ Function New-P2PTunnelNAT {
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Public IP for the Tunnel Peer")]
         $PeerAddress,
         [Parameter(Mandatory = $true, HelpMessage = "
-des-md5          des-md5
-des-sha1         des-sha1
-des-sha256       des-sha256
-des-sha384       des-sha384
-des-sha512       des-sha512
-3des-md5         3des-md5
-3des-sha1        3des-sha1
-3des-sha256      3des-sha256
-3des-sha384      3des-sha384
-3des-sha512      3des-sha512
-aes128-md5       aes128-md5
-aes128-sha1      aes128-sha1
-aes128-sha256    aes128-sha256
-aes128-sha384    aes128-sha384
-aes128-sha512    aes128-sha512
-aes192-md5       aes192-md5
-aes192-sha1      aes192-sha1
-aes192-sha256    aes192-sha256
-aes192-sha384    aes192-sha384
-aes192-sha512    aes192-sha512
-aes256-md5       aes256-md5
-aes256-sha1      aes256-sha1
-aes256-sha256    aes256-sha256
-aes256-sha384    aes256-sha384
-aes256-sha512    aes256-sha512
+des-md5
+des-sha1
+des-sha256
+des-sha384
+des-sha512
+3des-md5
+3des-sha1
+3des-sha256
+3des-sha384
+3des-sha512
+aes128-md5
+aes128-sha1
+aes128-sha256
+aes128-sha384
+aes128-sha512
+aes192-md5
+aes192-sha1
+aes192-sha256
+aes192-sha384
+aes192-sha512
+aes256-md5
+aes256-sha1
+aes256-sha256
+aes256-sha384
+aes256-sha512
 
 Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
 ")]
@@ -402,6 +402,11 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     end {
         Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
+        Write-Output "##############################################################################"
+        Write-Output "# Tunnel Generated using Admintoolbox.FortiWizard module from TheTaylorLee   #"
+        Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                       #"
+        Write-Output "# https://github.com/TheTaylorLee/AdminToolbox                               #"
+        Write-Output "##############################################################################"
         Write-Output $ConfPhase1
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
