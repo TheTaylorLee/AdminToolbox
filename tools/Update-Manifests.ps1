@@ -41,7 +41,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.10.0"
+            ModuleVersion        = "9.11.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
