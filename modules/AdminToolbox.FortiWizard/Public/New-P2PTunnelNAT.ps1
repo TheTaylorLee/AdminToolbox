@@ -410,11 +410,11 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
     end {
         Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
         Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-        Write-Output "##############################################################################"
-        Write-Output "# Tunnel Generated using Admintoolbox.FortiWizard module from TheTaylorLee   #"
-        Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                       #"
-        Write-Output "# https://github.com/TheTaylorLee/AdminToolbox                               #"
-        Write-Output "##############################################################################"
+        Write-Output "#####################################################################################"
+        Write-Output "# Tunnel config generated using Admintoolbox.FortiWizard module by TheTaylorLee     #"
+        Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                              #"
+        Write-Output "# https://github.com/TheTaylorLee/AdminToolbox                                      #"
+        Write-Output "#####################################################################################"
         Write-Output $ConfPhase1
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
