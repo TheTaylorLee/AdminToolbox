@@ -30,10 +30,11 @@ Function New-FormTunnel {
 
     if ($TunnelType -eq 'P2P') {
         $services = try { ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { $null }
+        $dhgroupsparam = try { ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
 
         if ($null -eq $services) {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -49,7 +50,7 @@ Function New-FormTunnel {
         }
         else {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName vpn -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -69,10 +70,11 @@ Function New-FormTunnel {
 
     if ($TunnelType -eq 'P2PNAT') {
         $services = try { ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { $null }
+        $dhgroupsparam = try { ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
 
         if ($null -eq $services) {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 17 -EndRow 17 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -89,7 +91,7 @@ Function New-FormTunnel {
         }
         else {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 17 -EndRow 17 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName natvpn -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -110,9 +112,10 @@ Function New-FormTunnel {
 
     if ($TunnelType -eq 'DialupRemoteNAT') {
         $services = try { ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { $null }
+        $dhgroupsparam = try { ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
         if ($null -eq $services) {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -128,7 +131,7 @@ Function New-FormTunnel {
         }
         else {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -150,7 +153,7 @@ Function New-FormTunnel {
         $services = try { ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { $null }
         if ($null -eq $services) {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
@@ -167,7 +170,7 @@ Function New-FormTunnel {
         }
         else {
             $params = @{
-                dhgroups           = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 13 -EndRow 13 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+                dhgroups           = $dhgroupsparam
                 ikev               = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1
                 LocalAddressCIDRs  = ((Import-Excel -Path $VPNFormPath -WorksheetName DialUpNat -StartRow 4 -EndRow 4 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")

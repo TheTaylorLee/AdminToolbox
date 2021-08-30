@@ -17,6 +17,7 @@
 * **2.4.0** Updated required modules
 * **2.5.0** Updated VPN form and tunnel functions [Github Issue #30](https://github.com/TheTaylorLee/AdminToolbox/issues/30)
 * **2.6.0** Updated VPN config comments
+* **2.7.0** dhgroups parameter fix for function new-formtunnel. Resolves type issue when single DH group is supplied.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.6.0
+2.7.0
