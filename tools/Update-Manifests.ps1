@@ -41,7 +41,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.11.0"
+            ModuleVersion        = "9.12.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
@@ -50,7 +50,7 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.8.0'; },
                 @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.7.0'; },
                 @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.9.0'; },
-                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.7.0'; },
+                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.8.0'; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.1'; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.0'; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.6.0'; },
@@ -207,7 +207,7 @@ Function out-manifests {
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS."
-            ModuleVersion        = "2.7.0"
+            ModuleVersion        = "2.8.0"
             Powershellversion    = "5.1"
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
             ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"
