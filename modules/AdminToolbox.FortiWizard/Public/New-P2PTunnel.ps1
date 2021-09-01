@@ -157,37 +157,7 @@ Function New-P2PTunnel {
         [Parameter(Mandatory = $true, HelpMessage = "Specify if PFS should be enabled")]
         [ValidateSet('yes', 'no')]
         $PFS,
-        [Parameter(Mandatory = $true, HelpMessage = "
-des-md5
-des-sha1
-des-sha256
-des-sha384
-des-sha512
-3des-md5
-3des-sha1
-3des-sha256
-3des-sha384
-3des-sha512
-aes128-md5
-aes128-sha1
-aes128-sha256
-aes128-sha384
-aes128-sha512
-aes192-md5
-aes192-sha1
-aes192-sha256
-aes192-sha384
-aes192-sha512
-aes256-md5
-aes256-sha1
-aes256-sha256
-aes256-sha384
-aes256-sha512
-
-Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
-")]
-        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
-        [string[]]$Proposal,
+        [Parameter(Mandatory = $true)][string[]]$Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
         $PSK,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]

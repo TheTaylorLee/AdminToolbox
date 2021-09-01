@@ -30,7 +30,7 @@ Function New-FirewallPolicyTunnelNAT {
 config firewall policy
     edit 0
         set name ""$policynamelocal""
-        set srcintf ""$SourceInterfaceName""
+        set srcintf $SourceInterfaceName
         set dstintf ""$TunnelName""
         set srcaddr ""$SourceAddress""
         set dstaddr ""$DestinationAddress""
@@ -51,7 +51,7 @@ config firewall policy
     edit 0
         set name ""$policynameremote""
         set srcintf ""$TunnelName""
-        set dstintf ""$SourceInterfaceName""
+        set dstintf $SourceInterfaceName
         set srcaddr ""$DestinationAddress""
         set dstaddr ""$VIPName""
         set action accept
