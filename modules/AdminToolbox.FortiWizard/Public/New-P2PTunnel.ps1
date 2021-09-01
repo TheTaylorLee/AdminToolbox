@@ -317,8 +317,6 @@ Function New-P2PTunnel {
     }
 
     end {
-        Write-Host "If there is no text between the Omission lines, then you have redirected the output." -ForegroundColor Green
-        Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Output "#####################################################################################"
         Write-Output "# Tunnel config generated using Admintoolbox.FortiWizard module by TheTaylorLee     #"
         Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                              #"
@@ -334,8 +332,6 @@ Function New-P2PTunnel {
         Write-Output $ConfService
         Write-Output $ConfServiceGroup
         Write-Output $ConfFirewallPolicy
-        Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-        Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 
         $ErrorActionPreference = 'continue'
     }

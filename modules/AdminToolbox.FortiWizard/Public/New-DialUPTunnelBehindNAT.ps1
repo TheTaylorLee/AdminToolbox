@@ -328,8 +328,6 @@ Function New-DialUPTunnelBehindNAT {
     }
 
     end {
-        Write-Host "If there is no output between the Omission delimiters, that is because you redirected the output elsewhere. Like into a variable." -ForegroundColor Green
-        Write-Host "----------OMIT THE ABOVE FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
         Write-Output "#####################################################################################"
         Write-Output "# Tunnel config generated using Admintoolbox.FortiWizard module by TheTaylorLee     #"
         Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                              #"
@@ -345,8 +343,6 @@ Function New-DialUPTunnelBehindNAT {
         Write-Output $Service
         Write-Output $ServiceGroup
         Write-Output $FirewallPolicy
-        Write-Host "----------OMIT THE BELOW FROM USE IN YOUR CONFIG SCRIPT----------" -ForegroundColor Magenta
-        Write-Host "DON'T FORGET TO ADD ANY REQUIRED CORE ROUTES!" -ForegroundColor Yellow
 
         $ErrorActionPreference = 'continue'
     }
