@@ -12,8 +12,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-DialUPTunnelRemoteNAT [-dhgroups] <String[]> [-ikev] <Object> [-LANInterface] <Object>
- [-LocalAddressCIDRs] <String[]> [-PeerID] <Object> [-PFS] <Object> [-Proposal] <Object> [-PSK] <Object>
+New-DialUPTunnelRemoteNAT [-dhgroups] <String[]> [-ikev] <Object> [-LANInterface] <String[]>
+ [-LocalAddressCIDRs] <String[]> [-PeerID] <Object> [-PFS] <Object> [-Proposal] <String[]> [-PSK] <Object>
  [-RemoteAddressCIDRs] <String[]> [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object>
  [-WANInterface] <Object> [<CommonParameters>]
 ```
@@ -28,10 +28,10 @@ This will be for the firewall whose public IP is static and whose end does not s
 ```
 $params = @{
    dhgroups           = "5", "14"
-   LANInterface       = "port1"
+   LANInterface       = "port1", "port2"
    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
    PeerID             = "187"
-   Proposal           = "aes256-sha512"
+   Proposal           = "aes256-sha512", "aes256-sha1"
    PSK                = "dfdayb%^4356456"
    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
    Services           = "RDP/3389/TCP", "DNS/53/UDP"
@@ -50,10 +50,10 @@ This example will generate a Dial-up VPN tunnel config.
 New-SSHSession -computername 192.168.0.1
 $params = @{
    dhgroups           = "5", "14"
-   LANInterface       = "port1"
+   LANInterface       = "port1", "port2"
    LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
    PeerID             = "187"
-   Proposal           = "aes256-sha512"
+   Proposal           = "aes256-sha512", "aes256-sha1"
    PSK                = "dfdayb%^4356456"
    RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
    Services           = "RDP/3389/TCP", "DNS/53/UDP"
@@ -110,10 +110,12 @@ Accept wildcard characters: False
 ```
 
 ### -LANInterface
-This is the name of the local or lan interface.
+This is the name of the lan interface/s allowed for the tunnel.
+
+ex: "phone vlan", "wifi vlan"
 
 ```yaml
-Type: Object
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
@@ -173,9 +175,9 @@ Accept wildcard characters: False
 
 ### -Proposal
 This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces.
-Provide in space delimited format.
+Provide in commad delimited format.
 
-ex: aes256-sha512 aes256-sha1
+ex: aes256-sha512, aes256-sha1
 
 *These are the available proposals that can be used.
 des-md5
@@ -205,7 +207,7 @@ aes256-sha384
 aes256-sha512
 
 ```yaml
-Type: Object
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 

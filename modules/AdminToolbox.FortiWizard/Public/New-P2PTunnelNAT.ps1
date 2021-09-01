@@ -20,7 +20,9 @@ Function New-P2PTunnelNAT {
     Provide the desired ike version 1 or 2
 
     .Parameter LANInterface
-    This is the name of the local or lan interface.
+    This is the name of the lan interface/s allowed for the tunnel.
+
+    ex: "phone vlan", "wifi vlan"
 
     .Parameter LocalAddressCIDRs
     This is the Address Object CIDRs that will be created for the local side of the tunnel. If there is more than one CIDR, it must be ordered in conjunction with the NAT CIDRS. So that each local CIDR in the array matches it's NAT CIDR.
@@ -39,9 +41,9 @@ Function New-P2PTunnelNAT {
     Specify if PFS should be enabled on the Phase 2 interface.
 
     .Parameter Proposal
-    This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in space delimited format.
+    This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in commad delimited format.
 
-    ex: aes256-sha512 aes256-sha1
+    ex: aes256-sha512, aes256-sha1
 
     *These are the available proposals that can be used.
     des-md5
@@ -95,11 +97,11 @@ Function New-P2PTunnelNAT {
     .Example
     $params = @{
     dhgroups           = "5", "14"
-    LANInterface       = "port1"
+    LANInterface       = "port1", "port2"
     LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
     NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
     PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
+    Proposal           = "aes256-sha512", "aes256-sha1"
     PSK                = "dfdayb%^4356456"
     RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     Services           = "RDP/3389/TCP", "DNS/53/UDP"
@@ -116,11 +118,11 @@ Function New-P2PTunnelNAT {
     New-SSHSession -computername 192.168.0.1
     $params = @{
     dhgroups           = "5", "14"
-    LANInterface       = "port1"
+    LANInterface       = "port1", "port2"
     LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
     NATAddressCIDRS    = "172.30.30.0/24", "172.30.31.0/24", "172.30.32.0/24"
     PeerAddress        = "56.98.75.32"
-    Proposal           = "aes256-sha512"
+    Proposal           = "aes256-sha512", "aes256-sha1"
     PSK                = "dfdayb%^4356456"
     RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     Services           = "RDP/3389/TCP", "DNS/53/UDP"
@@ -146,7 +148,7 @@ Function New-P2PTunnelNAT {
         [ValidateSet('1', '2')]
         $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Lan Interface Name")]
-        $LANInterface,
+        [string[]]$LANInterface,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
         [ValidateScript( {
                 if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
@@ -172,37 +174,7 @@ Function New-P2PTunnelNAT {
         [Parameter(Mandatory = $true, HelpMessage = "Specify if PFS should be enabled")]
         [ValidateSet('yes', 'no')]
         $PFS,
-        [Parameter(Mandatory = $true, HelpMessage = "
-des-md5
-des-sha1
-des-sha256
-des-sha384
-des-sha512
-3des-md5
-3des-sha1
-3des-sha256
-3des-sha384
-3des-sha512
-aes128-md5
-aes128-sha1
-aes128-sha256
-aes128-sha384
-aes128-sha512
-aes192-md5
-aes192-sha1
-aes192-sha256
-aes192-sha384
-aes192-sha512
-aes256-md5
-aes256-sha1
-aes256-sha256
-aes256-sha384
-aes256-sha512
-
-Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in a space delimited format.
-")]
-        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
-        $Proposal,
+        [Parameter(Mandatory = $true)][string[]]$Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Private Key for the Tunnel")]
         $PSK,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR Addresses that will be used by this Tunnel. ex: ""192.168.1.0/24"", ""10.100.12.0/24""")]
@@ -228,8 +200,18 @@ Type in the encryption selection to use for the Phase 1 and Phase 2 Proposals in
 
     begin {
         $ErrorActionPreference = 'Stop'
+        #Processing array parameters to single line entries for their respective config lines
+        #DHGroups
         $dhgroups = $dhgroups -join " "
+        #Proposals
+        $Proposal = $Proposal -join " "
+        #LanInterfaces
+        $IntQuotes = foreach ($int in $LANInterface) {
+            """$int"""
+        }
+        $LANInterface = $IntQuotes -join " "
     }
+
 
     process {
         #Create Phase 1 Proposal

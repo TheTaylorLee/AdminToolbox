@@ -19,37 +19,7 @@ Function New-P2PPhase1Interface {
         $ikev,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 Time to Live.")]
         $TTL,
-        [Parameter(Mandatory = $true, HelpMessage = "
-des-md5
-des-sha1
-des-sha256
-des-sha384
-des-sha512
-3des-md5
-3des-sha1
-3des-sha256
-3des-sha384
-3des-sha512
-aes128-md5
-aes128-sha1
-aes128-sha256
-aes128-sha384
-aes128-sha512
-aes192-md5
-aes192-sha1
-aes192-sha256
-aes192-sha384
-aes192-sha512
-aes256-md5
-aes256-sha1
-aes256-sha256
-aes256-sha384
-aes256-sha512
-
-Type in the encryption selection to use for the Phase 1 Proposal in a space delimited format.
-")]
-        [ValidateSet('des-md5', 'des-sha1', 'des-sha256', 'des-sha384', 'des-sha512', '3des-md5', '3des-sha1', '3des-sha256', '3des-sha384', '3des-sha512', 'aes128-md5', 'aes128-sha1', 'aes128-sha256', 'aes128-sha384', 'aes128-sha512', 'aes192-md5', 'aes192-sha1', 'aes192-sha256', 'aes192-sha384', 'aes192-sha512', 'aes256-md5', 'aes256-sha1', 'aes256-sha256', 'aes256-sha384', 'aes256-sha512')]
-        $Proposal,
+        [Parameter(Mandatory = $true)]$Proposal,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format.")]
         $dhgroups,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Peer address for the Tunnel Peer")]
@@ -61,6 +31,7 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
     Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
+        set ike-version $ikev
         set interface ""$Interface""
         set keylife $TTL
         set peertype any
@@ -68,7 +39,6 @@ config vpn ipsec phase1-interface
         set dhgrp $dhgroups
         set remote-gw $PeerAddress
         set psksecret $PSK
-        set ike-version $ikev
     next
 end"
 }
