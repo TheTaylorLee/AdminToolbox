@@ -61,6 +61,7 @@ Type in the encryption selection to use for the Phase 1 Proposal in a space deli
     Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
+        set ike-version $ikev
         set interface ""$Interface""
         set keylife $TTL
         set peertype any
@@ -68,7 +69,6 @@ config vpn ipsec phase1-interface
         set dhgrp $dhgroups
         set remote-gw $PeerAddress
         set psksecret $PSK
-        set ike-version $ikev
     next
 end"
 }

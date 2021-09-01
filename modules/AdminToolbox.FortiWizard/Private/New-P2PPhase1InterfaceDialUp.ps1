@@ -125,6 +125,7 @@ end
         Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
+        set ike-version $ikev
         set interface ""$Interface""
         set mode aggressive
         set peertype any
@@ -135,7 +136,6 @@ config vpn ipsec phase1-interface
         set dhgrp $dhgroups
         set remote-gw $Peeraddress
         set psksecret $PSK
-        set ike-version $ikev
     next
 end"
     }
