@@ -14,17 +14,17 @@ function Set-UAC {
     Enables UAC
 
     .Example
-    Set-UACState -DisablePrompt
+    Set-UAC -DisablePrompt
 
     Disabled UAC Prompting for Admins, but keeps UAC enabled
 
     .Example
-    Set-UACState -Disable
+    Set-UAC -Disable
 
     Disabled UAC Entirely
 
     .Example
-    Set-UACState -Enable
+    Set-UAC -Enable
 
     Enable UAC Entirely
 
