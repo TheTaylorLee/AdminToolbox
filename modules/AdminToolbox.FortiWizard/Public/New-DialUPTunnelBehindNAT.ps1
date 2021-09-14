@@ -37,7 +37,7 @@ Function New-DialUPTunnelBehindNAT {
     Specify if PFS should be enabled on the Phase 2 interface.
 
     .Parameter PeerID
-    This is a unique 3 numeric character long Identifer for this tunnel.
+    This is a unique 3 numeric character long Identifier for this tunnel.
 
     .Parameter Proposal
     This is the encryption proposal or proposals for the Phase 1 and Phase 2 interfaces. Provide in commad delimited format.

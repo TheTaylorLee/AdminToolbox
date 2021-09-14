@@ -30,7 +30,7 @@ Function New-DialUPTunnelRemoteNAT {
     ex: "192.168.1.0/24", "10.100.0/24"
 
     .Parameter PeerID
-    This is a unique 3 numeric character long Identifer for this tunnel.
+    This is a unique 3 numeric character long Identifier for this tunnel.
 
     .Parameter PFS
     Specify if PFS should be enabled on the Phase 2 interface.
