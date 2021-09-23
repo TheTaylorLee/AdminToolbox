@@ -156,7 +156,7 @@
                 {
                     "Name": "client",
                     "OriginalName": "-c",
-                    "ParameterType": "string",
+                    "ParameterType": "switch",
                     "Mandatory": true,
                     "Description": "host \nrun in client mode, connecting to <host>",
                     "ParameterSetName": [
