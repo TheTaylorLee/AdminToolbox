@@ -225,7 +225,7 @@ function Invoke-Iperf {
         [Parameter(ParameterSetName = 'Server')]
         [switch]$oneoff,
         [Parameter(Mandatory = $true, ParameterSetName = 'Client')]
-        [string]$client,
+        [switch]$client,
         [Parameter(ParameterSetName = 'Client')]
         [switch]$udp,
         [Parameter(ParameterSetName = 'Client')]
