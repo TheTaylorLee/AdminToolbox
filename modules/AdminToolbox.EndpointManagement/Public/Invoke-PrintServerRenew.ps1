@@ -1,11 +1,13 @@
-Function Invoke-PrinterServerRenew {
-    <#
+<#
     .Description
     Remove all Printers, printer ports, and print drivers. Function is good for providing a clean printer enviroment when starting over or importing a printer configuration file.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-PrinterServerRenew {
+
     Write-Warning "STOP and READ! This function will remove all printers, printer ports, and print drivers."
     Write-Host " "
     $query = Read-Host "Do you wish to proceed (yes/no)"

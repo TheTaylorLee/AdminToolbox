@@ -1,5 +1,4 @@
-Function Unblock-Quarantine {
-    <#
+<#
     .DESCRIPTION
     This is an alternative to the function Release-QuarantineMessage. This function bypasses the 1000 item per page limit by creating an array of results for up to 1000 pages and 1 million results. That is the log limit applied by Microsoft. I recommend limiting results as much as possible for performance reasons. Use Get-QuarantineMessage to restrict results further.
 
@@ -28,7 +27,9 @@ Function Unblock-Quarantine {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Unblock-Quarantine {
 
     [CmdletBinding()]
     Param (

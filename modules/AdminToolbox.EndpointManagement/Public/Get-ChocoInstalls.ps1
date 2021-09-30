@@ -1,5 +1,4 @@
-function Get-ChocoInstalls {
-    <#
+<#
     .DESCRIPTION
     Show Installed Chocolatey packages
 
@@ -8,7 +7,10 @@ function Get-ChocoInstalls {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-ChocoInstalls {
+
     [CmdletBinding()]
     [Alias('Show-ChocoInstalls')]
     param (

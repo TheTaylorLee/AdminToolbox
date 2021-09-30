@@ -1,5 +1,4 @@
-Function Invoke-PowerState {
-    <#
+<#
     .DESCRIPTION
     Modify the powerstate of one or more VMs at once. This command can also be used to discover the statuses.
 
@@ -43,7 +42,9 @@ Function Invoke-PowerState {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-PowerState {
 
     [CmdletBinding()]
     Param (

@@ -1,5 +1,4 @@
-Function Set-365GroupVisibility {
-    <#
+<#
     .DESCRIPTION
     This functions purpose is to make an office365 group visible in the Outlook Client. It's shorthand for an already existing command. If no parameters are specified then a Gridview is presented to select the group to make visible.
 
@@ -20,7 +19,9 @@ Function Set-365GroupVisibility {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Set-365GroupVisibility {
 
     [Cmdletbinding()]
     Param (

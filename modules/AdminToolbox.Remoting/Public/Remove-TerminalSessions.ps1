@@ -1,11 +1,12 @@
-function Remove-TerminalSessions {
-    <#
+<#
     .DESCRIPTION
     Pulls a list of all users sessions in a Remote Desktop Server Farm and allows you to select and remove one or many at once.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-TerminalSessions {
 
     function remove-session {
         [CmdletBinding()]

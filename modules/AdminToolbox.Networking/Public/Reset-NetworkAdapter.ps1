@@ -1,6 +1,4 @@
-function Reset-NetworkAdapter {
-
-    <#
+<#
     .DESCRIPTION
     Reset a specified interface
 
@@ -12,7 +10,9 @@ function Reset-NetworkAdapter {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Reset-NetworkAdapter {
 
     [CmdletBinding()]
     param (

@@ -1,6 +1,4 @@
-function Connect-Office365 {
-
-    <#
+<#
     .DESCRIPTION
     Connect to all Office 365 Modules or just those chosen using the provided parameters
 
@@ -103,7 +101,9 @@ function Connect-Office365 {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Connect-Office365 {
 
     [CmdletBinding()]
     [Alias('Connect-365')]

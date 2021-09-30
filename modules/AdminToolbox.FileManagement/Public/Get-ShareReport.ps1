@@ -1,7 +1,4 @@
-
-Function Get-ShareReport {
-
-    <#
+<#
     .Description
     This function produces an excel report of shares for the endpoint it is run on. The report will have tabs for all of the shares. Each share tab outlines Share and NTFS permissions for the share. Additional tabs are created with Active Directroy groups and their members for cross referencing.
 
@@ -26,7 +23,9 @@ Function Get-ShareReport {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-ShareReport {
 
     [CmdletBinding()]
 

@@ -1,5 +1,4 @@
-function Get-Applications {
-    <#
+<#
     .SYNOPSIS
     Sourced from https://mcpmag.com/articles/2017/07/27/gathering-installed-software-using-powershell.aspx
     Created by Boe Prox
@@ -17,7 +16,9 @@ function Get-Applications {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Applications {
 
     [OutputType('System.Software.Inventory')]
     [Cmdletbinding()]

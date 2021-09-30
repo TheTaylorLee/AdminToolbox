@@ -1,5 +1,4 @@
-function Get-Emote {
-    <#
+<#
     .DESCRIPTION
     Get a KaoMoji emote in Powershell
 
@@ -11,7 +10,9 @@ function Get-Emote {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Emote {
 
     [CmdletBinding()]
     [Alias('Emote')]

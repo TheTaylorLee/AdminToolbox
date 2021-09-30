@@ -1,6 +1,4 @@
-function Get-PublicIP {
-
-    <#
+<#
     .DESCRIPTION
     Returns WhoIS public IP info for your location or any specified public IP
 
@@ -19,7 +17,9 @@ function Get-PublicIP {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-PublicIP {
 
     [CmdletBinding()]
     Param (

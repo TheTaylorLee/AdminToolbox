@@ -1,5 +1,4 @@
-function Start-BurnSubtitles {
-    <#
+<#
     .DESCRIPTION
     Burn subtitles from an srt file.
 
@@ -22,7 +21,10 @@ function Start-BurnSubtitles {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-BurnSubtitles {
+
     [cmdletbinding()]
     param (
         [Parameter(Mandatory = $true)]

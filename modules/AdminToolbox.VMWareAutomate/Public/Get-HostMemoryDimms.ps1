@@ -1,6 +1,4 @@
-Function Get-HostMemoryDimms {
-
-    <#
+<#
     .SYNOPSIS
         Returns memory dimms configuration for esxi
 
@@ -30,7 +28,9 @@ Function Get-HostMemoryDimms {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-HostMemoryDimms {
 
     param(
         [Parameter(Mandatory = $true)][String]$VMHost,

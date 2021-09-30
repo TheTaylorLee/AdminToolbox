@@ -1,6 +1,4 @@
-function Set-Password {
-
-    <#
+<#
     .DESCRIPTION
     Sets a Active Directory Password and provides an option to require a password change on login
 
@@ -20,7 +18,10 @@ function Set-Password {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Set-Password {
+
     [CmdletBinding()]
 
     Param (

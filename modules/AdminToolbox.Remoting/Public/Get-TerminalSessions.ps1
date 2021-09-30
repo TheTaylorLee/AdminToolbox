@@ -1,11 +1,12 @@
-function Get-TerminalSessions {
-    <#
+<#
     .DESCRIPTION
     Pulls a list of all users sessions in a Remote Desktop Server Farm
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-TerminalSessions {
 
     try {
         $BrokerFQDN = (Get-WmiObject win32_computersystem).DNSHostName + "." + (Get-WmiObject win32_computersystem).Domain

@@ -1,5 +1,4 @@
-function Start-Transcode {
-    <#
+<#
     .DESCRIPTION
     Transcodes video files containing extensions *.mp4, *.mkv, *.avi, and *.mpg
 
@@ -15,7 +14,10 @@ function Start-Transcode {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-Transcode {
+
     [cmdletbinding()]
     [Alias('Transcode')]
     param (

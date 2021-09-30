@@ -1,5 +1,4 @@
-Function New-IPPoolOverLoad {
-    <#
+<#
     .Description
     Create a New Overload IP Pool
 
@@ -54,7 +53,9 @@ Function New-IPPoolOverLoad {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-IPPoolOverLoad {
 
     [CmdletBinding()]
     Param (

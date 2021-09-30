@@ -1,12 +1,12 @@
-function Get-Excuse {
-
-    <#
+<#
     .DESCRIPTION
     Are you out of excuses. Let powershell help you
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Excuse {
 
     [CmdletBinding(SupportsShouldProcess)]
     param (

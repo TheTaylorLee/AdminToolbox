@@ -1,5 +1,4 @@
-function Disable-Firewall {
-    <#
+<#
     .DESCRIPTION
     Disables the local firewall
 
@@ -8,7 +7,10 @@ function Disable-Firewall {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Disable-Firewall {
+
     [CmdletBinding(SupportsShouldProcess)]
     param (
     )

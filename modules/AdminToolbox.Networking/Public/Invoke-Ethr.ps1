@@ -1,5 +1,4 @@
-function Invoke-Ethr {
-    <#
+<#
     .DESCRIPTION
     This is a PowerShell Crescendo wrapper function for Microsoft ethr
 
@@ -125,7 +124,9 @@ function Invoke-Ethr {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+function Invoke-Ethr {
 
     [CmdletBinding()]
 

@@ -1,12 +1,12 @@
-function Reset-NetworkStack {
-
-    <#
+<#
     .DESCRIPTION
     Resets the TCP/IP and Winsock Stacks
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Reset-NetworkStack {
 
     [CmdletBinding()]
     param (

@@ -1,5 +1,4 @@
-function Get-Streams {
-    <#
+<#
     .DESCRIPTION
     Shows streams for a specified file
 
@@ -11,7 +10,10 @@ function Get-Streams {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Streams {
+
     [cmdletbinding()]
     param (
         [Parameter(Mandatory = $true)]$video

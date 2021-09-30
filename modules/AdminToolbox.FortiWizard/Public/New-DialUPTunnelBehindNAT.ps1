@@ -1,9 +1,7 @@
 #Required by functions
 #New-FormTunnel
 
-Function New-DialUPTunnelBehindNAT {
-
-    <#
+<#
     .Description
     This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the remote side of the tunnel whose public IP is subject to change or Sits behind another firewall.
 
@@ -139,7 +137,9 @@ Function New-DialUPTunnelBehindNAT {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-DialUPTunnelBehindNAT {
 
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]

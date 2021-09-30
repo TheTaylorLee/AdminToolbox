@@ -4,8 +4,7 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-AddressGroup {
-    <#
+<#
     .Description
     Create a New Address Object
 
@@ -53,7 +52,9 @@ Function New-AddressGroup {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-AddressGroup {
 
     [CmdletBinding()]
     Param (

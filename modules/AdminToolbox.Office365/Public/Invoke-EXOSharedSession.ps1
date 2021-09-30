@@ -1,5 +1,4 @@
-Function Invoke-EXOSharedSession {
-    <#
+<#
     .DESCRIPTION
     Connect to Exchange online Module and Exchange PSSnapin using a Single Console Host
 
@@ -14,7 +13,9 @@ Function Invoke-EXOSharedSession {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-EXOSharedSession {
 
     [CmdletBinding()]
     param (

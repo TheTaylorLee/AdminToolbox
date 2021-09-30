@@ -1,6 +1,4 @@
-function Invoke-ServiceRecovery {
-
-    <#
+<#
     .DESCRIPTION
     Restart one or multiple services that share a part of a Service Displayname
 
@@ -27,7 +25,9 @@ function Invoke-ServiceRecovery {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-ServiceRecovery {
 
     Param (
         [Parameter(Mandatory = $true)]$DisplayNameLike,

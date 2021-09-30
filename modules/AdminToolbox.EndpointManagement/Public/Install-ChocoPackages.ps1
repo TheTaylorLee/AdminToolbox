@@ -1,5 +1,4 @@
-function Install-ChocoPackages {
-    <#
+<#
     .DESCRIPTION
     Install one or Multiple Choclatey Packages
 
@@ -18,7 +17,9 @@ function Install-ChocoPackages {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Install-ChocoPackages {
 
     [CmdletBinding()]
     param (

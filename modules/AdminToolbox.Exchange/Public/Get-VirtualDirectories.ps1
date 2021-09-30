@@ -1,6 +1,4 @@
-Function Get-VirtualDirectories {
-
-    <#
+<#
     .DESCRIPTION
     Returns a list of Virtual Directories
 
@@ -12,7 +10,9 @@ Function Get-VirtualDirectories {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-VirtualDirectories {
 
     [CmdletBinding()]
     param (

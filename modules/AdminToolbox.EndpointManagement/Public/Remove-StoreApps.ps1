@@ -1,5 +1,4 @@
-function Remove-StoreApps {
-    <#
+<#
     .DESCRIPTION
     Removes sponsored Windows store apps and some microsoft apps
 
@@ -18,7 +17,10 @@ function Remove-StoreApps {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-StoreApps {
+
     [CmdletBinding(SupportsShouldProcess)]
 
     Param (

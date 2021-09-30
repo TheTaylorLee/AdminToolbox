@@ -1,6 +1,4 @@
-Function Disable-SipALG {
-
-    <#
+<#
     .Description
     Creates a Fortigate Config Script for disabling SIP ALG
 
@@ -35,7 +33,9 @@ Function Disable-SipALG {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function Disable-SipALG {
 
     [CmdletBinding()]
     Param (

@@ -1,5 +1,4 @@
-Function Invoke-Speak {
-    <#
+<#
     .Description
     Use the speech synthesizer in powershell
 
@@ -14,7 +13,10 @@ Function Invoke-Speak {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-Speak {
+
     [CmdletBinding()]
     [Alias('speak')]
     param(

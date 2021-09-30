@@ -1,5 +1,4 @@
-function Start-TranscodeMap {
-    <#
+<#
     .DESCRIPTION
     Allows specifying up to 5 streams to include in a transcode file
 
@@ -31,7 +30,10 @@ function Start-TranscodeMap {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-TranscodeMap {
+
     [cmdletbinding()]
     [Alias('TranscodeMap')]
     param (

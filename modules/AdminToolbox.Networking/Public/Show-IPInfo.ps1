@@ -1,6 +1,4 @@
-Function Show-IPInfo {
-
-    <#
+<#
     .DESCRIPTION
     Simply displays Address Spaces for Quick Reference
 
@@ -11,7 +9,9 @@ Function Show-IPInfo {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Show-IPInfo {
 
     [CmdletBinding()]
     [Alias('ipinfo')]

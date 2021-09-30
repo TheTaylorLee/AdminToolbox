@@ -32,6 +32,7 @@
 * **2.4.0.0** Added Markdown Documentation and link help
 * **2.5.0** Update versioning standard and added LicenseURI.
 * **2.6.0** Added Clear-TeamsCache
+* **2.6.1** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.6.0
+2.6.1

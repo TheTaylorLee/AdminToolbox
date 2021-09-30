@@ -1,5 +1,4 @@
-function New-AuthPolicy {
-    <#
+<#
     .DESCRIPTION
     Used to secure Exchange Online Authentication by creating authentication policies
 
@@ -19,7 +18,10 @@ function New-AuthPolicy {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function New-AuthPolicy {
+
     [CmdletBinding()]
     Param (
     )

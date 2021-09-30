@@ -1,5 +1,4 @@
-function Invoke-NetworkScan {
-    <#
+<#
     .Description
     Get Hostnames, IPAddresses, Open Ports, Mac Addresses, and Mac Vendors.
 
@@ -26,7 +25,10 @@ function Invoke-NetworkScan {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-NetworkScan {
+
     [CmdletBinding()]
     [Alias('scan')]
     param(

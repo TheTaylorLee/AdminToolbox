@@ -1,8 +1,7 @@
 #Required by functions
 #New-P2PTunnelNAT
 
-Function New-VIPRange {
-    <#
+<#
     .Description
     Create a New Virtual IP for a range
 
@@ -69,7 +68,9 @@ Function New-VIPRange {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-VIPRange {
 
     [CmdletBinding()]
     Param (

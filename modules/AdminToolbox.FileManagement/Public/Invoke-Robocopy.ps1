@@ -1,5 +1,4 @@
-function Invoke-Robocopy {
-    <#
+<#
     .DESCRIPTION
     This is a PowerShell Crescendo wrapper function for Robocopy or Robust File Copy for Windows
 
@@ -497,7 +496,9 @@ function Invoke-Robocopy {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-Robocopy {
 
     [CmdletBinding()]
 

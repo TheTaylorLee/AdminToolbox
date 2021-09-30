@@ -1,5 +1,4 @@
-function Start-TraceNG {
-    <#
+<#
     .DESCRIPTION
     Launches TraceNG tool
 
@@ -8,13 +7,14 @@ function Start-TraceNG {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-TraceNG {
 
     [CmdletBinding()]
     [Alias('trace')]
     param(
     )
-
 
     traceng.exe
 }

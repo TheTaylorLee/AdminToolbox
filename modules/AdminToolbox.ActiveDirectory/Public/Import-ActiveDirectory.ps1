@@ -1,5 +1,4 @@
-function Import-ActiveDirectory {
-    <#
+<#
     .DESCRIPTION
     This command is primarily for use in powershell core. It will attempt to import the active directory module into Powershell Core, but if that fails it will fallback to using powershell for the module import.
 
@@ -8,7 +7,9 @@ function Import-ActiveDirectory {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Import-ActiveDirectory {
 
     [CmdletBinding()]
     [Alias('Import-AD')]

@@ -1,5 +1,4 @@
-Function Set-PasswordNeverExpire {
-    <#
+<#
     .DESCRIPTION
     Set a office 365 account password to never expire.
 
@@ -14,7 +13,9 @@ Function Set-PasswordNeverExpire {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Set-PasswordNeverExpire {
 
     [Cmdletbinding()]
     Param (

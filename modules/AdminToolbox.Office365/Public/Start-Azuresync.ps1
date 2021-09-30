@@ -1,6 +1,4 @@
-function Start-AzureSync {
-
-    <#
+<#
     .DESCRIPTION
     Starts a local Active Directory sync to Azure Active Directory.
 
@@ -22,7 +20,9 @@ function Start-AzureSync {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-AzureSync {
 
     [CmdletBinding()]
 

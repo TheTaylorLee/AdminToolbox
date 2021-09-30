@@ -1,5 +1,4 @@
-function Add-LocalAdmin {
-    <#
+<#
     .DESCRIPTION
     This function adds a local admin to the computer or server it is run from.
 
@@ -17,7 +16,9 @@ function Add-LocalAdmin {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Add-LocalAdmin {
 
     [CmdletBinding()]
 

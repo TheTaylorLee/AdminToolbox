@@ -1,5 +1,4 @@
-function Reset-EndpointPassword {
-    <#
+<#
     .Description
     This function rebuilds the trust relationship for a workstation or server to a Domain
 
@@ -16,7 +15,9 @@ function Reset-EndpointPassword {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Reset-EndpointPassword {
 
     [CmdletBinding()]
     param (

@@ -1,5 +1,4 @@
-function Enable-Remoting {
-    <#
+<#
     .Description
     This Command will enable PowerShell Remoting on a remote PC.
 
@@ -22,7 +21,9 @@ function Enable-Remoting {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Enable-Remoting {
 
     [CmdletBinding()]
 

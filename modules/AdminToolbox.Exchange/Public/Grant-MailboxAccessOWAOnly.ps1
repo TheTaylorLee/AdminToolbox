@@ -1,6 +1,4 @@
-Function Grant-MailboxAccessOWAOnly {
-
-    <#
+<#
     .DESCRIPTION
     Grant access to a mailbox while not having it automap in outlook
 
@@ -20,7 +18,9 @@ Function Grant-MailboxAccessOWAOnly {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Grant-MailboxAccessOWAOnly {
 
     [CmdletBinding()]
     param (

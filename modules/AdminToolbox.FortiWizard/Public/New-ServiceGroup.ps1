@@ -4,8 +4,7 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-ServiceGroup {
-    <#
+<#
     .Description
     Create a new ServiceGroup Object
 
@@ -53,7 +52,9 @@ Function New-ServiceGroup {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-ServiceGroup {
 
     [CmdletBinding()]
     Param (

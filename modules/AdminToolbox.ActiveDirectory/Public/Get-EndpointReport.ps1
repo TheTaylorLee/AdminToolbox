@@ -1,6 +1,4 @@
-function Get-EndpointReport {
-
-    <#
+<#
     .DESCRIPTION
     Create a CSV report of Active Directory Endpoints
 
@@ -17,7 +15,9 @@ function Get-EndpointReport {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-EndpointReport {
 
     [CmdletBinding(SupportsShouldProcess)]
 

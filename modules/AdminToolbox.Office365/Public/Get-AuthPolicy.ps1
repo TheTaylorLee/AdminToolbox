@@ -1,5 +1,4 @@
-function Get-AuthPolicy {
-    <#
+<#
     .DESCRIPTION
     Used to view existing Authentication Policies for Exchange Online Mailboxes
 
@@ -15,7 +14,10 @@ function Get-AuthPolicy {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-AuthPolicy {
+
     [CmdletBinding()]
     Param (
     )

@@ -1,6 +1,4 @@
-Function Get-VMTools {
-
-    <#
+<#
     .DESCRIPTION
     Get Virtual Machines that have outdated VMWare Tools or all Virtual Machine tools versions.
 
@@ -36,7 +34,9 @@ Function Get-VMTools {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-VMTools {
 
     [CmdletBinding(SupportsShouldProcess)]
     Param (

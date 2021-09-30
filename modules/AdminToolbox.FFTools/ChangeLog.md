@@ -45,6 +45,7 @@
 * **4.5.0.0** Implemented a CI/CD workflow that finishes with this module being published to PSGallery
 * **4.6.0.0** Added Markdown Documentation and link help
 * **4.7.0** Update versioning standard and added LicenseURI.
+* **4.7.1** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.7.0
+4.7.1

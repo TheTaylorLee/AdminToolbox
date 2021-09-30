@@ -1,5 +1,4 @@
-Function Invoke-RunAsNetwork {
-    <#
+<#
     .Synopsis
     Chosen credentials will be passed by defined application when accessing any remote/network resources. Useful when you are trying to access resources in another domain or workgroup.
 
@@ -16,7 +15,9 @@ Function Invoke-RunAsNetwork {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-RunAsNetwork {
 
     [CmdletBinding()]
     param(

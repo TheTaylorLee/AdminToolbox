@@ -1,9 +1,9 @@
-function Install-FFTools {
-
-    <#
+<#
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Install-FFTools {
 
     #Download and unzip ffmpeg exes'
     Write-Host "Downloading the windows x64 build of ffmpeg and unpacking in path: $env:SystemRoot\system32" -ForegroundColor Green

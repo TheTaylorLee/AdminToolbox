@@ -1,5 +1,4 @@
-Function Get-DRBackup {
-    <#
+<#
     .DESCRIPTION
     The purpose of this function is to provide records that would simplify bringing back up a large vcenter array in a recovery scenario.
 
@@ -31,7 +30,9 @@ Function Get-DRBackup {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-DRBackup {
 
     [CmdletBinding(SupportsShouldProcess)]
     Param (

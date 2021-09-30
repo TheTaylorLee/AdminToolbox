@@ -1,5 +1,4 @@
-function Get-WhoIs {
-    <#
+<#
     .Synopsis
     Does a raw WHOIS query and returns the results
 
@@ -19,7 +18,9 @@ function Get-WhoIs {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-WhoIs {
 
     [CmdletBinding()]
     param(

@@ -1,5 +1,4 @@
-function Disable-Standby {
-    <#
+<#
     .DESCRIPTION
     Disables standby, sleep, and hibernate
 
@@ -8,7 +7,10 @@ function Disable-Standby {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Disable-Standby {
+
     [CmdletBinding()]
     [Alias("Disable-Sleep")]
     param (

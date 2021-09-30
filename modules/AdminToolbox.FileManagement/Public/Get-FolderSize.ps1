@@ -1,5 +1,4 @@
-function Get-FolderSize {
-    <#
+<#
     .DESCRIPTION
     Quickly Finds the size of a path
 
@@ -26,7 +25,9 @@ function Get-FolderSize {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-FolderSize {
 
     [CmdletBinding()]
     [Alias('FolderSize')]

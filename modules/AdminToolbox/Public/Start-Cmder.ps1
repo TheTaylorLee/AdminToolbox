@@ -1,5 +1,4 @@
-function Start-Cmder {
-    <#
+<#
     .DESCRIPTION
     Launch a drop-down command console.
 
@@ -15,7 +14,9 @@ function Start-Cmder {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-Cmder {
 
     [cmdletbinding()]
     [Alias ('cmder')]

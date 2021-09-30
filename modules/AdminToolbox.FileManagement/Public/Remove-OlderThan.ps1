@@ -1,6 +1,4 @@
-function Remove-OlderThan {
-
-    <#
+<#
     .Description
     This scripts function is to delete files and folders older than x days recursively.
 
@@ -18,7 +16,9 @@ function Remove-OlderThan {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-OlderThan {
 
     Param (
         [Parameter(Mandatory = $true)]$Path,

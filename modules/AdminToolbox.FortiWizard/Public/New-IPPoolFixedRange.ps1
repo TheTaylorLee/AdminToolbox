@@ -1,8 +1,7 @@
 #Required by functions
 #New-P2PTunnelNAT
 
-Function New-IPPoolFixedRange {
-    <#
+<#
     .Description
     Create a New Fixed Range IP Pool
 
@@ -63,7 +62,9 @@ Function New-IPPoolFixedRange {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-IPPoolFixedRange {
 
     [CmdletBinding()]
     Param (

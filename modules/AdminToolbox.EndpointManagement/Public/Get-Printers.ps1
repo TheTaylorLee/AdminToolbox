@@ -1,6 +1,4 @@
-function Get-Printers {
-
-    <#
+<#
     .DESCRIPTION
     This command returns a list of local or remote printers
 
@@ -27,7 +25,9 @@ function Get-Printers {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Printers {
 
     [CmdletBinding()]
 

@@ -1,5 +1,4 @@
-function Get-NetworkStatistics {
-    <#
+<#
     .SYNOPSIS
         Display current TCP/IP connections for local or remote system
 
@@ -90,7 +89,9 @@ function Get-NetworkStatistics {
         Author: Shay Levy, code butchered by Cookie Monster
         Shay's Blog: http://PowerShay.com
         Cookie Monster's Blog: http://ramblingcookiemonster.github.io/
-    #>
+#>
+
+function Get-NetworkStatistics {
 
     [OutputType('System.Management.Automation.PSObject')]
     [CmdletBinding()]

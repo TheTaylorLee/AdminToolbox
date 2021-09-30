@@ -1,6 +1,4 @@
-function Get-ADInfo {
-
-    <#
+<#
     .Description
     This function will return domain info. Requires the Active Directory Module.
 
@@ -9,7 +7,9 @@ function Get-ADInfo {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-ADInfo {
 
     [CmdletBinding()]
     param (

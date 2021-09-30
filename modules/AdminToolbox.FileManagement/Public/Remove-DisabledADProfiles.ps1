@@ -1,6 +1,4 @@
-function Remove-DisabledADProfiles {
-
-    <#
+<#
     .Description
     This function leverages PSRemoting to import the AD module a active domain controller.
     It will then parse through existing profiles on the local machine to make sure they don't belong to disabled or missing Active Directory Accounts
@@ -19,7 +17,9 @@ function Remove-DisabledADProfiles {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-DisabledADProfiles {
 
     [CmdletBinding()]
     [Alias('rdad')]

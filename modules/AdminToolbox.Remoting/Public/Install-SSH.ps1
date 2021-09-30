@@ -1,5 +1,4 @@
-function Install-SSH {
-    <#
+<#
     .DESCRIPTION
     Use this function on a local or remote endpoint to enable openssh.
 
@@ -29,7 +28,10 @@ function Install-SSH {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Install-SSH {
+
     [CmdletBinding(SupportsShouldProcess)]
     [Alias ('Install-OpenSSH')]
 

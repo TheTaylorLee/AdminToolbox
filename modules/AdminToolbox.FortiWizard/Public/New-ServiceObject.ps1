@@ -4,8 +4,7 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-ServiceObject {
-    <#
+<#
     .Description
     Create a new Service Object
 
@@ -65,7 +64,9 @@ Function New-ServiceObject {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-ServiceObject {
 
     [CmdletBinding()]
     Param (

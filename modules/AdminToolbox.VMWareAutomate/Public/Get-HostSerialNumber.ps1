@@ -1,6 +1,4 @@
-Function Get-HostSerialNumber {
-
-    <#
+<#
     .DESCRIPTION
     Get serial numbers for VM Hosts
 
@@ -17,7 +15,9 @@ Function Get-HostSerialNumber {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-HostSerialNumber {
 
     Param (
         [Parameter(Mandatory = $false)]$Host

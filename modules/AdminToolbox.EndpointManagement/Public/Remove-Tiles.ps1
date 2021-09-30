@@ -1,5 +1,4 @@
-function Remove-Tiles {
-    <#
+<#
     .DESCRIPTION
     Removes all start menu tiles in Windows 10. Not tested in Windows 11.
 
@@ -8,7 +7,10 @@ function Remove-Tiles {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-Tiles {
+
     [CmdletBinding()]
     param (
     )

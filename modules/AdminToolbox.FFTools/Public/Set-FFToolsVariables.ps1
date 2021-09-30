@@ -1,5 +1,4 @@
-function Set-FFToolsVariables {
-    <#
+<#
     .DESCRIPTION
     This function creates environment variables that persist after powershell closes. The created variables will be used across multiple FFTools Functions.
 
@@ -18,7 +17,9 @@ function Set-FFToolsVariables {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Set-FFToolsVariables {
 
     [Cmdletbinding()]
     Param (

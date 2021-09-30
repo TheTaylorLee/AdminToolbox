@@ -1,5 +1,4 @@
-function DisMount-ProfileRegistry {
-    <#
+<#
     .DESCRIPTION
     Loads any local users registry hive into the registry as a friendly name. Useful for modifying a users registry without the need of them being logged in locally.
 
@@ -16,7 +15,9 @@ function DisMount-ProfileRegistry {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function DisMount-ProfileRegistry {
 
     [CmdletBinding()]
     Param (

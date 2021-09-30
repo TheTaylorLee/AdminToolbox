@@ -1,5 +1,4 @@
-function Join-Domain {
-    <#
+<#
     .DESCRIPTION
     Joins pc to a domain
 
@@ -11,7 +10,10 @@ function Join-Domain {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Join-Domain {
+
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]$domain

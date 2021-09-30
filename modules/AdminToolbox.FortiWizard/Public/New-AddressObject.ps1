@@ -4,8 +4,7 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-AddressObject {
-    <#
+<#
     .Description
     Create a New Address Object
 
@@ -54,7 +53,9 @@ Function New-AddressObject {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-AddressObject {
 
     [CmdletBinding()]
     Param (

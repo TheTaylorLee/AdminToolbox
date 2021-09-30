@@ -1,5 +1,4 @@
-Function Set-Subscription {
-    <#
+<#
     .DESCRIPTION
     Presents a gridview of all subscriptions. On subscription from that view should be selected, for setting the subscription context where additional functions will be run from.
 
@@ -13,7 +12,9 @@ Function Set-Subscription {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Set-Subscription {
 
     [CmdletBinding()]
     Param (

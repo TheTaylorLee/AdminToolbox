@@ -1,6 +1,4 @@
-function Get-UserReport {
-
-    <#
+<#
     .DESCRIPTION
     Create a report of Active Directory users
 
@@ -14,7 +12,9 @@ function Get-UserReport {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-UserReport {
 
     [CmdletBinding()]
 

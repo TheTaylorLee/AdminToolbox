@@ -1,6 +1,4 @@
-function Add-DistributionMember {
-
-    <#
+<#
     .DESCRIPTION
     Add a mailbox or mailboxes to a distribution group. Wildcards can be used to add the whole organization to a distribution group.
 
@@ -30,7 +28,9 @@ function Add-DistributionMember {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Add-DistributionMember {
 
     [CmdletBinding()]
 

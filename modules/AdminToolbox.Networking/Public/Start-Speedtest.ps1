@@ -1,6 +1,4 @@
-function Start-Speedtest {
-
-    <#
+<#
     .Description
     Get the relative Download speed for the in use Wan Circuit. Function borrowed from the Speedtest PSGallery Module.
 
@@ -8,7 +6,9 @@ function Start-Speedtest {
 
     .Link
     https://www.powershellgallery.com/packages/Speedtest/2.0/Content/Speedtest.ps1
-    #>
+#>
+
+function Start-Speedtest {
 
     Write-Warning "Please be patient while results are returned"
     Write-Host "This is a rough speedtest dependent on remote servers." -ForegroundColor Green

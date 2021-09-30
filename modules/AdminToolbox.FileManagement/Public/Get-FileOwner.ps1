@@ -1,6 +1,4 @@
-function Get-FileOwner {
-
-    <#
+<#
     .Description
     This function produces a CSV listing file owners within a given path
 
@@ -17,7 +15,9 @@ function Get-FileOwner {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-FileOwner {
 
     [CmdletBinding(SupportsShouldProcess)]
 

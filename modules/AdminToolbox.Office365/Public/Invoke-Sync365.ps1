@@ -1,5 +1,4 @@
-Function Invoke-Sync365 {
-    <#
+<#
     .DESCRIPTION
     This function allows for initiating an Azure AD Sync with a short alias. Saves time having to login to the Azure AD Synced server or type out the Full Invoke-Command cmdlet each time.
 
@@ -29,7 +28,9 @@ Function Invoke-Sync365 {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-Sync365 {
 
     [Cmdletbinding()]
     [Alias('Sync365')]

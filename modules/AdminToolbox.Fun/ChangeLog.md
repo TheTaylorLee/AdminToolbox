@@ -20,6 +20,7 @@
 * **1.4.0.0** Added Markdown Documentation and link help
 * **1.5.0** Update versioning standard and added LicenseURI.
 * **1.5.1** Invoke-speak doesn't work in powershell core. Implemented a break to prevent it running in Pwsh.
+* **1.5.2** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.5.1
+1.5.2

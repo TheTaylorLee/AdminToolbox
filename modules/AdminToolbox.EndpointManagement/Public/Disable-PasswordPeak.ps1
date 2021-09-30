@@ -1,11 +1,13 @@
-function Disable-PasswordPeek {
-    <#
+<#
     .DESCRIPTION
     Disables Password peaking in windows password prompts. Especially useful if providing remote support and needing to type in admin credentials.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Disable-PasswordPeek {
+
 
     [CmdletBinding()]
     Param (

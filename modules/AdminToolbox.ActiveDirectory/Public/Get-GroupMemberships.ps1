@@ -1,5 +1,4 @@
-Function Get-GroupMemberships {
-	<#
+<#
     .DESCRIPTION
 	Get a list of Active Directory User Accounts and the groups they are a member of
 
@@ -14,7 +13,9 @@ Function Get-GroupMemberships {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-	#>
+#>
+
+Function Get-GroupMemberships {
 
 	[CmdletBinding()]
 

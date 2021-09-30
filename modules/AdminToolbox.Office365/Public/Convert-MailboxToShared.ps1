@@ -1,5 +1,4 @@
-function Convert-MailboxToShared {
-    <#
+<#
     .DESCRIPTION
     Convert an Exchange Online Mailbox to a Shared Mailbox without the need of maintaining a license.
 
@@ -12,7 +11,9 @@ function Convert-MailboxToShared {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Convert-MailboxToShared {
 
     [CmdletBinding()]
     Param (

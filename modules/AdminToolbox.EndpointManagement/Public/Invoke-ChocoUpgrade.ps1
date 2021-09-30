@@ -1,5 +1,4 @@
-function Invoke-ChocoUpgrade {
-    <#
+<#
     .DESCRIPTION
     Upgrade choco packages
 
@@ -8,7 +7,9 @@ function Invoke-ChocoUpgrade {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-ChocoUpgrade {
 
     [CmdletBinding()]
     param (

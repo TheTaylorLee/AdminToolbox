@@ -1,5 +1,4 @@
-Function Invoke-RunAsSSMS {
-    <#
+<#
     .Synopsis
     Chosen credentials will be passed to remote SQL server when windows authentication is chosen. This allows connecting to a SQL server using windows authentication when you are not on that domain.
 
@@ -21,7 +20,9 @@ Function Invoke-RunAsSSMS {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-RunAsSSMS {
 
     [CmdletBinding()]
     param(

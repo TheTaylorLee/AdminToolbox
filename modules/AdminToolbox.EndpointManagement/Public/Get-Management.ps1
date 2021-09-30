@@ -1,6 +1,4 @@
-function Get-Management {
-
-    <#
+<#
     .DESCRIPTION
     Opens Computer management connected for another PC
 
@@ -14,7 +12,9 @@ function Get-Management {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Management {
 
     [CmdletBinding()]
 

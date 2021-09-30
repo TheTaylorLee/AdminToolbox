@@ -1,5 +1,4 @@
-function Start-Remux {
-    <#
+<#
     .DESCRIPTION
     Remux files to mkv
 
@@ -8,7 +7,10 @@ function Start-Remux {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Start-Remux {
+
     [cmdletbinding()]
     param (
     )

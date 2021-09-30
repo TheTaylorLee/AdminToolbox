@@ -1,5 +1,4 @@
-Function Get-VMDetails {
-    <#
+<#
     .DESCRIPTION
     Collects multiple VM details across several functions and produces that info using PSCustomObject. Set the context of this command prior to running it. That can be done by using Set-Subscription function. That function is part of the Admintoolbox.office365 module.
 
@@ -11,7 +10,9 @@ Function Get-VMDetails {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-VMDetails {
 
     [CmdletBinding()]
     Param (

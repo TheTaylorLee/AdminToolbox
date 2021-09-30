@@ -1,5 +1,4 @@
-Function Enable-DataStoreRoundRobin {
-    <#
+<#
     .DESCRIPTION
     Get's all datastores in vcenter and enables Datastore Round Robin on them
 
@@ -11,7 +10,9 @@ Function Enable-DataStoreRoundRobin {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Enable-DataStoreRoundRobin {
 
     Get-VMHost |
     Get-ScsiLun -LunType disk |

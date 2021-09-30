@@ -1,5 +1,4 @@
-function Connect-OpenSSH {
-    <#
+<#
     .DESCRIPTION
     Use this function to connect to an SSH Session
 
@@ -25,7 +24,9 @@ function Connect-OpenSSH {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Connect-OpenSSH {
 
     [CmdletBinding()]
     [Alias('Connect-SSH')]

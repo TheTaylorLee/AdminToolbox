@@ -1,5 +1,4 @@
-function Invoke-Power {
-    <#
+<#
     .DESCRIPTION
     Use to alter VM Power states and reboot VM's.
 
@@ -51,7 +50,9 @@ function Invoke-Power {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-Power {
 
     [CmdletBinding()]
     Param (

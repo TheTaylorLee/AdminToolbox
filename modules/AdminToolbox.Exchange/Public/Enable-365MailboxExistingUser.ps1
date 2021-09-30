@@ -1,5 +1,4 @@
-Function Enable-365MailboxExistingUser {
-    <#
+<#
     .DESCRIPTION
     Simply a wrapper for existing function Enable-RemoteMailbox. This exists so if run it prompts for only needed attributes. This function will enable an office 365 mailbox for an existing user if they don't have a mailbox. If they have a mailbox in Exchange Online, but it's not visible in the on-premise exchange server, this function will make it visible locally.
 
@@ -30,7 +29,9 @@ Function Enable-365MailboxExistingUser {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Enable-365MailboxExistingUser {
 
     [CmdletBinding()]
     [alias('Enable-365Mailbox')]

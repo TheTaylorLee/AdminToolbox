@@ -19,6 +19,7 @@
 * **1.7.0** Update versioning standard and added LicenseURI.
 * **1.8.0** updated Invoke-Robocopy as a crescendo function and converted existing examples
 * **1.9.0** Updated Remove-all to also remove cache files.
+* **1.9.1** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.9.0
+1.9.1

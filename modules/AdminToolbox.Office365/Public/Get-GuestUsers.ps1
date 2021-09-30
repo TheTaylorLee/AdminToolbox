@@ -1,5 +1,4 @@
-﻿Function Get-GuestUsers {
-    <#
+﻿<#
     .DESCRIPTION
     This function will create an Excel report of guest users accounts from Azure AD, and groups they are a member of.
 
@@ -19,7 +18,9 @@
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-GuestUsers {
 
     Param
     (

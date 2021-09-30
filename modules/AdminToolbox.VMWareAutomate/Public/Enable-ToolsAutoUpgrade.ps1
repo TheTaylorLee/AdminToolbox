@@ -1,6 +1,4 @@
-Function Enable-ToolsAutoUpgrade {
-
-    <#
+<#
     .DESCRIPTION
     Filter out 2003 servers and servers that don't have Vmware Tools installed.
 
@@ -22,7 +20,9 @@ Function Enable-ToolsAutoUpgrade {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Enable-ToolsAutoUpgrade {
 
     [CmdletBinding(SupportsShouldProcess)]
     Param (

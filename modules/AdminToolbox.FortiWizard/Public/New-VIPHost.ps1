@@ -1,5 +1,4 @@
-Function New-VIPHost {
-    <#
+<#
     .Description
     Create a New Virtual IP for a single Host
 
@@ -66,7 +65,9 @@ Function New-VIPHost {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-VIPHost {
 
     [CmdletBinding()]
     Param (

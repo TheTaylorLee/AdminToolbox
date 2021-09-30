@@ -1,5 +1,4 @@
-function Get-RoleMembers {
-    <#
+<#
     .DESCRIPTION
     This function will get office365 roles and their members. It outputs the content to Excel tables.
 
@@ -8,7 +7,9 @@ function Get-RoleMembers {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-RoleMembers {
 
     begin {
     }

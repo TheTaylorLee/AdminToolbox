@@ -1,6 +1,4 @@
-Function Enable-Management {
-
-    <#
+<#
     .Description
     Configures trusted hosts that the admin account may connect from and enables management from the WAN interface. Don't forget to include your internal and management subnets if you still want to be able to manage the firewall from them!
 
@@ -112,7 +110,9 @@ Function Enable-Management {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function Enable-Management {
 
     [CmdletBinding()]
     Param (

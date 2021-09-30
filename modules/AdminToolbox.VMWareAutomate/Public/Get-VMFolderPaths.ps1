@@ -1,5 +1,4 @@
-Function Get-VMFolderPaths {
-    <#
+<#
     .DESCRIPTION
     Get's all VM respective Folders in Vcenter, exports that information to an excel file, and save the excel file your download folder.
 
@@ -17,7 +16,9 @@ Function Get-VMFolderPaths {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-VMFolderPaths {
 
     $folders = Get-Folder | Sort-Object Name
 

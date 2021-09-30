@@ -45,6 +45,7 @@
 * **4.5.0.0** Added Markdown Documentation and link help
 * **4.5.1.0** Fixed Misplaced Else Statement and a typo for Invoke-HotAdd
 * **4.6.0** Update versioning standard and added LicenseURI.
+* **4.6.1** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.6.0
+4.6.1

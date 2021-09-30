@@ -1,5 +1,4 @@
-function Uninstall-Application {
-    <#
+<#
     .DESCRIPTION
     Added a graphic uninstaller using Out-Gridview.
 
@@ -14,7 +13,9 @@ function Uninstall-Application {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Uninstall-Application {
 
     [Cmdletbinding()]
     [alias("Remove-Application")]

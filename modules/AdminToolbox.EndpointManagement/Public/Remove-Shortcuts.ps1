@@ -1,5 +1,4 @@
-function Remove-Shortcuts {
-    <#
+<#
     .DESCRIPTION
     Removes desktop shortcuts
 
@@ -8,7 +7,10 @@ function Remove-Shortcuts {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-Shortcuts {
+
     [CmdletBinding()]
     param (
         [parameter(Mandatory = $false)]$MyDesktopOnly

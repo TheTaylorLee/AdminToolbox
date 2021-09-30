@@ -1,6 +1,4 @@
-function Restart-Endpoint {
-
-    <#
+<#
     .DESCRIPTION
     Sets a countdown to restart the Endpoint. The command uses a multiplier set to 1 hour.
     You can use decimals to return shorter than an hour restart times or get X hours and X minutes.
@@ -32,7 +30,9 @@ function Restart-Endpoint {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Restart-Endpoint {
 
     [CmdletBinding()]
 

@@ -1,5 +1,4 @@
-function Invoke-Iperf {
-    <#
+<#
       .DESCRIPTION
       This is a PowerShell Crescendo wrapper function for Iperf3
       [KMG] indicates options that support a K/M/G suffix for kilo-, mega-, or giga-
@@ -179,7 +178,9 @@ function Invoke-Iperf {
 
       .Link
       https://github.com/TheTaylorLee/AdminToolbox
-      #>
+#>
+
+function Invoke-Iperf {
 
     [CmdletBinding()]
 

@@ -1,6 +1,4 @@
-Function Get-FileName {
-
-    <#
+<#
     .Description
     Get a gui prompt for Specifying a folder name
 
@@ -11,7 +9,9 @@ Function Get-FileName {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-FileName {
 
     [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms") | Out-Null
 

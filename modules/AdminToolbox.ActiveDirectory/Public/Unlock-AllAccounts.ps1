@@ -1,6 +1,4 @@
-function Unlock-AllAccounts {
-
-    <#
+<#
     .DESCRIPTION
     Unlocks all Active Directory Accounts
 
@@ -9,7 +7,9 @@ function Unlock-AllAccounts {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Unlock-AllAccounts {
 
     [CmdletBinding()]
     Param (

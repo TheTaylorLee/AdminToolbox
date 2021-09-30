@@ -1,5 +1,4 @@
-function Get-TenantDiagrams {
-    <#
+<#
     .DESCRIPTION
     This funcion expands on the AZViz module by PrateekSingh. That module can export Azure resourcegroups to create dependency diagrams. This function will loop through all resource groups to create a diagram for all in a tenant and export them into a logical folder structure.
 
@@ -11,7 +10,9 @@ function Get-TenantDiagrams {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-TenantDiagrams {
 
     [CmdletBinding()]
     param (

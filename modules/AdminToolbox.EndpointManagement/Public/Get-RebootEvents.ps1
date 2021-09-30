@@ -1,5 +1,4 @@
-function Get-RebootEvents {
-    <#
+<#
     .Description
     Returns reboot history for specified Computer or Server
 
@@ -11,7 +10,9 @@ function Get-RebootEvents {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-RebootEvents {
 
     [CmdletBinding()]
 

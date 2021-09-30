@@ -1,6 +1,4 @@
-Function get-mailboxreport {
-
-    <#
+<#
     .DESCRIPTION
     Produces a concentrated report of mailboxes that is useful for migration projects.
 
@@ -9,7 +7,9 @@ Function get-mailboxreport {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function get-mailboxreport {
 
     $Mailboxes = get-mailbox | Select-Object alias, SamAccountName, DistinguishedName, PrimarySmtpAddress, database, emailaddresses, DisplayName
 

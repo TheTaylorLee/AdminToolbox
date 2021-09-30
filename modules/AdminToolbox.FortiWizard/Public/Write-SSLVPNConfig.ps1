@@ -1,6 +1,4 @@
-Function Write-SSLVPNConfig {
-
-    <#
+<#
     .Description
     Creates a Fortigate Config Script for a simple SSL Client VPN implementation.
 
@@ -96,7 +94,9 @@ Function Write-SSLVPNConfig {
 
     .Link
     https://github.com/TheTaylorLee/FortiWizard/tree/main/docs
-    #>
+#>
+
+Function Write-SSLVPNConfig {
 
     [CmdletBinding()]
     Param (

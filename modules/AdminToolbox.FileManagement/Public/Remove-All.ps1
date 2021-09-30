@@ -1,6 +1,4 @@
-function Remove-All {
-
-    <#
+<#
     .Description
     This Command removes log files, temp files, and empties the recycle bin. Access denied errors do not indicate a failure of the script. Run for the local or a remote PC.
 
@@ -19,7 +17,9 @@ function Remove-All {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Remove-All {
 
     [CmdletBinding(SupportsShouldProcess)]
     [Alias('rall')]

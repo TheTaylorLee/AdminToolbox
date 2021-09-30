@@ -1,11 +1,12 @@
-Function Get-MonitorSizes {
-    <#
+<#
     .Description
     Gets the size of connected monitors
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-MonitorSizes {
 
     Get-WmiObject -Namespace root\wmi -Class WmiMonitorBasicDisplayParams |
     Select-Object @{ N = "Computer"; E = { $_.__SERVER } },

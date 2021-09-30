@@ -1,5 +1,4 @@
-function Set-VirtualDirectories {
-    <#
+<#
     .DESCRIPTION
     Configure Virtual Directories for Exchange
 
@@ -16,7 +15,9 @@ function Set-VirtualDirectories {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Set-VirtualDirectories {
 
     [cmdletbinding()]
     param (

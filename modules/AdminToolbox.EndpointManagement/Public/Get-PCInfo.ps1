@@ -1,6 +1,4 @@
-function Get-PCInfo {
-
-    <#
+<#
     .Description
     Returns useful informaion on the local endpoint or another.
 
@@ -22,7 +20,9 @@ function Get-PCInfo {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-PCInfo {
 
     [CmdletBinding()]
 

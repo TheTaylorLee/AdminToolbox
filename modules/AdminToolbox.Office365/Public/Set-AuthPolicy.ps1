@@ -1,5 +1,4 @@
-function Set-AuthPolicy {
-    <#
+<#
     .DESCRIPTION
     Used to secure Exchange Online Authentication by applying authentication policies
 
@@ -43,7 +42,10 @@ function Set-AuthPolicy {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Set-AuthPolicy {
+
     [CmdletBinding(SupportsShouldProcess)]
     Param (
         [Parameter(Mandatory = $True, ParameterSetName = 'Apply All Modern')]

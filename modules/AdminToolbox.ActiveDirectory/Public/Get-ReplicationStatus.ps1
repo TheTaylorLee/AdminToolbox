@@ -1,5 +1,4 @@
-function Get-ReplicationStatus {
-    <#
+<#
     .SYNOPSIS
     Extracted from EvoTec Blog
 
@@ -18,7 +17,9 @@ function Get-ReplicationStatus {
 
     .LINK
     https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/
-    #>
+#>
+
+function Get-ReplicationStatus {
 
     [CmdletBinding()]
     param(

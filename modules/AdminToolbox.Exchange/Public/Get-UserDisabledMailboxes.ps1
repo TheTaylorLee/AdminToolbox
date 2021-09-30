@@ -1,5 +1,4 @@
-function Get-UserDisabledMailboxes {
-    <#
+<#
     .DESCRIPTION
     Create a csv list for mailboxes associated with disabled AD Accounts
 
@@ -8,7 +7,9 @@ function Get-UserDisabledMailboxes {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-UserDisabledMailboxes {
 
     [CmdletBinding()]
 

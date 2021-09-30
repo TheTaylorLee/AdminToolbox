@@ -1,6 +1,4 @@
-function Get-MailLog {
-
-    <#
+<#
     .DESCRIPTION
     Creates a csv file containing logs of mail in a given time frame.
 
@@ -23,7 +21,9 @@ function Get-MailLog {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-MailLog {
 
     [CmdletBinding()]
 

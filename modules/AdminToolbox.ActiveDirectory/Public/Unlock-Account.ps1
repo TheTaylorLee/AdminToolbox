@@ -1,6 +1,4 @@
-function Unlock-Account {
-
-    <#
+<#
     .DESCRIPTION
     Unlocks an Active Directory Account
 
@@ -18,7 +16,9 @@ function Unlock-Account {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Unlock-Account {
 
     [CmdletBinding()]
 

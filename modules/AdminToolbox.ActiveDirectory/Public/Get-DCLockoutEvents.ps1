@@ -1,6 +1,4 @@
-function Get-DCLockoutEvents {
-
-    <#
+<#
     .DESCRIPTION
     Parse Logs 4740 and 4776 on the PDCEmulator for workstations causing a lockout. Null lockout location events are filtered. Best if run shortly after a lockout.
 
@@ -15,7 +13,9 @@ function Get-DCLockoutEvents {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-DCLockoutEvents {
 
     [CmdletBinding(SupportsShouldProcess)]
     Param(

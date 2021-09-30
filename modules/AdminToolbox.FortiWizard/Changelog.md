@@ -21,6 +21,7 @@
 * **2.8.0** Added support for multiple proposals and multiple interfaces  [Github Issue #34](https://github.com/TheTaylorLee/AdminToolbox/issues/34)
 * **2.9.0** Removed unnecessary write-host output.
 * **2.10.0** Changed default ssl inspection profile from no-inspection to certificate inspection for firewall policies.
+* **2.10.1** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.10.0
+2.10.1

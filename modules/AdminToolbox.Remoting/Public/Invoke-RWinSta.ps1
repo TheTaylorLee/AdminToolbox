@@ -1,5 +1,4 @@
-function Invoke-RWinSta {
-    <#
+<#
     .DESCRIPTION
     Wrapper function for rwinsta to get rdp sessions
 
@@ -16,7 +15,9 @@ function Invoke-RWinSta {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-RWinSta {
 
     [CmdletBinding()]
     [Alias('rwin')]

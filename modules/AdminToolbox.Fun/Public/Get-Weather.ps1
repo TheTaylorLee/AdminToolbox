@@ -1,5 +1,4 @@
-function Get-Weather {
-    <#
+<#
     .Description
     Shows weather for a location or the moon phase
 
@@ -27,7 +26,9 @@ function Get-Weather {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-Weather {
 
     [Cmdletbinding()]
     Param(

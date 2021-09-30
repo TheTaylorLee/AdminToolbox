@@ -1,6 +1,4 @@
-Function Get-MailboxScaleReport {
-
-    <#
+<#
     .DESCRIPTION
     Get a mailbox report to help with troubleshooting where a mailbox may have exceeded outlook limits
 
@@ -33,7 +31,9 @@ Function Get-MailboxScaleReport {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-MailboxScaleReport {
 
     [CmdletBinding()]
     param (

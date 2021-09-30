@@ -1,5 +1,4 @@
-Function Get-MFAStatus {
-    <#
+<#
     .DESCRIPTION
     Get Multifactor Authentication Status for Microsoft Online users
 
@@ -8,7 +7,9 @@ Function Get-MFAStatus {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-MFAStatus {
 
     #Check that the MSOnline and ImportExcel Module is loaded
     $Modulecheck = Get-Module msonline

@@ -1,6 +1,4 @@
-function Get-PasswordExpired {
-
-    <#
+<#
     .DESCRIPTION
     Returns a list of Active Directory Accounts with expired passwords
 
@@ -9,7 +7,9 @@ function Get-PasswordExpired {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-PasswordExpired {
 
     [CmdletBinding()]
     param (

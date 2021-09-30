@@ -1,6 +1,4 @@
-function Find-ComputersFiles {
-
-    <#
+<#
     .DESCRIPTION
     Discover queried files meeting a specific search parameter and output the findings to a spreadsheet.
 
@@ -28,7 +26,9 @@ function Find-ComputersFiles {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Find-ComputersFiles {
 
     [CmdletBinding(SupportsShouldProcess)]
     Param (

@@ -1,5 +1,4 @@
-function Mount-ProfileRegistry {
-    <#
+<#
     .DESCRIPTION
     Loads any local users registry hive into the registry as a friendly name. Useful for modifying a users registry without the need of them being logged in locally.
 
@@ -21,7 +20,9 @@ function Mount-ProfileRegistry {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Mount-ProfileRegistry {
 
     [CmdletBinding()]
     Param (

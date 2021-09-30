@@ -1,5 +1,4 @@
-Function Disconnect-ExchangeServer {
-    <#
+<#
     .DESCRIPTION
     Disconnect existing Exchange Server Sessions
 
@@ -8,7 +7,9 @@ Function Disconnect-ExchangeServer {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Disconnect-ExchangeServer {
 
     [CmdletBinding()]
     [Alias('Disconnect-Exchange')]

@@ -1,8 +1,7 @@
 #Required by functions
 #New-FormTunnel
 
-Function New-P2PTunnel {
-    <#
+<#
     .Description
     This is a CLI wizard that generates a new IPSec Tunnel Config and related objects.
 
@@ -132,7 +131,9 @@ Function New-P2PTunnel {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-P2PTunnel {
 
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide the DH Group or Groups in space delimeted format for the Phase 1 and Phase 2 proposals.")]

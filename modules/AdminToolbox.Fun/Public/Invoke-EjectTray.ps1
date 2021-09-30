@@ -1,5 +1,4 @@
-Function Invoke-EjectTray {
-    <#
+<#
     .SYNOPSIS
     This script helps in ejecting or closing the CD/DVD Drive
 
@@ -30,7 +29,10 @@ Function Invoke-EjectTray {
     .Notes
     Author : Sitaram Pamarthi
     WebSite: http://techibee.com
-    #>
+#>
+
+Function Invoke-EjectTray {
+
     [CmdletBinding()]
     param(
         [switch]$Eject,

@@ -1,6 +1,4 @@
-Function Invoke-HotAdd {
-
-    <#
+<#
     .DESCRIPTION
     Modify Hotadd settings for a single or all VM's
 
@@ -35,7 +33,9 @@ Function Invoke-HotAdd {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Invoke-HotAdd {
 
     [CmdletBinding()]
     param (

@@ -1,5 +1,4 @@
-function Invoke-PSipcalc {
-    <#
+<#
     .SYNOPSIS
     Provides detailed network information. Accepts CIDR notation and IP / subnet mask.
     Inspired by the utility "ipcalc" on Linux.
@@ -21,7 +20,9 @@ function Invoke-PSipcalc {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-PSipcalc {
 
     [CmdletBinding()]
     [Alias('psipcalc', 'ipcalc')]

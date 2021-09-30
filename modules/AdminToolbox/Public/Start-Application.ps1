@@ -1,6 +1,4 @@
-Function Start-Application {
-
-    <#
+<#
     .DESCRIPTION
     Launch most applications using powershell and the name of the executable
 
@@ -30,7 +28,9 @@ Function Start-Application {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Start-Application {
 
     [cmdletbinding(DefaultParameterSetName = 'Application')]
     [Alias ('app')]

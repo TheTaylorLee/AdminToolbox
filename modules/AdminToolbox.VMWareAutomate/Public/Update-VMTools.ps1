@@ -1,6 +1,4 @@
-Function Update-VMTools {
-
-    <#
+<#
     .DESCRIPTION
     Filter out 2003 servers and upgrade VMwaretools on all servers that are not up to date. Does not reboot the VM's.
 
@@ -22,7 +20,9 @@ Function Update-VMTools {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Update-VMTools {
 
     [CmdletBinding(SupportsShouldProcess)]
     Param (

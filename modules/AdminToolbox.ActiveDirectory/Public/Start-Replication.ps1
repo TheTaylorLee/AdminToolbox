@@ -1,5 +1,4 @@
-function Start-Replication {
-    <#
+<#
     .SYNOPSIS
     Extracted from EvoTec Blog
 
@@ -23,7 +22,9 @@ function Start-Replication {
 
     .LINK
     https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/
-    #>
+#>
+
+function Start-Replication {
 
     [CmdletBinding()]
     param(

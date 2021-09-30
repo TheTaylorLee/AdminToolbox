@@ -1,5 +1,4 @@
-Function Enable-PushNotifications {
-    <#
+<#
     .Description
     Enable Push Notifications for Fortitokenson a Public Interface
 
@@ -68,7 +67,9 @@ Function Enable-PushNotifications {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function Enable-PushNotifications {
 
     [CmdletBinding()]
     Param (

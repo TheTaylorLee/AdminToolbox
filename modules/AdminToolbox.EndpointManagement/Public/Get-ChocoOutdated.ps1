@@ -1,5 +1,4 @@
-function Get-ChocoOutdated {
-    <#
+<#
     .DESCRIPTION
     Gets outdated choco packages
 
@@ -8,7 +7,10 @@ function Get-ChocoOutdated {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-ChocoOutdated {
+
     [cmdletbinding()]
     [Alias('Show-ChocoOutdated')]
     param (

@@ -1,5 +1,4 @@
-function Get-MacVendor {
-    <#
+<#
     .Synopsis
     Resolve MacAddresses To Vendors
 
@@ -28,7 +27,10 @@ function Get-MacVendor {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-MacVendor {
+
     [CmdletBinding(DefaultParameterSetName = 'MacAddress')]
     param(
         [Parameter (Mandatory = $true, ValueFromPipeline = $false, ParameterSetName = 'MacAddress')]

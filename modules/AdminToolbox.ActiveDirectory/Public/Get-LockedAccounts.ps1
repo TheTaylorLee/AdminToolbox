@@ -1,6 +1,4 @@
-function Get-LockedAccounts {
-
-    <#
+<#
     .Description
     Return a list of Locked Active Directory Accounts
 
@@ -9,7 +7,9 @@ function Get-LockedAccounts {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-LockedAccounts {
 
     Import-Module ActiveDirectory
 

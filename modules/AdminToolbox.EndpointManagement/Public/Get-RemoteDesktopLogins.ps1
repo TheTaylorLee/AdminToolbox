@@ -1,6 +1,4 @@
-
-function Get-RemoteDesktopLogins {
-    <#
+<#
     .DESCRIPTION
     Get all remote desktop logon and logoff events and return results to a csv
 
@@ -12,7 +10,9 @@ function Get-RemoteDesktopLogins {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Get-RemoteDesktopLogins {
 
     [cmdletbinding()]
 

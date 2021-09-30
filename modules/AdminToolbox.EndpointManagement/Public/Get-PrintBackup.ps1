@@ -1,11 +1,11 @@
-Function Get-PrintBackup {
-    <#
+<#
     .Description
     Creates a spreadsheet of printer information for change log tracking. The excel spreadsheet is saved to the local desktop.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+Function Get-PrintBackup {
 
     Import-Module ImportExcel
 

@@ -1,5 +1,4 @@
-Function Disable-Cortana {
-    <#
+<#
     .Description
     Simply disables Cortana Functionality
 
@@ -9,7 +8,9 @@ Function Disable-Cortana {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Disable-Cortana {
 
     New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\' -Name 'Windows Search'
     New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' -Name 'AllowCortana' -PropertyType DWORD -Value '0'

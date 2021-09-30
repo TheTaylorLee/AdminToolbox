@@ -1,5 +1,4 @@
-function Invoke-QWinSta {
-    <#
+<#
     .DESCRIPTION
     Wrapper function for qwinsta to get rdp sessions
 
@@ -13,7 +12,9 @@ function Invoke-QWinSta {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-QWinSta {
 
     [CmdletBinding()]
     [Alias('qwin')]

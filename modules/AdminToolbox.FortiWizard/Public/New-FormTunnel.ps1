@@ -1,5 +1,4 @@
-Function New-FormTunnel {
-    <#
+<#
     .Description
     This function will use a VPN form to build a tunnel from one of 4 VPN tunnel types. It will use that vpn form to populate parameters for one of the specified tunnel functions New-P2PTunnel, New-P2PTunnelNAT, New-DialupRemoteNAT, or New-DialupBehindNAT. Use the link provided in this description to download the VPN Form. The VPN form may be modified in it's entirety with the exception of where the provided parameter values are to be entered. Those cells must remain in the same location or this function will not work for you.
 
@@ -18,7 +17,9 @@ Function New-FormTunnel {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
-    #>
+#>
+
+Function New-FormTunnel {
 
     Param (
         [Parameter(Mandatory = $true)]

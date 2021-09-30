@@ -1,6 +1,4 @@
-function Invoke-Monitor {
-
-    <#
+<#
     .DESCRIPTION
     Monitor a down service until it is reachable. Provides time elapsed for the monitor and an audible indication when the services is back online.
 
@@ -21,7 +19,9 @@ function Invoke-Monitor {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Invoke-Monitor {
 
     [CmdletBinding()]
     Param (

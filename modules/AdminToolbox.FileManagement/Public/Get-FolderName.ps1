@@ -1,6 +1,4 @@
-Function Get-FolderName {
-
-    <#
+<#
     .Description
     Get a gui prompt for Specifying a folder name
 
@@ -11,7 +9,9 @@ Function Get-FolderName {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-FolderName {
 
     param([string]$Description = "Select Folder", [string]$RootFolder = "Desktop")
 

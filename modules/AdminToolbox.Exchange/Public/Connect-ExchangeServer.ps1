@@ -1,5 +1,4 @@
-function Connect-ExchangeServer {
-    <#
+<#
     .DESCRIPTION
     Import a Powershell session from a remote exchange server with the exchange commands available
 
@@ -14,7 +13,9 @@ function Connect-ExchangeServer {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Connect-ExchangeServer {
 
     [CmdletBinding()]
     [Alias('Connect-Exchange')]

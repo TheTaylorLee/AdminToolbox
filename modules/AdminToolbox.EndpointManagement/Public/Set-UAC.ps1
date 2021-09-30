@@ -1,6 +1,4 @@
-function Set-UAC {
-
-    <#
+<#
     .Description
     This function can Enable/Disable UserAccountControl entirely or just the Prompt Behavior
 
@@ -30,7 +28,9 @@ function Set-UAC {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Set-UAC {
 
     [CmdletBinding()]
     param (

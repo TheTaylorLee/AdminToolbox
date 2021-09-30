@@ -1,6 +1,4 @@
-Function Enable-MailboxAccess {
-
-    <#
+<#
     .Description
     This function permits full access to a user mailbox and launches a browser session to Outlook on the Web. The reason to use this function would be for an unlicensed global admin to access a user mailbox. The gui in that instance would not be an option.
 
@@ -22,7 +20,9 @@ Function Enable-MailboxAccess {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Enable-MailboxAccess {
 
     [CmdletBinding()]
     Param (

@@ -1,5 +1,4 @@
-Function Get-Quarantine {
-    <#
+<#
     .DESCRIPTION
     This is an alternative to the function Get-QuarantineMessage. This function bypasses the 1000 item per page limit by creating an array of results for up to 1000 pages and 1 million results. That is the log limit applied by Microsoft. I recommend limiting results as much as possible for performance reasons. Use Get-QuarantineMessage to restrict results further.
 
@@ -23,7 +22,9 @@ Function Get-Quarantine {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+Function Get-Quarantine {
 
     [CmdletBinding()]
     Param (

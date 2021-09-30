@@ -1,5 +1,4 @@
-function Install-Chocolatey {
-    <#
+<#
     .DESCRIPTION
     Installs Chocolatey
 
@@ -8,7 +7,9 @@ function Install-Chocolatey {
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
-    #>
+#>
+
+function Install-Chocolatey {
 
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute( `
             "PSAvoidUsingInvokeExpression", `

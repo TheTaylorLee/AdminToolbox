@@ -23,6 +23,7 @@
 * **1.7.0.0** Added Markdown Documentation and link help
 * **1.8.0** Update versioning standard and added LicenseURI.
 * **1.8.1** Invoke-ServiceRecovery doesn't work in Powershell Core. Added a function break with an error to use Legacy Powershell.
+* **1.8.2** Move comment based help outside function block
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.8.1
+1.8.2
