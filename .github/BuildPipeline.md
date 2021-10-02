@@ -10,9 +10,9 @@ This is the workflow for new releases
         * Update required module versions for the AdminToolbox module
 
 * **Test Phase**
-    * Copy updated modules to PSPortable and PSPortableLight
-        * Commit Change to the PSPortable and PSPortableLight Repositories
-        * Download updated psportable package
+    * Copy updated modules to testing.Admintoolbox git
+        * Commit Change to the repositorie
+        * Open updated admintoolbox.testing portable PowerShell package
         * Test Changes
         * Repeat previous steps as required to get a stable build
 
