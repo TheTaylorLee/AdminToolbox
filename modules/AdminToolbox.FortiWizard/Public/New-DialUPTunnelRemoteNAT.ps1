@@ -318,10 +318,16 @@ Function New-DialUPTunnelRemoteNAT {
     }
 
     end {
+        $mv = (Get-Module admintoolbox.fortiwizard).version
+        $mv1 = $mv.major
+        $mv2 = $mv.Minor
+        $mv3 = $mv.build
+        $modversion = [string]$mv1 + [string]"." + [string]$mv2 + [string]"." + [string]$mv3
         Write-Output "#####################################################################################"
         Write-Output "# Tunnel config generated using Admintoolbox.FortiWizard module by TheTaylorLee     #"
         Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                              #"
         Write-Output "# https://github.com/TheTaylorLee/AdminToolbox                                      #"
+        Write-Output "# Created using module version $ModVersion                                          #"
         Write-Output "#####################################################################################"
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects
