@@ -207,7 +207,7 @@ Function out-manifests {
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS."
-            ModuleVersion        = "2.11.0"
+            ModuleVersion        = "2.11.1"
             Powershellversion    = "5.1"
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
             ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"

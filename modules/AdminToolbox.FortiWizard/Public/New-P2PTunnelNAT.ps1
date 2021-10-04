@@ -397,10 +397,10 @@ Function New-P2PTunnelNAT {
         $mv3 = $mv.build
         $modversion = [string]$mv1 + [string]"." + [string]$mv2 + [string]"." + [string]$mv3
         Write-Output "#####################################################################################"
-        Write-Output "# Tunnel config generated using Admintoolbox.FortiWizard module by TheTaylorLee     #"
-        Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee                              #"
-        Write-Output "# https://github.com/TheTaylorLee/AdminToolbox                                      #"
-        Write-Output "# Created using module version $ModVersion                                          #"
+        Write-Output "# Tunnel config generated using Admintoolbox.FortiWizard module by TheTaylorLee"
+        Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee"
+        Write-Output "# https://github.com/TheTaylorLee/AdminToolbox"
+        Write-Output "# Created using module version $ModVersion"
         Write-Output "#####################################################################################"
         Write-Output $ConfPhase1
         Write-Output $ConfLocalAddressObjects
