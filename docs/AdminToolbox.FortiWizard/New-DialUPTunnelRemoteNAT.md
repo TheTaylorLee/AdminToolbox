@@ -144,7 +144,7 @@ Accept wildcard characters: False
 ```
 
 ### -PeerID
-This is a unique 3 numeric character long Identifer for this tunnel.
+This is a unique 3 numeric character long Identifier for this tunnel.
 
 ```yaml
 Type: Object

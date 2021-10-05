@@ -1,5 +1,5 @@
 <#
-    .DESCRIPTION
+    .Description
     Create a CSV report of Active Directory Endpoints
 
     .Parameter Path

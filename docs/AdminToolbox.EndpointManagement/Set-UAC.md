@@ -33,21 +33,21 @@ This function can Enable/Disable UserAccountControl entirely or just the Prompt 
 
 ### EXAMPLE 1
 ```
-Set-UACState -DisablePrompt
+Set-UAC -DisablePrompt
 ```
 
 Disabled UAC Prompting for Admins, but keeps UAC enabled
 
 ### EXAMPLE 2
 ```
-Set-UACState -Disable
+Set-UAC -Disable
 ```
 
 Disabled UAC Entirely
 
 ### EXAMPLE 3
 ```
-Set-UACState -Enable
+Set-UAC -Enable
 ```
 
 Enable UAC Entirely

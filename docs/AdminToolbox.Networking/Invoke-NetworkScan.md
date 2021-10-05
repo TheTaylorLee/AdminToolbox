@@ -109,7 +109,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Does not work in Powershell Core
 
 ## RELATED LINKS
 

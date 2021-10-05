@@ -19,7 +19,7 @@ Invoke-Iperf [-help] [-version] [<CommonParameters>]
 ### Client
 ```
 Invoke-Iperf [-port <String>] [-format <String>] [-interval <String>] [-file <String>] [-bind <String>]
- [-verboseout] [-json] [-logfile <String>] [-debugout] [-daemon] -client <String> [-udp] [-bandwidth <String>]
+ [-verboseout] [-json] [-logfile <String>] [-debugout] [-daemon] [-client] [-udp] [-bandwidth <String>]
  [-time <String>] [-bytes <String>] [-blockcount <String>] [-bufferlength <String>] [-cport <String>]
  [-parallel <String>] [-reverse] [-window <String>] [-mtu <String>] [-nodelay] [-ipv4only] [-ipv6only]
  [-tos <String>] [-zerocopy] [-omitseconds <String>] [-Title <String>] [-showserveroutput <String>]
@@ -292,13 +292,13 @@ host
 run in client mode, connecting to \<host\>
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: Client
 Aliases:
 
 Required: True
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
