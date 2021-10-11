@@ -69,5 +69,6 @@ jobs:
           #Write Updated help back to the master branch
           git config --global user.email $env:GIT_EMAIL
           git config --global user.name "TheTaylorLee"
-          git commit -am "test update help"
+          git add -A
+          git commit -m "Workflow Update_Docs"
           git push -u origin workflow_testing
