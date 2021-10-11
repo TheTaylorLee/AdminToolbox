@@ -44,26 +44,26 @@ jobs:
           NUGET_KEY: ${{ secrets.GIT_TOKEN }}
         shell: pwsh
         run: |
-#          #Install Modules missed by the Cache action
-#          Set-PSRepository PSGallery -InstallationPolicy Trusted
-#          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
-#
-#          #Set Variable
-#          $workingdirectory = (get-location).path
-#
-#          #Check Folder Directory
-#          ls $workingdirectory
-#
-#          #Ensure Modules are imported
-#          Import-Module platyPS
-#          Import-Module Admintoolbox
-#
-#          #Update help
-#          $Modules = Get-Module Admintool*
-#
-#          foreach ($ModuleName in $modules.name) {
-#              New-MarkdownHelp -Module $ModuleName -OutputFolder "$workingdirectory\docs\$ModuleName" -Force
-#          }
+          #          #Install Modules missed by the Cache action
+          #          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          #          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+          #
+          #          #Set Variable
+          #          $workingdirectory = (get-location).path
+          #
+          #          #Check Folder Directory
+          #          ls $workingdirectory
+          #
+          #          #Ensure Modules are imported
+          #          Import-Module platyPS
+          #          Import-Module Admintoolbox
+          #
+          #          #Update help
+          #          $Modules = Get-Module Admintool*
+          #
+          #          foreach ($ModuleName in $modules.name) {
+          #              New-MarkdownHelp -Module $ModuleName -OutputFolder "$workingdirectory\docs\$ModuleName" -Force
+          #          }
 
           #Write Updated help back to the master branch
           git show
