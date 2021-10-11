@@ -45,6 +45,7 @@ jobs:
         shell: pwsh
         run: |
           #Install Modules missed by the Cache action
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
 
           #Set Variable
