@@ -166,6 +166,7 @@
 * **9.16.0** Updated ConEmu settings to not check for updates
 * **9.16.1** Move comment based help outside function block
 * **9.17.0** Update required modules
+* **9.18.0** Update required modules
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-9.17.0
+9.18.0
