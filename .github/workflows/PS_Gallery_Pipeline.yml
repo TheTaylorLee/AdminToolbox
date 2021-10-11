@@ -49,7 +49,6 @@ jobs:
           #Install-Module PSEventViewer -Force -Allowclobber
           #Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
           #Install-Module -Name VMware.VimAutomation.Core -Force
-          #Import-Module Posh-SSH -Force -SkipEditionCheck
 
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
