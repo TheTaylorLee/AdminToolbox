@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.VMWareAutomateManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.7.0'
+ModuleVersion = '4.7.1'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'eb469a5f-e5db-45b9-8925-dbc7fa0388d1'
+GUID = '89de1398-35e3-4ee4-b874-009d5b261e00'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -52,7 +52,11 @@ PowerShellVersion = '5.1'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(@{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; }, 
-               @{ModuleName = 'VMware.VimAutomation.Core'; ModuleVersion = '12.3.0.17839688'; })
+               @{ModuleName = 'VMware.Vim'; ModuleVersion = '7.0.2.17839075'; }, 
+               @{ModuleName = 'VMware.VimAutomation.CisCore'; ModuleVersion = '12.3.0.17839331'; }, 
+               @{ModuleName = 'VMware.VimAutomation.Common'; ModuleVersion = '12.3.0.17838947'; }, 
+               @{ModuleName = 'VMware.VimAutomation.Core'; ModuleVersion = '12.3.0.17839688'; }, 
+               @{ModuleName = 'VMware.VimAutomation.Sdk'; ModuleVersion = '12.2.0.17531155'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()

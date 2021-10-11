@@ -12,13 +12,13 @@
 RootModule = 'AdminToolboxManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '9.18.0'
+ModuleVersion = '9.19.0'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'b9478571-07c6-4263-a9d5-3822b5852ecb'
+GUID = '25ec7b0a-834f-4c73-8149-f8e441943840'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -61,7 +61,7 @@ RequiredModules = @(@{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion
                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.2'; }, 
                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.6.1'; }, 
                @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.2'; }, 
-               @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.7.0'; }, 
+               @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.7.1'; }, 
                @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; }, 
                @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; })
 

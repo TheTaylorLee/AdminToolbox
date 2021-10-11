@@ -41,7 +41,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.18.0"
+            ModuleVersion        = "9.19.0"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
@@ -55,7 +55,7 @@ Function out-manifests {
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.2'; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.6.1'; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.2'; },
-                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.7.0'; },
+                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.7.1'; },
                 @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
                 @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; }
             )
@@ -339,12 +339,16 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "4.7.0"
+            ModuleVersion        = "4.7.1"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
                 @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
-                @{ ModuleName = "VMware.VimAutomation.Core" ; ModuleVersion = "12.3.0.17839688" }
+                @{ ModuleName = "VMware.Vim" ; ModuleVersion = "7.0.2.17839075" },
+                @{ ModuleName = "VMware.VimAutomation.CisCore" ; ModuleVersion = "12.3.0.17839331" },
+                @{ ModuleName = "VMware.VimAutomation.Common" ; ModuleVersion = "12.3.0.17838947" },
+                @{ ModuleName = "VMware.VimAutomation.Core" ; ModuleVersion = "12.3.0.17839688" },
+                @{ ModuleName = "VMware.VimAutomation.Sdk" ; ModuleVersion = "12.2.0.17531155" }
             )
             RootModule           = "AdminToolbox.VMWareAutomateManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"

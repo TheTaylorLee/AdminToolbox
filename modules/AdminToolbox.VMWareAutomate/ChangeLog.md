@@ -47,6 +47,7 @@
 * **4.6.0** Update versioning standard and added LicenseURI.
 * **4.6.1** Move comment based help outside function block
 * **4.7.0** Updated Required Modules and get-drbackup
+* **4.7.1** Updated Required Modules
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.7.0
+4.7.1
