@@ -66,4 +66,4 @@ jobs:
           }
 
           #Write Updated help back to the master branch
-          git diff
+          git show
