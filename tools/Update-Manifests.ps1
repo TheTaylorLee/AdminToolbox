@@ -345,7 +345,7 @@ Function out-manifests {
             RequiredModules      = (
                 @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
                 @{ ModuleName = "VMware.Vim" ; ModuleVersion = "7.0.2.17839075" },
-                @{ ModuleName = "VMware.VimAutomation.CisCore" ; ModuleVersion = "12.3.0.17839331" },
+                @{ ModuleName = "VMware.VimAutomation.Cis.Core" ; ModuleVersion = "12.3.0.17839331" },
                 @{ ModuleName = "VMware.VimAutomation.Common" ; ModuleVersion = "12.3.0.17838947" },
                 @{ ModuleName = "VMware.VimAutomation.Core" ; ModuleVersion = "12.3.0.17839688" },
                 @{ ModuleName = "VMware.VimAutomation.Sdk" ; ModuleVersion = "12.2.0.17531155" }
