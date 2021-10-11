@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+# This workflow is responsible for updating Markdown help once a week.
 
 name: Update_Docs
 
@@ -49,9 +49,6 @@ jobs:
           #Set Variable
           $workingdirectory = (get-location).path
 
-          #Check Folder Directory
-          ls $workingdirectory
-
           #Ensure Modules are imported
           Import-Module platyPS
           Import-Module Admintoolbox
@@ -68,4 +65,4 @@ jobs:
           git config --global user.name "TheTaylorLee"
           git add -A
           git commit -m "Workflow Update_Docs"
-          git push -u origin workflow_testing
+          git push -u origin master
