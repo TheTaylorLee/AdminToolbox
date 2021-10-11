@@ -1,6 +1,6 @@
 # This workflow is responsible for updating Markdown help once a week.
 
-name: Update_Docs
+name: Update Docs
 
 # Controls when the action will run.
 on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
