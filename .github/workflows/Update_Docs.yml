@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Workflow Testing
+name: Update_Docs
 
 # Controls when the action will run.
 on: # Triggers the workflow on push or pull request events but only for the master branch
@@ -29,7 +29,7 @@ jobs:
         id: psmodulecache
         uses: potatoqualitee/psmodulecache@v1
         with:
-          modules-to-cache: PlatyPS
+          modules-to-cache: AdminToolbox, PlatyPS
 
       - name: Setup PowerShell module cache
         id: cacher
@@ -39,13 +39,19 @@ jobs:
           key: ${{ steps.psmodulecache.outputs.keygen }}
 
       #Run pwsh functions to publish the module
-      - name: Test running PWSH functions with only code that needs testing
+      - name: Update Manifest Help Documentation using
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
         shell: pwsh
         run: |
-          function test {
-            $workingdirectory = (get-location).path
-            git
+          $workingdirectory = (get-location).path
+          write-output $workingdirectory
+          #git
+
+          Import-Module platyPS
+          Import-Module Admintoolbox
+          $Modules = Get-Module Admintool*
+
+          foreach ($ModuleName in $modules.name) {
+              New-MarkdownHelp -Module $ModuleName -OutputFolder "$workingdirectory\docs\$ModuleName" -Force
           }
-          test
