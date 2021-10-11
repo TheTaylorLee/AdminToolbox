@@ -39,19 +39,30 @@ jobs:
           key: ${{ steps.psmodulecache.outputs.keygen }}
 
       #Run pwsh functions to publish the module
-      - name: Update Manifest Help Documentation using
+      - name: Update markdown help documentation
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
         shell: pwsh
         run: |
-          $workingdirectory = (get-location).path
-          write-output $workingdirectory
-          #git
+          #Install Modules missed by the Cache action
+          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
 
+          #Set Variable
+          $workingdirectory = (get-location).path
+
+          #Check Folder Directory
+          ls $workingdirectory
+
+          #Ensure Modules are imported
           Import-Module platyPS
           Import-Module Admintoolbox
+
+          #Update help
           $Modules = Get-Module Admintool*
 
           foreach ($ModuleName in $modules.name) {
               New-MarkdownHelp -Module $ModuleName -OutputFolder "$workingdirectory\docs\$ModuleName" -Force
           }
+
+          #Write Updated help back to the master branch
+          #git
