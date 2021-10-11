@@ -66,5 +66,6 @@ jobs:
           }
 
           #Write Updated help back to the master branch
+          git config --global user.name "TheTaylorLee"
           git commit -am "test update help"
           git push -u origin workflow_testing
