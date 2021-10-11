@@ -1,0 +1,68 @@
+# This workflow is responsible for updating Markdown help once a week.
+
+name: Update_Docs
+
+# Controls when the action will run.
+on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
+  schedule:
+  - cron: '0 0 * * 0'
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+        #Cache Modules that are required by publishing modules
+      - name: Specify PowerShell modules to cache
+        id: psmodulecache
+        uses: potatoqualitee/psmodulecache@v1
+        with:
+          modules-to-cache: AdminToolbox, PlatyPS
+
+      - name: Setup PowerShell module cache
+        id: cacher
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.psmodulecache.outputs.modulepath }}
+          key: ${{ steps.psmodulecache.outputs.keygen }}
+
+      #Run pwsh functions to publish the module
+      - name: Update markdown help documentation
+        env:
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+        shell: pwsh
+        run: |
+          #Install Modules missed by the Cache action
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+
+          #Set Variable
+          $workingdirectory = (get-location).path
+
+          #Ensure Modules are imported
+          Import-Module platyPS
+          Import-Module Admintoolbox
+
+          #Update help
+          $Modules = Get-Module Admintool*
+
+          foreach ($ModuleName in $modules.name) {
+              New-MarkdownHelp -Module $ModuleName -OutputFolder "$workingdirectory\docs\$ModuleName" -Force
+          }
+
+          #Write Updated help back to the master branch
+          git config --global user.email $env:GIT_EMAIL
+          git config --global user.name "TheTaylorLee"
+          git add -A
+          git commit -m "Workflow Update_Docs"
+          git push -u origin master

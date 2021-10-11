@@ -1,6 +1,6 @@
 ---
 external help file: AdminToolboxManifest-help.xml
-Module Name: AdminToolbox
+Module Name: Admintoolbox
 online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
