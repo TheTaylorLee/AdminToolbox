@@ -10,13 +10,13 @@
 
 **Coding Guidelines**
 
-- Do not make changes to any Manifests, core GitHub files, Changelogs, or README files.
 - If you add a function, update the `Get-<ModuleName>` public function to include that new function. In the comments for that function follow the format for existing functions.
 - All code should be written verbosely! Do not use Aliases or shortcuts.
 
 **Documentation Guidelines**
 
-- All added functions should contain comment help within the function scriptblock.
+- If a commit upgrades the version on a module, it should be in the commit comment.
+- All added functions should contain comment above the function, with a single space so get-help can reference the comment block.
 - If modifying an existing function, also update the comment help to reflect changes.
 - Use PlatyPS module to create or update markdown help files. Example Below:
 

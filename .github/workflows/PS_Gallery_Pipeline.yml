@@ -29,7 +29,7 @@ jobs:
         id: psmodulecache
         uses: potatoqualitee/psmodulecache@v1
         with:
-          modules-to-cache: ImportExcel, PSNmap
+          modules-to-cache: ImportExcel, PSNmap, PSEventViewer, Posh-SSH, VMware.VimAutomation.Core
 
       - name: Setup PowerShell module cache
         id: cacher
@@ -46,9 +46,10 @@ jobs:
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
-          Install-Module PSEventViewer -Force -Allowclobber
-          Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
-          Import-Module Posh-SSH -Force -SkipEditionCheck
+          #Install-Module PSEventViewer -Force -Allowclobber
+          #Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
+          #Install-Module -Name VMware.VimAutomation.Core -Force
+          #Import-Module Posh-SSH -Force -SkipEditionCheck
 
           function Invoke-PublishModules {
             $ErrorActionPreference = 'Stop'
