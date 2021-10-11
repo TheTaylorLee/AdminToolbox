@@ -3,11 +3,9 @@
 name: Update_Docs
 
 # Controls when the action will run.
-on: # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ workflow_testing ]
-  #pull_request:
-    #branches: [ master ]
+on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
+  schedule:
+  - cron: '0 0 * * 0'
 
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,7 +39,6 @@ jobs:
       #Run pwsh functions to publish the module
       - name: Update markdown help documentation
         env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         shell: pwsh
         run: |
