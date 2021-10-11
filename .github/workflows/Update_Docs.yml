@@ -41,7 +41,8 @@ jobs:
       #Run pwsh functions to publish the module
       - name: Update markdown help documentation
         env:
-          NUGET_KEY: ${{ secrets.GIT_TOKEN }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         shell: pwsh
         run: |
           #Install Modules missed by the Cache action
@@ -66,6 +67,7 @@ jobs:
           }
 
           #Write Updated help back to the master branch
+          git config --global user.email $env:GIT_EMAIL
           git config --global user.name "TheTaylorLee"
           git commit -am "test update help"
           git push -u origin workflow_testing
