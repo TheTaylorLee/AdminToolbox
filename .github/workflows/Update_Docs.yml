@@ -41,7 +41,7 @@ jobs:
       #Run pwsh functions to publish the module
       - name: Update markdown help documentation
         env:
-          NUGET_KEY: ${{ NUGET_KEY: ${{ secrets.GIT_TOKEN }}
+          NUGET_KEY: ${{ secrets.GIT_TOKEN }}
         shell: pwsh
         run: |
           #Install Modules missed by the Cache action
