@@ -1,9 +1,12 @@
-# This workflow is called by the PSGallery Publish workflow and updates docs markdown help.
+# This workflow is scheduled once a day.
 
 name: Update Docs
 
 # Controls when the action will run.
-on:
+on:  # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
+ schedule:
+  - cron: '0 1 * * *'
+
 #Can be called by other workflows
   workflow_call:
 
