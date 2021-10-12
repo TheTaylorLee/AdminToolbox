@@ -1,16 +1,6 @@
-#First set environment variable. This will be the root save path where repository folders are cloned to.
-#Be sure not to include a backslash at the end.
-$gitrootpath = "G:\Github\Admintoolbox\modules"
+#This is used by a workflow to generate manifest files. Only needs to be updated manually when exported functions or other static variables need changing. Otherwise can be left as is.
 
-#Set variable for current session
-$env:gitrootpath = $gitrootpath
-
-#Set Persistent Environment Variables
-[Environment]::SetEnvironmentVariable("gitrootpath", "$gitrootpath", "User")
-
-
-
-Function out-manifests {
+Function New-Manifest {
     #Must Be run each time a new module version is created.
     #Version folder name must be the same as the moduleversion parameter
     param (
@@ -28,10 +18,23 @@ Function out-manifests {
         [Parameter(Mandatory = $false)][Switch]$VMWareAutomate
     )
 
+    $script:ActiveDirectoryGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1
+    $script:EndpointManagementGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1
+    $script:ExchangeGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1
+    $script:FFToolsGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1
+    $script:FileManagementGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1
+    $script:FunGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
+    $script:NetworkingGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
+    $script:Office365GithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
+    $script:RemotingGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
+    $script:VMWareAutomateGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
+    $script:FortiWizardGithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
+    $script:AdminToolboxGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
+
     if ($AdminToolbox) {
         ##Create Manifests
         #AdminToolbox
-        $savepath = "$env:gitrootpath\AdminToolbox"
+        $savepath = "$workingdirectory\modules\AdminToolbox"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC', 'Start-Cmder', 'Install-PSPortableLight', 'Install-PSPortable'
@@ -41,21 +44,21 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "9.19.0"
+            ModuleVersion        = "$script:AdminToolboxGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
             RequiredModules      = (
-                @{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion = '1.6.1'; },
-                @{ModuleName = 'AdminToolbox.EndpointManagement'; ModuleVersion = '4.7.1'; },
-                @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.8.1'; },
-                @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.7.1'; },
-                @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.9.1'; },
-                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.11.0'; },
-                @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.5.2'; },
-                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.2'; },
-                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.6.1'; },
-                @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.8.2'; },
-                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.7.1'; },
+                @{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion = $script:ActiveDirectoryGithubVersion; },
+                @{ModuleName = 'AdminToolbox.EndpointManagement'; ModuleVersion = $script:EndpointManagementGithubVersion; },
+                @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = $script:ExchangeGithubVersion; },
+                @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = $script:FFToolsGithubVersion; },
+                @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = $script:FileManagementGithubVersion; },
+                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = $script:FortiWizardGithubVersion; },
+                @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = $script:FunGithubVersion; },
+                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = $script:NetworkingGithubVersion; },
+                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = $script:Office365GithubVersion; },
+                @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = $script:RemotingGithubVersion; },
+                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = $script:VMWareAutomateGithubVersion; },
                 @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
                 @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; }
             )
@@ -69,7 +72,7 @@ Function out-manifests {
 
     if ($ActiveDirectory) {
         #ActiveDirectory
-        $savepath = "$env:gitrootpath\AdminToolbox.ActiveDirectory"
+        $savepath = "$workingdirectory\modules\AdminToolbox.ActiveDirectory"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-ActiveDirectory', 'Get-ADInfo', 'Get-DCLockoutEvents', 'Get-EndpointReport', 'Get-LockedAccounts', 'Get-PasswordExpired', 'Get-ReplicationStatus', 'Get-UserReport', 'Set-Password', 'Start-Replication', 'Unlock-Account', 'Unlock-AllAccounts', 'Get-GroupMemberships', 'Get-GroupMembers', 'Import-ActiveDirectory'
@@ -79,7 +82,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "1.6.1"
+            ModuleVersion        = "$script:ActiveDirectoryGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -95,7 +98,7 @@ Function out-manifests {
 
     if ($EndpointManagement) {
         #EndpointManagement
-        $savepath = "$env:gitrootpath\AdminToolbox.EndpointManagement"
+        $savepath = "$workingdirectory\modules\AdminToolbox.EndpointManagement"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Add-LocalAdmin', 'Disable-Firewall', 'Disable-PasswordPeek', 'Disable-ShakeToMinimize', 'Disable-Standby', 'Dismount-ProfileRegistry', 'Enable-Firewall', 'Enable-RSATFeatures', 'Get-Applications', 'Get-ChocoOutdated', 'Get-IntroPCS', 'Get-Management', 'Get-PCInfo', 'Get-PrintBackup', 'Get-Printers', 'Get-PrintManagement', 'Get-EndpointManagement', 'Install-Chocolatey', 'Install-ChocoPackages', 'Invoke-ChocoUpgrade', 'Invoke-PrinterServerRenew', 'Join-Domain', 'Mount-ProfileRegistry', 'Remove-PrintQueue', 'Remove-Shortcuts', 'Remove-StoreApps', 'Remove-Tiles', 'Restart-Endpoint', 'Get-ChocoInstalls', 'Set-UAC', 'Uninstall-Application', 'Get-PowerShell7', 'Reset-EndpointPassword', 'Repair-DomainJoin', 'Disable-Cortana', 'Get-MonitorSizes', 'Get-RebootEvents', 'Get-RemoteDesktopLogins'
@@ -105,7 +108,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "4.7.1"
+            ModuleVersion        = "$script:EndpointManagementGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -122,7 +125,7 @@ Function out-manifests {
 
     if ($Exchange) {
         #Exchange
-        $savepath = "$env:gitrootpath\AdminToolbox.Exchange"
+        $savepath = "$workingdirectory\modules\AdminToolbox.Exchange"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Exchange', 'Add-DistributionMember', 'Get-MailLog', 'Get-UserDisabledMailboxes', 'Get-VirtualDirectories', 'Set-VirtualDirectories', 'Get-MailboxScaleReport', 'Get-MailboxAccessOWAOnly', 'Enable-365MailboxExistingUser', 'Connect-ExchangeServer', 'Disconnect-ExchangeServer', 'get-mailboxreport'
@@ -132,7 +135,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "1.8.1"
+            ModuleVersion        = "$script:ExchangeGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -148,7 +151,7 @@ Function out-manifests {
 
     if ($FFTools) {
         #FFTools
-        $savepath = "$env:gitrootpath\AdminToolbox.FFTools"
+        $savepath = "$workingdirectory\modules\AdminToolbox.FFTools"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-FFTools', 'Get-Tips', 'Install-FFTools', 'Set-FFToolsVariables', 'Start-BurnSubtitles', 'Start-Remux', 'Start-Transcode', 'Get-Streams', 'Start-TranscodeMap'
@@ -158,7 +161,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "4.7.1"
+            ModuleVersion        = "$script:FFToolsGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -174,7 +177,7 @@ Function out-manifests {
 
     if ($FileManagement) {
         #FileManagement
-        $savepath = "$env:gitrootpath\AdminToolbox.FileManagement"
+        $savepath = "$workingdirectory\modules\AdminToolbox.FileManagement"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-FileManagement', 'Find-ComputersFiles', 'Get-FileOwner', 'Get-FolderSize', 'Invoke-Robocopy', 'Remove-All', 'Remove-DisabledADProfiles', 'Remove-OlderThan', 'Get-ShareReport', 'Get-FolderName', 'Get-FileName'
@@ -184,7 +187,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "1.9.1"
+            ModuleVersion        = "$script:FileManagementGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -200,14 +203,14 @@ Function out-manifests {
 
     if ($FortiWizard) {
         #FortiWizard
-        $savepath = "$env:gitrootpath\AdminToolbox.FortiWizard"
+        $savepath = "$workingdirectory\modules\AdminToolbox.FortiWizard"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT', 'New-FormTunnel'
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS."
-            ModuleVersion        = "2.11.1"
+            ModuleVersion        = "$script:FortiWizardGithubVersion"
             Powershellversion    = "5.1"
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
             ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"
@@ -217,7 +220,7 @@ Function out-manifests {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             Tags                 = 'Fortinet', 'FortiGate', 'FortiOS'
             RequiredModules      = (
-                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.12.0'; },
+                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = $script:NetworkingGithubVersion; },
                 @{ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
                 @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' }
             )
@@ -228,7 +231,7 @@ Function out-manifests {
 
     if ($fun) {
         #Fun
-        $savepath = "$env:gitrootpath\AdminToolbox.Fun"
+        $savepath = "$workingdirectory\modules\AdminToolbox.Fun"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Fun', 'Get-CloseEncounters', 'Get-Excuse', 'Get-ImperialMarch', 'Get-MissionImpossible', 'Get-Mario', 'Get-Tetris', 'Get-Weather', 'Invoke-EjectTray', 'Invoke-Speak', 'Get-Creed', 'Get-Emote'
@@ -238,7 +241,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "1.5.2"
+            ModuleVersion        = "$script:FunGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -254,7 +257,7 @@ Function out-manifests {
 
     if ($Networking) {
         #Networking
-        $savepath = "$env:gitrootpath\AdminToolbox.Networking"
+        $savepath = "$workingdirectory\modules\AdminToolbox.Networking"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr', 'Invoke-PSIPcalc'
@@ -264,7 +267,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "2.12.2"
+            ModuleVersion        = "$script:NetworkingGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RootModule           = "AdminToolbox.NetworkingManifest.psm1"
@@ -277,7 +280,7 @@ Function out-manifests {
 
     if ($Office365) {
         #Office365
-        $savepath = "$env:gitrootpath\AdminToolbox.Office365"
+        $savepath = "$workingdirectory\modules\AdminToolbox.Office365"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-RoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache'
@@ -287,7 +290,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "2.6.1"
+            ModuleVersion        = "$script:Office365GithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -303,7 +306,7 @@ Function out-manifests {
 
     if ($Remoting) {
         #Remoting
-        $savepath = "$env:gitrootpath\AdminToolbox.Remoting"
+        $savepath = "$workingdirectory\modules\AdminToolbox.Remoting"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Remoting', 'Connect-OpenSSH', 'Enable-Remoting', 'Install-SSH', 'Invoke-ServiceRecovery', 'Invoke-RWinSta', 'Invoke-QWinSta', 'Remove-TerminalSessions', 'Get-TerminalSessions', 'Invoke-RunAsSSMS', 'Invoke-RunAsNetwork'
@@ -313,7 +316,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "1.8.2"
+            ModuleVersion        = "$script:RemotingGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -329,7 +332,7 @@ Function out-manifests {
 
     if ($VMWareAutomate) {
         #VMWareAutomate
-        $savepath = "$env:gitrootpath\AdminToolbox.VMWareAutomate"
+        $savepath = "$workingdirectory\modules\AdminToolbox.VMWareAutomate"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Enable-ToolsAutoUpgrade', 'Get-DRBackup', 'Get-HostMemoryDimms', 'Get-HostSerialNumber', 'Get-ToolsAutoUpgradeState', 'Get-VMTools', 'Get-VMwareAutomate', 'Invoke-HotAdd', 'Invoke-Power', 'Update-PowerCLIConfiguration', 'Update-VMTools', 'Enable-DatastoreRoundRobin', 'Get-VMFolderPaths'
@@ -339,7 +342,7 @@ Function out-manifests {
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
             IconUri              = 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "4.7.1"
+            ModuleVersion        = "$script:VMWareAutomateGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
@@ -357,4 +360,4 @@ Function out-manifests {
 
         New-ModuleManifest @Params
     }
-}; Show-Command out-manifests
+}
