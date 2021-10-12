@@ -1,18 +1,15 @@
-# This workflow is responsible for updating Markdown help once a day and on closed pull requests
+# This workflow runs after PSGallery Publish run completes
 
 name: Update Docs
 
 # Controls when the action will run.
 on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
-  schedule:
-  - cron: '15 6 * * *'
-
-  # Triggered on closed pull requests
-  pull_request:
-    branches:
-    - master
+  workflow_run:
+    workflows: ["PSGallery Publish"]
+    branches: [master]
     types:
-    - closed
+      - completed
+      - requested
 
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
