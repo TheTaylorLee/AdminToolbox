@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+# This workflow publishes new modules to PSGallery on pull requests that close on the master branch, and then calls the Update Docs workflow.
 
 name: PSGallery Publish
 
@@ -216,3 +216,8 @@ jobs:
               $AdminToolbox
           }
           Invoke-PublishModules
+
+      #Call update docs workflow
+      - name : Update Docs
+        call-workflow-1:
+        uses: TheTaylorLee/AdminToolbox/.github/workflows/Update_Docs.yml@master
