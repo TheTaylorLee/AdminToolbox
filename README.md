@@ -5,8 +5,8 @@
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. I recommend if using any of the modules, install the AdminToolbox module. It will install the other required modules, it has some functions that are useful for function discovery, and it provides some environment options.
 
 <p align="Left">
-<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml/badge.svg?branch=master"></a>
-<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/Update_Docs.yml"><img src="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/Update_Docs.yml/badge.svg?branch=master"></a>
+<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/PSGallery%20Publish?label=PSGallery%20Publish&logo=Github"></a>
+<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/Update_Docs.yml"><img src="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/Update%20Docs?label=Update%20Docs&logo=Github"></a>
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
 </p>
 
