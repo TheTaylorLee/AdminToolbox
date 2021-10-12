@@ -38,7 +38,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC', 'Start-Cmder', 'Install-PSPortableLight', 'Install-PSPortable'
-            Path                 = "$savepath\modules\AdminToolbox.psd1"
+            Path                 = "$savepath\AdminToolbox.psd1"
             Author               = "Taylor Lee"
             Description          = "Master module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -76,7 +76,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-ActiveDirectory', 'Get-ADInfo', 'Get-DCLockoutEvents', 'Get-EndpointReport', 'Get-LockedAccounts', 'Get-PasswordExpired', 'Get-ReplicationStatus', 'Get-UserReport', 'Set-Password', 'Start-Replication', 'Unlock-Account', 'Unlock-AllAccounts', 'Get-GroupMemberships', 'Get-GroupMembers', 'Import-ActiveDirectory'
-            Path                 = "$savepath\modules\AdminToolbox.ActiveDirectory.psd1"
+            Path                 = "$savepath\AdminToolbox.ActiveDirectory.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for Active Directory"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -102,7 +102,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Add-LocalAdmin', 'Disable-Firewall', 'Disable-PasswordPeek', 'Disable-ShakeToMinimize', 'Disable-Standby', 'Dismount-ProfileRegistry', 'Enable-Firewall', 'Enable-RSATFeatures', 'Get-Applications', 'Get-ChocoOutdated', 'Get-IntroPCS', 'Get-Management', 'Get-PCInfo', 'Get-PrintBackup', 'Get-Printers', 'Get-PrintManagement', 'Get-EndpointManagement', 'Install-Chocolatey', 'Install-ChocoPackages', 'Invoke-ChocoUpgrade', 'Invoke-PrinterServerRenew', 'Join-Domain', 'Mount-ProfileRegistry', 'Remove-PrintQueue', 'Remove-Shortcuts', 'Remove-StoreApps', 'Remove-Tiles', 'Restart-Endpoint', 'Get-ChocoInstalls', 'Set-UAC', 'Uninstall-Application', 'Get-PowerShell7', 'Reset-EndpointPassword', 'Repair-DomainJoin', 'Disable-Cortana', 'Get-MonitorSizes', 'Get-RebootEvents', 'Get-RemoteDesktopLogins'
-            Path                 = "$savepath\modules\AdminToolbox.EndpointManagement.psd1"
+            Path                 = "$savepath\AdminToolbox.EndpointManagement.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for management of endpoints"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -129,7 +129,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Exchange', 'Add-DistributionMember', 'Get-MailLog', 'Get-UserDisabledMailboxes', 'Get-VirtualDirectories', 'Set-VirtualDirectories', 'Get-MailboxScaleReport', 'Get-MailboxAccessOWAOnly', 'Enable-365MailboxExistingUser', 'Connect-ExchangeServer', 'Disconnect-ExchangeServer', 'get-mailboxreport'
-            Path                 = "$savepath\modules\AdminToolbox.Exchange.psd1"
+            Path                 = "$savepath\AdminToolbox.Exchange.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for Exchange Management"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -155,7 +155,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-FFTools', 'Get-Tips', 'Install-FFTools', 'Set-FFToolsVariables', 'Start-BurnSubtitles', 'Start-Remux', 'Start-Transcode', 'Get-Streams', 'Start-TranscodeMap'
-            Path                 = "$savepath\modules\AdminToolbox.FFTools.psd1"
+            Path                 = "$savepath\AdminToolbox.FFTools.psd1"
             Author               = "Taylor Lee"
             Description          = "Expedite simple ffmpeg actions"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -181,7 +181,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-FileManagement', 'Find-ComputersFiles', 'Get-FileOwner', 'Get-FolderSize', 'Invoke-Robocopy', 'Remove-All', 'Remove-DisabledADProfiles', 'Remove-OlderThan', 'Get-ShareReport', 'Get-FolderName', 'Get-FileName'
-            Path                 = "$savepath\modules\AdminToolbox.FileManagement.psd1"
+            Path                 = "$savepath\AdminToolbox.FileManagement.psd1"
             Author               = "Taylor Lee"
             Description          = "File Management Functions"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -207,7 +207,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT', 'New-FormTunnel'
-            Path                 = "$savepath\modules\AdminToolbox.FortiWizard.psd1"
+            Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS."
             ModuleVersion        = "$script:FortiWizardGithubVersion"
@@ -235,7 +235,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Fun', 'Get-CloseEncounters', 'Get-Excuse', 'Get-ImperialMarch', 'Get-MissionImpossible', 'Get-Mario', 'Get-Tetris', 'Get-Weather', 'Invoke-EjectTray', 'Invoke-Speak', 'Get-Creed', 'Get-Emote'
-            Path                 = "$savepath\modules\AdminToolbox.Fun.psd1"
+            Path                 = "$savepath\AdminToolbox.Fun.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that have no purpose"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -261,7 +261,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Start-TraceNG', 'Invoke-Ethr', 'Invoke-PSIPcalc'
-            Path                 = "$savepath\modules\AdminToolbox.Networking.psd1"
+            Path                 = "$savepath\AdminToolbox.Networking.psd1"
             Author               = "Taylor Lee"
             Description          = "Network Troubleshooting Functions"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -284,7 +284,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-RoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache'
-            Path                 = "$savepath\modules\AdminToolbox.Office365.psd1"
+            Path                 = "$savepath\AdminToolbox.Office365.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for working with Office365 and Azure modules"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -310,7 +310,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Get-Remoting', 'Connect-OpenSSH', 'Enable-Remoting', 'Install-SSH', 'Invoke-ServiceRecovery', 'Invoke-RWinSta', 'Invoke-QWinSta', 'Remove-TerminalSessions', 'Get-TerminalSessions', 'Invoke-RunAsSSMS', 'Invoke-RunAsNetwork'
-            Path                 = "$savepath\modules\AdminToolbox.Remoting.psd1"
+            Path                 = "$savepath\AdminToolbox.Remoting.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for remote management and access."
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
@@ -336,7 +336,7 @@ Function New-Manifest {
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
             FunctionsToExport    = 'Enable-ToolsAutoUpgrade', 'Get-DRBackup', 'Get-HostMemoryDimms', 'Get-HostSerialNumber', 'Get-ToolsAutoUpgradeState', 'Get-VMTools', 'Get-VMwareAutomate', 'Invoke-HotAdd', 'Invoke-Power', 'Update-PowerCLIConfiguration', 'Update-VMTools', 'Enable-DatastoreRoundRobin', 'Get-VMFolderPaths'
-            Path                 = "$savepath\modules\AdminToolbox.VMWareAutomate.psd1"
+            Path                 = "$savepath\AdminToolbox.VMWareAutomate.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions to Automate Bulk VMWare Tasks"
             HelpInfoUri          = "https://github.com/TheTaylorLee/AdminToolbox/issues"
