@@ -1,23 +1,20 @@
-# Test & Commit Checklist
+## Contributing
 
-This is the workflow for new releases
+**Contribution Guidelines**
 
-* **Change Phase**
-    * Create new Function, new Module, make changes to existing, or implement fixes
-    * Record changes in change logs for the respective module or modules
-    * Generate new Manifest files
-        * Include new exported functions
-        * Update required module versions for the AdminToolbox module
+- An issue should be opened prior to any work being done. State that you will be contributing in the issue, and what you intend to change.
+- Create a fork or branch off the master branch. 
+- Modify, fix, or add code that pertains to the issue only.
+- When creating a pull request reference the issue number.
+- Code will be reviewed and committed to the master branch, or comments will be added to the issue if problems are found.
 
-* **Test Phase**
-    * Copy updated modules to testing.Admintoolbox git
-        * Commit Change to the repositorie
-        * Open updated admintoolbox.testing portable PowerShell package
-        * Test Changes
-        * Repeat previous steps as required to get a stable build
+**Coding Guidelines**
 
-* **Commit Phase**
-    * If a new function was added or any changes made to Markdown help files use PlatyPS to update them
-    * Commit changes to the AdminToolbox Repository
-    * Monitor for a successful workflow
-    * If the workflow fails, resolve and repeat any of the above needed steps
+- If you add a function, update the `Get-<ModuleName>` public function to include that new function. In the comments for that function follow the format for existing functions.
+- All code should be written verbosely. Do not use Aliases or shortcuts.
+
+**Documentation Guidelines**
+
+- If a commit upgrades the version on a module, it should be in the commit comment.
+- All added functions should contain comment help above the function, with a single space, so get-help can reference the comment block.
+- A workflow will update manifest based help in the docs folder. There is no longer a need to do so manually on new commits. 
