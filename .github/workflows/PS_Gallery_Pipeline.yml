@@ -57,7 +57,7 @@ jobs:
             $ErrorActionPreference = 'Stop'
 
             $workingdirectory = (get-location).path
-            . $workingdirectory\tools\workflow scripts\New-Manifest.ps1
+            . "$workingdirectory\tools\workflow scripts\New-Manifest.ps1"
 
             #ActiveDirectory
             $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
