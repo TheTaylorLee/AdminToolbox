@@ -6,7 +6,6 @@ name: Update Docs
 on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
   workflow_run:
     workflows: ["PSGallery Publish"]
-    branches: [master]
     types:
       - completed
       - requested
