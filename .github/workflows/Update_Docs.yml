@@ -1,10 +1,10 @@
-# This workflow is scheduled once a day.
+# This workflow is responsible for updating Markdown help once a day.
 
 name: Update Docs
 
 # Controls when the action will run.
-on:  # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
- schedule:
+on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
+  schedule:
   - cron: '0 1 * * *'
 
 # Allows you to run this workflow manually from the Actions tab
