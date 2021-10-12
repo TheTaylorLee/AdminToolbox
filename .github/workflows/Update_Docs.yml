@@ -7,9 +7,6 @@ on:  # Triggers the workflow on a schedule https://docs.github.com/en/actions/le
  schedule:
   - cron: '0 1 * * *'
 
-#Can be called by other workflows
-  workflow_call:
-
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
