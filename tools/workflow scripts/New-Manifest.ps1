@@ -346,7 +346,7 @@ Function New-Manifest {
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
-                @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
+                @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" }
             )
             RootModule           = "AdminToolbox.VMWareAutomateManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
