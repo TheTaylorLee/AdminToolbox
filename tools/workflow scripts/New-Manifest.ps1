@@ -347,11 +347,11 @@ Function New-Manifest {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
                 @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
-                @{ ModuleName = "VMware.Vim" ; ModuleVersion = "7.0.2.17839075" },
-                @{ ModuleName = "VMware.VimAutomation.Cis.Core" ; ModuleVersion = "12.3.0.17839331" },
-                @{ ModuleName = "VMware.VimAutomation.Common" ; ModuleVersion = "12.3.0.17838947" },
-                @{ ModuleName = "VMware.VimAutomation.Core" ; ModuleVersion = "12.3.0.17839688" },
-                @{ ModuleName = "VMware.VimAutomation.Sdk" ; ModuleVersion = "12.2.0.17531155" }
+                @{ ModuleName = "VMware.Vim" ; ModuleVersion = "7.0.2.17839075" }#,
+                #@{ ModuleName = "VMware.VimAutomation.Cis.Core" ; ModuleVersion = "12.3.0.17839331" },
+                #@{ ModuleName = "VMware.VimAutomation.Common" ; ModuleVersion = "12.3.0.17838947" },
+                #@{ ModuleName = "VMware.VimAutomation.Core" ; ModuleVersion = "12.3.0.17839688" },
+                #@{ ModuleName = "VMware.VimAutomation.Sdk" ; ModuleVersion = "12.2.0.17531155" }
             )
             RootModule           = "AdminToolbox.VMWareAutomateManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
