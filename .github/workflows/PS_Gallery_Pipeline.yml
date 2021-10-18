@@ -42,7 +42,7 @@ jobs:
           key: ${{ steps.psmodulecache.outputs.keygen }}
 
       #Run pwsh functions to publish the module
-      - name: Install Required Modules and Publish updated Modules
+      - name: Install Required Modules, Update Manifests, Publish updated Modules, and commit manifest changes
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
