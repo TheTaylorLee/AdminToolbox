@@ -45,6 +45,7 @@ jobs:
       - name: Install Required Modules and Publish updated Modules
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
@@ -229,3 +230,8 @@ jobs:
               $AdminToolbox
           }
           Invoke-PublishModules
+          git config --global user.email $env:GIT_EMAIL
+          git config --global user.name "TheTaylorLee"
+          git add -A
+          git commit -m "Manifest Update"
+          git push -u origin master
