@@ -347,7 +347,6 @@ Function New-Manifest {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RequiredModules      = (
                 @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
-                @{ ModuleName = "VMware.Vim" ; ModuleVersion = "7.0.2.17839075" }
             )
             RootModule           = "AdminToolbox.VMWareAutomateManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
