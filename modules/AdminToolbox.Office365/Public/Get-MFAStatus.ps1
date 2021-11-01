@@ -38,26 +38,6 @@ Function Get-MFAStatus {
         $UserObject2 = get-msoluser -SearchString $UPN | Select-Object -Expand StrongAuthenticationRequirements
         $UserObject3 = get-msoluser -SearchString $UPN | Select-Object -Expand StrongAuthenticationMethods | Where-Object { $_.IsDefault -eq "True" }
 
-        <#Pull Administrator Statuses
-        $ca = Get-MsolRole -RoleName "Company Administrator"
-        $CompanyAdministrator = Get-MsolRoleMember -RoleObjectId  $ca.objectid | Where-Object { $_.EmailAddress -eq "$upn" }
-        if ($null -ne $CompanyAdministrator) {
-            $CaResult = $True
-        }
-        else {
-            $CaResult = $False
-        }
-
-        $Ba = Get-MsolRole -RoleName "Company Administrator"
-        $BillingAdministrator = Get-MsolRoleMember -RoleObjectId  $ba.objectid | Where-Object { $_.EmailAddress -eq "$upn" }
-        if ($null -ne $BillingAdministrator) {
-            $BiResult = $True
-        }
-        else {
-            $BiResult = $False
-        }#>
-
-
         #Output Custom Object Info
         [pscustomobject]@{
             DisplayName       = $UserObject.DisplayName
@@ -65,8 +45,6 @@ Function Get-MFAStatus {
             IsLicensed        = $UserObject.islicensed
             MFAState          = $UserObject2.State
             MFAMethodDefault  = $UserObject3.Methodtype
-            #IsCompanyAdministrator = $CaResult
-            #IsBillingAdministrator = $BiResult
         }
     }
 }
