@@ -39,7 +39,11 @@ Get-VMWareAutomate                ..Gets functions for VMWare
 
     Write-Host "PSReadline"                                                      -ForegroundColor green
     Write-Host "
+Alt  + A                          ..Moves the cursor between entered parameter values
+Alt  + H                          ..Get's dynamic help for a parameter. Put cursor at end of typed parameter
+Ctrl + L                          ..Clears the console
 F1                                ..Gets navigable help if at the end of a function
+F2                                ..Switch between Prediction view. (Inline, List)
 F12                               ..Gets history in a gridview for repeating commands
 Tab                               ..Completes function or parameter
 "                                                                                                       -ForegroundColor cyan

@@ -170,6 +170,7 @@
 * **9.19.0** Update required modules
 * **9.20.0** Workflow Test
 * **9.20.1** Update required modules
+* **9.21.0** Update get-info
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-9.20.1
+9.21.0
