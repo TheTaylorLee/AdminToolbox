@@ -70,7 +70,7 @@ function Invoke-NetworkScan {
         #Get path to the OUI list
         $ModPath = Get-Module AdminToolbox.Networking
         $P1 = $ModPath.path
-        $P2 = $p1 -replace ("AdminToolbox.Networking.psm1", "")
+        $P2 = $p1 -replace ("AdminToolbox.NetworkingManifest.psm1", "")
         $Script:ScanOUI = "$P2" + "support\ScanOUI.txt"
     }
 
