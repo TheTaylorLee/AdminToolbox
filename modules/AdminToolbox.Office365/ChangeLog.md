@@ -33,6 +33,7 @@
 * **2.5.0** Update versioning standard and added LicenseURI.
 * **2.6.0** Added Clear-TeamsCache
 * **2.6.1** Move comment based help outside function block
+* **2.6.2** Fix Clear-TeamsCache by using environment variables for the cache path
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.6.1
+2.6.2

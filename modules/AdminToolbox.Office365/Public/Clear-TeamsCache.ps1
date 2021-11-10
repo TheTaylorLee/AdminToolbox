@@ -16,7 +16,7 @@ Function Clear-TeamsCache {
     if ($query -eq 'yes') {
         taskkill /im teams.exe /f
         taskkill /im outlook.exe /f
-        Get-ChildItem "C:\Users\taylo\AppData\Roaming\Microsoft\Teams" -Recurse -Force | Remove-Item -Force -Recurse
+        Get-ChildItem "$env:USERPROFILE\AppData\Roaming\Microsoft\Teams" -Recurse -Force | Remove-Item -Force -Recurse
     }
     else {
         Write-Output "Clear teams cache aborted"
