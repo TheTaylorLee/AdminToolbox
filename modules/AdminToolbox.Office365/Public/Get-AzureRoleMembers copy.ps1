@@ -1,15 +1,15 @@
 <#
     .DESCRIPTION
-    This function will get office365 roles and their members. It outputs the content to Excel tables.
+    This function will get AzureAD roles and their members. It outputs the content to Excel tables.
 
     .NOTES
-    Requires the MSOnline module be imported
+    Requires the AzureAD module be imported
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 #>
 
-function Get-RoleMembers {
+function Get-AzureRoleMembers {
 
     begin {
     }
@@ -21,7 +21,7 @@ function Get-RoleMembers {
         }
         Else {
             try {
-                Connect-MsolService
+                Connect-AzureAD
             }
             catch {
                 Write-Warning "You must first install and import the MSOnline Module"
@@ -41,18 +41,18 @@ function Get-RoleMembers {
         }
 
         #Get and Export roles members to an excel file
-        $roles = Get-MsolRole | Sort-Object name
+        $roles = get-azureaddirectoryrole | Sort-Object displayname
 
         ForEach ($role in $roles) {
-            Get-MsolRoleMember -RoleObjectId $role.ObjectId |
+            get-azureaddirectoryrolemember -ObjectId $role.ObjectId |
             Select-Object DisplayName, EmailAddress, IsLicensed, LastDirSyncTime, RoleMemberType, ValidationStatus |
-            Export-Excel -WorksheetName $role.name -Path "$env:USERPROFILE\downloads\RoleMembers.xlsx" -FreezeTopRow -TableName $role.name -AutoSize -Append -ErrorAction 'SilentlyContinue'
+            Export-Excel -WorksheetName $role.displayname -Path "$env:USERPROFILE\downloads\AzureRoleMembers.xlsx" -FreezeTopRow -TableName $role.displayname -AutoSize -Append -ErrorAction 'SilentlyContinue'
         }
     }
 
     end {
         Write-Host " "
-        Write-Host "The file has been exported to $env:USERPROFILE\downloads\RoleMembers.xlsx" -ForegroundColor Green
-        Start-Process $env:USERPROFILE\downloads\RoleMembers.xlsx
+        Write-Host "The file has been exported to $env:USERPROFILE\downloads\AzureRoleMembers.xlsx" -ForegroundColor Green
+        Start-Process $env:USERPROFILE\downloads\AzureRoleMembers.xlsx
     }
 }

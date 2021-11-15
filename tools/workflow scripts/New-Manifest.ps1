@@ -283,7 +283,7 @@ Function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.Office365"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-RoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache'
+            FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-AzureRoleMembers', 'Get-MsolRoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache'
             Path                 = "$savepath\AdminToolbox.Office365.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for working with Office365 and Azure modules"
