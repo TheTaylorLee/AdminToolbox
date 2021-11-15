@@ -29,7 +29,7 @@ jobs:
         id: psmodulecache
         uses: potatoqualitee/psmodulecache@v1
         with:
-          modules-to-cache: AdminToolbox, PlatyPS
+          modules-to-cache: PlatyPS
 
       - name: Setup PowerShell module cache
         id: cacher
@@ -47,6 +47,8 @@ jobs:
           #Install Modules missed by the Cache action
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+          Install-Module Admintoolbox
+          Import-Module Admintoolbox
 
           #Set Variable
           $workingdirectory = (get-location).path
