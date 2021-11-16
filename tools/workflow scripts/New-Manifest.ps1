@@ -60,6 +60,7 @@ Function New-Manifest {
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = $script:RemotingGithubVersion; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = $script:VMWareAutomateGithubVersion; },
                 @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
+                @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' },
                 @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; }
             )
             RootModule           = "AdminToolboxManifest.psm1"
