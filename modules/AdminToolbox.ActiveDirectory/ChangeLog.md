@@ -21,6 +21,7 @@
 * **1.5.0.0** Added Markdown Documentation and link help
 * **1.6.0** Update versioning standard and added LicenseURI
 * **1.6.1** Move comment based help outside function block
+* **1.6.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.6.1
+1.6.2

@@ -46,6 +46,7 @@
 * **2.12.1** Invoke-Iperf client parameter changed to a switch parameter to fix it incorrectly set as a string.
 * **2.12.2** Move comment based help outside function block
 * **2.12.3** Bug fix for Invoke-Networkscan OUI path variable
+* **2.12.4** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.12.3
+2.12.4

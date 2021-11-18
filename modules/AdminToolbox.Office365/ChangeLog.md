@@ -36,6 +36,7 @@
 * **2.6.2** Fix Clear-TeamsCache by using environment variables for the cache path
 * **2.7.0** Add get-msolrolemembers and get-azurerolemembers functions
 * **2.7.1** Updated Clear-TeamsCache
+* **2.7.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.7.1
+2.7.2
