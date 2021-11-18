@@ -46,7 +46,7 @@
 * **4.5.1.0** Bug fix for Disable-Standby
 * **4.6.0.0** Added Markdown Documentation and link help
 * **4.7.1** Update versioning standard and added LicenseURI.
-Move comment based help outside function block
+* **4.7.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.7.1
+4.7.2
