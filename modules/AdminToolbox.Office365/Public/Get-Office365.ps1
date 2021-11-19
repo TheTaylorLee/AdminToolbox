@@ -39,7 +39,8 @@ function Get-Office365 {
 
     Write-Host "MSOnline Module Functions"                                                                   -ForegroundColor green
     Write-Host "Get-MFAStatus              ..Gets Multifactor Settings for Msol Users"                       -ForegroundColor cyan
-    Write-Host "Get-MsolRoleMembers            ..Gets Office 365 roles and their members"                    -ForegroundColor cyan
+    Write-Host "Get-MsolRoleMembers        ..Gets Office 365 roles and their members"                        -ForegroundColor cyan
+    Write-Host "Invoke-PerUserMFAEnforced  ..Invoke Per User MFA Enforcement"                                -ForegroundColor Cyan
     Write-Host " "
 
     Write-Host "Teams Module Functions"                                                                      -ForegroundColor green
