@@ -47,7 +47,7 @@ jobs:
           #Install Modules missed by the Cache action
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
-          Install-Module Admintoolbox
+          Install-Module Admintoolbox -force
           Import-Module Admintoolbox
 
           #Set Variable
