@@ -1,4 +1,4 @@
-Function New-FormTunnelDialupRemoteNAT {
+Function New-FormTunnelDialupBehindNAT {
 
     Param (
         [Parameter(Mandatory = $true)]

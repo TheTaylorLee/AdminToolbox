@@ -50,14 +50,14 @@ end"
         Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
-        Set-Variable ike-version $ikev
-        Set-Variable interface ""$Interface""
-        Set-Variable keylife $TTL
-        Set-Variable peertype any
-        Set-Variable proposal $Proposal
-        Set-Variable dhgrp $dhgroups
-        Set-Variable remote-gw $PeerAddress
-        Set-Variable psksecret $PSK
+        set ike-version $ikev
+        set interface ""$Interface""
+        set keylife $TTL
+        set peertype any
+        set proposal $Proposal
+        set dhgrp $dhgroups
+        set remote-gw $PeerAddress
+        set psksecret $PSK
         set comments ""$Comments""
     next
 end"
