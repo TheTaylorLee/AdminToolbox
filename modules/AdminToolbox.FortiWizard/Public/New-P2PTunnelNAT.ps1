@@ -196,7 +196,9 @@ Function New-P2PTunnelNAT {
         [ValidateLength(1, 15)]
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
-        $WANInterface
+        $WANInterface,
+        [Parameter(Mandatory = $false, HelpMessage = "Provide a description for the tunnel")]
+        $Comments
     )
 
     begin {

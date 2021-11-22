@@ -24,11 +24,14 @@ Function New-P2PPhase1Interface {
         $dhgroups,
         [Parameter(Mandatory = $true, HelpMessage = "Specify the Peer address for the Tunnel Peer")]
         $PeerAddress,
-        [Parameter(Mandatory = $true, HelpMessage = "Specify the PSK for the Tunnel")]
-        $PSK
+        [Parameter(Mandatory = $true, HelpMessage = "Specify the PSK for the tunnel")]
+        $PSK,
+        [Parameter(Mandatory = $false, HelpMessage = "Provide a description for the tunnel")]
+        $Comments
     )
 
-    Write-Output "
+    if ($null -eq $comments) {
+        Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
         set ike-version $ikev
@@ -41,4 +44,22 @@ config vpn ipsec phase1-interface
         set psksecret $PSK
     next
 end"
+    }
+
+    else {
+        Write-Output "
+config vpn ipsec phase1-interface
+    edit ""$TunnelName""
+        Set-Variable ike-version $ikev
+        Set-Variable interface ""$Interface""
+        Set-Variable keylife $TTL
+        Set-Variable peertype any
+        Set-Variable proposal $Proposal
+        Set-Variable dhgrp $dhgroups
+        Set-Variable remote-gw $PeerAddress
+        Set-Variable psksecret $PSK
+        set comments ""$Comments""
+    next
+end"
+    }
 }
