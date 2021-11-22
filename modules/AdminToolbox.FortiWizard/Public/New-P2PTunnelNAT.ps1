@@ -5,6 +5,9 @@
     .Description
     This is a CLI wizard that generates a new IPSec Tunnel Config and related objects. The source Subnet will be Natted by this policy.
 
+    .Parameter Comments
+    Optional parameter for providing comments on the tunnel. Will be recorded in the tunnel interface.
+
     .Parameter dhgroups
     This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
 
@@ -196,7 +199,9 @@ Function New-P2PTunnelNAT {
         [ValidateLength(1, 15)]
         $TunnelName,
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
-        $WANInterface
+        $WANInterface,
+        [Parameter(Mandatory = $false, HelpMessage = "Provide a description for the tunnel")]
+        $Comments
     )
 
     begin {
@@ -216,15 +221,30 @@ Function New-P2PTunnelNAT {
 
     process {
         #Create Phase 1 Proposal
-        $params = @{
-            TunnelName  = $TunnelName
-            Interface   = $WanInterface
-            Proposal    = $Proposal
-            dhgroups    = $dhgroups
-            PeerAddress = $PeerAddress
-            PSK         = $PSK
-            TTL         = $TTL
-            ikev        = $ikev
+        if ($Comments) {
+            $params = @{
+                TunnelName  = $TunnelName
+                Interface   = $WanInterface
+                Proposal    = $Proposal
+                dhgroups    = $dhgroups
+                PeerAddress = $PeerAddress
+                PSK         = $PSK
+                TTL         = $TTL
+                ikev        = $ikev
+                comments    = $Comments
+            }
+        }
+        else {
+            $params = @{
+                TunnelName  = $TunnelName
+                Interface   = $WanInterface
+                Proposal    = $Proposal
+                dhgroups    = $dhgroups
+                PeerAddress = $PeerAddress
+                PSK         = $PSK
+                TTL         = $TTL
+                ikev        = $ikev
+            }
         }
         $ConfPhase1 = New-P2PPhase1Interface @params
 

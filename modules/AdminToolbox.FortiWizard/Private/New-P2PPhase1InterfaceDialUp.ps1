@@ -39,11 +39,14 @@ Function New-P2PPhase1InterfaceDialUp {
         $PSK,
         [Parameter(Mandatory = $true, HelpMessage = "Specify a unique 3 digit numeric peer ID to use for the tunnel.", ParameterSetName = "Static")]
         [Parameter(Mandatory = $true, HelpMessage = "Specify a unique 3 digit numeric peer ID to use for the tunnel.", ParameterSetName = "Dynamic")]
-        $PeerID
+        $PeerID,
+        [Parameter(Mandatory = $false, HelpMessage = "Provide a description for the tunnel")]
+        $Comments
     )
 
     if ($RemoteNat) {
-        Write-Output "
+        if ($null -eq $comments) {
+            Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
         set type dynamic
@@ -62,9 +65,33 @@ config vpn ipsec phase1-interface
     next
 end
 "
+        }
+        else {
+            Write-Output "
+config vpn ipsec phase1-interface
+    edit ""$TunnelName""
+        set type dynamic
+        set interface ""$Interface""
+        set mode aggressive
+        set peertype one
+        set net-device enable
+        set add-route enable
+        set proposal $Proposal
+        set dpd on-idle
+        set dhgrp $dhgroups
+        set peerid $PeerID
+        set dpd-retryinterval 60
+        set psksecret $PSK
+        set ike-version $ikev
+        set comments ""$Comments""
+    next
+end
+"
+        }
     }
     if ($BehindNat) {
-        Write-Output "
+        if ($null -eq $comments) {
+            Write-Output "
 config vpn ipsec phase1-interface
     edit ""$TunnelName""
         set ike-version $ikev
@@ -80,5 +107,25 @@ config vpn ipsec phase1-interface
         set psksecret $PSK
     next
 end"
+        }
+        else {
+            Write-Output "
+config vpn ipsec phase1-interface
+    edit ""$TunnelName""
+        set ike-version $ikev
+        set interface ""$Interface""
+        set mode aggressive
+        set peertype any
+        set net-device enable
+        set add-route enable
+        set proposal $Proposal
+        set localid $Peerid
+        set dhgrp $dhgroups
+        set remote-gw $Peeraddress
+        set psksecret $PSK
+        set comments ""$Comments""
+    next
+end"
+        }
     }
 }
