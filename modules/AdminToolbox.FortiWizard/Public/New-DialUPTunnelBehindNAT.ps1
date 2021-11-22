@@ -5,6 +5,9 @@
     .Description
     This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the remote side of the tunnel whose public IP is subject to change or Sits behind another firewall.
 
+    .Parameter Comments
+    Optional parameter for providing comments on the tunnel. Will be recorded in the tunnel interface.
+
     .Parameter dhgroups
     This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
 
@@ -245,16 +248,32 @@ Function New-DialUPTunnelBehindNAT {
         $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
         #Create Phase 1 Proposal
-        $params = @{
-            BehindNat   = $true
-            TunnelName  = $TunnelName
-            Interface   = $WanInterface
-            Proposal    = $Proposal
-            PeerID      = $PeerID
-            dhgroups    = $dhgroups
-            PeerAddress = $PeerAddress
-            PSK         = $PSK
-            ikev        = $ikev
+        if ($Comments) {
+            $params = @{
+                BehindNat   = $true
+                TunnelName  = $TunnelName
+                Interface   = $WanInterface
+                Proposal    = $Proposal
+                PeerID      = $PeerID
+                dhgroups    = $dhgroups
+                PeerAddress = $PeerAddress
+                PSK         = $PSK
+                ikev        = $ikev
+                comments    = $Comments
+            }
+        }
+        else {
+            $params = @{
+                BehindNat   = $true
+                TunnelName  = $TunnelName
+                Interface   = $WanInterface
+                Proposal    = $Proposal
+                PeerID      = $PeerID
+                dhgroups    = $dhgroups
+                PeerAddress = $PeerAddress
+                PSK         = $PSK
+                ikev        = $ikev
+            }
         }
         $Phase1 = New-P2PPhase1InterfaceDialUp @params
 

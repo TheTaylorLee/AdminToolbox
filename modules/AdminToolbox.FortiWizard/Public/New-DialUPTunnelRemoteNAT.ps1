@@ -5,6 +5,9 @@
     .Description
     This is a CLI wizard that generates a new Dialup IPSec Tunnel Config and related objects. This will be for the firewall whose public IP is static and whose end does not sit behind another NAT firewall.
 
+    .Parameter Comments
+    Optional parameter for providing comments on the tunnel. Will be recorded in the tunnel interface.
+
     .Parameter dhgroups
     This is the Diffie-Hellman group or groups used by the Phase 1 and Phase 2 interfaces. If providing multiple values input them in comma delimited format.
 
@@ -236,15 +239,30 @@ Function New-DialUPTunnelRemoteNAT {
         $ConfRemoteAddressGroups = New-AddressGroup -AddressNames $RemNames -GroupName $RemoteGroupName
 
         #Create Phase 1 Proposal
-        $params = @{
-            RemoteNat  = $true
-            TunnelName = $TunnelName
-            Interface  = $WanInterface
-            Proposal   = $Proposal
-            PeerID     = $PeerID
-            dhgroups   = $dhgroups
-            PSK        = $PSK
-            ikev       = $ikev
+        if ($Comments) {
+            $params = @{
+                RemoteNat  = $true
+                TunnelName = $TunnelName
+                Interface  = $WanInterface
+                Proposal   = $Proposal
+                PeerID     = $PeerID
+                dhgroups   = $dhgroups
+                PSK        = $PSK
+                ikev       = $ikev
+                comments   = $Comments
+            }
+        }
+        else {
+            $params = @{
+                RemoteNat  = $true
+                TunnelName = $TunnelName
+                Interface  = $WanInterface
+                Proposal   = $Proposal
+                PeerID     = $PeerID
+                dhgroups   = $dhgroups
+                PSK        = $PSK
+                ikev       = $ikev
+            }
         }
         $Phase1 = New-P2PPhase1InterfaceDialUp @params
 
