@@ -15,7 +15,7 @@ schema: 2.0.0
 New-DialUPTunnelRemoteNAT [-dhgroups] <String[]> [-ikev] <Object> [-LANInterface] <String[]>
  [-LocalAddressCIDRs] <String[]> [-PeerID] <Object> [-PFS] <Object> [-Proposal] <String[]> [-PSK] <Object>
  [-RemoteAddressCIDRs] <String[]> [[-Services] <String[]>] [-TTL] <Object> [-TunnelName] <Object>
- [-WANInterface] <Object> [<CommonParameters>]
+ [-WANInterface] <Object> [[-Comments] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -308,6 +308,22 @@ Aliases:
 
 Required: True
 Position: 13
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Comments
+Optional parameter for providing comments on the tunnel.
+Will be recorded in the tunnel interface.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 14
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
