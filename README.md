@@ -2,7 +2,7 @@
 <a href="https://www.powershellgallery.com/profiles/TaylorLee"><img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/H3.png"></a>
 </p>
 
-The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. I recommend if using any of the modules, install the AdminToolbox module. It will install the other required modules, it has some functions that are useful for function discovery, and it provides some environment options.
+The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. Installing the Admintoolbox Module will install the other required modules. However, it is not necessary to install all modules, and each module can be installed on it's own.
 
 <p align="Left">
 <a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/PSGallery%20Publish?label=PSGallery%20Publish&logo=Github"></a>

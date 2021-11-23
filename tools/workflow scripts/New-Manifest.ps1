@@ -37,7 +37,7 @@ Function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC', 'Start-Cmder', 'Install-PSPortableLight', 'Install-PSPortable'
+            FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC'
             Path                 = "$savepath\AdminToolbox.psd1"
             Author               = "Taylor Lee"
             Description          = "Master module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
