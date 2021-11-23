@@ -1,7 +1,5 @@
 # **AdminToolbox.EndpointManagement**
 
-![AdminToolbox.EndpointManagement](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.EndpointManagement.png)
-
 * **1.0.0** Created the Module
 * **1.0.1** Corrected parameter for Disable-Standby
 * **1.1.1** Added Functions

@@ -1,9 +1,5 @@
 # **AdminToolbox**
 
-![AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.png)
-
-![AdminToolbox get-info](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/Admintoolbox%20info.png)
-
 * **1.0.0** Created the Module
 * **1.0.1** Updated Get-Intro
 * **1.0.2** First Powershell Gallery Publish Test

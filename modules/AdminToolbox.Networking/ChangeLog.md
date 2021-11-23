@@ -1,7 +1,5 @@
 # **AdminToolbox.Networking**
 
-![AdminToolbox.Networking](https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/AdminToolbox.Networking.png)
-
 * **1.0.0.0** Created the Module
 * **1.0.0.1** Exported Functions
 * **1.0.1.0** Reduced the module load time using .net methods
