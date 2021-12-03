@@ -1,6 +1,6 @@
 ---
 name: Other Reason
-about: Issues for seasons other than Feature Requests or Bug Reports
+about: Issues for reasons other than Feature Requests or Bug Reports
 title: "[Topic] [Description]"
 labels: question
 assignees: ''
