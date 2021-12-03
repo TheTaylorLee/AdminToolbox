@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for an AdminToolbox Module
-title: "[Module Name] [Function Name] [Issue Brief]"
+title: "[Module Name] [Function Name] [Feature Brief]"
 labels: enhancement
 assignees: ''
 
