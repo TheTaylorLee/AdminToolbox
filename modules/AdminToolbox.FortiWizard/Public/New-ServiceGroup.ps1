@@ -17,7 +17,7 @@
     .Example
     $Params = @{
         ServiceGroupName   = "ExchangeServers"
-        TCPPortRange       = "Exchange01 Exchange02"
+        Members       = "Exchange01 Exchange02"
     }
     New-ServiceGroup @params
 
@@ -25,7 +25,7 @@
     New-SSHSession -computername 192.168.0.1
     $Params = @{
         ServiceGroupName   = "ExchangeServers"
-        TCPPortRange       = "Exchange01 Exchange02"
+        Members       = "Exchange01 Exchange02"
     }
     $command = New-ServiceGroup @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
@@ -38,7 +38,7 @@
     New-SSHSession -computername 192.168.1.1
     $Params = @{
         ServiceGroupName   = "ExchangeServers"
-        TCPPortRange       = "Exchange01 Exchange02"
+        Members       = "Exchange01 Exchange02"
     }
     $command = New-ServiceGroup @params
     $sessions = Get-SSHSession
