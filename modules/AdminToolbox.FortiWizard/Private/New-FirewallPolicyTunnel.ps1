@@ -3,11 +3,13 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-FirewallPolicyTunnel {
-    <#
+<#
     .Description
     Create Firewall Policies for the tunnel.
-    #>
+#>
+
+Function New-FirewallPolicyTunnel {
+
 
     [CmdletBinding()]
     Param (

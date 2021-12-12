@@ -2,11 +2,12 @@
 #New-P2PTunnel
 #New-P2PTunnelNAT
 
-Function New-P2PPhase1Interface {
-    <#
+<#
     .Description
     To create Phase 1 Interfaces for the Functions Listed in the Link help.
-    #>
+#>
+
+Function New-P2PPhase1Interface {
 
     [CmdletBinding()]
     Param (

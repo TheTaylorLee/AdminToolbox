@@ -1,11 +1,12 @@
 #Required by functions
 #New-P2PTunnelNAT
 
-Function New-FirewallPolicyTunnelNAT {
-    <#
+<#
     .Description
     Create Firewall Policies for the tunnel.
-    #>
+#>
+
+Function New-FirewallPolicyTunnelNAT {
 
     [CmdletBinding()]
     Param (

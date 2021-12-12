@@ -2,11 +2,12 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-StaticRouteDialupTunnel {
-    <#
+<#
     .Description
     Creates Static routes for a tunnel.
-    #>
+#>
+
+Function New-StaticRouteDialupTunnel {
 
     [CmdletBinding()]
     Param (

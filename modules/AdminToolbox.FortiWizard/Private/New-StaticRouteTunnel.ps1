@@ -2,11 +2,12 @@
 #New-P2PTunnel
 #New-P2PTunnelNAT
 
-Function New-StaticRouteTunnel {
-    <#
+<#
     .Description
     Creates Static routes for a tunnel.
-    #>
+#>
+
+Function New-StaticRouteTunnel {
 
     [CmdletBinding()]
     Param (
