@@ -173,6 +173,7 @@
 * **10.0.0** Removed PSPortable and ConEmu functions and support files. PSPortable still exists and can be downloaded using the script provided in the related github. However I have decided not to make environmental and terminal suggestions as part of the Admintoolbox Module.
 * **10.1.0** Update required modules
 * **10.2.0** Update required modules
+* **10.2.1** Github Workflow Fix
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-10.2.0
+10.2.1
