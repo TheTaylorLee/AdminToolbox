@@ -5,7 +5,7 @@ function New-LocalInPolicyTrustHosts {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true, HelpMessage = "Provide and array administrators that should be able to login.")]
-        [string[]]$administrator,
+        [string[]]$administrators,
         [Parameter(Mandatory = $true, HelpMessage = "Provide an array of CIDR addresses that should be able to acccess the firewall management interfaces")]
         [ValidateScript( {
                 if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{1,2}$') {
@@ -20,8 +20,8 @@ function New-LocalInPolicyTrustHosts {
 
     Write-Output "#Trusted Hosts Config"
 
-    #For loop to handle config for each administrator
-    $countadmin = ($administrator).count
+    #For loop to handle config for each administrators
+    $countadmin = ($administrators).count
     for ($i = 0; $i -lt $countadmin; $i++) {
 
         #Write trusted host output to variable
@@ -40,7 +40,7 @@ function New-LocalInPolicyTrustHosts {
         }
 
         # Write Config Output
-        $adminname = $administrator[$i]
+        $adminname = $administrators[$i]
         Write-Output "config system admin
     edit $adminname"
         $hosts
