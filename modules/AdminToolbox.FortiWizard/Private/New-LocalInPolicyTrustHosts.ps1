@@ -18,8 +18,6 @@ function New-LocalInPolicyTrustHosts {
         [string[]]$trustedhosts
     )
 
-    Write-Output "#Trusted Hosts Config"
-
     #For loop to handle config for each administrators
     $countadmin = ($administrators).count
     for ($i = 0; $i -lt $countadmin; $i++) {
