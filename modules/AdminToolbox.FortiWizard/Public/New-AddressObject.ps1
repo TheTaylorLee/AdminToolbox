@@ -62,7 +62,7 @@ Function New-AddressObject {
         [Parameter(Mandatory = $true)]$AddressName,
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{2}$') {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{1,2}$') {
                     $true
                 }
                 else {

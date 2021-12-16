@@ -14,6 +14,7 @@ Disable-SipALG            ..Disables SipALG and deletes SIP profile
 Enable-Management         ..Enables Management of the Firewall from the Public Interface and sets trusted Hosts
 Get-SSHSession            ..Gets a list of active SSH Sessions
 Invoke-SSHCommand         ..Invokes an SSH Command
+New-LocalInPolicy         ..Create a localin policy for restricting access to builting mangement features
 New-SSHSession            ..Creates an SSH Session
     "                                                       -ForegroundColor cyan
 

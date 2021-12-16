@@ -4,11 +4,13 @@
 #New-DialUPTunnelDynamic
 #New-DialUPTunnelStatic
 
-Function New-P2PPhase2Interface {
-    <#
+<#
     .Description
     Create Phase 2 Interfaces for the Functions Listed in the Link help.
-    #>
+#>
+
+Function New-P2PPhase2Interface {
+
 
     [CmdletBinding()]
     Param (

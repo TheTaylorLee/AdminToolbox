@@ -28,6 +28,7 @@
 * **2.12.0** Add comment parameters for Tunnel Functions [Github Issue #37](https://github.com/TheTaylorLee/AdminToolbox/issues/37)
 * **2.12.1** Add comment parameters for Tunnel Functions [Github Issue #65](https://github.com/TheTaylorLee/AdminToolbox/issues/65)
 * **2.12.2** Fix bad examples
+* **2.13.0** [#64](https://github.com/TheTaylorLee/AdminToolbox/issues/64)
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.12.2
+2.13.0
