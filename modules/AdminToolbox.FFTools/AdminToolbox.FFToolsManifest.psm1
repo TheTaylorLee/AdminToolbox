@@ -36,3 +36,6 @@ $exepath = $PSScriptRoot + "\support\"
 $p += ";$exepath"
 #Add the paths in $p to the PSModulePath value.
 [Environment]::SetEnvironmentVariable("Path", $p)
+
+#Set function variable
+$tipspath = $PSScriptRoot + "\support\ffmpeg tips.txt"
