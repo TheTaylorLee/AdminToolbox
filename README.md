@@ -9,7 +9,10 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 <a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/Update_Docs.yml"><img src="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/Update%20Docs?label=Update%20Docs&logo=Github"></a>
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
 </p>
+
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/TheTaylorLee/AdminToolbox)
+
+
 
 ### To get started
 
