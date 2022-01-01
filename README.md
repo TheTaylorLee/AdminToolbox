@@ -11,7 +11,6 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 </p>
 
 <p align="Left">
-<a href="https://github.com/TheTaylorLee/AdminToolbox"><img src="https://img.shields.io/github/repo-size/TheTaylorLee/AdminToolbox"></a>
 <a href="https://open.vscode.dev/TheTaylorLee/AdminToolbox"><img src="https://open.vscode.dev/badges/open-in-vscode.svg"></a>  
 </p>
 
