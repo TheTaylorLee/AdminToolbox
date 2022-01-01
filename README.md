@@ -10,9 +10,11 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
 </p>
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/TheTaylorLee/AdminToolbox)
-
-
+<p align="Left">
+<a href="https://github.com/TheTaylorLee/AdminToolbox"><img src="https://img.shields.io/github/languages/code-size/TheTaylorLee/AdminToolbox"></a>
+<a href="https://github.com/TheTaylorLee/AdminToolbox"><img src="https://img.shields.io/github/directory-file-count/TheTaylorLee/AdminToolbox"></a>
+<a href="https://open.vscode.dev/TheTaylorLee/AdminToolbox"><img src="https://open.vscode.dev/badges/open-in-vscode.svg"></a>  
+</p>
 
 ### To get started
 
