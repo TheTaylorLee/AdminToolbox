@@ -46,6 +46,7 @@
 * **4.7.1** Move comment based help outside function block
 * **4.7.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **4.7.3** Fix Get-Tips environmental path
+* **4.8.0** Added lines to strip title and comments metadata for start-transcode
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.7.3
+4.8.0

@@ -32,25 +32,25 @@ function Start-Transcode {
         $ext = "*.mkv"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
 
         $ext = "*.avi"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
 
         $ext = "*.mp4"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
 
         $ext = "*.mpg"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
     }
 
