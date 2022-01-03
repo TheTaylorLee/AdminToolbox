@@ -58,7 +58,7 @@ Install-Module AdminToolbox -Allowclobber -Force
 > Office 365 and Azure related functions. These functions vary greatly in their purpose, and are all related to Microsoft 365 differing cloud services.
 
 #### Remoting
-> Remoting related functions. This module focuses remote access and management tasks.
+> Remoting related functions. This module focuses on remote access and management tasks.
 
 #### VmwareAutomate
 > VMWare related functions. This module focuses on Automateing Bulk VMWare Tasks.
