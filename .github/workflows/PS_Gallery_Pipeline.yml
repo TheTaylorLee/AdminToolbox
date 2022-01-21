@@ -58,8 +58,8 @@ jobs:
 
           #Import and Run Scripts
           $workingdirectory = (Get-Location).path
-          . "$workingdirectory\tools\workflow scripts\New-Manifest.ps1"
-          . "$workingdirectory\tools\workflow scripts\Invoke-PublishModules.ps1"
+          . "$workingdirectory\.github\workflows\scripts\New-Manifest.ps1"
+          . "$workingdirectory\.github\workflows\scripts\Invoke-PublishModules.ps1"
           Invoke-PublishModules
 
           #Publish new manifest files to the repository
