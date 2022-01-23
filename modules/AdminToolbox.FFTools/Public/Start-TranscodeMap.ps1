@@ -61,19 +61,19 @@ function Start-TranscodeMap {
 
         #Run ffmpeg
         if ($m5) {
-            ffmpeg.exe -i "$video" -map $m1 -map $m2 -map $m3 -map $m4 -map $m5 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
+            ffmpeg.exe -i "$video" -metadata title="" -metadata description="" -metadata COMMENT="" -map $m1 -map $m2 -map $m3 -map $m4 -map $m5 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
         }
         elseif ($m4) {
-            ffmpeg.exe -i "$video" -map $m1 -map $m2 -map $m3 -map $m4 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
+            ffmpeg.exe -i "$video" -metadata title="" -metadata description="" -metadata COMMENT="" -map $m1 -map $m2 -map $m3 -map $m4 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
         }
         elseif ($m3) {
-            ffmpeg.exe -i "$video" -map $m1 -map $m2 -map $m3 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
+            ffmpeg.exe -i "$video" -metadata title="" -metadata description="" -metadata COMMENT="" -map $m1 -map $m2 -map $m3 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
         }
         elseif ($m2) {
-            ffmpeg.exe -i "$video" -map $m1 -map $m2 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
+            ffmpeg.exe -i "$video" -metadata title="" -metadata description="" -metadata COMMENT="" -map $m1 -map $m2 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
         }
         else {
-            ffmpeg.exe -i "$video" -map $m1 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
+            ffmpeg.exe -i "$video" -metadata title="" -metadata description="" -metadata COMMENT="" -map $m1 -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$videoout"
         }
     }
 
