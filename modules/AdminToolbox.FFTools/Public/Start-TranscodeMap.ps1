@@ -24,9 +24,17 @@
     Specify an optional 5th stream to include
 
     .Example
-    Start-TranscodeStreams -video .\movie.mkv -m1 0:0 -m2 0:2 -m3 0:5 -crf 23
+    Start-Transcodemap -video .\movie.mkv -m1 0:0 -m2 0:2 -m3 0:5 -crf 23
 
     Includes streams 0, 2, and 5 from the file movie.mkv and transcodes with a crf of 23
+
+    .Example
+    $files = Get-ChildItem | Select-Object fullname | Where-Object { $_.fullname -like "*mkv*" }
+    foreach ($file in $files) {
+        Start-Transcodemap -video $file.FullName -m1 0:0 -m2 0:1 -m3 0:2 -m4 0:4 -crf 23
+    }
+
+    Transcodemap multiple files where you want to grab the same streams
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
