@@ -4,7 +4,7 @@
 
     Inputted Parameters are
 
-    -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
+    -metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
 
     .PARAMETER crf
     Default is set to 21. Use this parameter to change it to another value.
