@@ -36,6 +36,7 @@
 * **2.7.1** Updated Clear-TeamsCache
 * **2.7.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **2.8.0** Added the function Invoke-PerUserMFAEnforced
+* **2.8.1** Removed get-messagetrace index from get-office365 since the function doesn't exist any longer.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.8.0
+2.8.1
