@@ -22,7 +22,7 @@ Create a report of Active Directory users
 
 ### EXAMPLE 1
 ```
-Get-UserReport -path C:\UserReport.csv
+Get-UserReport | Export-Excel .\out.xlsx
 ```
 
 Specify is where the report is to be saved.
