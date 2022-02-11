@@ -6,7 +6,7 @@
     Requires Active Directory Module
 
     .Example
-    Get-UserReport -path C:\UserReport.csv
+    Get-UserReport | Export-Excel .\out.xlsx
 
     Specify is where the report is to be saved.
 

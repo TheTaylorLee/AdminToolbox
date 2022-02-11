@@ -175,6 +175,7 @@
 * **10.2.0** Update required modules
 * **10.2.1** Github Workflow Fix
 * **10.2.2** Github Workflow Changes Test
+* **10.2.3** Update required modules
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-10.2.2
+10.2.3
