@@ -1,3 +1,10 @@
+# Need to Do
+- [ ] Update existing MsOnline and Azure AD functions to use MSGraph
+- [ ] Update Connect-365 to remove legacy connection options
+- [ ] Update Get-Office365 to put commands in the correct sections. Consider updating sections
+- [ ] Review help for each function and update it with accurate info
+- [ ] Change version to a new major on publish
+
 # Connecting and managing scopes
 ### Use beta api for newer function availability
 ```Powershell
@@ -14,11 +21,4 @@ Select-MgProfile -Name "beta"
 $filter = Find-MgGraphPermission | Out-GridView -PassThru -Title "Select needed permissions."
 $scopes = ($filter).name -join ', '
 Connect-MgGraph -Scopes $scopes
-```
-
-# [Get-MFAStatus](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.reports/get-mgreportcredentialuserregistrationdetail?view=graph-powershell-beta)
-```Powershell
-[string[]]$scopes = 'Reports.Read.All'
-Connect-MgGraph -Scopes $scopes
-Get-MgReportCredentialUserRegistrationDetail
 ```
