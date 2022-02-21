@@ -3,7 +3,7 @@
     Get Multifactor Authentication Status for Microsoft Online users
 
     .NOTES
-    Requires the Exchange Online module be installed, imported, and Connected.
+    Requires the Microsoft Online module be installed, imported, and Connected.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
