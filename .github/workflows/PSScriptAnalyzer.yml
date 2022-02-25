@@ -10,12 +10,12 @@
 name: PSScriptAnalyzer
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
   schedule:
     - cron: '25 1 * * 4'
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
     
 jobs:
   build:
