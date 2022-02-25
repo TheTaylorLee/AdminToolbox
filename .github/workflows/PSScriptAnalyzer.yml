@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 #
-# https://github.com/microsoft/action-psscriptanalyzer
+# https://github.com/microsoft/psscriptanalyzer-action
 # For more information on PSScriptAnalyzer in general, see
 # https://github.com/PowerShell/PSScriptAnalyzer
 
@@ -34,8 +34,7 @@ jobs:
           # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
           path: .\modules
           recurse: true 
-          # Include your own basic security rules. Removing this option will run all the rules 
-          # includeRule: '"PSAvoidGlobalAliases", "PSAvoidUsingConvertToSecureStringWithPlainText"'
+          severity: '"Error", "Warning"'
           output: results.sarif
       
       # Upload the SARIF file generated in the previous step
