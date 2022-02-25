@@ -87,7 +87,7 @@ Function Start-Application {
 
         #If the index doesn't exist, warn to build it.
         else {
-            Write-Host
+            Write-Output " "
             Write-Warning "No index file found. First build the index using: Start-Application -index"
         }
     }
