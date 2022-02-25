@@ -35,6 +35,7 @@ jobs:
           path: .\modules
           recurse: true 
           severity: '"Error", "Warning"'
+          excludeRule: '"PSAvoidUsingWriteHost"'
           output: results.sarif
       
       # Upload the SARIF file generated in the previous step
