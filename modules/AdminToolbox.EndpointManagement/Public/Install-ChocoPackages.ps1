@@ -23,7 +23,7 @@ function Install-ChocoPackages {
 
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]$Install
+        [Parameter(Mandatory = $true)]$Install
     )
 
     #Check for Admin Privleges
