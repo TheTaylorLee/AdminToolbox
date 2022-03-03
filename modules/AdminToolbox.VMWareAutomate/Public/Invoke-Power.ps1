@@ -61,11 +61,11 @@ function Invoke-Power {
         [Parameter(Mandatory = $true, ParameterSetName = 'Power Off Guest')][switch]$poweroffguest,
         [Parameter(Mandatory = $true, ParameterSetName = 'Power Off VM')][switch]$poweroffvm,
         [Parameter(Mandatory = $true, ParameterSetName = 'Power On VM')][switch]$poweronvm,
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'Power Cycle VM')]
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'Restart Guest')]
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'Power Off Guest')]
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'Power Off VM')]
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'Power On VM')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'Power Cycle VM')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'Restart Guest')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'Power Off Guest')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'Power Off VM')]
+        [Parameter(Mandatory = $true, ParameterSetName = 'Power On VM')]
         $VM
     )
 
