@@ -48,6 +48,7 @@
 * **4.7.3** Fix Get-Tips environmental path
 * **4.8.0** Added lines to strip title and comments metadata for start-transcode
 * **4.9.0** Updated metadata handling
+* **4.9.1** Update Icon URI in Manifest
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.9.0
+4.9.1

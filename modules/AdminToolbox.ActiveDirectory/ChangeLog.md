@@ -21,6 +21,7 @@
 * **1.6.1** Move comment based help outside function block
 * **1.6.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **1.6.3** Fixed example for Get-UserReport
+* **1.6.4** Update Icon URI in Manifest
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.6.3
+1.6.4

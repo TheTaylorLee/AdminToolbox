@@ -19,6 +19,7 @@
 * **1.9.0** Updated Remove-all to also remove cache files.
 * **1.9.1** Move comment based help outside function block
 * **1.9.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
+* **1.9.3** Update Icon URI in Manifest
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.9.2
+1.9.3
