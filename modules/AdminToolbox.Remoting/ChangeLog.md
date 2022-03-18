@@ -23,6 +23,7 @@
 * **1.8.1** Invoke-ServiceRecovery doesn't work in Powershell Core. Added a function break with an error to use Legacy Powershell.
 * **1.8.2** Move comment based help outside function block
 * **1.8.3** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
+* **1.8.4** Update Icon URI in Manifest
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.8.3
+1.8.4

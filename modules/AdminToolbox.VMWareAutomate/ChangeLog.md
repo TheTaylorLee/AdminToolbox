@@ -49,6 +49,7 @@
 * **4.7.2** Updated Required Modules
 * **4.7.4** Workflow fix
 * **4.7.5** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
+* **4.7.6** Update Icon URI in Manifest
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.7.5
+4.7.6

@@ -30,6 +30,7 @@
 * **2.12.2** Fix bad examples
 * **2.13.0** [#64](https://github.com/TheTaylorLee/AdminToolbox/issues/64)
 * **2.13.1** Github Workflow Fix
+* **2.13.2** Update Icon URI in Manifest
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.13.1
+2.13.2
