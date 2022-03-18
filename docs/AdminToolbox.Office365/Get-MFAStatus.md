@@ -34,7 +34,7 @@ PS C:\> {{ Add example code here }}
 ## OUTPUTS
 
 ## NOTES
-Requires the Exchange Online module be installed, imported, and Connected.
+Requires the Microsoft Online module be installed, imported, and Connected.
 
 ## RELATED LINKS
 
