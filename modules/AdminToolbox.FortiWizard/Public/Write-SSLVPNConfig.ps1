@@ -168,7 +168,6 @@ end
 
 config firewall address
     edit ""SSLVPN_Internal_$InternalCIDR""
-        set visibility disable
         set subnet $IPAddress $SubnetMask
     next
 end
@@ -181,10 +180,10 @@ config vpn ssl web portal
         set ip-pools ""SSLVPN_TUNNEL_$SSLClientCIDR""
         set ipv6-tunnel-mode disable
         config split-dns
-        edit 1
-            set domains ""$CommaSeperatedDNSSuffixes""
-            set dns-server1 $DNSServerIP
-        next
+            edit 1
+                set domains ""$CommaSeperatedDNSSuffixes""
+                set dns-server1 $DNSServerIP
+            next
         end
     next
     edit no-access
