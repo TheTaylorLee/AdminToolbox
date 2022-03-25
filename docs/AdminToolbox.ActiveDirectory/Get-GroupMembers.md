@@ -12,7 +12,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Get-GroupMembers [[-Path] <Object>] [<CommonParameters>]
+Get-GroupMembers [[-Path] <Object>] [[-Searchbase] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +22,7 @@ Get a list of Active Directory groups and the Members of those groups
 
 ### EXAMPLE 1
 ```
-Get-GroupMembers -Path "$env:USERPROFILE\downloads\AD Group Members.xlsx"
+Get-GroupMembers -Path "$env:USERPROFILE\downloads\AD Group Members.xlsx" -searchbase "OU=Security Groups,DC=company,DC=net"
 ```
 
 ## PARAMETERS
@@ -38,6 +38,21 @@ Aliases:
 Required: False
 Position: 1
 Default value: "$env:USERPROFILE\downloads\AD Group Members.xlsx"
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Searchbase
+A distinguished name for an OU path.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
