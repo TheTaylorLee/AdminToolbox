@@ -178,6 +178,7 @@
 * **10.2.3** Update required modules
 * **10.2.4** Update Icon URI in Manifest
 * **10.2.5** Update required modules
+* **10.2.6** Update Open-AdminMMC saved MSC file.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-10.2.5
+10.2.6
