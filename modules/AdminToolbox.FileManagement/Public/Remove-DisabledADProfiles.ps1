@@ -15,6 +15,9 @@
 
     Use Computername to specify the Domain Controller to be queried for active domain accounts
 
+    .Notes
+    Previously used wmi and now uses Cim for removing profiles. If seeing issues with the new method in the future consider updating the function to use either or method, or develop a 3rd method entirely.
+
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 #>
@@ -35,21 +38,18 @@ function Remove-DisabledADProfiles {
         Invoke-Command -Command { Import-Module ActiveDirectory } -Session $DCSession
         Import-PSSession -Session $DCSession -Module ActiveDirectory -AllowClobber
 
-        $profiles = Get-WmiObject -Class Win32_UserProfile
+        $profiles = Get-CimInstance -Class Win32_UserProfile
         foreach ($prof in $profiles) {
             $sid = $prof.sid
             $ADUser = Get-ADUser -Filter * | Where-Object sid -EQ $sid
             if ($ADUser.enabled -eq $false) {
                 #delete profile
                 "Delete $($ADUser.name)"
-                $prof.delete()
+                $prof | Remove-CimInstance
             }
-
-
         }
     }
     catch {
         Write-Output $_.Exception.Message
     }
-
 }
