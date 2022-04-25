@@ -1,7 +1,7 @@
 ---
 name: Other reason
 about: Issues for reasons other than Feature Requests or Bug Reports
-title: "[Topic] [Description]"
+title: "Topic - Description"
 labels: question
 assignees: ''
 
