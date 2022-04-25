@@ -54,8 +54,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-This function requires Powershell Remoting be enabled on the leveraged domain controller.
-If PSRemoting is disabled run the command \<Enable-PSRemoting -force\> on the domain controller
+Previously used wmi and now uses Cim for removing profiles.
+If seeing issues with the new method in the future consider updating the function to use either or method, or develop a 3rd method entirely.
 
 ## RELATED LINKS
 
