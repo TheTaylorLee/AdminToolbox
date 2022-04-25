@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Report Module and Function Bugs
-title: "[Module Name] [Function Name] [Issue Brief]"
+title: "Module Name - Function Name - Issue Brief"
 labels: bug
 assignees: ''
 
