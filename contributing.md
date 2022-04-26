@@ -26,7 +26,7 @@
 ### ALLOWED type VALUES:
 Value | Description
 ---------|----------
-build | A change to the overall structure of the modules
+build | A change to the overall structure of a module
 ci | changes to CI/CD
 docs | Documentation Changes
 feat | A new feature
