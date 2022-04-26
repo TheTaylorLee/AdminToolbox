@@ -180,6 +180,7 @@
 * **10.2.5** Update required modules
 * **10.2.6** Update Open-AdminMMC saved MSC file.
 * **10.2.7** Update required modules
+* **10.2.8** Increment Manifest to resolve missing manifest version in github timeline
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-10.2.7
+10.2.8

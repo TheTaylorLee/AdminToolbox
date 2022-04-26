@@ -46,6 +46,7 @@
 * **4.7.1** Update versioning standard and added LicenseURI.
 * **4.7.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **4.7.3** Update Icon URI in Manifest
+* **4.7.4** Increment Manifest to resolve missing manifest version in github timeline
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.7.3
+4.7.4

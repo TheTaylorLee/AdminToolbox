@@ -46,6 +46,7 @@
 * **2.12.3** Bug fix for Invoke-Networkscan OUI path variable
 * **2.12.4** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **2.12.5** Update Icon URI in Manifest
+* **2.12.6** Increment Manifest to resolve missing manifest version in github timeline
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.12.5
+2.12.6

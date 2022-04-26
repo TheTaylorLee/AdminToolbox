@@ -22,6 +22,7 @@
 * **1.8.1** Move comment based help outside function block
 * **1.8.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **1.8.3** Update Icon URI in Manifest
+* **1.8.4** Increment Manifest to resolve missing manifest version in github timeline
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.8.3
+1.8.4

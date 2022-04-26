@@ -21,6 +21,7 @@
 * **1.9.2** Remove broken helpinfouri from the manifest [Github Issue #59](https://github.com/TheTaylorLee/AdminToolbox/issues/59)
 * **1.9.3** Update Icon URI in Manifest
 * **1.10.0** Updated Remove-DisabledADProfiles to use cim instead of wmi
+* **1.10.1** Increment Manifest to resolve missing manifest version in github timeline
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.10.0
+1.10.1
