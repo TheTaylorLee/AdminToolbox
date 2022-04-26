@@ -68,5 +68,5 @@ jobs:
           git config --global user.email $env:GIT_EMAIL
           git config --global user.name "TheTaylorLee"
           git add -A
-          git commit -m "Workflow: Update_Docs"
+          git commit -m "docs: Update_Docs"
           git push -u origin master
