@@ -9,7 +9,7 @@ on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/lea
     types:
       - completed
 
-# Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -24,7 +24,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-        #Cache Modules that are required by publishing modules
+      #Cache Modules that are required by publishing modules
       - name: Specify PowerShell modules to cache
         id: psmodulecache
         uses: potatoqualitee/psmodulecache@v1
@@ -68,5 +68,5 @@ jobs:
           git config --global user.email $env:GIT_EMAIL
           git config --global user.name "TheTaylorLee"
           git add -A
-          git commit -m "Workflow Update_Docs"
+          git commit -m "Workflow: Update_Docs"
           git push -u origin master

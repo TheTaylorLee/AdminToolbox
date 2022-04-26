@@ -66,5 +66,5 @@ jobs:
           git config --global user.email $env:GIT_EMAIL
           git config --global user.name "TheTaylorLee"
           git add -A
-          git commit -m "Manifest Update"
+          git commit -m "Workflow: Manifest Update"
           git push -u origin master
