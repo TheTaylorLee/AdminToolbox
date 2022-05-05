@@ -12,13 +12,12 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Remove-All [[-computer] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-All [[-hostname] <Object>] [-server] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This Command removes log files, temp files, and empties the recycle bin.
-Access denied errors do not indicate a failure of the script.
-Run for the local or a remote PC.
+This Command removes log files, temp files, downloads, some appdata, and empties the recycle bin.
+Dependent on if it's specified this is running on a workstation or server will determine what is deleted.
 
 ## EXAMPLES
 
@@ -31,16 +30,32 @@ Free up space on the local computer
 
 ### EXAMPLE 2
 ```
-Remove-All -Computer JackPC10
+Remove-All -Hostname JackPC10
 ```
 
 Free up space on a remote PC.
-May be more effective if run locally depending on in place security.
+May be more effective if run locally.
+
+### EXAMPLE 3
+```
+Remove-All -server
+```
+
+Removes folders you wouldn't want on a server such as google chrome and meeting applications in local user appdata, but that you would not want to delete on a workstation.
+
+### EXAMPLE 4
+```
+Remove-All -server -hostname 'azure-rds-04.domain.tld'
+```
+
+Removes folders you wouldn't want on a remote server such as google chrome and meeting applications in local user appdata, but that you would not want to delete on a workstation.
+May be more effective if run locally.
 
 ## PARAMETERS
 
-### -computer
-Specify a remote computer run cleanup against
+### -hostname
+Specify a remote endpoint and run cleanup against the C$ unc path.
+Do not use this if the $env:systemdrive of the remote endpoint is not C:
 
 ```yaml
 Type: Object
@@ -50,6 +65,21 @@ Aliases:
 Required: False
 Position: 1
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -server
+{{ Fill server Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -93,6 +123,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+USE AT YOUR OWN RISK.
+YOU SHOULD READ AND UNDERSTAND THIS FUNCTION BEFORE USING IT.
 
 ## RELATED LINKS
 
