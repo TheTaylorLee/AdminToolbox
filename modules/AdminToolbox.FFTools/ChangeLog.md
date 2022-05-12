@@ -50,6 +50,7 @@
 * **4.9.0** Updated metadata handling
 * **4.9.1** Update Icon URI in Manifest
 * **4.9.2** Increment Manifest to resolve missing manifest version in github timeline
+* **4.10.0** Updated install-fftools install path
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.9.2
+4.10.0
