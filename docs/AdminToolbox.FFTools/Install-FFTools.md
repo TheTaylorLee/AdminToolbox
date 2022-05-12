@@ -16,7 +16,7 @@ Install-FFTools
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Downloads ffmpeg essentials build from gyan.dev, moves those files to $env:SystemDrive\fftools, and adds them to system path.
 
 ## EXAMPLES
 
