@@ -13,5 +13,6 @@ function Get-FileManagement {
     Write-Host "Remove-All                 ..Removes many files quickly to free up space"                           -ForegroundColor cyan
     Write-Host "Remove-DisabledADProfiles  ..Removes local profiles of disabled AD users"                           -ForegroundColor cyan
     Write-Host "Remove-OlderThan           ..Removes folders and files older than"                                  -ForegroundColor cyan
+    Write-Host "Use-WSLnano                ..Use WSL to get a nano editor in PWSH"                                  -ForegroundColor cyan
     Write-Host " "
 }
