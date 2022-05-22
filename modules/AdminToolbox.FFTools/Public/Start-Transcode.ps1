@@ -4,7 +4,7 @@
 
     Inputted Parameters are
 
-    -metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
+    -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
 
     .PARAMETER crf
     Default is set to 21. Use this parameter to change it to another value.
@@ -32,25 +32,25 @@ function Start-Transcode {
         $ext = "*.mkv"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
 
         $ext = "*.avi"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
 
         $ext = "*.mp4"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
 
         $ext = "*.mpg"
         $array = @(Get-ChildItem -Filter $ext)
         Foreach ($video in $array.Name) {
-            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
+            ffmpeg.exe -i $video -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast "$env:FFToolsTarget$video"
         }
     }
 
