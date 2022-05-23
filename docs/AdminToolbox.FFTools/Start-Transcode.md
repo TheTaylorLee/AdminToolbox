@@ -20,7 +20,7 @@ Transcodes video files containing extensions *.mp4, *.mkv, *.avi, and *.mpg
 
 Inputted Parameters are
 
--metadata title="" -metadata description="" -metadata COMMENT="" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
+-metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
 
 ## EXAMPLES
 
