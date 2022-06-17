@@ -16,9 +16,9 @@ Remove-DisabledADProfiles [-domaincontroller] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This function leverages PSRemoting to import the AD module a active domain controller.
+This function leverages PSRemoting to import the AD module and query Active Directory Accounts.
 It will then parse through existing profiles on the local machine to make sure they don't belong to disabled or missing Active Directory Accounts
-If a profile matches a missing or disable Active Directroy account it will be deleted on the local client.
+If a profile matches a missing or disable Active Directroy account it will be deleted on the local endpoint.
 
 ## EXAMPLES
 
