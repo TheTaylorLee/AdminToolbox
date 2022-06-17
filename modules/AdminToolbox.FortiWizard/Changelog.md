@@ -33,6 +33,7 @@
 * **2.13.2** Update Icon URI in Manifest
 * **2.13.3** Format output of write-sslvpnconfig [#74](https://github.com/TheTaylorLee/AdminToolbox/issues/74)
 * **2.14.4** Increment Manifest to resolve missing manifest version in github timeline
+* **2.15.0** Push any small changes
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.14.4
+2.15.0

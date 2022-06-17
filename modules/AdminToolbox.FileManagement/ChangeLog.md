@@ -24,6 +24,7 @@
 * **1.10.1** Increment Manifest to resolve missing manifest version in github timeline
 * **1.11.0** Big rework of Remove-All. Updated it to not delete files from workstations that should be kept, but still delete them from servers.
 * **1.12.0** Add Use-WSLnano function
+* **1.13.0** Push any small changes
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.12.0
+1.13.0

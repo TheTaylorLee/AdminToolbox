@@ -39,6 +39,7 @@
 * **2.8.1** Removed get-messagetrace index from get-office365 since the function doesn't exist any longer.
 * **2.8.2** Update Icon URI in Manifest
 * **2.8.3** Increment Manifest to resolve missing manifest version in github timeline
+* **2.9.0** Push any small changes
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.8.3
+2.9.0
