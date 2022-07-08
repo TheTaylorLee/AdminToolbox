@@ -16,10 +16,6 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 Install-Module AdminToolbox -Allowclobber -Force
 ```
 
-### Sample Videos
-
-[New-P2PTunnel](https://www.youtube.com/watch?v=stIkaeUwJ4c)
-
 ## AdminToolbox.Required Modules
 
 #### ActiveDirectory
