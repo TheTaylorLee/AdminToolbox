@@ -38,7 +38,7 @@ Function New-Manifest {
         #Old iconurl. Maybe bad now if profile image has changed. 'https://avatars2.githubusercontent.com/u/53202926?s=460&v=4'
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show', 'Open-AdminMMC'
+            FunctionsToExport    = 'Get-All', 'Get-Info', 'Get-Full', 'Start-Application', 'Get-ModuleAliases', 'Invoke-Show'
             Path                 = "$savepath\AdminToolbox.psd1"
             Author               = "Taylor Lee"
             Description          = "Master module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
