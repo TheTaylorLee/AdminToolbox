@@ -1,10 +1,19 @@
-### [Get-MFAStatus](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.reports/get-mgreportcredentialuserregistrationdetail?view=graph-powershell-beta)
+<#
+    .DESCRIPTION
+    Get multifactor authentication status for Microsoft Azure accounts
 
-function Get-msgMFAstatus {
+    .EXAMPLE
+    Get-msgMFAStatus
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox
+#>
+
+function Get-msgMFAStatus {
 
     #Confirm pre-requisites are met.
     Test-MSGraphRequirements -scopes 'Reports.Read.All'
 
     #Output MFA Statuses
-    Get-MgReportCredentialUserRegistrationDetail
+    Get-MgReportCredentialUserRegistrationDetail -All
 }
