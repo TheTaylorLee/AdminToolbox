@@ -5,6 +5,11 @@
 - [ ] Review help for each function and update it with accurate info
 - [ ] Change version to a new major on publish
 
+# Install MS Graph Module
+```powershell
+Install-Module -Name Microsoft.Graph -AllowPrerelease -Force -AllowClobber
+```
+
 # Connecting and managing scopes
 ### Use beta api for newer function availability
 ```Powershell
