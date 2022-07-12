@@ -9,13 +9,18 @@ Specify an array of scopes that must be imported prior to the function continuei
 Test-MSGraphRequirements -scopes 'Reports.Read.All'
 
 Used in the function Get-msgMFAStatus
+
+.EXAMPLE
+Test-MSGraphRequirements -Scopes 'openid', 'email', 'profile'
+
+Test requirements needed to sign in with the Microsoft.Graph.Authentication module.
 #>
 
 function Test-MSGraphRequirements {
 
     [CmdletBinding()]
     Param (
-        [string[]]$scopes
+        [Parameter(Mandatory = $false)][string[]]$scopes
     )
 
     # Test for required module and prompt for install
@@ -39,6 +44,7 @@ function Test-MSGraphRequirements {
     $importedscopes = (Get-MgContext).scopes
     foreach ($scope in $scopes) {
         if ($importedscopes -notcontains $scope) {
+            Write-Output "[+] Import and/or Registern required scopes"
             Connect-MgGraph -Scopes $scopes
         }
     }
