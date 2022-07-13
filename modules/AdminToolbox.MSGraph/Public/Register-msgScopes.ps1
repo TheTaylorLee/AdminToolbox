@@ -11,6 +11,10 @@
 
 function Register-msgScopes {
 
+    [CmdletBinding()]
+    Param (
+    )
+
     #Confirm pre-requisites are met.
     Test-MSGraphRequirements
 
