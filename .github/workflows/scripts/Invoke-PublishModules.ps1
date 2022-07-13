@@ -75,7 +75,7 @@ function Invoke-PublishModules {
 
     #msgraph
     $msgraphPSGallery = (Find-Module "AdminToolbox.msgraph" -Repository PSGallery).version
-    $msgraphGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
+    $msgraphGithub = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1
     if ([version]$msgraphGithub -gt [version]$msgraphPSGallery ) {
         New-Manifest -MSGraph #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.MSGraph" -NuGetApiKey $env:NUGET_KEY
