@@ -158,6 +158,7 @@ function Invoke-PublishModules {
         Install-Module AdminToolbox.FileManagement -AllowClobber -Force; Import-Module AdminToolbox.FileManagement -Force -Global
         Install-Module AdminToolbox.FortiWizard -AllowClobber -Force; Import-Module AdminToolbox.FortiWizard -Force -Global
         Install-Module AdminToolbox.Fun -AllowClobber -Force; Import-Module AdminToolbox.Fun -Force -Global
+        Install-Module AdminToolbox.msgraph -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
         Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
         Install-Module AdminToolbox.Office365 -AllowClobber -Force; Import-Module AdminToolbox.Office365 -Force -Global
         Install-Module AdminToolbox.Remoting -AllowClobber -Force; Import-Module AdminToolbox.Remoting -Force -Global
