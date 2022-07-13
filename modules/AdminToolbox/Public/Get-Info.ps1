@@ -12,7 +12,6 @@ Get-All                           ..Gets all module Functions
 Get-Full                          ..Gets full help for selected functions
 Get-ModuleAliases                 ..Gets aliases for AdminToolbox modules
 Invoke-Show                       ..Invokes a grid Gui for implementing show command
-Open-AdminMMC                     ..Opens Microsoft Management Console with multiple snap-ins loaded
 Start-Application                 ..Start an application from PowerShell with ease
           "                                                                                                 -ForegroundColor cyan
     Write-Host " "
@@ -27,6 +26,7 @@ Get-FFTools                       ..Gets functions for FFMpeg utilities
 Get-FileManagement                ..Gets functions for File Management
 Get-FortiWizard                   ..Gets functions for FortiWizard
 Get-Fun                           ..Gets functions for Fun
+Get-MSGraph                       ..Gets functions for MSGraph
 Get-Networking                    ..Gets functions for Networking
 Get-Office365                     ..Gets functions for Office 365
 Get-Remoting                      ..Gets functions for Remoting

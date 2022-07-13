@@ -13,6 +13,7 @@ Function New-Manifest {
         [Parameter(Mandatory = $false)][Switch]$FortiWizard,
         [Parameter(Mandatory = $false)][Switch]$Fun,
         [Parameter(Mandatory = $false)][Switch]$Networking,
+        [Parameter(Mandatory = $false)][Switch]$MSGraph,
         [Parameter(Mandatory = $false)][Switch]$Office365,
         [Parameter(Mandatory = $false)][Switch]$Remoting,
         [Parameter(Mandatory = $false)][Switch]$VMWareAutomate
@@ -25,6 +26,7 @@ Function New-Manifest {
     $script:FileManagementGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1
     $script:FunGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
     $script:NetworkingGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
+    $script:MSGraph = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1
     $script:Office365GithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
     $script:RemotingGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
     $script:VMWareAutomateGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
@@ -56,6 +58,7 @@ Function New-Manifest {
                 @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = $script:FortiWizardGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = $script:FunGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = $script:NetworkingGithubVersion; },
+                @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = $script:MSGraph; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = $script:Office365GithubVersion; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = $script:RemotingGithubVersion; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = $script:VMWareAutomateGithubVersion; },
@@ -65,7 +68,7 @@ Function New-Manifest {
             )
             RootModule           = "AdminToolboxManifest.psm1"
             ReleaseNotes         = "The release notes can be found in the ChangeLog.md file at the scriptroot path."
-            Tags                 = '365', 'Active', 'ActiveDirectory', 'Automate', 'Application', 'Crescendo', 'Directory', 'Exchange', 'FileManagement', 'Fortinet', 'FortiGate', 'FortiOS', 'Iperf', 'Network', 'Networking', 'NetworkScan', 'Office', 'Office365', 'OpenSSH', 'PC', 'PCSetup', 'Print', 'Printer', 'Remoting', 'Robocopy', 'Setup', 'SSH', 'vmware', 'Windows'
+            Tags                 = '365', 'Active', 'ActiveDirectory', 'Automate', 'Application', 'Crescendo', 'Directory', 'Exchange', 'FileManagement', 'Fortinet', 'FortiGate', 'FortiOS', 'GraphAPI', 'Iperf', 'MSGraph', 'Network', 'Networking', 'NetworkScan', 'Office', 'Office365', 'OpenSSH', 'PC', 'PCSetup', 'Print', 'Printer', 'Remoting', 'Robocopy', 'Setup', 'SSH', 'vmware', 'Windows'
         }
 
         New-ModuleManifest @Params
@@ -266,6 +269,28 @@ Function New-Manifest {
             RootModule           = "AdminToolbox.NetworkingManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
             Tags                 = 'iperf', 'ethr', 'Networking', 'NetworkScan'
+        }
+
+        New-ModuleManifest @Params
+    }
+
+    if ($MSGraph) {
+        #MSGraph
+        $savepath = "$workingdirectory\modules\AdminToolbox.MSGraph"
+        $Params = @{
+            CompatiblePSEditions = "Desktop", "Core"
+            FunctionsToExport    = 'Get-msgMFAStatus', 'Register-msgScopes', 'Get-MSGraph', 'Show-AllMSGFunctions'
+            Path                 = "$savepath\AdminToolbox.MSGraph.psd1"
+            Author               = "Taylor Lee"
+            Description          = "Microsoft Graph interactive API Functions"
+            IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/master/images/toolboxShell2.png'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            ModuleVersion        = "$script:MSGraph"
+            Powershellversion    = "5.1"
+            ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
+            RootModule           = "AdminToolbox.MSGraphManifest.psm1"
+            ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
+            Tags                 = 'GraphAPI', 'MSGraph'
         }
 
         New-ModuleManifest @Params

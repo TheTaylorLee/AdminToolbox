@@ -73,6 +73,18 @@ function Invoke-PublishModules {
         $Fun = Write-Output "[-] AdminToolbox.Fun not published"
     }
 
+    #msgraph
+    $msgraphPSGallery = (Find-Module "AdminToolbox.msgraph" -Repository PSGallery).version
+    $msgraphGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
+    if ([version]$msgraphGithub -gt [version]$msgraphPSGallery ) {
+        New-Manifest -MSGraph #Generate each modules manifest files
+        Publish-Module -Path "$workingdirectory/modules/AdminToolbox.MSGraph" -NuGetApiKey $env:NUGET_KEY
+        $MSGraph = Write-Output "[+] AdminToolbox.MSGraph published to PSGallery"
+    }
+    else {
+        $MSGraph = Write-Output "[-] AdminToolbox.MSGraph not published"
+    }
+
     #Networking
     $NetworkingPSGallery = (Find-Module "AdminToolbox.Networking" -Repository PSGallery).version
     $NetworkingGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
@@ -164,6 +176,7 @@ function Invoke-PublishModules {
     $FileManagement
     $FortiWizard
     $Fun
+    $MSGraph
     $Networking
     $Office365
     $Remoting
