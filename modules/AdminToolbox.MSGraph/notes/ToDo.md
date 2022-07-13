@@ -1,12 +1,12 @@
 # Need to Do
 - [ ] Convert Office 365 module functions if possible.
-- [ ]  Add workflow changes so that the MSGraph powershell module gets added to powershell gallery.
-    - [ ]  manifest needs to export new functions
-    - [ ]  Have to manually create v1 module manifest for workflow to work. Do this prior to publishing this dev branch to master.
-- [ ]  Full/major version bump admintoolbox master module when publishing msgraph.
-- [ ]  Add office 365 banner stating the depreciating status of the admintoolbox.office365 module and point to using msgraph instead.
-- [ ]  Create new custom intromsgraph private function and get-msgraph function list
-    - [ ] Consider how to organize functions. Either by submodule or purpose or some other factor that won't get confused during future updates.
+- [x]  Add workflow changes so that the MSGraph powershell module gets added to powershell gallery.
+    - [x]  manifest needs to export new functions
+    - [x]  Have to manually create v1 module manifest for workflow to work. Do this prior to publishing this dev branch to master.
+- [x]  Full/major version bump admintoolbox master module when publishing msgraph.
+- [x]  Add office 365 banner stating the depreciating status of the admintoolbox.office365 module and point to using msgraph instead.
+- [x]  Create new custom intromsgraph private function and get-msgraph function list
+    - [x] Consider how to organize functions. Either by submodule or purpose or some other factor that won't get confused during future updates.
 - [ ] Review help for each function and update it with accurate info
 
 # Install MS Graph Module

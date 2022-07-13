@@ -18,10 +18,6 @@ Function Get-Intro365 {
     Write-Host "Office 365"                                                                             -ForegroundColor Red     -NoNewline
     Write-Host " Modules are required                                  "                                -ForegroundColor Yellow  -NoNewline
     Write-Host "<"                                                                                      -ForegroundColor Green
-    Write-Host "             > "                                                                        -ForegroundColor Green   -NoNewline
-    Write-Host "Admintoolbox.MSGraph "                                                                  -ForegroundColor Red     -NoNewline
-    Write-Host "is the successor to this module"                                                        -ForegroundColor Yellow     -NoNewline
-    Write-Host "             <"                                                                         -ForegroundColor Green
     Write-Host "             --------------------------------------------------------------------"      -ForegroundColor Green
 
     Write-Host " "
