@@ -290,7 +290,7 @@ Function New-Manifest {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RootModule           = "AdminToolbox.MSGraphManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-            Tags                 = 'GraphAPI', 'MSGraph'
+            Tags                 = 'GraphAPI', 'MSGraph', 'MicrosoftGraph'
         }
 
         New-ModuleManifest @Params
