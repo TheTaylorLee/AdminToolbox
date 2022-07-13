@@ -7,6 +7,9 @@
 #>
 
 function Show-AllMSGFunctions {
+
+    #Confirm pre-requisites are met.
     Test-MSGraphRequirements
+
     Get-Command -Module microsoft.graph*
 }
