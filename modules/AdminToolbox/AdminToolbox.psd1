@@ -18,7 +18,7 @@ ModuleVersion = '11.0.0'
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'e4f2af8f-039f-4adb-a7e5-e16ac3741eb9'
+GUID = '69009a72-b045-4593-afc0-f78b7a13777f'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -59,7 +59,7 @@ RequiredModules = @(@{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion
                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.15.0'; }, 
                @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.6.0'; }, 
                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.13.0'; }, 
-               @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = '1.0.0'; }, 
+               @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = '1.0.1'; }, 
                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.9.0'; }, 
                @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.9.0'; }, 
                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.8.0'; }, 
