@@ -31,14 +31,14 @@ function Test-MSGraphRequirements {
             Import-Module Microsoft.Graph.Authentication -ErrorAction Stop
         }
         catch {
-            Write-Warning "Required Microsoft Graph Module not found. First install the needed module or abort the function using ctrl + c"
+            Write-Warning "[-] Required Microsoft Graph Module not found. First install the needed module or abort the function using ctrl + c"
             Install-Module -Name Microsoft.Graph -AllowPrerelease -Force -AllowClobber
         }
     }
 
     # Sets the MSGraph profile to beta if not already set. This is required by some functions
-    if ((get-mgprofile).name -ne 'beta') {
-        Select-MgProfile -Name "beta" -verbose
+    if ((Get-MgProfile).name -ne 'beta') {
+        Select-MgProfile -Name "beta" -Verbose
     }
 
     # Test that required scopes are imported and import them if they are not.
@@ -46,7 +46,7 @@ function Test-MSGraphRequirements {
     foreach ($scope in $scopes) {
         if ($importedscopes -notcontains $scope) {
             Write-Output "[+] Apply and/or Register required scopes."
-            Write-Output "If terminal is not progressing, check your web browser for a login and a possible app registration prompt."
+            Write-Output "[?] If terminal is not progressing, check your web browser for a login and a possible app registration prompt."
             Connect-MgGraph -Scopes $scopes
         }
     }
