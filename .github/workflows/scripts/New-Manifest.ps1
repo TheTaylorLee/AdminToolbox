@@ -279,7 +279,7 @@ Function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.MSGraph"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-msgMFAStatus', 'Register-msgScopes', 'Get-MSGraph', 'Show-AllMSGFunctions', 'Get-msgDirectoryRoleMembers'
+            FunctionsToExport    = 'Get-msgMFAStatus', 'Register-msgScopes', 'Get-MSGraph', 'Show-AllMSGFunctions', 'Get-msgDirectoryRoleMembers', 'Get-msgGuestUsers '
             Path                 = "$savepath\AdminToolbox.MSGraph.psd1"
             Author               = "Taylor Lee"
             Description          = "Microsoft Graph interactive API Functions"

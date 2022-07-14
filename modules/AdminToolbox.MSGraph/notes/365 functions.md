@@ -10,10 +10,10 @@
 # Converted
 [x] Connect-Office365 (Test-MSGraphRequirements) -private
 [x] Get-AzureRoleMembers (Get-msgDirectoryRoleMembers)
+[x] Get-GuestUsers
+[x] Get-MFAStatus
 ```
 # In progress
-[ ] Get-GuestUsers
-[ ] Get-MFAStatus
 [ ] Get-MSOLRoleMembers
 [ ] Get-Office365
 [ ] Get-Quarantine
