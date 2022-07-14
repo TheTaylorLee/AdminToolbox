@@ -16,75 +16,20 @@ Function Get-GuestUsers {
     #Confirm pre-requisites are met.
     Test-MSGraphRequirements -scopes 'Directory.Read.All'
 
-    get-mguser | Where-Object { $_.usertype -eq 'guest' }
 
-    ########################################################
-    # Replicate what is below this line to some extent anyways.
-    # Replicate what is below this line to some extent anyways.
-    # Replicate what is below this line to some extent anyways.
-    # Replicate what is below this line to some extent anyways.
-    ########################################################
-    try {
-        $Result = ""
-        $PrintedGuests = 0
-        $date = ((Get-Date -Format MM-dd-yyyy).ToString())
+    #CONSIDER THE USE OF THE PSCUSTOM OBJECTS TO BUILD A STRING ARRAY OF GUEST ACCESSES. eACH ACCESS TYPE SHOULD BE A DIFFERENT CUSTOM OBJECT ENTRY.
+    #TEAM MEMBERSHIPS, FILE ACCESSES, AZURE ROLE MEMBERSHIPS, ETC.
+    #FUNCTION LIKELY TO TAKE A LONG TIME TO RUN, BUT SHOULD PRODUCE GREAT SECURITY RESULTS.
 
-        #Output file declaration
-        $Exportxlsx = "$env:USERPROFILE\downloads\GuestUserReport_$date.xlsx"
-        Write-Host Exporting Guest User Report -ForegroundColor Green
-        #Getting guest users
-        Get-AzureADUser -All $true -Filter "UserType eq 'Guest'" | ForEach-Object {
-            $DisplayName = $_.DisplayName
-            $Upn = $_.UserPrincipalName
-            $GetCreationTime = $_.ExtensionProperty
-            $CreationTime = $GetCreationTime.createdDateTime
-            $AccountAge = (New-TimeSpan -Start $CreationTime).Days
-
-            #Check for stale guest users
-            if (($StaleGuests -ne "") -and ([int]$AccountAge -lt $StaleGuests)) {
-                return
-            }
-
-            #Check for recently created guest users
-            if (($RecentlyCreatedGuests -ne "") -and ([int]$AccountAge -gt $RecentlyCreatedGuests)) {
-                return
-            }
-
-            $ObjectId = $_.ObjectId
-            $Mail = $_.Mail
-            $Company = $_.CompanyName
-            if ($null -eq $Company) {
-                $Company = "-"
-            }
-            $CreationType = $_.CreationType
-            $InvitationAccepted = $_.UserState
-
-            #Getting guest user's group membership
-            $Groups = (Get-AzureADUserMembership -ObjectId $ObjectId).DisplayName
-            #$Groups
-            $GroupMembership = ""
-            foreach ($Group in $Groups) {
-                #$Group
-                if ($GroupMembership -ne "") {
-                    $GroupMembership = $GroupMembership + ","
-                }
-                $GroupMembership = $GroupMembership + $Group
-            }
-            if ($GroupMembership -eq "") {
-                $GroupMembership = "-"
-            }
+    <#THIS IS PARTIAL CODE. NEEDS MORE WORK
+    # Get all guest users
+    get-mguser | Where-Object { $_.usertype -eq 'guest' } | Select-Object DisplayName, enabled, CreatedDateTime, creationtype, id, identities, mail, mailnickname, proxyaddresses, RefreshTokensValidFromDateTime, SignInSessionsValidFromDateTime, UserPrincipalName, usertype
 
 
-            #Export result to xlsx file
-            $PrintedGuests++
-            $Result = @{'UserPrincipalName' = $upn; 'DisplayName' = $DisplayName; 'EmailAddress' = $Mail; 'Company' = $Company; 'CreationTime' = $CreationTime; 'AccountAge(days)' = $AccountAge; 'InvitationAccepted' = $InvitationAccepted; 'CreationType' = $CreationType; 'GroupMembership' = $GroupMembership }
-            $Output = New-Object PSObject -Property $Result
-            $Output | Select-Object DisplayName, UserPrincipalName, Company, EmailAddress, CreationTime, AccountAge'(Days)', CreationType, InvitationAccepted, GroupMembership | Export-Excel -Path $Exportxlsx -FreezeTopRow -WorksheetName GuestUserReport -Append -TableName GuestUserReport
-        }
-
-        #Open output file after execution
-        Invoke-Item "$Exportxlsx"
+    #GET GUEST USER ACCESS TO DIFFERENT RESOURCES
+    $ids = (get-mguser | Where-Object { $_.usertype -eq 'guest' }).id
+    ForEach ($id in $ids) {
+        Get-MgUserJoinedTeam -userid $id
     }
-    catch {}
-
+    #>
 }
