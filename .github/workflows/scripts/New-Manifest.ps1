@@ -279,7 +279,7 @@ Function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.MSGraph"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-msgMFAStatus', 'Register-msgScopes', 'Get-MSGraph', 'Show-AllMSGFunctions'
+            FunctionsToExport    = 'Get-msgMFAStatus', 'Register-msgScopes', 'Get-MSGraph', 'Show-AllMSGFunctions', 'Get-msgDirectoryRoleMembers'
             Path                 = "$savepath\AdminToolbox.MSGraph.psd1"
             Author               = "Taylor Lee"
             Description          = "Microsoft Graph interactive API Functions"
@@ -290,7 +290,7 @@ Function New-Manifest {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RootModule           = "AdminToolbox.MSGraphManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-            Tags                 = 'GraphAPI', 'MSGraph'
+            Tags                 = 'GraphAPI', 'MSGraph', 'MicrosoftGraph'
         }
 
         New-ModuleManifest @Params
@@ -301,7 +301,7 @@ Function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.Office365"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-AzureRoleMembers', 'Get-MsolRoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Start-AzureSync', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache', 'Invoke-PerUserMFAEnforced'
+            FunctionsToExport    = 'Get-Office365', 'Get-MFAStatus', 'Get-AzureRoleMembers', 'Get-MsolRoleMembers', 'Connect-Office365', 'Convert-MailboxToShared', 'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Invoke-Sync365', 'Get-GuestUsers', 'Set-PasswordNeverExpire', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Clear-TeamsCache', 'Invoke-PerUserMFAEnforced'
             Path                 = "$savepath\AdminToolbox.Office365.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for working with Office365 and Azure modules"

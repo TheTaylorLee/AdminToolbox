@@ -11,6 +11,10 @@
 
 function Get-msgMFAStatus {
 
+    [CmdletBinding()]
+    Param (
+    )
+
     #Confirm pre-requisites are met.
     Test-MSGraphRequirements -scopes 'Reports.Read.All'
 

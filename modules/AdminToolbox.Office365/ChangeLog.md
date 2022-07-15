@@ -40,6 +40,7 @@
 * **2.8.2** Update Icon URI in Manifest
 * **2.8.3** Increment Manifest to resolve missing manifest version in github timeline
 * **2.9.0** Push any small changes
+* **2.10.0** Remove start-Azuresync
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.9.0
+2.10.0

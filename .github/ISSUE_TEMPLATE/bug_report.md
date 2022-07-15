@@ -3,14 +3,14 @@ name: Bug report
 about: Report Module and Function Bugs
 title: "Module Name - Function Name - Issue Brief"
 labels: bug
-assignees: ''
+assignees: '@TheTaylorLee'
 
 ---
 
 **Environment**
 - PowerShell host version:
 - Module Name
-- Function Name: 
+- Function Name:
 - Parameters used:
 
 **Describe the bug**

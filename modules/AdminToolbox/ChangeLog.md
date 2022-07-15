@@ -186,6 +186,7 @@
 * **10.3.0** Push any small changes
 * **10.4.0** Security Update
 * **11.0.0** Introducing the Admintoolbox.MSGraph Module
+* **11.0.1** Update required modules
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-11.0.0
+11.0.1

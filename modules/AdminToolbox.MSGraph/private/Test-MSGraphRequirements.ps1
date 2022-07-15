@@ -11,7 +11,7 @@ Test-MSGraphRequirements -scopes 'Reports.Read.All'
 Used in the function Get-msgMFAStatus
 
 .EXAMPLE
-Test-MSGraphRequirements -Scopes 'openid', 'email', 'profile'
+Test-MSGraphRequirements -Scopes 'openid', 'email', 'profile', 'user.read'
 
 Test requirements needed to sign in with the Microsoft.Graph.Authentication module.
 #>
