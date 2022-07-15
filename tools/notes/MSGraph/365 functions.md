@@ -1,3 +1,5 @@
+[Consider other Modules ](https://petri.com/practical-microsoft-graph-powershell-for-microsoft-teams/)]
+
 ```
 # Won't convert or can't currently Convert
 [-] Clear-TeamsCache (Doesn't make sense for this module)
@@ -23,10 +25,13 @@
 [x] Get-GuestUsers
 [x] Get-MFAStatus
 [x] Get-MSOLRoleMembers
-```
+
 # In progress
+[-] Enable-MailboxAccess (maybe can convert)
+[ ] remove-mgusermessage (can remove unwanted emails from many mailboxes?)
 [ ] Invoke-PerUserMFAEnforced
 [ ] New-AuthPolicy
 [ ] Set-365GroupVisibility
 [ ] Set-AuthPolicy
 [ ] Set-PasswordNeverExpire
+```
