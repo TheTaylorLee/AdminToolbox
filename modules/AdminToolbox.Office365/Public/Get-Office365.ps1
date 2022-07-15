@@ -9,7 +9,6 @@ function Get-Office365 {
 
     Write-Host "ADSync Module Functions"                                                                     -ForegroundColor green
     Write-Host "Invoke-Sync365             ..Invokes an Azure sync using a Non-Verbose alias remotely"       -ForegroundColor cyan
-    Write-Host "Start-AzureSync            ..Starts an Azure AD and Local AD Sync"                           -ForegroundColor cyan
     Write-Host " "
 
     Write-Host "Az Module Functions"                                                                         -ForegroundColor green
