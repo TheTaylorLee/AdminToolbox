@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.MSGraphManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.2'
+ModuleVersion = '1.1.0'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '90c604a7-07c5-49b1-8ea7-d8eb7cd7cc21'
+GUID = 'c6898d4d-ee74-4f40-8002-a20697ed12a2'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -70,7 +70,8 @@ PowerShellVersion = '5.1'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Get-msgMFAStatus', 'Register-msgScopes', 'Get-MSGraph', 
-               'Show-AllMSGFunctions', 'Get-msgDirectoryRoleMembers'
+               'Show-AllMSGFunctions', 'Get-msgDirectoryRoleMembers', 
+               'get-msgguestusers'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = '*'

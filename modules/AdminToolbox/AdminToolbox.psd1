@@ -12,13 +12,13 @@
 RootModule = 'AdminToolboxManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '11.0.1'
+ModuleVersion = '11.0.2'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'df6a2d13-13b4-4959-973f-3a4ebcf55d7e'
+GUID = 'e3af174d-aafc-4fa6-9f7e-6a52535c466d'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -59,7 +59,7 @@ RequiredModules = @(@{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion
                @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.15.0'; }, 
                @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.6.0'; }, 
                @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.13.0'; }, 
-               @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = '1.0.2'; }, 
+               @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = '1.1.0'; }, 
                @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.10.0'; }, 
                @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.9.0'; }, 
                @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.8.0'; }, 
