@@ -12,11 +12,11 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Show-AllMSGFunctions
+Show-AllMSGFunctions [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all available Microsoft Graph Functions that are available with currently installed MSGraph module versions.
+Gets all available Microsoft Graph Functions that are available with currently installed MSGraph module versions and gives the option to run it if desired.
 
 ## EXAMPLES
 
@@ -29,6 +29,9 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -36,3 +39,6 @@ PS C:\> {{ Add example code here }}
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
+

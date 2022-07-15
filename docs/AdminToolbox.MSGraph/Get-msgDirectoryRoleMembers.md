@@ -5,25 +5,27 @@ online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
-# Get-msgMFAStatus
+# Get-msgDirectoryRoleMembers
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-Get-msgMFAStatus [<CommonParameters>]
+Get-msgDirectoryRoleMembers [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Get multifactor authentication status for Microsoft Azure accounts
+This function will get AzureAD roles and their members.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-Get-msgMFAStatus
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
