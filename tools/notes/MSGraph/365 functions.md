@@ -35,3 +35,8 @@
 [ ] Set-AuthPolicy
 [ ] Set-PasswordNeverExpire
 ```
+https://github.com/microsoftgraph/msgraph-sdk-powershell
+https://docs.microsoft.com/en-us/graph/permissions-reference
+https://www.powershellgallery.com/packages/Microsoft.Graph/1.9.2
+https://docs.microsoft.com/en-us/graph/overview
+https://docs.microsoft.com/en-us/powershell/microsoftgraph/azuread-msoline-cmdlet-map?view=graph-powershell-1.0
