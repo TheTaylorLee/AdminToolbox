@@ -31,7 +31,6 @@ function Test-MSGraphRequirements {
             Import-Module Microsoft.Graph.Authentication -ErrorAction Stop
         }
         catch {
-            Write-Warning "[-] Required Microsoft Graph Module not found. First install the needed module or abort the function using ctrl + c"
             Install-Module -Name Microsoft.Graph -AllowPrerelease -Force -AllowClobber
         }
     }
@@ -45,8 +44,6 @@ function Test-MSGraphRequirements {
     $importedscopes = (Get-MgContext).scopes
     foreach ($scope in $scopes) {
         if ($importedscopes -notcontains $scope) {
-            Write-Output "[+] Apply and/or Register required scopes."
-            Write-Output "[?] If terminal is not progressing, check your web browser for a login and a possible app registration prompt."
             Connect-MgGraph -Scopes $scopes
         }
     }
