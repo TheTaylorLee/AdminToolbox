@@ -16,7 +16,7 @@ function Register-msgScopes {
     )
 
     #Confirm pre-requisites are met.
-    Test-MSGraphRequirements
+    Test-MSGraphRequirements | Out-Null
 
     $filter = Find-MgGraphPermission | Out-GridView -PassThru -Title "Select needed permissions."
     $scopes = ($filter).name -join ', '

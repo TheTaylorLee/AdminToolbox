@@ -14,7 +14,7 @@ Function Get-msgGuestUsers {
     )
 
     #Confirm pre-requisites are met.
-    Test-MSGraphRequirements -scopes 'Directory.Read.All'
+    Test-MSGraphRequirements -scopes 'Directory.Read.All' | Out-Null
 
     #GET GUEST USER ACCESS TO DIFFERENT RESOURCES
     $ids = (get-mguser | Where-Object { $_.usertype -eq 'guest' }).id

@@ -31,7 +31,7 @@ function Test-MSGraphRequirements {
             Import-Module Microsoft.Graph.Authentication -ErrorAction Stop
         }
         catch {
-            Install-Module -Name Microsoft.Graph -AllowPrerelease -Force -AllowClobber
+            Install-Module -Name Microsoft.Graph -Force -AllowClobber
         }
     }
 
