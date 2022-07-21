@@ -13,7 +13,7 @@ function Show-AllMSGFunctions {
     )
 
     #Confirm pre-requisites are met.
-    Test-MSGraphRequirements
+    Test-MSGraphRequirements | Out-Null
 
     $runit = Get-Command -Module microsoft.graph* | Out-GridView -PassThru -Title "Select a function to run and hit ok if desired."
     Show-Command ($runit).name

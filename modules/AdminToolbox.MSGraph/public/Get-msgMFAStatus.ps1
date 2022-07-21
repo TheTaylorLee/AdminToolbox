@@ -16,7 +16,7 @@ function Get-msgMFAStatus {
     )
 
     #Confirm pre-requisites are met.
-    Test-MSGraphRequirements -scopes 'Reports.Read.All'
+    Test-MSGraphRequirements -scopes 'Reports.Read.All' | Out-Null
 
     #Output MFA Statuses
     Get-MgReportCredentialUserRegistrationDetail -All

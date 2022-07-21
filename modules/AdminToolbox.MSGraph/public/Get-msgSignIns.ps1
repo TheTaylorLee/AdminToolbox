@@ -18,8 +18,11 @@
 
     Get all available sign in logs. Depending on retention this can take a very long time or never end.
 
+    .NOTES
+    Requires Azure AD licensing
+
     .Link
-    https
+    https://github.com/TheTaylorLee/AdminToolbox
 #>
 
 function Get-msgSignIns {
@@ -31,12 +34,12 @@ function Get-msgSignIns {
     )
 
     #Confirm pre-requisites are met.
-    Test-MSGraphRequirements -scopes 'AuditLog.Read.All'
+    Test-MSGraphRequirements -scopes 'AuditLog.Read.All', 'Directory.Read.All' | Out-Null
 
     #Output sign in logs
     if ($all) {
         Get-MgAuditLogSignIn -All -Property * |
-        Select-Object AppDisplayName, AppId, AppliedConditionalAccessPolicies, AuthenticationContextClassReferences, AuthenticationDetails,
+        Select-Object UserDisplayName, UserId, UserPrincipalName, UserType, AppDisplayName, AppId, AppliedConditionalAccessPolicies, AuthenticationContextClassReferences, AuthenticationDetails,
         @{ Name = "AuthenticationMethodsUsed"; Expression = { $_.AuthenticationMethodsUsed -join “; ” } },
         @{ Name = "AuthenticationProcessingDetails"; Expression = { $_.AuthenticationProcessingDetails -join “; ” } },
         AuthenticationProtocol, AuthenticationRequirement,
@@ -48,13 +51,13 @@ function Get-msgSignIns {
         RiskLevelAggregated, RiskLevelDuringSignIn, RiskState, ServicePrincipalCredentialKeyId, ServicePrincipalCredentialThumbprint, ServicePrincipalId, ServicePrincipalName,
         @{ Name = "sessionlifetimepolicies"; Expression = { $_.sessionlifetimepolicies -join “; ” } },
         @{ Name = "SignInEventTypes"; Expression = { $_.SignInEventTypes -join “; ” } },
-        SignInIdentifier, SignInIdentifierType, Status, TokenIssuerName, TokenIssuerType, UniqueTokenIdentifier, UserAgent, UserDisplayName, UserId, UserPrincipalName, UserType,
+        SignInIdentifier, SignInIdentifierType, Status, TokenIssuerName, TokenIssuerType, UniqueTokenIdentifier, UserAgent,
         AdditionalProperties
     }
 
     if ($top) {
         Get-MgAuditLogSignIn -top $top -Property * |
-        Select-Object AppDisplayName, AppId, AppliedConditionalAccessPolicies, AuthenticationContextClassReferences, AuthenticationDetails,
+        Select-Object UserDisplayName, UserId, UserPrincipalName, UserType, AppDisplayName, AppId, AppliedConditionalAccessPolicies, AuthenticationContextClassReferences, AuthenticationDetails,
         @{ Name = "AuthenticationMethodsUsed"; Expression = { $_.AuthenticationMethodsUsed -join “; ” } },
         @{ Name = "AuthenticationProcessingDetails"; Expression = { $_.AuthenticationProcessingDetails -join “; ” } },
         AuthenticationProtocol, AuthenticationRequirement,
@@ -66,7 +69,7 @@ function Get-msgSignIns {
         RiskLevelAggregated, RiskLevelDuringSignIn, RiskState, ServicePrincipalCredentialKeyId, ServicePrincipalCredentialThumbprint, ServicePrincipalId, ServicePrincipalName,
         @{ Name = "sessionlifetimepolicies"; Expression = { $_.sessionlifetimepolicies -join “; ” } },
         @{ Name = "SignInEventTypes"; Expression = { $_.SignInEventTypes -join “; ” } },
-        SignInIdentifier, SignInIdentifierType, Status, TokenIssuerName, TokenIssuerType, UniqueTokenIdentifier, UserAgent, UserDisplayName, UserId, UserPrincipalName, UserType,
+        SignInIdentifier, SignInIdentifierType, Status, TokenIssuerName, TokenIssuerType, UniqueTokenIdentifier, UserAgent,
         AdditionalProperties
     }
 }

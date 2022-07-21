@@ -13,7 +13,7 @@ function Get-msgDirectoryRoleMembers {
     )
 
     #Confirm pre-requisites are met.
-    Test-MSGraphRequirements -scopes 'Directory.Read.All'
+    Test-MSGraphRequirements -scopes 'Directory.Read.All' | Out-Null
 
     $drroles = get-mgdirectoryrole | Select-Object id, displayname
     foreach ($drrole in $drroles) {
