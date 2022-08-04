@@ -12,7 +12,7 @@
     https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 #>
 
-function Add-SSLVPNSAMLUsersAzureDefaultSecurity {
+function Add-SSLVPNSAMLUsersSelection {
 
     [CmdletBinding()]
     Param (
