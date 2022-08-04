@@ -5,18 +5,18 @@ online version: https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 schema: 2.0.0
 ---
 
-# Add-SSLVPNSAMLUsersAzureDefaultSecurity
+# Add-SSLVPNSAMLUsersSelection
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-Add-SSLVPNSAMLUsersAzureDefaultSecurity [<CommonParameters>]
+Add-SSLVPNSAMLUsersSelection [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This functions adds users to the SAML Enterprise APP and Security group regardless of their existing Azure MFA setup status.
+This functions adds users to the SAML Enterprise APP and Security group based on your selection from Out-Gridview -passthru.
 
 ## EXAMPLES
 
