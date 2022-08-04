@@ -3,6 +3,7 @@
 Function New-Manifest {
     #Must Be run each time a new module version is created.
     #Version folder name must be the same as the moduleversion parameter
+    [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Mandatory = $false)][Switch]$AdminToolbox,
         [Parameter(Mandatory = $false)][Switch]$ActiveDirectory,
