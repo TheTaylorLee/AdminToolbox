@@ -9,29 +9,30 @@ function Test-SAMLFunctionRequirements {
     Param (
     )
 
-    $query = Get-Module AzureAD -ListAvailable
-    if ($null -eq $query) {
-        try {
-            Import-Module AzureAD -ErrorAction Stop
-            Connect-AzureAD
-        }
-        catch {
-            Install-Module -Name AzureAD -Force -AllowClobber
-            Import-Module AzureAD -ErrorAction Stop
-            Connect-AzureAD
-        }
+    # Check powershell version
+    $version = $host.version.major
+    if ($version -ne '5') {
+        Write-Warning "Must run this function from Powershel 5.1"
+        break
     }
 
-    $query = Get-Module msonline -ListAvailable
-    if ($null -eq $query) {
-        try {
-            Import-Module msonline -ErrorAction Stop
-            Connect-MsolService
-        }
-        catch {
-            Install-Module -Name msonline -Force -AllowClobber
-            Import-Module msonline -ErrorAction Stop
-            Connect-MsolService
-        }
+    # Get needed modules, import or install, and connect
+    try {
+        Import-Module AzureAD -ErrorAction Stop
+        Import-Module msonline -ErrorAction Stop
+    }
+    catch {
+        Install-Module -Name AzureAD -Force -AllowClobber
+        Install-Module -Name msonline -Force -AllowClobber
+        Import-Module AzureAD -ErrorAction Stop
+        Import-Module msonline -ErrorAction Stop
+    }
+
+    try {
+        Connect-AzureAD
+        Connect-MsolService
+    }
+    catch {
+        $_
     }
 }
