@@ -3,6 +3,7 @@
 Function New-Manifest {
     #Must Be run each time a new module version is created.
     #Version folder name must be the same as the moduleversion parameter
+    [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Mandatory = $false)][Switch]$AdminToolbox,
         [Parameter(Mandatory = $false)][Switch]$ActiveDirectory,
@@ -205,7 +206,7 @@ Function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.FortiWizard"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT', 'New-FormTunnel', 'New-LocalInPolicy'
+            FunctionsToExport    = 'Disable-SipALG', 'Enable-Management', 'Enable-PushNotifications', 'Get-FortiWizard', 'New-AddressObject', 'New-AddressGroup', 'Write-SSLVPNConfig', 'New-IPPoolOverload', 'New-IPPoolFixedRange', 'New-VIPHost', 'New-VIPRange', 'New-ServiceObject', 'New-ServiceGroup', 'New-P2PTunnel', 'Show-Docs', 'New-P2PTunnelNAT', 'New-DialUPTunnelRemoteNAT', 'New-DialUPTunnelBehindNAT', 'New-FormTunnel', 'New-LocalInPolicy', 'Add-SSLVPNSAMLUsersMFAEnforced', 'Add-SSLVPNSAMLUsersAzureDefaultSecurity', 'Add-SSLVPNSAMLUsersSelection'
             Path                 = "$savepath\AdminToolbox.FortiWizard.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions that generate configuration scripts and manage FortiOS."

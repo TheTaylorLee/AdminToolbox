@@ -19,6 +19,9 @@ function get-introfw {
     Write-Host "FortiOS is a Linux OS. Case sensitivity needs to be considered!     "                   -ForegroundColor Yellow -NoNewline
     Write-Host "<"                                                                                      -ForegroundColor Green
     Write-Host "             > "                                                                        -ForegroundColor Green  -NoNewline
+    Write-Host "SAML functions have pre-requisites. Check out comment help notes    "                   -ForegroundColor Yellow -NoNewline
+    Write-Host "<"                                                                                      -ForegroundColor Green
+    Write-Host "             > "                                                                        -ForegroundColor Green  -NoNewline
     Write-Host "Pro Tip: Source NAT (IP Pool) and Destination NAT (Virtual IP)"                         -ForegroundColor White  -NoNewline
     Write-Host "      <"                                                                                -ForegroundColor Green
     Write-Host "             -----------------------------------------------------------------------"   -ForegroundColor Green
