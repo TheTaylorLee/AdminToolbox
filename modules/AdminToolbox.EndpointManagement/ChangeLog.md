@@ -48,6 +48,7 @@
 * **4.7.3** Update Icon URI in Manifest
 * **4.7.4** Increment Manifest to resolve missing manifest version in github timeline
 * **4.8.0** Push any small changes
+* **4.8.1** Push any small changes
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.8.0
+4.8.1

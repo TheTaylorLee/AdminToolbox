@@ -53,6 +53,7 @@
 * **4.10.0** Updated install-fftools install path
 * **4.11.0** Updated transcode comments
 * **4.12.0** Push any small changes
+* **4.12.1** Push any small changes
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.12.0
+4.12.1
