@@ -26,6 +26,7 @@
 * **1.7.1** Increment Manifest to resolve missing manifest version in github timeline
 * **1.8.0** Push any small changes
 * **1.8.1** Version Bump
+* **1.8.2** Version Bump
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.8.1
+1.8.2

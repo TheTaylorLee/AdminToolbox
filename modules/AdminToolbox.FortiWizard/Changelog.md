@@ -37,6 +37,7 @@
 * **2.16.0** Add 3 SAML functions
 * **2.16.1** Correct function name Add-SSLVPNSAMLUsersSelection
 * **2.16.2** Fix Test-SAMLFunctionRequirements function logic. Was copied from similar function and untested.
+* **2.16.3** Version Bump
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.16.2
+2.16.3
