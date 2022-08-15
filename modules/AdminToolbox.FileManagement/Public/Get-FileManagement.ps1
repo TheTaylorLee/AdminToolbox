@@ -4,6 +4,7 @@ function Get-FileManagement {
 
     Write-Host "File Functions"                                                                                     -ForegroundColor green
     Write-Host "Find-ComputersFiles        ..Finds queried files across 1 or more Computers"                        -ForegroundColor cyan
+    Write-Host "Get-EmptyDirectory         ..Gets a list of directories with no files in them"                      -ForegroundColor cyan
     Write-Host "Get-FileName               ..Gets a gui for selecting a file"                                       -ForegroundColor cyan
     Write-Host "Get-FileOwner              ..Gets CSV of file owners for a path"                                    -ForegroundColor cyan
     Write-Host "Get-FolderName             ..Gets a gui for selecting a folder"                                     -ForegroundColor cyan
