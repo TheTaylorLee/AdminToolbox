@@ -55,6 +55,7 @@
 * **4.12.0** Push any small changes
 * **4.12.1** Push any small changes
 * **4.12.2** Push any small changes
+* **4.13.0** Updated Start-Transcode to copy all subtitles and streams. This introduces a possibility of transcode failures and slower transcode times. So this requires map all parameter be checked.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.12.2
+4.13.0
