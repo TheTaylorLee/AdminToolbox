@@ -1,54 +1,49 @@
 ---
-external help file: AdminToolbox.FFToolsManifest-help.xml
-Module Name: AdminToolbox.FFTools
+external help file: AdminToolbox.FileManagementManifest-help.xml
+Module Name: AdminToolbox.FileManagement
 online version: https://github.com/TheTaylorLee/AdminToolbox
 schema: 2.0.0
 ---
 
-# Start-Transcode
+# Get-EmptyDirectory
 
 ## SYNOPSIS
 
 ## SYNTAX
 
 ```
-Start-Transcode [[-crf] <Object>] [-mapall] [<CommonParameters>]
+Get-EmptyDirectory [-Path] <String> [-Recurse] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Transcodes video files containing extensions *.mp4, *.mkv, *.avi, and *.mpg
-
-Inputted Parameters are
-
--metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
+Get a list of empty directories within a given path
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Start-Transcode
+get-emptydirectory -path c:\temp -recurse
 ```
 
 ## PARAMETERS
 
-### -crf
-Default is set to 21.
-Use this parameter to change it to another value.
+### -Path
+{{ Fill Path Description }}
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
-Default value: 21
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -mapall
-Will map in all streams
+### -Recurse
+{{ Fill Recurse Description }}
 
 ```yaml
 Type: SwitchParameter
