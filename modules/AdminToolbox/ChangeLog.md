@@ -193,6 +193,7 @@
 * **11.0.5** Update required modules
 * **11.0.6** Update required modules
 * **11.0.7** Update required modules
+* **11.0.8** Update required modules
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-11.0.7
+11.0.8

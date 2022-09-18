@@ -36,25 +36,25 @@ function Start-Transcode {
             $ext = "*.mkv"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0 -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
 
             $ext = "*.avi"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0 -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
 
             $ext = "*.mp4"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0 -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
 
             $ext = "*.mpg"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0 -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
         }
 
