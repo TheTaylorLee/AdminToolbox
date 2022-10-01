@@ -1,4 +1,4 @@
-?<#
+<#
 .DESCRIPTION
 Transcodes video files containing extensions *.mp4, *.mkv, *.avi, and *.mpg
 
