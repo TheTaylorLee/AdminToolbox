@@ -1,22 +1,22 @@
-<#
-    .DESCRIPTION
-    Transcodes video files containing extensions *.mp4, *.mkv, *.avi, and *.mpg
+?<#
+.DESCRIPTION
+Transcodes video files containing extensions *.mp4, *.mkv, *.avi, and *.mpg
 
-    Inputted Parameters are
+Inputted Parameters are
 
-    -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
+-metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf 21 -ac 6 -c:a aac -preset veryfast
 
-    .PARAMETER crf
-    Default is set to 21. Use this parameter to change it to another value.
+.PARAMETER crf
+Default is set to 21. Use this parameter to change it to another value.
 
-    .PARAMETER mapall
-    Will map in all streams
+.PARAMETER mapall
+Will map in all streams
 
-    .Example
-    Start-Transcode
+.Example
+Start-Transcode
 
-    .Link
-    https://github.com/TheTaylorLee/AdminToolbox
+.Link
+https://github.com/TheTaylorLee/AdminToolbox
 #>
 
 function Start-Transcode {
@@ -36,25 +36,25 @@ function Start-Transcode {
             $ext = "*.mkv"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0? -map 0:a? -map 0:s? -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
 
             $ext = "*.avi"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0? -map 0:a? -map 0:s? -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
 
             $ext = "*.mp4"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0? -map 0:a? -map 0:s? -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
 
             $ext = "*.mpg"
             $array = @(Get-ChildItem -Filter $ext)
             Foreach ($video in $array.Name) {
-                ffmpeg.exe -i $video -map 0:v:0 -map 0:a -map 0:s -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
+                ffmpeg.exe -i $video -map 0:v:0? -map 0:a? -map 0:s? -metadata title="" -metadata description="" -metadata COMMENT="transcoded" -c:v libx265 -crf $crf -ac 6 -c:a aac -c:s copy -preset veryfast "$env:FFToolsTarget$video"
             }
         }
 
