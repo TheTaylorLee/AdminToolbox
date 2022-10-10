@@ -57,8 +57,9 @@
 * **4.12.2** Push any small changes
 * **4.13.0** Updated Start-Transcode to copy all subtitles and streams. This introduces a possibility of transcode failures and slower transcode times. So this requires map all parameter be checked.
 * **4.13.1** Fix parameter placement
-* **4.13.2** Only include first video stream to reduce likelihoos of failures, but still include all audio and subtitles. Included artwork can lead to failures otherwise.
+* **4.13.2** Only include first video stream to reduce likelihoods of failures, but still include all audio and subtitles. Included artwork can lead to failures otherwise.
 * **4.13.3** start-transcode add ? for ignore null stream
+* **4.14.0** Updated set-fftoolsvariables with the option to use machine or user variables. Makes automation possible using the system account if desired over setting a user account in certain scenarios.
 
 #The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.13.3
+4.14.0

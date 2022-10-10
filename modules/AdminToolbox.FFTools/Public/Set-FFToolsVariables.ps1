@@ -4,10 +4,13 @@
 
     Variables created are a source folder for media processed, and an output folder for processed media.
 
-    .PARAMETER Source
+    .PARAMETER environment
+    Specify whether you whish the environment variables to be stored for yourself 'user' or system wide 'machine'.
+
+    .PARAMETER FFToolsSource
     Source path of media to be processed
 
-    .PARAMETER Target
+    .PARAMETER FFToolsTarget
     Target path for processed Media
 
     .Example
@@ -24,6 +27,9 @@ function Set-FFToolsVariables {
     [Cmdletbinding()]
     Param (
         [Parameter(Mandatory = $true)]
+        [ValidateSet('machine', 'user')]
+        [String]$environment,
+        [Parameter(Mandatory = $true)]
         [ValidateScript( { if ( -not (Test-Path $_)) { throw "Path '$_' doesn't exist. Create the Directory First" } else { $true } })]
         [ValidateScript( { if ($_ -notmatch '.+?\\$') { throw "Path '$_' must end with a backslash" } else { $true } })]
         [String]$FFToolsSource,
@@ -37,9 +43,17 @@ function Set-FFToolsVariables {
     $env:FFToolsSource = $FFToolsSource
     $env:FFToolsTarget = $FFToolsTarget
 
-    #Set Persistent Environment Variables
-    [Environment]::SetEnvironmentVariable("FFToolsSource", "$FFToolsSource", "User")
-    [Environment]::SetEnvironmentVariable("FFToolsTarget", "$FFToolsTarget", "User")
+    if ($environment -eq 'machine') {
+        #Set Persistent Environment Variables
+        [Environment]::SetEnvironmentVariable("FFToolsSource", "$FFToolsSource", "Machine")
+        [Environment]::SetEnvironmentVariable("FFToolsTarget", "$FFToolsTarget", "Machine")
+    }
+
+    if ($environment -eq 'user') {
+        #Set Persistent Environment Variables
+        [Environment]::SetEnvironmentVariable("FFToolsSource", "$FFToolsSource", "user")
+        [Environment]::SetEnvironmentVariable("FFToolsTarget", "$FFToolsTarget", "user")
+    }
 
     Write-Host " "
     Write-Host "Environment Variables are now set for Source and Target Paths!" -ForegroundColor Green
