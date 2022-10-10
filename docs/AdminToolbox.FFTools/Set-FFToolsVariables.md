@@ -12,7 +12,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Set-FFToolsVariables [-FFToolsSource] <String> [-FFToolsTarget] <String> [<CommonParameters>]
+Set-FFToolsVariables [-environment] <String> [-FFToolsSource] <String> [-FFToolsTarget] <String>
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -33,8 +34,8 @@ Be sure to include a closing backslash for the parameters.
 
 ## PARAMETERS
 
-### -FFToolsSource
-{{ Fill FFToolsSource Description }}
+### -environment
+Specify whether you whish the environment variables to be stored for yourself 'user' or system wide 'machine'.
 
 ```yaml
 Type: String
@@ -48,8 +49,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -FFToolsTarget
-{{ Fill FFToolsTarget Description }}
+### -FFToolsSource
+Source path of media to be processed
 
 ```yaml
 Type: String
@@ -58,6 +59,21 @@ Aliases:
 
 Required: True
 Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FFToolsTarget
+Target path for processed Media
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
