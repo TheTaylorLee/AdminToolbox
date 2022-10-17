@@ -20,19 +20,19 @@ Function New-Manifest {
         [Parameter(Mandatory = $false)][Switch]$VMWareAutomate
     )
 
-    $script:ActiveDirectoryGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1
-    $script:EndpointManagementGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1
-    $script:ExchangeGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1
-    $script:FFToolsGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1
-    $script:FileManagementGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1
-    $script:FunGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1
-    $script:NetworkingGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1
-    $script:MSGraph = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1
-    $script:Office365GithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1
-    $script:RemotingGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1
-    $script:VMWareAutomateGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1
-    $script:FortiWizardGithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1
-    $script:AdminToolboxGithubVersion = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:ActiveDirectoryGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:EndpointManagementGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:ExchangeGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FFToolsGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FileManagementGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FunGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:NetworkingGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:MSGraphGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:Office365GithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:RemotingGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:VMWareAutomateGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FortiWizardGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:AdminToolboxGithubVersion = $step3 | Select-Object -First 1
 
     if ($AdminToolbox) {
         ##Create Manifests
@@ -59,7 +59,7 @@ Function New-Manifest {
                 @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = $script:FortiWizardGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = $script:FunGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = $script:NetworkingGithubVersion; },
-                @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = $script:MSGraph; },
+                @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = $script:MSGraphGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = $script:Office365GithubVersion; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = $script:RemotingGithubVersion; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = $script:VMWareAutomateGithubVersion; },
@@ -286,7 +286,7 @@ Function New-Manifest {
             Description          = "Microsoft Graph interactive API Functions"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/master/images/toolboxShell2.png'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
-            ModuleVersion        = "$script:MSGraph"
+            ModuleVersion        = "$script:MSGraphGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RootModule           = "AdminToolbox.MSGraphManifest.psm1"
