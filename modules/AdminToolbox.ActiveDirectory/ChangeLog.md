@@ -29,3 +29,4 @@
 * **1.8.2** Version Bump
 * **1.8.3** Version Bump
 * **1.8.4** Modified Get-Groupmemberships to fix conncurrent pipeline error
+* **1.9.0** Added Get-MailEnabledMembers
