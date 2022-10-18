@@ -30,7 +30,7 @@ Function Get-MailEnabledMembers {
     $ErrorActionPreference = 'silentlycontinue'
 
     if ($searchbase) {
-        Get-ADGroup -Filter * -searchbase $Searchbase -properties proxyaddresses, description |
+        Get-ADGroup -Filter * -searchbase $Searchbase -properties proxyaddresses, description, displayname |
         Select-Object name, distinguishedname, proxyaddresses, description |
         Sort-Object Name |
         Where-Object { $null -ne $_.proxyaddresses } |
@@ -48,7 +48,7 @@ Function Get-MailEnabledMembers {
         }
     }
     else {
-        Get-ADGroup -Filter * -properties proxyaddresses, description |
+        Get-ADGroup -Filter * -properties proxyaddresses, description, displayname |
         Select-Object name, distinguishedname, proxyaddresses, description |
         Sort-Object Name |
         Where-Object { $null -ne $_.proxyaddresses } |
