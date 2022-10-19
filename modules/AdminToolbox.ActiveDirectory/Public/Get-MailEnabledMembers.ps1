@@ -1,6 +1,8 @@
 <#
     .DESCRIPTION
-	Get a list of Active Directory groups and the Members of those groups
+	Get a list of Active Directory groups and the Members for mail enabled groups. This is intended to even provide membership for Azure mail enabled groups. Group writeback must be enabled and the feature for those groups to have the friendly names enabled.
+
+    This functions will not return full results if you name your groups Group_* or don't enable friendly names for writeback groups. I have found the group_* writeback groups will have equivalent named writeback groups so they are excluded from the report.
 
 	.PARAMETER Path
     Specifies the export directory and filename for the report
@@ -33,37 +35,23 @@ Function Get-MailEnabledMembers {
         Get-ADGroup -Filter * -searchbase $Searchbase -properties proxyaddresses, description, displayname |
         Select-Object name, distinguishedname, proxyaddresses, description |
         Sort-Object Name |
-        Where-Object { $null -ne $_.proxyaddresses } |
+        Where-Object { $null -ne $_.proxyaddresses -and $_.name -notlike "Group_*" } |
         ForEach-Object {
-            if ($null -ne $_.displayname) {
-                Get-ADGroupMember -Identity $_.distinguishedName |
-                Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-                Export-Excel -FreezeTopRow -WorksheetName $_.displayname -TableName $_.displayname -Path $Path -Title $_.description
-            }
-            else {
-                Get-ADGroupMember -Identity $_.distinguishedName |
-                Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-                Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title $_.description
-            }
+            Get-ADGroupMember -Identity $_.distinguishedName |
+            Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
+            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title $_.description
         }
     }
     else {
         Get-ADGroup -Filter * -properties proxyaddresses, description, displayname |
         Select-Object name, distinguishedname, proxyaddresses, description |
         Sort-Object Name |
-        Where-Object { $null -ne $_.proxyaddresses } |
+        Where-Object { $null -ne $_.proxyaddresses -and $_.name -notlike "Group_*" } |
         ForEach-Object {
-            if ($null -ne $_.displayname) {
-                Get-ADGroupMember -Identity $_.distinguishedName |
-                Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-                Export-Excel -FreezeTopRow -WorksheetName $_.displayname -TableName $_.displayname -Path $Path -Title $_.description
-            }
-            else {
-                Get-ADGroupMember -Identity $_.distinguishedName |
-                Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-                Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title $_.description
-            }
+            Get-ADGroupMember -Identity $_.distinguishedName |
+            Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
+            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title $_.description
         }
+        $ErrorActionPreference = 'continue'
     }
-    $ErrorActionPreference = 'continue'
 }
