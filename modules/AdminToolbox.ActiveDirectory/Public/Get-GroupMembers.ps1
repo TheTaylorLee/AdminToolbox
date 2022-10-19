@@ -30,15 +30,25 @@ Function Get-GroupMembers {
     $ErrorActionPreference = 'silentlycontinue'
 
     if ($searchbase) {
-        Get-ADGroup -Filter * -searchbase $Searchbase | Sort-Object Name | ForEach-Object { Get-ADGroupMember -Identity $_.distinguishedName |
+        Get-ADGroup -Filter * -searchbase $Searchbase -properties proxyaddresses, description, displayname |
+        Sort-Object Name |
+        ForEach-Object {
+            $name = $_.name
+            $description = $_.description
+            Get-ADGroupMember -Identity $_.distinguishedName |
             Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path
+            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
         }
     }
     else {
-        Get-ADGroup -Filter * | Sort-Object Name | ForEach-Object { Get-ADGroupMember -Identity $_.distinguishedName |
+        Get-ADGroup -Filter * -properties proxyaddresses, description, displayname |
+        Sort-Object Name |
+        ForEach-Object {
+            $name = $_.name
+            $description = $_.description
+            Get-ADGroupMember -Identity $_.distinguishedName |
             Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path
+            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
         }
     }
     $ErrorActionPreference = 'continue'

@@ -4,6 +4,8 @@
 
     This functions will not return full results if you name your groups Group_* or don't enable friendly names for writeback groups. I have found the group_* writeback groups will have equivalent named writeback groups so they are excluded from the report.
 
+    Each pages title is the "Group name -- description". Don't store passwords in your descriptions or this will disclose them. You should store confidential info in descrptions anyways it's not secure.
+
 	.PARAMETER Path
     Specifies the export directory and filename for the report
 
@@ -37,9 +39,11 @@ Function Get-MailEnabledMembers {
         Sort-Object Name |
         Where-Object { $null -ne $_.proxyaddresses -and $_.name -notlike "Group_*" } |
         ForEach-Object {
+            $name = $_.name
+            $description = $_.description
             Get-ADGroupMember -Identity $_.distinguishedName |
             Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title $_.description
+            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
         }
     }
     else {
@@ -48,9 +52,11 @@ Function Get-MailEnabledMembers {
         Sort-Object Name |
         Where-Object { $null -ne $_.proxyaddresses -and $_.name -notlike "Group_*" } |
         ForEach-Object {
+            $name = $_.name
+            $description = $_.description
             Get-ADGroupMember -Identity $_.distinguishedName |
             Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title $_.description
+            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
         }
         $ErrorActionPreference = 'continue'
     }
