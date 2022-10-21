@@ -6,7 +6,7 @@
 - Create a fork or branch off the master branch.
 - Modify, fix, or add code that pertains to the issue only.
 - When creating a pull request reference the issue number.
-- If the committed changes increment a module version, update that modules ChangeLog.md file. This is important so that the workflow responsible for publishing new versions to PowerShell Gallery, can run on accepted pull requests.
+- If the committed changes increment a module version, update that modules ChangeLog.md file. This is important so that the workflow responsible for publishing new versions to PowerShell Gallery, can run on approved pull requests.
 - Code will be reviewed and committed to the master branch, or comments will be added to the issue if problems are found.
 
 **Coding Guidelines**
@@ -33,6 +33,7 @@
     feat | A new feature
     fix | A bug fix
     func | New function
+    note | If the commit doesn't fall into other categories, this allows for a free hand description
     rel | New module release versions
     test | Testing changes
 
