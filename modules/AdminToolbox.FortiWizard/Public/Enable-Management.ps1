@@ -2,6 +2,8 @@
     .Description
     Configures trusted hosts that the admin account may connect from and enables management from the WAN interface. Don't forget to include your internal and management subnets if you still want to be able to manage the firewall from them!
 
+    DO NOT ALLOW ADMINISTRATIVE ACCESS ON THE WAN INTERFACE WITHOUT CONFIGURING LOCALIN POLICIES (New-LocalinPolicy). IT'S A MAJOR SECURITY RISK.
+
     .Parameter AdminUsername
     Specify the admin username who management access is being enabled for
 
