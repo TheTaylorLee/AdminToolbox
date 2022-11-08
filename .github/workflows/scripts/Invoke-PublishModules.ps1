@@ -3,7 +3,7 @@ function Invoke-PublishModules {
 
     #ActiveDirectory
     $ActiveDirectoryPSGallery = (Find-Module "AdminToolbox.ActiveDirectory" -Repository PSGallery).version
-    $ActiveDirectoryGithub = Get-Content "$workingdirectory/modules/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:ActiveDirectoryGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.ActiveDirectory/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $ActiveDirectoryGithub = $step3 | Select-Object -First 1
     if ([version]$ActiveDirectoryGithub -gt [version]$ActiveDirectoryPSGallery ) {
         New-Manifest -ActiveDirectory #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.ActiveDirectory" -NuGetApiKey $env:NUGET_KEY
@@ -15,7 +15,7 @@ function Invoke-PublishModules {
 
     #EndpointManagement
     $EndpointManagementPSGallery = (Find-Module "AdminToolbox.EndpointManagement" -Repository PSGallery).version
-    $EndpointManagementGithub = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:EndpointManagementGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $EndpointManagementGithub = $step3 | Select-Object -First 1
     if ([version]$EndpointManagementGithub -gt [version]$EndpointManagementPSGallery ) {
         New-Manifest -EndpointManagement #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.EndpointManagement" -NuGetApiKey $env:NUGET_KEY
@@ -27,7 +27,7 @@ function Invoke-PublishModules {
 
     #Exchange
     $ExchangePSGallery = (Find-Module "AdminToolbox.Exchange" -Repository PSGallery).version
-    $ExchangeGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:ExchangeGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $ExchangeGithub = $step3 | Select-Object -First 1
     if ([version]$ExchangeGithub -gt [version]$ExchangePSGallery ) {
         New-Manifest -Exchange #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Exchange" -NuGetApiKey $env:NUGET_KEY
@@ -39,7 +39,7 @@ function Invoke-PublishModules {
 
     #FFTools
     $FFToolsPSGallery = (Find-Module "AdminToolbox.FFTools" -Repository PSGallery).version
-    $FFToolsGithub = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FFToolsGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FFToolsGithub = $step3 | Select-Object -First 1
     if ([version]$FFToolsGithub -gt [version]$FFToolsPSGallery ) {
         New-Manifest -FFTools #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FFTools" -NuGetApiKey $env:NUGET_KEY
@@ -51,7 +51,7 @@ function Invoke-PublishModules {
 
     #FileManagement
     $FileManagementPSGallery = (Find-Module "AdminToolbox.FileManagement" -Repository PSGallery).version
-    $FileManagementGithub = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FileManagementGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FileManagementGithub = $step3 | Select-Object -First 1
     if ([version]$FileManagementGithub -gt [version]$FileManagementPSGallery ) {
         New-Manifest -FileManagement #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FileManagement" -NuGetApiKey $env:NUGET_KEY
@@ -63,7 +63,7 @@ function Invoke-PublishModules {
 
     #Fun
     $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
-    $FunGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FunGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FunGithub = $step3 | Select-Object -First 1
     if ([version]$FunGithub -gt [version]$FunPSGallery ) {
         New-Manifest -Fun #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Fun" -NuGetApiKey $env:NUGET_KEY
@@ -75,7 +75,7 @@ function Invoke-PublishModules {
 
     #msgraph
     $msgraphPSGallery = (Find-Module "AdminToolbox.msgraph" -Repository PSGallery).version
-    $msgraphGithub = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:MSGraphGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $MSGraphGithub = $step3 | Select-Object -First 1
     if ([version]$msgraphGithub -gt [version]$msgraphPSGallery ) {
         New-Manifest -MSGraph #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.MSGraph" -NuGetApiKey $env:NUGET_KEY
@@ -87,7 +87,7 @@ function Invoke-PublishModules {
 
     #Networking
     $NetworkingPSGallery = (Find-Module "AdminToolbox.Networking" -Repository PSGallery).version
-    $NetworkingGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:NetworkingGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $NetworkingGithub = $step3 | Select-Object -First 1
     if ([version]$NetworkingGithub -gt [version]$NetworkingPSGallery ) {
         New-Manifest -Networking #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Networking" -NuGetApiKey $env:NUGET_KEY
@@ -99,7 +99,7 @@ function Invoke-PublishModules {
 
     #Office365
     $Office365PSGallery = (Find-Module "AdminToolbox.Office365" -Repository PSGallery).version
-    $Office365Github = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:Office365GithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $Office365Github = $step3 | Select-Object -First 1
     if ([version]$Office365Github -gt [version]$Office365PSGallery ) {
         New-Manifest -Office365 #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Office365" -NuGetApiKey $env:NUGET_KEY
@@ -111,7 +111,7 @@ function Invoke-PublishModules {
 
     #Remoting
     $RemotingPSGallery = (Find-Module "AdminToolbox.Remoting" -Repository PSGallery).version
-    $RemotingGithub = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:RemotingGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $RemotingGithub = $step3 | Select-Object -First 1
     if ([version]$RemotingGithub -gt [version]$RemotingPSGallery ) {
         New-Manifest -Remoting #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Remoting" -NuGetApiKey $env:NUGET_KEY
@@ -123,7 +123,7 @@ function Invoke-PublishModules {
 
     #VMWareAutomate
     $VMWareAutomatePSGallery = (Find-Module "AdminToolbox.VMWareAutomate" -Repository PSGallery).version
-    $VMWareAutomateGithub = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:VMWareAutomateGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $VMWareAutomateGithub = $step3 | Select-Object -First 1
     if ([version]$VMWareAutomateGithub -gt [version]$VMWareAutomatePSGallery ) {
         New-Manifest -VMWareAutomate #Generate each modules manifest files
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.VMWareAutomate" -NuGetApiKey $env:NUGET_KEY
@@ -135,8 +135,8 @@ function Invoke-PublishModules {
 
     #FortiWizard
     $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
-    $GithubVersion = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FortiWizardGithubVersion = $step3 | Select-Object -First 1
-    if ([version]$GithubVersion -gt [version]$PSGalleryVersion ) {
+    $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FortiWizardGithub = $step3 | Select-Object -First 1
+    if ([version]$Github -gt [version]$PSGalleryVersion ) {
         New-Manifest -FortiWizard #Generate each modules manifest files
         Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
@@ -148,7 +148,7 @@ function Invoke-PublishModules {
 
     #AdminToolbox
     $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
-    $AdminToolboxGithub = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:AdminToolboxGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $AdminToolboxGithub = $step3 | Select-Object -First 1
     if ([version]$AdminToolboxGithub -gt [version]$AdminToolboxPSGallery ) {
         New-Manifest -AdminToolbox #Generate each modules manifest files
         Install-Module AdminToolbox.ActiveDirectory -AllowClobber -Force; Import-Module AdminToolbox.ActiveDirectory -Force -Global
