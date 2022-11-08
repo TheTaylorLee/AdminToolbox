@@ -134,9 +134,9 @@ function Invoke-PublishModules {
     }
 
     #FortiWizard
-    $PSGalleryVersion = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
+    $FortiwizardPSGallery = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FortiWizardGithub = $step3 | Select-Object -First 1
-    if ([version]$Github -gt [version]$PSGalleryVersion ) {
+    if ([version]$FortiwizardGithub -gt [version]$FortiwizardPSGallery ) {
         New-Manifest -FortiWizard #Generate each modules manifest files
         Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
