@@ -50,6 +50,5 @@
 * **2.13.0** Push any small changes
 * **2.13.1** Push any small changes
 * **2.13.2** Push any small changes
-
-#The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.13.2
+* **2.13.3** Version Bump
+* **2.13.4** Fix invoke-iperf client not permitting host ip entry

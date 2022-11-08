@@ -50,6 +50,4 @@
 * **4.8.0** Push any small changes
 * **4.8.1** Push any small changes
 * **4.8.2** Push any small changes
-
-#The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.8.2
+* **4.8.3** Version bump

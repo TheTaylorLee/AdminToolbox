@@ -60,6 +60,4 @@
 * **4.13.2** Only include first video stream to reduce likelihoods of failures, but still include all audio and subtitles. Included artwork can lead to failures otherwise.
 * **4.13.3** start-transcode add ? for ignore null stream
 * **4.14.0** Updated set-fftoolsvariables with the option to use machine or user variables. Makes automation possible using the system account if desired over setting a user account in certain scenarios.
-
-#The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-4.14.0
+* **4.14.1**version bump

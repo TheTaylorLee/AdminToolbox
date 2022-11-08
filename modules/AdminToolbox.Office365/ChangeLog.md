@@ -43,6 +43,4 @@
 * **2.10.0** Remove start-Azuresync
 * **2.10.1** Push any small changes
 * **2.10.2** Push any small changes
-
-#The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-2.10.2
+* **2.10.3** Version Bump

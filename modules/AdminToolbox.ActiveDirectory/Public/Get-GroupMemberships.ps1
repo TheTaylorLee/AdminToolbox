@@ -25,12 +25,14 @@ Function Get-GroupMemberships {
 
 	$ErrorActionPreference = 'silentlycontinue'
 
-	Get-ADUser -Filter 'enabled -eq $true' -Properties DisplayName, memberof | ForEach-Object {
+	$users = Get-ADUser -Filter 'enabled -eq $true' -Properties DisplayName, memberof
+	$processthis = ForEach ($user in $users) {
 		New-Object PSObject -Property @{
-			UserName = $_.DisplayName
-			Groups   = ($_.memberof | Get-ADGroup | Select-Object -ExpandProperty Name) -join ","
+			UserName = $user.DisplayName
+			Groups   = ($user.memberof | Get-ADGroup | Select-Object -ExpandProperty Name) -join ","
 		}
-	} | Select-Object UserName, Groups | Export-Excel -WorksheetName "Group Memberships" -Path $path
+	}
+	$processthis | Select-Object UserName, Groups | Export-Excel -WorksheetName "Group Memberships" -Path $path
 
 	$ErrorActionPreference = 'continue'
 }

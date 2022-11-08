@@ -27,6 +27,4 @@
 * **1.9.1** Push any small changes
 * **1.9.2** Push any small changes
 * **1.9.3** Push any small changes
-
-#The line below this one is used strictly by a github action. That action is responsible for publishing new versions of this module to Powershell Gallery, upon pushing an iterative version to Github.
-1.9.3
+* **1.9.4** Version bump

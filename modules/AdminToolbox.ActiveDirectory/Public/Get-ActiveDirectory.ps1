@@ -4,11 +4,12 @@ function Get-ActiveDirectory {
 
     Write-Host "Active Directory Functions"                                                                    -ForegroundColor green
     Write-Host "Get-ADInfo                 ..Gets info on local domain"                                        -ForegroundColor cyan
-    Write-Host "Get-DCLockoutEvents       ..Gets endpoints causing user lockouts"                             -ForegroundColor cyan
+    Write-Host "Get-DCLockoutEvents        ..Gets endpoints causing user lockouts"                             -ForegroundColor cyan
     Write-Host "Get-EndpointReport         ..Gets a Report of AD Endpoints"                                    -ForegroundColor cyan
     Write-Host "Get-GroupMembers           ..Gets AD groups and their Members"                                 -ForegroundColor cyan
     Write-Host "Get-GroupMemberships       ..Gets AD Users and their group Membership"                         -ForegroundColor cyan
     Write-Host "Get-LockedAccounts         ..Gets locked AD accounts"                                          -ForegroundColor cyan
+    Write-Host "Get-MailEnabledMembers     ..Gets group members of mail enabled groups"                        -ForegroundColor cyan
     Write-Host "Get-PasswordExpired        ..Gets AD accounts with Expired Passwords"                          -ForegroundColor cyan
     Write-Host "Get-ReplicationStatus      ..Gets AD Site Replication Status"                                  -ForegroundColor cyan
     Write-Host "Get-UserReport             ..Gets a Report of AD Users"                                        -ForegroundColor cyan
