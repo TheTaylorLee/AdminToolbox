@@ -1,7 +1,7 @@
 ---
 external help file: AdminToolbox.NetworkingManifest-help.xml
 Module Name: AdminToolbox.Networking
-online version: https://github.com/TheTaylorLee/AdminToolbox
+online version: https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
 schema: 2.0.0
 ---
 
@@ -19,7 +19,7 @@ Invoke-Iperf [-help] [-version] [<CommonParameters>]
 ### Client
 ```
 Invoke-Iperf [-port <String>] [-format <String>] [-interval <String>] [-file <String>] [-bind <String>]
- [-verboseout] [-json] [-logfile <String>] [-debugout] [-daemon] [-client] [-udp] [-bandwidth <String>]
+ [-verboseout] [-json] [-logfile <String>] [-debugout] [-daemon] -client <String> [-udp] [-bandwidth <String>]
  [-time <String>] [-bytes <String>] [-blockcount <String>] [-bufferlength <String>] [-cport <String>]
  [-parallel <String>] [-reverse] [-window <String>] [-mtu <String>] [-nodelay] [-ipv4only] [-ipv6only]
  [-tos <String>] [-zerocopy] [-omitseconds <String>] [-Title <String>] [-showserveroutput <String>]
@@ -40,19 +40,12 @@ If string input is accepted for a parameter, the first line fo the description h
 
 ## EXAMPLES
 
-### EXAMPLE 1
-```
-Invoke-Iperf -server -port 12345
-```
-
-Setup a iperf server connection using port 12345
-
-### EXAMPLE 2
-```
-Invoke-Iperf -client -serverip 0.0.0.0 -port 12345 -parallel 8
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
 
-Initiate a client bandwidth test with parallel connections
+{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -288,17 +281,17 @@ Accept wildcard characters: False
 ```
 
 ### -client
-host
+ipaddress
 run in client mode, connecting to \<host\>
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: Client
 Aliases:
 
 Required: True
 Position: Named
-Default value: False
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -625,6 +618,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/TheTaylorLee/AdminToolbox](https://github.com/TheTaylorLee/AdminToolbox)
-
