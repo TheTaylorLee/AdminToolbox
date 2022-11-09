@@ -34,13 +34,6 @@ jobs:
         with:
           modules-to-cache: ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk
 
-      - name: Setup PowerShell module cache
-        id: cacher
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.psmodulecache.outputs.modulepath }}
-          key: ${{ steps.psmodulecache.outputs.keygen }}
-
       #Run pwsh functions to publish the module
       - name: Install Required Modules, Update Manifests, Publish updated Modules, and commit manifest changes
         env:
@@ -48,10 +41,10 @@ jobs:
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         shell: pwsh
         run: |
-          #Install Modules
+          #Impoort Modules
+          Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
 
-          Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
+          #Set-PSRepository PSGallery -InstallationPolicy Trusted
           #Install-Module PSEventViewer -Force -Allowclobber
           #Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
           #Install-Module -Name VMware.VimAutomation.Core -Force
