@@ -44,3 +44,4 @@
 * **2.10.1** Push any small changes
 * **2.10.2** Push any small changes
 * **2.10.3** Version Bump
+* **2.10.4** Version Bump
