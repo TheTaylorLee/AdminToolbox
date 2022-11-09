@@ -22,18 +22,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       #Cache Modules that are required by publishing modules
       - name: Specify PowerShell modules to cache
         id: psmodulecache
-        uses: potatoqualitee/psmodulecache@v1
+        uses: potatoqualitee/psmodulecache@v5.1
         with:
           modules-to-cache: PlatyPS
 
       - name: Setup PowerShell module cache
         id: cacher
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.psmodulecache.outputs.modulepath }}
           key: ${{ steps.psmodulecache.outputs.keygen }}
