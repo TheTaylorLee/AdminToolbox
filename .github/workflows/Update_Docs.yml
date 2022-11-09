@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       #Cache Modules that are required by publishing modules
       - name: Specify PowerShell modules to cache
@@ -31,13 +31,6 @@ jobs:
         with:
           modules-to-cache: PlatyPS
 
-      - name: Setup PowerShell module cache
-        id: cacher
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.psmodulecache.outputs.modulepath }}
-          key: ${{ steps.psmodulecache.outputs.keygen }}
-
       #Run pwsh functions to publish the module
       - name: Update markdown help documentation
         env:
@@ -45,17 +38,13 @@ jobs:
         shell: pwsh
         run: |
           #Install Modules missed by the Cache action
+
           Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module ${{ steps.psmodulecache.outputs.needed }} -ErrorAction Stop
           Install-Module Admintoolbox -force
-          Import-Module Admintoolbox
+          Get-Module Admintoolbox, PlatyPS | Import-Module
 
           #Set Variable
           $workingdirectory = (get-location).path
-
-          #Ensure Modules are imported
-          Import-Module platyPS
-          Import-Module Admintoolbox
 
           #Update help
           $Modules = Get-Module Admintool*
