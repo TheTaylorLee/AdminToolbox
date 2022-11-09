@@ -29,3 +29,4 @@
 * **1.13.2** Push any small changes
 * **1.14.0** Added function Get-EmptyDirectory
 * **1.14.1** Version Bump
+* **1.14.2** Version Bump
