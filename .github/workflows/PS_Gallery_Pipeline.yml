@@ -30,7 +30,7 @@ jobs:
       #Cache Modules that are required by publishing modules
       - name: Specify PowerShell modules to cache
         id: psmodulecache
-        uses: potatoqualitee/psmodulecache@v1
+        uses: potatoqualitee/psmodulecache@v5.1
         with:
           modules-to-cache: ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk
 
