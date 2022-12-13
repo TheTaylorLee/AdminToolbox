@@ -30,3 +30,4 @@
 * **1.9.2** Push any small changes
 * **1.9.3** Version Bump
 * **1.9.4** Version Bump
+* **1.9.5** Version Bump

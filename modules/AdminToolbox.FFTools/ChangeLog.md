@@ -62,3 +62,4 @@
 * **4.14.0** Updated set-fftoolsvariables with the option to use machine or user variables. Makes automation possible using the system account if desired over setting a user account in certain scenarios.
 * **4.14.1**version bump
 * **4.14.2**version bump
+* **4.14.3**version bump

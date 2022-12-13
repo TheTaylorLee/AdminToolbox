@@ -40,3 +40,4 @@
 * **2.16.3** Version Bump
 * **2.16.4** Version Bump
 * **2.16.5** Version Bump
+* **2.16.6** Version Bump
