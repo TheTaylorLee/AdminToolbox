@@ -103,7 +103,7 @@ function Invoke-NetworkScan {
                     $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
                     #Sometimes the MAC won't be Null, but it's not an actual MAC address. This try catch was quicker to implement then troubleshooting the cause.
                     try {
-                        $OUI2 = $OUI1.Substring(9)
+                        $OUI2 = $OUI1.Substring(8)
                     }
                     catch {
                         $OUI2 = $null
@@ -142,7 +142,7 @@ function Invoke-NetworkScan {
                     $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
                     #Sometimes the MAC won't be Null, but it's not an actual MAC address. This try catch was quicker to implement then troubleshooting the cause.
                     try {
-                        $OUI2 = $OUI1.Substring(9)
+                        $OUI2 = $OUI1.Substring(8)
                     }
                     catch {
                         $OUI2 = $null
