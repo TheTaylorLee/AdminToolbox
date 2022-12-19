@@ -5,8 +5,9 @@
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. Installing the Admintoolbox Module will install the other required modules. However, it is not necessary to install all modules, and each module can be installed on it's own.
 
 <p align="Left">
-<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/PS_Gallery_Pipeline.yml"><img src="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/PSGallery%20Publish?label=PSGallery%20Publish&logo=Github"></a>
-<a href="https://github.com/TheTaylorLee/AdminToolbox/actions/workflows/Update_Docs.yml"><img src="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/Update%20Docs?label=Update%20Docs&logo=Github"></a>
+<a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/PS_Gallery_Pipeline.yml?branch=master"><img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/PS_Gallery_Pipeline.yml?branch=master&label=PSGallery%20Publsh&logo=Github"></a>
+<a href="https://img.shields.io/github/actions/workflow/status/thetaylorlee/admintoolbox/.github/workflows/Update_Docs.yml?branch=master
+"><img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/Update_Docs.yml?branch=master&label=PSGallery%20Publsh&logo=Github"></a>
 <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue"><img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox"></a>
 </p>
 
