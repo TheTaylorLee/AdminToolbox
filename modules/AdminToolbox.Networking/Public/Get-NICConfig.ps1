@@ -11,7 +11,6 @@
     https://github.com/TheTaylorLee/AdminToolbox
 #>
 
-
 function Get-NICConfig {
 
     [CmdletBinding()]
