@@ -55,3 +55,4 @@
 * **2.13.5** Version Bump
 * **2.13.6** Version Bump
 * **2.14.0** Upgrade OUI list with IEEE MA-L list date 20221213
+* **2.15.0** Added Function Get-NICConfig
