@@ -56,3 +56,4 @@
 * **2.13.6** Version Bump
 * **2.14.0** Upgrade OUI list with IEEE MA-L list date 20221213
 * **2.15.0** Added Function Get-NICConfig
+* **2.15.1** Updated Get-NICConfig comment help spacing, so the help is actually presented when using help get-nicconfig
