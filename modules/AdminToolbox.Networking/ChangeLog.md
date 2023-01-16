@@ -57,3 +57,4 @@
 * **2.14.0** Upgrade OUI list with IEEE MA-L list date 20221213
 * **2.15.0** Added Function Get-NICConfig
 * **2.15.1** Updated Get-NICConfig comment help spacing, so the help is actually presented when using help get-nicconfig
+* **2.15.2** fix: missing manifest from workflow writeback
