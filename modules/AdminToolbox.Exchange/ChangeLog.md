@@ -30,3 +30,4 @@
 * **1.9.4** Version bump
 * **1.9.5** Version bump
 * **1.9.6** Version bump
+* **1.9.7** fix: missing manifest from workflow writeback

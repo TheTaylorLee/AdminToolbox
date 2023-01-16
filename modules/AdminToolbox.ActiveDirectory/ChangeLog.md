@@ -32,3 +32,4 @@
 * **1.9.0** Added Get-MailEnabledMembers
 * **1.9.1** Version Bump
 * **1.9.2** Version Bump
+* **1.9.3** fix: missing manifest from workflow writeback
