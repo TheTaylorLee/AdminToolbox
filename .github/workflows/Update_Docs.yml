@@ -3,7 +3,7 @@
 name: Update Docs
 
 # Controls when the action will run.
-on: # Triggers the workflow on a schedule https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
+on:
   workflow_run:
     workflows: ["PSGallery Publish"]
     types:
