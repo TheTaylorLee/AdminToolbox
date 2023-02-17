@@ -10,6 +10,9 @@
     .Parameter DeepScan
     Ports 21, 22, 23, 80, 443, 3389, 9100 are normally scanned. Use DeepScan to get open ports for 21, 22, 23, 25, 53, 67, 80, 139, 389, 443, 445, 902, 3389, 9100.
 
+    .Parameter SkipMac
+    Skips looking up oui vendors for found MAC addresses.
+
     .Parameter Threads
     Specify the number of threads that run on the port scan. Default is 64
 
@@ -103,7 +106,7 @@ function Invoke-NetworkScan {
                     $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
                     #Sometimes the MAC won't be Null, but it's not an actual MAC address. This try catch was quicker to implement then troubleshooting the cause.
                     try {
-                        $OUI2 = $OUI1.Substring(8)
+                        $OUI2 = $OUI1.Substring(11)
                     }
                     catch {
                         $OUI2 = $null
@@ -142,7 +145,7 @@ function Invoke-NetworkScan {
                     $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
                     #Sometimes the MAC won't be Null, but it's not an actual MAC address. This try catch was quicker to implement then troubleshooting the cause.
                     try {
-                        $OUI2 = $OUI1.Substring(8)
+                        $OUI2 = $OUI1.Substring(11)
                     }
                     catch {
                         $OUI2 = $null
