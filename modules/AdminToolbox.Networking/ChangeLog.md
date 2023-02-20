@@ -60,3 +60,4 @@
 * **2.15.2** fix: missing manifest from workflow writeback
 * **2.15.3** Add parameter help for invoke-networkscan, and update substring for vendor custom object to eliminate whitespace.
 * **2.15.4** Add notes to invoke-networkscan help.
+* **2.15.5** Version Bump
