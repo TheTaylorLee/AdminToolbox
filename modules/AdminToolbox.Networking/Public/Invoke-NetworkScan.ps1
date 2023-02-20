@@ -26,6 +26,11 @@
 
     Perform a more thorough port scan and output to gridview
 
+    .NOTES
+    OUI/MA-L ~ Organization ~ Company ID ~ Street ~ City, State, Zip ~ Country Code
+
+    Vendor information is displayed in this format
+
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 #>
