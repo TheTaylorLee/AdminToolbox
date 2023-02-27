@@ -61,3 +61,4 @@
 * **2.15.3** Add parameter help for invoke-networkscan, and update substring for vendor custom object to eliminate whitespace.
 * **2.15.4** Add notes to invoke-networkscan help.
 * **2.15.5** Version Bump
+* **2.15.6** Version Bump

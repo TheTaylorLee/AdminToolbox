@@ -55,3 +55,4 @@
 * **4.8.5** Version bump
 * **4.8.6** fix: missing manifest from workflow writeback
 * **4.8.7** Version bump
+* **4.8.8** Version bump

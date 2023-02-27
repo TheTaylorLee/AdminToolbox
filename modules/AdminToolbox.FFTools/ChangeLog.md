@@ -66,3 +66,4 @@
 * **4.15.0** Remove ac channel parameter -ac 6. Now upmixing and downmixing is discouraged for keeping original channels.
 * **4.15.1** fix: missing manifest from workflow writeback
 * **4.15.2** version bump
+* **4.15.3** version bump
