@@ -12,13 +12,13 @@
 RootModule = 'AdminToolboxManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '11.0.18'
+ModuleVersion = '11.0.19'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'b0c36b91-a79d-43b3-bbe1-3512e966492b'
+GUID = '0908bcbe-974b-4662-9b17-4e9d8eb10e01'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -51,18 +51,18 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion = '1.9.8'; }, 
-               @{ModuleName = 'AdminToolbox.EndpointManagement'; ModuleVersion = '4.9.2'; }, 
-               @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.9.11'; }, 
-               @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.15.5'; }, 
-               @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.15.1'; }, 
-               @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.16.11'; }, 
-               @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.6.10'; }, 
-               @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.15.8'; }, 
-               @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = '1.2.10'; }, 
-               @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.11.3'; }, 
-               @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.9.10'; }, 
-               @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.8.7'; }, 
+RequiredModules = @(@{ModuleName = 'AdminToolbox.ActiveDirectory'; ModuleVersion = '1.9.9'; }, 
+               @{ModuleName = 'AdminToolbox.EndpointManagement'; ModuleVersion = '4.9.3'; }, 
+               @{ModuleName = 'AdminToolbox.Exchange'; ModuleVersion = '1.9.12'; }, 
+               @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = '4.15.6'; }, 
+               @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = '1.15.2'; }, 
+               @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = '2.16.12'; }, 
+               @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = '1.6.11'; }, 
+               @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.15.9'; }, 
+               @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = '1.2.11'; }, 
+               @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = '2.11.4'; }, 
+               @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = '1.9.11'; }, 
+               @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = '4.8.8'; }, 
                @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; }, 
                @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0'; }, 
                @{ModuleName = 'PSEventViewer'; ModuleVersion = '1.0.17'; })
