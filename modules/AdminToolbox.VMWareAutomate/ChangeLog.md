@@ -59,3 +59,4 @@
 * **4.8.5** Version Bump
 * **4.8.6** Version Bump
 * **4.8.7** Workflow Fix
+* **4.8.8** Workflow Fix

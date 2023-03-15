@@ -32,3 +32,4 @@
 * **1.6.8** Version Bump
 * **1.6.9** Version Bump
 * **1.6.10** Workflow Fix
+* **1.6.11** Workflow Fix
