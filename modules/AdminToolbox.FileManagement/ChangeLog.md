@@ -34,3 +34,4 @@
 * **1.14.4** fix: missing manifest from workflow writeback
 * **1.14.5** Version Bump
 * **1.14.6** Version Bump
+* **1.15.0** Add Get-LastModifiedDirectory

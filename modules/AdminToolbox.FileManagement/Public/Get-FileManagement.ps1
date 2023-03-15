@@ -9,6 +9,7 @@ function Get-FileManagement {
     Write-Host "Get-FileOwner              ..Gets CSV of file owners for a path"                                    -ForegroundColor cyan
     Write-Host "Get-FolderName             ..Gets a gui for selecting a folder"                                     -ForegroundColor cyan
     Write-Host "Get-FolderSize             ..Gets FolderSize of a single folder quickly"                            -ForegroundColor cyan
+    Write-Host "Get-LastUsedDirectory      ..Gets date any file in a directory had files last touched"              -ForegroundColor cyan
     Write-Host "Get-ShareReport            ..Gets report of share and NTFS permissions"                             -ForegroundColor cyan
     Write-Host "Invoke-Robocopy            ..Invokes a crescendowrapped robocopy function containing presets"       -ForegroundColor cyan
     Write-Host "Remove-All                 ..Removes many files quickly to free up space"                           -ForegroundColor cyan
