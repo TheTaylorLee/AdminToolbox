@@ -41,6 +41,11 @@ jobs:
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         shell: pwsh
         run: |
+          # Attempt to resolve future nuget issues observed on 2023/03/15
+          Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+          Install-module powershellget -force -Allowclobber
+          Import-Module powershellget
+
           #Impoort Modules
           Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
 
