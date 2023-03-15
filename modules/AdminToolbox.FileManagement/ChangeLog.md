@@ -37,3 +37,4 @@
 * **1.15.0** Add Get-LastModifiedDirectory
 * **1.15.1** Workflow Fix
 * **1.15.2** Workflow Fix
+* **1.15.3** Workflow Fix

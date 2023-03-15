@@ -16,3 +16,4 @@
 * **1.2.9** Version Bump
 * **1.2.10** Workflow Fix
 * **1.2.11** Workflow Fix
+* **1.2.12** Workflow Fix
