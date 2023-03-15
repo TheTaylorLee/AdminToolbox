@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.NetworkingManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.15.9'
+ModuleVersion = '2.15.10'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'c6fa2a8b-1fb8-43e8-9c20-e9aa7a760427'
+GUID = '2a6bca8b-22df-4672-a588-55baf4e041cb'
 
 # Author of this module
 Author = 'Taylor Lee'
