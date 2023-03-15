@@ -35,3 +35,4 @@
 * **1.9.7** Version Bump
 * **1.9.8** Version Bump
 * **1.9.9** Version Bump
+* **1.9.10** Workflow Fix

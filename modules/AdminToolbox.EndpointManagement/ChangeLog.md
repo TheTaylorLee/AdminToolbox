@@ -58,3 +58,4 @@
 * **4.8.8** Version bump
 * **4.9.0** Update Get-RemoteDesktopLogins
 * **4.9.1** Version bump
+* **4.9.2** Workflow Fix
