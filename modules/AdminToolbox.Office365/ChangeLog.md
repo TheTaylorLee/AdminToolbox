@@ -54,3 +54,4 @@
 * **2.11.4** Workflow Fix
 * **2.11.5** Workflow Fix
 * **2.11.6** Version Bump for visibility
+* **2.11.7** Version Bump for visibility

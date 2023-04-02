@@ -207,3 +207,4 @@
 * **11.0.19** Workflow Fix
 * **11.0.20** Workflow Fix
 * **11.0.21** Update required modules
+* **11.0.22** Update required modules

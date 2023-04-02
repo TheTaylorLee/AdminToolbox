@@ -41,3 +41,4 @@
 * **1.9.9** Workflow Fix
 * **1.9.10** Workflow Fix
 * **1.9.11** Version Bump for visibility
+* **1.9.12** Version Bump for visibility
