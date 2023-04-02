@@ -11,12 +11,12 @@
     Specifies to pickup failed service recoveries from a log file
 
     .EXAMPLE
-    Invoke-ServiceRecovery -DisplayNameLike Kaseya
+    Invoke-ServiceRecovery -DisplayNameLike spooler
 
     Restart specified service on all domain endpoints
 
     .EXAMPLE
-    Invoke-ServiceRecovery -DisplayNameLike Kaseya -FromLog .\servicerecovery_log_0911.txt
+    Invoke-ServiceRecovery -DisplayNameLike spooler -FromLog .\servicerecovery_log_0911.txt
 
     Restart specified service on all remaining endpoints using the failed endpoints log.
 
@@ -48,20 +48,20 @@ function Invoke-ServiceRecovery {
     if ($null -ne $FromLog) {
         #Restart Services
         Get-Content $FromLog |
-        ForEach-Object {
-            try {
-                Write-Host "Restarting Services with DisplayNameLike $DisplayNameLike on: " -ForegroundColor Green -NoNewline
-                Write-Host "$_" -ForegroundColor Cyan
+            ForEach-Object {
+                try {
+                    Write-Host "Restarting Services with DisplayNameLike $DisplayNameLike on: " -ForegroundColor Green -NoNewline
+                    Write-Host "$_" -ForegroundColor Cyan
 
-                Get-Service -computername $_ | Where-Object { $_.displayname -like "*$DisplayNameLike*" } | Restart-Service -Force
+                    Get-Service -computername $_ | Where-Object { $_.displayname -like "*$DisplayNameLike*" } | Restart-Service -Force
+                }
+                catch {
+                    $trim0 = $_
+                    $trim1 = $trim0 -replace ("Cannot open Service Control Manager on computer '", "")
+                    $trimout = $trim1 -replace ("'. This operation might require other privileges.", "")
+                    $trimout | Out-File $env:USERPROFILE\desktop\ServiceRecovery_Log.txt -Append
+                }
             }
-            catch {
-                $trim0 = $_
-                $trim1 = $trim0 -replace ("Cannot open Service Control Manager on computer '", "")
-                $trimout = $trim1 -replace ("'. This operation might require other privileges.", "")
-                $trimout | Out-File $env:USERPROFILE\desktop\ServiceRecovery_Log.txt -Append
-            }
-        }
     }
 
     else {
