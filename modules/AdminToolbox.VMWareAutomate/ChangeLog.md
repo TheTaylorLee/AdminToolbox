@@ -61,3 +61,4 @@
 * **4.8.7** Workflow Fix
 * **4.8.8** Workflow Fix
 * **4.8.9** Workflow Fix
+* **4.8.10** Version Bump for visibility
