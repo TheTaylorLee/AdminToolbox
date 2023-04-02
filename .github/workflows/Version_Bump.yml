@@ -1,0 +1,38 @@
+# This workflow version increments all modules
+
+name: Version Bump
+
+# Controls when the action will run.
+on:
+  schedule:
+    - cron: "0 10 * * 2"
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      #Run pwsh functions to publish the module
+      - name: Version Bump and Repository Push
+        env:
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+        shell: pwsh
+        run: |
+          #Import and Run Scripts
+          $workingdirectory = (Get-Location).path
+          . "$workingdirectory\.github\workflows\scripts\Invoke-versionbump.ps1"
+
+          #Publish new manifest files to the repository
+          git config --global user.email $env:GIT_EMAIL
+          git config --global user.name "TheTaylorLee"
+          git add -A
+          git commit -m "rel: Version Bump"
+          git push -u origin master
