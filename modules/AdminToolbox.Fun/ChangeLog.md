@@ -36,3 +36,4 @@
 * **1.6.12** Workflow Fix
 * **1.6.13** Version Bump for visibility
 * **1.6.14** Version Bump for visibility
+* **1.6.15** Version Bump for visibility

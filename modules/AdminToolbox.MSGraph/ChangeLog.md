@@ -19,3 +19,4 @@
 * **1.2.12** Workflow Fix
 * **1.2.13** Version Bump for visibility
 * **1.2.14** Version Bump for visibility
+* **1.2.15** Version Bump for visibility
