@@ -42,3 +42,4 @@
 * **1.15.5** Version Bump for visibility
 * **1.15.6** Version Bump for visibility
 * **1.15.7** Version Bump for visibility
+* **1.15.8** Version Bump for visibility
