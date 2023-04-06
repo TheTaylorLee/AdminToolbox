@@ -23,3 +23,4 @@
 * **1.2.16** Version Bump for visibility
 * **1.2.17** Version Bump for visibility
 * **1.2.18** Version Bump for visibility
+* **1.2.19** Version Bump for visibility

@@ -59,3 +59,4 @@
 * **2.11.9** Version Bump for visibility
 * **2.11.10** Version Bump for visibility
 * **2.11.11** Version Bump for visibility
+* **2.11.12** Version Bump for visibility
