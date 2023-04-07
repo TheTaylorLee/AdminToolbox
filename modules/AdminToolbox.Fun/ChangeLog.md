@@ -41,3 +41,4 @@
 * **1.6.17** Version Bump for visibility
 * **1.6.18** Version Bump for visibility
 * **1.6.19** Version Bump for visibility
+* **1.6.20** Version Bump for visibility
