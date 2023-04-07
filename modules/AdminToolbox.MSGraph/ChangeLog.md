@@ -7,13 +7,13 @@
 * **1.2.0** Added Functions Get-msgSignIns & Get-msgAuthenticationRegistration
 * **1.2.1** Push any small changes
 * **1.2.2** Push any small changes
-* **1.2.3** Version Bump
-* **1.2.4** Version Bump
-* **1.2.5** Version Bump
+* **1.2.3** Maintenance Release
+* **1.2.4** Maintenance Release
+* **1.2.5** Maintenance Release
 * **1.2.6** fix: missing manifest from workflow writeback
-* **1.2.7** Version Bump
-* **1.2.8** Version Bump
-* **1.2.9** Version Bump
+* **1.2.7** Maintenance Release
+* **1.2.8** Maintenance Release
+* **1.2.9** Maintenance Release
 * **1.2.10** Workflow Fix
 * **1.2.11** Workflow Fix
 * **1.2.12** Workflow Fix

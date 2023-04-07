@@ -50,14 +50,14 @@
 * **4.8.0** Push any small changes
 * **4.8.1** Push any small changes
 * **4.8.2** Push any small changes
-* **4.8.3** Version bump
-* **4.8.4** Version bump
-* **4.8.5** Version bump
+* **4.8.3** Maintenance Release
+* **4.8.4** Maintenance Release
+* **4.8.5** Maintenance Release
 * **4.8.6** fix: missing manifest from workflow writeback
-* **4.8.7** Version bump
-* **4.8.8** Version bump
+* **4.8.7** Maintenance Release
+* **4.8.8** Maintenance Release
 * **4.9.0** Update Get-RemoteDesktopLogins
-* **4.9.1** Version bump
+* **4.9.1** Maintenance Release
 * **4.9.2** Workflow Fix
 * **4.9.3** Workflow Fix
 * **4.9.4** Workflow Fix

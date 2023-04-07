@@ -60,14 +60,14 @@
 * **4.13.2** Only include first video stream to reduce likelihoods of failures, but still include all audio and subtitles. Included artwork can lead to failures otherwise.
 * **4.13.3** start-transcode add ? for ignore null stream
 * **4.14.0** Updated set-fftoolsvariables with the option to use machine or user variables. Makes automation possible using the system account if desired over setting a user account in certain scenarios.
-* **4.14.1** version bump
-* **4.14.2** version bump
-* **4.14.3** version bump
+* **4.14.1** Maintenance Release
+* **4.14.2** Maintenance Release
+* **4.14.3** Maintenance Release
 * **4.15.0** Remove ac channel parameter -ac 6. Now upmixing and downmixing is discouraged for keeping original channels.
 * **4.15.1** fix: missing manifest from workflow writeback
-* **4.15.2** version bump
-* **4.15.3** version bump
-* **4.15.4** version bump
+* **4.15.2** Maintenance Release
+* **4.15.3** Maintenance Release
+* **4.15.4** Maintenance Release
 * **4.15.5** Workflow Fix
 * **4.15.6** Workflow Fix
 * **4.15.7** Workflow Fix

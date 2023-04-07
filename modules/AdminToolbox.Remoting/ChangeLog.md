@@ -28,13 +28,13 @@
 * **1.9.0** Push any small changes
 * **1.9.1** Push any small changes
 * **1.9.2** Push any small changes
-* **1.9.3** Version Bump
-* **1.9.4** Version Bump
-* **1.9.5** Version Bump
+* **1.9.3** Maintenance Release
+* **1.9.4** Maintenance Release
+* **1.9.5** Maintenance Release
 * **1.9.6** fix: missing manifest from workflow writeback
-* **1.9.7** Version Bump
-* **1.9.8** Version Bump
-* **1.9.9** Version Bump
+* **1.9.7** Maintenance Release
+* **1.9.8** Maintenance Release
+* **1.9.9** Maintenance Release
 * **1.9.10** Workflow Fix
 * **1.9.11** Workflow Fix
 * **1.9.12** Workflow Fix

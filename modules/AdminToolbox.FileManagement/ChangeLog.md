@@ -28,12 +28,12 @@
 * **1.13.1** Push any small changes
 * **1.13.2** Push any small changes
 * **1.14.0** Added function Get-EmptyDirectory
-* **1.14.1** Version Bump
-* **1.14.2** Version Bump
-* **1.14.3** Version Bump
+* **1.14.1** Maintenance Release
+* **1.14.2** Maintenance Release
+* **1.14.3** Maintenance Release
 * **1.14.4** fix: missing manifest from workflow writeback
-* **1.14.5** Version Bump
-* **1.14.6** Version Bump
+* **1.14.5** Maintenance Release
+* **1.14.6** Maintenance Release
 * **1.15.0** Add Get-LastModifiedDirectory
 * **1.15.1** Workflow Fix
 * **1.15.2** Workflow Fix

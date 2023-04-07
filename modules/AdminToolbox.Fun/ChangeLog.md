@@ -24,13 +24,13 @@
 * **1.6.0** Push any small changes
 * **1.6.1** Push any small changes
 * **1.6.2** Push any small changes
-* **1.6.3** Version Bump
-* **1.6.4** Version Bump
-* **1.6.5** Version Bump
+* **1.6.3** Maintenance Release
+* **1.6.4** Maintenance Release
+* **1.6.5** Maintenance Release
 * **1.6.6** fix: missing manifest from workflow writeback
-* **1.6.7** Version Bump
-* **1.6.8** Version Bump
-* **1.6.9** Version Bump
+* **1.6.7** Maintenance Release
+* **1.6.8** Maintenance Release
+* **1.6.9** Maintenance Release
 * **1.6.10** Workflow Fix
 * **1.6.11** Workflow Fix
 * **1.6.12** Workflow Fix
