@@ -61,3 +61,4 @@
 * **2.11.11** CI Maintenance Release
 * **2.11.12** CI Maintenance Release
 * **2.11.13** CI Maintenance Release
+* **3.0.0** Removing functions that require MSOnline and Azure AD in preperation of of those modules being deprecated.

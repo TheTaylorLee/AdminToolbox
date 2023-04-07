@@ -11,17 +11,11 @@
     .Parameter Az
     Connect to the Azure AD resource management module
 
-    .Parameter AzureAD
-    Connect to Azure AD tenant administrative Module. AKA AzureAD v2
-
     .Parameter ExchangeOnline
     Connect to the Exchange Online Module
 
     .Parameter ExchangeOnlinev2
     Connect to the Exchange Online Module
-
-    .Parameter MSOnline
-    Connect to the the original tenant based administrative module. AKA AzureAD v1
 
     .Parameter SharepointOnline
     Connect to the SharepointOnline Module
@@ -65,14 +59,6 @@
     The SharePoint Online Management Shell is a Windows PowerShell module that you can use to manage SharePoint Online users, sites, and site collections. \
     Sharepoint Online Module https://www.microsoft.com/en-us/download/details.aspx?id=35588
 
-    #Azure AD Module \
-    Windows Azure AD tenant-based administrative tasks such as user management, domain management and for configuring single sign-on \
-    Install-Module AzureAD
-
-    #Microsoft Online (MSOnline) Module: aka Azure AD V1 Module \
-    Original Azure AD module for user management and has legacy functions not include with the Azure AD Module \
-       Install-Module MSOnline
-
     #Exchange Online Module \
     Exchange Online PowerShell allows you to manage your Exchange Online settings from the command line. \
     Install-Module Exchangeonline
@@ -113,15 +99,13 @@ function Connect-Office365 {
         $AcctName,
         [Parameter(Mandatory = $true, ParameterSetName = "Sharepoint")]
         $DomainHost,
-        [Parameter(Mandatory = $true, ParameterSetName = "AzureAD")][Switch] $AzureAD,
         [Parameter(Mandatory = $true, ParameterSetName = "Sharepoint")][Switch] $SharepointOnline,
         [Parameter(Mandatory = $true, ParameterSetName = "ExchangeOnline")][Switch] $ExchangeOnline,
         [Parameter(Mandatory = $true, ParameterSetName = "ExchangeOnlinev2")][Switch] $ExchangeOnlinev2,
         [Parameter(Mandatory = $true, ParameterSetName = "SecurityandCompliance")][Switch] $SecurityandCompliance,
         [Parameter(Mandatory = $true, ParameterSetName = "Skype")][Switch] $Skype,
         [Parameter(Mandatory = $true, ParameterSetName = "Teams")][Switch] $Teams,
-        [Parameter(Mandatory = $true, ParameterSetName = "Az")][Switch] $Az,
-        [Parameter(Mandatory = $true, ParameterSetName = "MSOnline")][Switch] $MSOnline
+        [Parameter(Mandatory = $true, ParameterSetName = "Az")][Switch] $Az
     )
 
     if ($SharepointOnline) {
@@ -129,18 +113,6 @@ function Connect-Office365 {
         Import-Module Microsoft.Online.SharePoint.PowerShell -DisableNameChecking
         Write-Host "Connecting to SharePoint Online" -BackgroundColor black -ForegroundColor green
         Connect-SPOService -Url https://$DomainHost-admin.sharepoint.com
-    }
-
-    if ($AzureAD) {
-        #Azure AD Module
-        Write-Host "Connecting to other Azure AD Services" -BackgroundColor black -ForegroundColor green
-        Connect-AzureAD
-    }
-
-    if ($MSOnline) {
-        #MSonline AD Module
-        Write-Host "Connecting to Microsoft Online Services" -BackgroundColor black -ForegroundColor green
-        Connect-MsolService
     }
 
     if ($ExchangeOnline) {
