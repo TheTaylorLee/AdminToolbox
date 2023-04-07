@@ -66,12 +66,12 @@
 * **2.15.8** Workflow Fix
 * **2.15.9** Workflow Fix
 * **2.15.10** Workflow Fix
-* **2.15.11** Version Bump for visibility
-* **2.15.12** Version Bump for visibility
-* **2.15.13** Version Bump for visibility
-* **2.15.14** Version Bump for visibility
+* **2.15.11** CI Maintenance Release
+* **2.15.12** CI Maintenance Release
+* **2.15.13** CI Maintenance Release
+* **2.15.14** CI Maintenance Release
 * **2.16.00** Remove start-traceng
-* **2.16.1** Version Bump for visibility
-* **2.16.2** Version Bump for visibility
-* **2.16.3** Version Bump for visibility
-* **2.16.4** Version Bump for visibility
+* **2.16.1** CI Maintenance Release
+* **2.16.2** CI Maintenance Release
+* **2.16.3** CI Maintenance Release
+* **2.16.4** CI Maintenance Release

@@ -40,11 +40,11 @@
 * **1.9.8** Workflow Fix
 * **1.9.9** Workflow Fix
 * **1.9.10** Workflow Fix
-* **1.9.11** Version Bump for visibility
-* **1.9.12** Version Bump for visibility
-* **1.9.13** Version Bump for visibility
-* **1.9.14** Version Bump for visibility
-* **1.9.15** Version Bump for visibility
-* **1.9.16** Version Bump for visibility
-* **1.9.17** Version Bump for visibility
-* **1.9.18** Version Bump for visibility
+* **1.9.11** CI Maintenance Release
+* **1.9.12** CI Maintenance Release
+* **1.9.13** CI Maintenance Release
+* **1.9.14** CI Maintenance Release
+* **1.9.15** CI Maintenance Release
+* **1.9.16** CI Maintenance Release
+* **1.9.17** CI Maintenance Release
+* **1.9.18** CI Maintenance Release
