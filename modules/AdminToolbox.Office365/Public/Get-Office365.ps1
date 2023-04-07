@@ -31,12 +31,6 @@ function Get-Office365 {
     Write-Host "Unblock-Quarantine            ..Unblock/release quarantine messages multiple at a time"         -ForegroundColor cyan
     Write-Host " "
 
-    Write-Host "MSOnline Module Functions"                                                                      -ForegroundColor green
-    Write-Host "Get-MFAStatus                 ..Gets Multifactor Settings for Msol Users"                       -ForegroundColor cyan
-    Write-Host "Get-MsolRoleMembers           ..Gets Office 365 roles and their members"                        -ForegroundColor cyan
-    Write-Host "Invoke-PerUserMFAEnforced     ..Invoke Per User MFA Enforcement"                                -ForegroundColor Cyan
-    Write-Host " "
-
     Write-Host "Teams Module Functions"                                                                         -ForegroundColor green
     Write-Host "Clear-TeamsCache              ..Clears Cache files for Microsoft Teams"                         -ForegroundColor cyan
     Write-Host " "
