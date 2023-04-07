@@ -79,6 +79,10 @@ VMWare Automate| <a href="https://www.powershellgallery.com/packages/AdminToolbo
 
 #### Office365
 > Office 365 and Azure related functions. These functions vary greatly in their purpose, and are all related to Microsoft 365 differing cloud services.
+```
+AzureAD and MSOnline modules are being deprecated by Microsoft, or are deprecated by time this is being read.
+The related functions have been updated to use MSGraph and can be found in the Admintoolbox.MSGraph module.
+```
 
 #### Remoting
 > Remoting related functions. This module focuses on remote access and management tasks.

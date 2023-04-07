@@ -18,12 +18,6 @@ function Get-Office365 {
     Write-Host "Set-Subscription              ..Sets the subscription/AZContext for subsequent functions"       -ForegroundColor cyan
     Write-Host " "
 
-    Write-Host "AzureAD Module Functions"                                                                       -ForegroundColor green
-    Write-Host "Get-AzureRoleMembers          ..Gets Office 365 roles and their members"                        -ForegroundColor cyan
-    Write-Host "Get-GuestUsers                ..Gets a security report of guest users from Azure AD"            -ForegroundColor cyan
-    Write-Host "Set-PasswordNeverExpire       ..Sets an account password to not expire"                         -ForegroundColor cyan
-    Write-Host " "
-
     Write-Host "ExchangeOnline Module Functions"                                                                -ForegroundColor green
     Write-Host "Convert-MailboxToShared       ..Convert Disabled mailbox to a Shared Mailbox"                   -ForegroundColor cyan
     Write-Host "Enable-MailboxAccess          ..Enables full access to a mailbox without a license"             -ForegroundColor cyan
