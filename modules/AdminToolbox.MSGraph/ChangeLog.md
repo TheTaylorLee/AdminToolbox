@@ -25,3 +25,4 @@
 * **1.2.18** CI Maintenance Release
 * **1.2.19** CI Maintenance Release
 * **1.2.20** CI Maintenance Release
+* **1.2.21** CI Maintenance Release

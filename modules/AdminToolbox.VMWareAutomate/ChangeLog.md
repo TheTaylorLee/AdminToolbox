@@ -69,3 +69,4 @@
 * **4.8.15** CI Maintenance Release
 * **4.8.16** CI Maintenance Release
 * **4.8.17** CI Maintenance Release
+* **4.8.18** CI Maintenance Release
