@@ -215,3 +215,4 @@
 * **11.0.27** Update required modules
 * **11.0.28** Update required modules
 * **11.0.29** CI Update required modules
+* **11.0.30** CI Update required modules
