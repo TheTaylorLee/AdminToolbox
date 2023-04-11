@@ -10,9 +10,14 @@
     For specifying a remote computer to get an application list from
 
     .EXAMPLE
-    Get-Software | ft
+    Get-Applications | ft
 
     Get installed software outputted to a table
+
+    .EXAMPLE
+    Get-Applications | export-excel $env:userprofile\downloads\installedsoftware.xlsx
+
+    Get installed software outputted to an excel file.
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
