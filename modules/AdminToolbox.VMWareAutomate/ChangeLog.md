@@ -77,3 +77,4 @@
 * **4.8.23** CI Maintenance Release
 * **4.8.24** CI Maintenance Release
 * **4.8.25** CI Maintenance Release
+* **4.8.26** CI Maintenance Release

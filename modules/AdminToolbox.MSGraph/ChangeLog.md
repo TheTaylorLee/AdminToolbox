@@ -33,3 +33,4 @@
 * **1.2.26** CI Maintenance Release
 * **1.2.27** CI Maintenance Release
 * **1.2.28** CI Maintenance Release
+* **1.2.29** CI Maintenance Release
