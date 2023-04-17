@@ -1,8 +1,14 @@
-<p align="Center">
-    <a href="https://www.powershellgallery.com/profiles/TaylorLee">
-        <img src="https://github.com/TheTaylorLee/AdminToolbox/blob/master/images/H3.png">
-    </a>
-</p>
+                                                  _______      __              __
+                                                 |   _   | .--|  | .--------. |__| .-----.
+                                                 |.  1   | |  _  | |        | |  | |     |
+                                                 |.  _   | |_____| |__|__|__| |__| |__|__|
+                                                 |:  |   |                             _______                   __   __
+                                                 |::.|:. |                            |       | .-----. .-----. |  | |  |--. .-----. .--.--.
+                                                 `--- ---'                            |.|   | | |  _  | |  _  | |  | |  _  | |  _  | |_   _|
+                                                                                      `-|.  |-' |_____| |_____| |__| |_____| |_____| |__.__|
+                                                                                        |:  |
+                                                                                        |::.|
+                                                                                        `---'
 
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. Installing the Admintoolbox Module will install the other required modules. However, it is not necessary to install all modules, and each module can be installed on it's own.
 
