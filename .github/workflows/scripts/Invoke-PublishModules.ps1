@@ -13,6 +13,9 @@ function Invoke-PublishModules {
         $ActiveDirectory = Write-Output "[-] AdminToolbox.ActiveDirectory not published"
     }
 
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
+
     #EndpointManagement
     $EndpointManagementPSGallery = (Find-Module "AdminToolbox.EndpointManagement" -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.EndpointManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $EndpointManagementGithub = $step3 | Select-Object -First 1
@@ -24,6 +27,9 @@ function Invoke-PublishModules {
     else {
         $EndpointManagement = Write-Output "[-] AdminToolbox.EndpointManagement not published"
     }
+
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
 
     #Exchange
     $ExchangePSGallery = (Find-Module "AdminToolbox.Exchange" -Repository PSGallery).version
@@ -37,6 +43,9 @@ function Invoke-PublishModules {
         $Exchange = Write-Output "[-] AdminToolbox.Exchange not published"
     }
 
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
+
     #FFTools
     $FFToolsPSGallery = (Find-Module "AdminToolbox.FFTools" -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FFToolsGithub = $step3 | Select-Object -First 1
@@ -48,6 +57,9 @@ function Invoke-PublishModules {
     else {
         $FFTools = Write-Output "[-] AdminToolbox.FFTools not published"
     }
+
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
 
     #FileManagement
     $FileManagementPSGallery = (Find-Module "AdminToolbox.FileManagement" -Repository PSGallery).version
@@ -61,6 +73,9 @@ function Invoke-PublishModules {
         $FileManagement = Write-Output "[-] AdminToolbox.FileManagement not published"
     }
 
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
+
     #Fun
     $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FunGithub = $step3 | Select-Object -First 1
@@ -72,6 +87,9 @@ function Invoke-PublishModules {
     else {
         $Fun = Write-Output "[-] AdminToolbox.Fun not published"
     }
+
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
 
     #msgraph
     $msgraphPSGallery = (Find-Module "AdminToolbox.msgraph" -Repository PSGallery).version
@@ -85,6 +103,9 @@ function Invoke-PublishModules {
         $MSGraph = Write-Output "[-] AdminToolbox.MSGraph not published"
     }
 
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
+
     #Networking
     $NetworkingPSGallery = (Find-Module "AdminToolbox.Networking" -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $NetworkingGithub = $step3 | Select-Object -First 1
@@ -96,6 +117,9 @@ function Invoke-PublishModules {
     else {
         $Networking = Write-Output "[-] AdminToolbox.Networking not published"
     }
+
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
 
     #Office365
     $Office365PSGallery = (Find-Module "AdminToolbox.Office365" -Repository PSGallery).version
@@ -109,6 +133,9 @@ function Invoke-PublishModules {
         $Office365 = Write-Output "[-] AdminToolbox.Office365 not published"
     }
 
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
+
     #Remoting
     $RemotingPSGallery = (Find-Module "AdminToolbox.Remoting" -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $RemotingGithub = $step3 | Select-Object -First 1
@@ -120,6 +147,9 @@ function Invoke-PublishModules {
     else {
         $Remoting = Write-Output "[-] AdminToolbox.Remoting not published"
     }
+
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
 
     #VMWareAutomate
     $VMWareAutomatePSGallery = (Find-Module "AdminToolbox.VMWareAutomate" -Repository PSGallery).version
@@ -133,6 +163,9 @@ function Invoke-PublishModules {
         $VMWareAutomate = Write-Output "[-] AdminToolbox.VMWareAutomate not published"
     }
 
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
+
     #FortiWizard
     $FortiwizardPSGallery = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FortiWizardGithub = $step3 | Select-Object -First 1
@@ -145,6 +178,9 @@ function Invoke-PublishModules {
     else {
         $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
     }
+
+    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    Start-Sleep -Seconds 30
 
     #AdminToolbox
     $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
