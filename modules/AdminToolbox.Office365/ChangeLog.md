@@ -76,3 +76,4 @@
 * **3.0.12** CI Maintenance Release
 * **3.0.13** CI Maintenance Release
 * **3.0.14** CI Maintenance Release
+* **3.0.15** CI Maintenance Release
