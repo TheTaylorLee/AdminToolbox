@@ -73,7 +73,6 @@ function Remove-All {
                 Get-Service -ComputerName $hostname TrustedInstaller | Stop-Service -Force
                 Get-ChildItem -Path "\\$hostname\C$\windows\logs" -Include '*.log', '*.cab'  -Recurse -Force | Remove-Item -Force -Recurse
                 Get-ChildItem -Path "\\$hostname\C$\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
-                #Get-ChildItem -Path "\\$hostname\C$\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
                 $tempfolders = @("\\$hostname\C$\Windows\Temp\*", "\\$hostname\C$\Windows\Prefetch\*", "\\$hostname\C$\Documents and Settings\*\Local Settings\temp\*", "\\$hostname\C$\Users\*\Appdata\Local\Temp\*")
                 Remove-Item $tempfolders -Force -Recurse
                 $tempinternetfolders = @("\\$hostname\C$\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "\\$hostname\C$\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "\\$hostname\C$\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
@@ -92,7 +91,6 @@ function Remove-All {
                 Get-ChildItem -Path "C:\windows\" -Include '*.log', '*.cab'  -Recurse -Force | Remove-Item -Force -Recurse
                 Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
                 Get-ChildItem -Path 'c:\$recycle.bin' -Include '*' -Recurse -Force | Remove-Item -Force -Recurse
-                #Get-ChildItem -Path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
                 $tempfolders = @("C:\Windows\Temp\*", "C:\Windows\Prefetch\*", "C:\Documents and Settings\*\Local Settings\temp\*", "C:\Users\*\Appdata\Local\Temp\*")
                 Remove-Item $tempfolders -Force -Recurse
                 $tempinternetfolders = @("C:\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "C:\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "C:\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
