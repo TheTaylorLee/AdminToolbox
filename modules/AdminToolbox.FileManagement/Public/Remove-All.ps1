@@ -73,6 +73,7 @@ function Remove-All {
                 Get-Service -ComputerName $hostname TrustedInstaller | Stop-Service -Force
                 Get-ChildItem -Path "\\$hostname\C$\windows\logs" -Include '*.log', '*.cab'  -Recurse -Force | Remove-Item -Force -Recurse
                 Get-ChildItem -Path "\\$hostname\C$\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -Force | Remove-Item -Force -Recurse
+                Get-ChildItem -Path $recycle -Include '*' -Recurse -Force | Remove-Item -Force -Recurse
                 $tempfolders = @("\\$hostname\C$\Windows\Temp\*", "\\$hostname\C$\Windows\Prefetch\*", "\\$hostname\C$\Documents and Settings\*\Local Settings\temp\*", "\\$hostname\C$\Users\*\Appdata\Local\Temp\*")
                 Remove-Item $tempfolders -Force -Recurse
                 $tempinternetfolders = @("\\$hostname\C$\Users\*\Appdata\Local\Microsoft\Windows\INetCache\*", "\\$hostname\C$\Users\*\Appdata\Local\Microsoft\Windows\Cookies\*", "\\$hostname\C$\Users\*\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*")
