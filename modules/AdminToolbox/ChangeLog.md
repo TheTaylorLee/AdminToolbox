@@ -233,3 +233,4 @@
 * **11.0.45** CI Update required modules
 * **11.0.46** CI Update required modules
 * **11.0.47** CI Update required modules
+* **11.0.48** CI Update required modules
