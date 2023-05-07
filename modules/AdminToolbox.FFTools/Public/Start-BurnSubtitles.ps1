@@ -46,7 +46,7 @@ function Start-BurnSubtitles {
 
         #execute subtitle burn
         if ($transcode) {
-            ffmpeg.exe -i "$videosplit" -vf "subtitles=$srtfilesplit" -c:v libx265 -crf $crf -ac 6 -c:a aac -preset veryfast  "$env:FFToolsTarget$video"
+            ffmpeg.exe -i "$videosplit" -vf "subtitles=$srtfilesplit" -c:v libx265 -crf $crf -c:a copy -preset veryfast  "$env:FFToolsTarget$video"
         }
 
         else {
