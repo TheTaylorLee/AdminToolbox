@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.Office365Manifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '3.0.30'
+ModuleVersion = '3.1.0'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'c88ec880-b22b-4bce-b219-11aa8f09703a'
+GUID = '796429b0-15ff-415b-afef-a574e2b5b15d'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -70,10 +70,9 @@ RequiredModules = @(@{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; })
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Get-Office365', 'Connect-Office365', 'Convert-MailboxToShared', 
-               'Get-AuthPolicy', 'New-AuthPolicy', 'Set-AuthPolicy', 'Invoke-Sync365', 
-               'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 
-               'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 
-               'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 
+               'Invoke-Sync365', 'Set-365GroupVisibility', 'Unblock-Quarantine', 
+               'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 
+               'Get-VMDetails', 'Get-TenantDiagrams', 'Invoke-EXOSharedSession', 
                'Enable-MailboxAccess', 'Clear-TeamsCache', 
                'Get-DistributionGroupMembers'
 
