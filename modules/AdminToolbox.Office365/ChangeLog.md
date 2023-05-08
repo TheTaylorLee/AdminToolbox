@@ -93,3 +93,4 @@
 * **3.0.29** CI Maintenance Release
 * **3.0.30** CI Maintenance Release
 * **3.1.0** Remove deprecated Auth Policy Functions for basic authentication
+* **3.1.1** CI Maintenance Release
