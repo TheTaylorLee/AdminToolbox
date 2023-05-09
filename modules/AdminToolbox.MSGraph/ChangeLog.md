@@ -56,3 +56,4 @@
 * **1.2.49** CI Maintenance Release
 * **1.2.50** CI Maintenance Release
 * **1.2.51** CI Maintenance Release
+* **1.2.52** CI Maintenance Release
