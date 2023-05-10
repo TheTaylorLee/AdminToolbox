@@ -112,3 +112,4 @@
 * **4.16.0** Update functions to copy audio instead of converting to aac.
 * **4.16.1** CI Maintenance Release
 * **4.16.2** CI Maintenance Release
+* **4.16.3** CI Maintenance Release

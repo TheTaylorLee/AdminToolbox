@@ -78,3 +78,4 @@
 * **1.15.41** CI Maintenance Release
 * **1.15.42** CI Maintenance Release
 * **1.15.43** CI Maintenance Release
+* **1.15.44** CI Maintenance Release

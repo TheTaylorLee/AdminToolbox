@@ -246,3 +246,4 @@
 * **11.0.58** CI Update required modules
 * **11.0.59** CI Update required modules
 * **11.0.60** CI Update required modules
+* **11.0.61** CI Update required modules
