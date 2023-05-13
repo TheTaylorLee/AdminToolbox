@@ -5,6 +5,7 @@ function Get-MSGraph {
     Write-Host "Microsoft native Graph Functions"                                                               -ForegroundColor green
     Write-Host "Find-MgGraphCommand                 ..Find MSGraph functions by name and api equivalent URI"    -ForegroundColor cyan
     Write-Host "Get-MGContext                       ..Gets applied API permission scopes"                       -ForegroundColor cyan
+    Write-Host " "
 
     Write-Host "MSGraph Manage Functions"                                                                       -ForegroundColor green
     Write-Host "Register-msgScopes                  ..Registers API permission scopes"                          -ForegroundColor cyan

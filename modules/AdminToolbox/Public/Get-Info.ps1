@@ -11,7 +11,7 @@ function Get-Info {
 Get-All                           ..Gets all module Functions
 Get-Full                          ..Gets full help for selected functions
 Get-ModuleAliases                 ..Gets aliases for AdminToolbox modules
-Invoke-Show                       ..Invokes a grid Gui for implementing show command
+Invoke-Show                       ..Invokes a grid view for selecting a function for use with show-command
 Start-Application                 ..Start an application from PowerShell with ease
           "                                                                                                 -ForegroundColor cyan
     Write-Host " "
