@@ -105,3 +105,4 @@
 * **4.8.51** CI Maintenance Release
 * **4.8.52** CI Maintenance Release
 * **4.8.53** CI Maintenance Release
+* **4.8.54** CI Maintenance Release
