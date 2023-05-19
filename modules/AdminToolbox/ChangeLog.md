@@ -255,3 +255,4 @@
 * **11.0.67** CI Update required modules
 * **11.0.68** CI Update required modules
 * **11.0.69** CI Update required modules
+* **11.0.70** CI Update required modules
