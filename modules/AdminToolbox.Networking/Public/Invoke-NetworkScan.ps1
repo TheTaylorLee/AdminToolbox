@@ -63,11 +63,16 @@ function Invoke-NetworkScan {
         $ArpRefresh = Remove-ArpCache
         #Perform port scan first and put results in a script scope variable. This will also cause the arp cache to rebuild
         if ($null -ne $ArpRefresh) {
-            if ($DeepScan) {
-                $Script:SlowScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 25, 53, 67, 80, 139, 389, 443, 445, 902, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
-            }
-            else {
-                $Script:QuickScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 80, 443, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
+            switch ($ScanType) {
+                Port {
+                    $Script:PortScan = Invoke-PSnmap -ComputerName $CIDR -Port $Ports -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
+                }
+                Deep {
+                    $Script:SlowScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 25, 53, 67, 80, 139, 389, 443, 445, 902, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
+                }
+                Light {
+                    $Script:QuickScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 80, 443, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
+                }
             }
         }
 
