@@ -123,7 +123,7 @@ function Invoke-NetworkScan {
             $MAC = $Script:Neighbor.LinkLayerAddress
 
             #If block runs against scan results where Mac Addresses are present
-            if ($null -ne $MAC -and $SkipMac -eq $false) {
+            if ($null -ne $MAC -and $SkipMac -eq $false -and $null -eq $Ports) {
                 #If Deepscan parameter is chosen
                 if ($Scantype -eq "Deep") {
                     #Filter the port scan to return results for the currently enumerated subnet from where the network scan returned live network devices
@@ -163,7 +163,7 @@ function Invoke-NetworkScan {
                         }
                     } | Where-Object { ($null -ne $scan.'IP/DNS') -or ($null -ne $MAC) -or ($Scan.Ping -eq $true) -or ($Scan.'Port 22' -eq $true) -or ($Scan.'Port 23' -eq $true) -or ($Scan.'Port 25' -eq $true) -or ($Scan.'Port 53' -eq $true) -or ($Scan.'Port 67' -eq $true) -or ($Scan.'Port 80' -eq $true) -or ($Scan.'Port 139' -eq $true) -or ($Scan.'Port 389' -eq $true) -or ($Scan.'Port 443' -eq $true) -or ($Scan.'Port 445' -eq $true) -or ($Scan.'Port 902' -eq $true) -or ($Scan.'Port 3389' -eq $true) -or ($Scan.'Port 9100' -eq $true) }
                 }
-                #If Deepscan  parameter isn't chosen
+                #If LightScan parameter is chosen
                 if ($Scantype -eq "Light") {
                     #Filter the port scan to return results for the currently enumerated subnet from where the network scan returned live network devices
                     $Scan = $Script:QuickScan | Where-Object { $_.Computername -eq $IP }
@@ -194,13 +194,10 @@ function Invoke-NetworkScan {
                         }
                     } | Where-Object { ($null -ne $scan.'IP/DNS') -or ($null -ne $MAC) -or ($Scan.Ping -eq $true) -or ($Scan.'Port 22' -eq $true) -or ($Scan.'Port 23' -eq $true) -or ($Scan.'Port 25' -eq $true) -or ($Scan.'Port 53' -eq $true) -or ($Scan.'Port 67' -eq $true) -or ($Scan.'Port 80' -eq $true) -or ($Scan.'Port 139' -eq $true) -or ($Scan.'Port 389' -eq $true) -or ($Scan.'Port 443' -eq $true) -or ($Scan.'Port 445' -eq $true) -or ($Scan.'Port 902' -eq $true) -or ($Scan.'Port 3389' -eq $true) -or ($Scan.'Port 9100' -eq $true) }
                 }
-                else {
-                    # Handle port scan parameter set here
-                }
             }
 
             #If Mac is Null or Skipmac parameter is used
-            else {
+            if ($SkipMac -eq $true -and $null -eq $ports) {
                 #If Deepscan  parameter is chosen
                 if ($Scantype -eq "Deep") {
                     #Filter the port scan to return results for the currently enumerated IP from the CIDR Range foreach-object loop
@@ -227,7 +224,7 @@ function Invoke-NetworkScan {
                         'print(9100)'      = $Scan.'Port 9100'
                     } | Where-Object { ($null -ne $scan.'IP/DNS') -or ($null -ne $MAC) -or ($Scan.Ping -eq $true) -or ($Scan.'Port 22' -eq $true) -or ($Scan.'Port 23' -eq $true) -or ($Scan.'Port 25' -eq $true) -or ($Scan.'Port 53' -eq $true) -or ($Scan.'Port 67' -eq $true) -or ($Scan.'Port 80' -eq $true) -or ($Scan.'Port 139' -eq $true) -or ($Scan.'Port 389' -eq $true) -or ($Scan.'Port 443' -eq $true) -or ($Scan.'Port 445' -eq $true) -or ($Scan.'Port 902' -eq $true) -or ($Scan.'Port 3389' -eq $true) -or ($Scan.'Port 9100' -eq $true) }
                 }
-                #If Deepscan  parameter isn't chosen
+                #If LightScan parameter is chosen
                 if ($Scantype -eq "Light") {
                     #Filter the port scan to return results for the currently enumerated IP from the CIDR Range foreach-object loop
                     $Scan = $Script:QuickScan | Where-Object { $_.Computername -eq $IP }
@@ -245,9 +242,6 @@ function Invoke-NetworkScan {
                         'rdp(3389)'   = $Scan.'Port 3389'
                         'print(9100)' = $Scan.'Port 9100'
                     } | Where-Object { ($null -ne $scan.'IP/DNS') -or ($null -ne $MAC) -or ($Scan.Ping -eq $true) -or ($Scan.'Port 22' -eq $true) -or ($Scan.'Port 23' -eq $true) -or ($Scan.'Port 25' -eq $true) -or ($Scan.'Port 53' -eq $true) -or ($Scan.'Port 67' -eq $true) -or ($Scan.'Port 80' -eq $true) -or ($Scan.'Port 139' -eq $true) -or ($Scan.'Port 389' -eq $true) -or ($Scan.'Port 443' -eq $true) -or ($Scan.'Port 445' -eq $true) -or ($Scan.'Port 902' -eq $true) -or ($Scan.'Port 3389' -eq $true) -or ($Scan.'Port 9100' -eq $true) }
-                }
-                else {
-                    # Handle port scan parameter set here
                 }
             }
         }
