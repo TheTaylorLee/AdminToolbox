@@ -35,7 +35,7 @@ Function New-FormTunnelP2PNAT {
     }
 
     if ($null -ne $services) {
-        $params['services'] = ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
+        $params['services'] = ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 17 -EndRow 17 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ")
     }
     if ($null -ne $comments) {
         $params['comments'] = $comments
