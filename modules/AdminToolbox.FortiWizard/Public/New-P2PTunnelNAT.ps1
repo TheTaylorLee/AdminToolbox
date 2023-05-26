@@ -87,8 +87,11 @@
 
     ex: "RDP/3389/TCP", "piov/5060-5061/UDP"
 
-    .Parameter TTL
-    This is the Time to Live for the Phase 1 and Phase 2 proposals.
+    .Parameter TTLPhase1
+    This is the Time to Live for the Phase 1 proposal.
+
+    .Parameter TTLPhase2
+    This is the Time to Live for the Phase 2 proposals.
 
     .Parameter TunnelName
     This is the name for the VPN Tunnel. Maximum 15 Alphanumeric characters.
@@ -107,7 +110,8 @@
     PSK                = "dfdayb%^4356456"
     RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
+    TTLPhase1          = "86400"
+    TTLPhase2          = "28800"
     TunnelName         = "TestTunnel"
     WANInterface       = "wan3"
     ikev               = "1"
@@ -128,7 +132,8 @@
     PSK                = "dfdayb%^4356456"
     RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
     Services           = "RDP/3389/TCP", "DNS/53/UDP"
-    TTL                = "28800"
+    TTLPhase1          = "86400"
+    TTLPhase2          = "28800"
     TunnelName         = "TestTunnel"
     WANInterface       = "wan3"
     ikev               = "1"
@@ -193,8 +198,10 @@ Function New-P2PTunnelNAT {
         [string[]]$RemoteAddressCIDRs,
         [Parameter(Mandatory = $false, HelpMessage = "Specify services in the following format. ex: ""RDP/3389/TCP"", ""piov/5060-5061/UDP""")]
         [string[]]$Services,
-        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 and Phase 2 Time to Live.")]
-        $TTL,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 1 Time to Live.")]
+        $TTLPhase1,
+        [Parameter(Mandatory = $true, HelpMessage = "Provide the Phase 2 Time to Live.")]
+        $TTLPhase2,
         [Parameter(Mandatory = $true, HelpMessage = "Provide a VPN Tunnel Name with a maximum 15 AlphaNumeric characters.")]
         [ValidateLength(1, 15)]
         $TunnelName,
@@ -229,7 +236,7 @@ Function New-P2PTunnelNAT {
                 dhgroups    = $dhgroups
                 PeerAddress = $PeerAddress
                 PSK         = $PSK
-                TTL         = $TTL
+                TTL         = $TTLPhase1
                 ikev        = $ikev
                 comments    = $Comments
             }
@@ -242,7 +249,7 @@ Function New-P2PTunnelNAT {
                 dhgroups    = $dhgroups
                 PeerAddress = $PeerAddress
                 PSK         = $PSK
-                TTL         = $TTL
+                TTL         = $TTLPhase1
                 ikev        = $ikev
             }
         }
@@ -343,7 +350,7 @@ Function New-P2PTunnelNAT {
                     PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
                     Proposal               = $Proposal
                     SourceAddressName      = $sourceaddressname
-                    TTL                    = $TTL
+                    TTL                    = $TTLPhase2
                     TunnelName             = $TunnelName
                 }
                 New-P2PPhase2Interface @params
