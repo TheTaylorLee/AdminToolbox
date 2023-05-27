@@ -63,7 +63,7 @@ function Invoke-NetworkScan {
         [string]$CIDR,
         [Parameter (Mandatory = $true, ParameterSetName = 'Standard')]
         [ValidateSet('Deep', 'Light')]
-        [switch]$Scantype,
+        $Scantype,
         [Parameter (Mandatory = $true, ParameterSetName = 'Port')]
         [string[]]$Ports,
         [Parameter (Mandatory = $false, ParameterSetName = 'Standard')]
