@@ -34,7 +34,7 @@
     .Example
     Invoke-NetworkScan -CIDR 192.168.0.0/24 -Ports 21, 23, 443
 
-    Performs a port scan on the specified ports and omits
+    Performs a port scan on the specified ports.
 
     .NOTES
     OUI/MA-L ~ Organization ~ Company ID ~ Street ~ City, State, Zip ~ Country Code
