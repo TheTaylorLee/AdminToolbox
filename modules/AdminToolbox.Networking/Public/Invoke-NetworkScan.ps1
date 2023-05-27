@@ -81,10 +81,10 @@ function Invoke-NetworkScan {
         if ($null -ne $ArpRefresh) {
             switch ($ScanType) {
                 Deep {
-                    $Script:SlowScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 25, 53, 67, 80, 139, 389, 443, 445, 902, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
+                    $Script:DeepScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 25, 53, 67, 80, 139, 389, 443, 445, 902, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
                 }
                 Light {
-                    $Script:QuickScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 80, 443, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
+                    $Script:LightScan = Invoke-PSnmap -ComputerName $CIDR -Port 21, 22, 23, 80, 443, 3389, 9100 -ScanOnPingFail -Dns -NoSummary -PortConnectTimeoutMs 500 -ThrottleLimit $Threads
                 }
                 default {
                     #This is used when the parametersetname ports is chosen.
@@ -123,13 +123,13 @@ function Invoke-NetworkScan {
             $MAC = $Script:Neighbor.LinkLayerAddress
 
             #If block runs against scan results where Mac Addresses are present
-            if ($null -ne $MAC -and $SkipMac -eq $false -and $null -eq $Ports) {
+            if ($null -ne $MAC -and $SkipMac -eq $false) {
                 #If Deepscan parameter is chosen
                 if ($Scantype -eq "Deep") {
                     #Filter the port scan to return results for the currently enumerated subnet from where the network scan returned live network devices
-                    $Scan = $Script:SlowScan | Where-Object { $_.Computername -eq $IP }
-                    $Mac2 = $Mac.substring(0, 8)
+                    $Scan = $Script:DeepScan | Where-Object { $_.Computername -eq $IP }
                     #Invoke Mac Lookup against a text file in the support folder of this module
+                    $Mac2 = $Mac.substring(0, 8)
                     $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
                     #Sometimes the MAC won't be Null, but it's not an actual MAC address. This try catch was quicker to implement then troubleshooting the cause.
                     try {
@@ -166,7 +166,7 @@ function Invoke-NetworkScan {
                 #If LightScan parameter is chosen
                 if ($Scantype -eq "Light") {
                     #Filter the port scan to return results for the currently enumerated subnet from where the network scan returned live network devices
-                    $Scan = $Script:QuickScan | Where-Object { $_.Computername -eq $IP }
+                    $Scan = $Script:LightScan | Where-Object { $_.Computername -eq $IP }
                     #Invoke Mac Lookup
                     $Mac2 = $Mac.substring(0, 8)
                     $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
@@ -194,14 +194,48 @@ function Invoke-NetworkScan {
                         }
                     } | Where-Object { ($null -ne $scan.'IP/DNS') -or ($null -ne $MAC) -or ($Scan.Ping -eq $true) -or ($Scan.'Port 22' -eq $true) -or ($Scan.'Port 23' -eq $true) -or ($Scan.'Port 25' -eq $true) -or ($Scan.'Port 53' -eq $true) -or ($Scan.'Port 67' -eq $true) -or ($Scan.'Port 80' -eq $true) -or ($Scan.'Port 139' -eq $true) -or ($Scan.'Port 389' -eq $true) -or ($Scan.'Port 443' -eq $true) -or ($Scan.'Port 445' -eq $true) -or ($Scan.'Port 902' -eq $true) -or ($Scan.'Port 3389' -eq $true) -or ($Scan.'Port 9100' -eq $true) }
                 }
+                # If Custom Port Scan
+                if ($null -ne $Ports) {
+                    #Filter the port scan to return results for the currently enumerated subnet
+                    $Scan = $Script:PortScan | Where-Object { $_.Computername -eq $IP }
+                    $Mac2 = $Mac.substring(0, 8)
+                    #Invoke Mac Lookup against a text file in the support folder of this module
+                    $OUI1 = Get-Content $Script:ScanOUI | Where-Object { $_ -like "$mac2*" }
+                    #Sometimes the MAC won't be Null, but it's not an actual MAC address. This try catch was quicker to implement then troubleshooting the cause.
+                    try {
+                        $OUI2 = $OUI1.Substring(11)
+                    }
+                    catch {
+                        $OUI2 = $null
+                    }
+
+                    #Take the enumerated CIDR IP results from the API call and Port scan. Output using a PSCustomObject
+                    $portcount = $ports.Count
+
+                    $result = [pscustomobject]@{
+                        IP         = $IP
+                        Hostname   = $Scan.'IP/DNS'
+                        MacAddress = $MAC
+                        Vendor     = $OUI2
+                        Ping       = $Scan.Ping
+                    }
+
+                    # Add members to the PSCustomObject for each port scanned
+                    for ( $i = 0; $i -lt $portcount; $i++) {
+                        $pn = $ports[$i]
+                        $result | Add-Member -MemberType NoteProperty -Name $ports[$i] -Value $scan."Port $pn"
+                    }
+
+                    $result
+                }
             }
 
             #If Mac is Null or Skipmac parameter is used
-            if ($SkipMac -eq $true -and $null -eq $ports) {
+            if ($SkipMac -eq $true) {
                 #If Deepscan  parameter is chosen
                 if ($Scantype -eq "Deep") {
                     #Filter the port scan to return results for the currently enumerated IP from the CIDR Range foreach-object loop
-                    $Scan = $Script:SlowScan | Where-Object { $_.Computername -eq $IP }
+                    $Scan = $Script:DeepScan | Where-Object { $_.Computername -eq $IP }
                     #Take the enumerated CIDR IP results from the Port scan and Output using a PSCustomObject
                     [pscustomobject]@{
                         IP                 = $IP
@@ -227,7 +261,7 @@ function Invoke-NetworkScan {
                 #If LightScan parameter is chosen
                 if ($Scantype -eq "Light") {
                     #Filter the port scan to return results for the currently enumerated IP from the CIDR Range foreach-object loop
-                    $Scan = $Script:QuickScan | Where-Object { $_.Computername -eq $IP }
+                    $Scan = $Script:LightScan | Where-Object { $_.Computername -eq $IP }
                     #Take the enumerated CIDR IP results from the Port scan and Output using a PSCustomObject
                     [pscustomobject]@{
                         IP            = $IP
@@ -242,6 +276,29 @@ function Invoke-NetworkScan {
                         'rdp(3389)'   = $Scan.'Port 3389'
                         'print(9100)' = $Scan.'Port 9100'
                     } | Where-Object { ($null -ne $scan.'IP/DNS') -or ($null -ne $MAC) -or ($Scan.Ping -eq $true) -or ($Scan.'Port 22' -eq $true) -or ($Scan.'Port 23' -eq $true) -or ($Scan.'Port 25' -eq $true) -or ($Scan.'Port 53' -eq $true) -or ($Scan.'Port 67' -eq $true) -or ($Scan.'Port 80' -eq $true) -or ($Scan.'Port 139' -eq $true) -or ($Scan.'Port 389' -eq $true) -or ($Scan.'Port 443' -eq $true) -or ($Scan.'Port 445' -eq $true) -or ($Scan.'Port 902' -eq $true) -or ($Scan.'Port 3389' -eq $true) -or ($Scan.'Port 9100' -eq $true) }
+                }
+                # If Custom Port Scan
+                if ($null -ne $Ports) {
+                    #Filter the port scan to return results for the currently enumerated IP from the CIDR Range foreach-object loop
+                    $Scan = $Script:PortScan | Where-Object { $_.Computername -eq $IP }
+                    #Take the enumerated CIDR IP results from the Port scan and Output using a PSCustomObject
+                    $portcount = $ports.Count
+
+                    $result = [pscustomobject]@{
+                        IP         = $IP
+                        Hostname   = $Scan.'IP/DNS'
+                        MacAddress = $MAC
+                        Vendor     = $null
+                        Ping       = $Scan.Ping
+                    }
+
+                    # Add members to the PSCustomObject for each port scanned
+                    for ( $i = 0; $i -lt $portcount; $i++) {
+                        $pn = $ports[$i]
+                        $result | Add-Member -MemberType NoteProperty -Name $ports[$i] -Value $scan."Port $pn"
+                    }
+
+                    $result
                 }
             }
         }
