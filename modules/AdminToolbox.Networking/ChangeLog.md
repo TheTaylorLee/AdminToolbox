@@ -126,3 +126,4 @@
 * **2.16.53** CI Maintenance Release
 * **2.17.0** Add Custom Port Scanning option to Invoke-NetworkScan
 * **2.17.1** CI Maintenance Release
+* **2.17.2** CI Maintenance Release
