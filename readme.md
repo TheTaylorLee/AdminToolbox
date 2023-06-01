@@ -25,11 +25,6 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
     <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue">
         <img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox">
     </a>
-    <br />
-        <br />
-    <a href="https://www.buymeacoffee.com/TheTaylorLee">
-        <img alt="Buy Me A Coffee" src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" style="height: auto !important; width: auto !important;" />
-    </a>
 </p>
 
 ### To get started
