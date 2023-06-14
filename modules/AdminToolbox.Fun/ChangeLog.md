@@ -110,3 +110,4 @@
 * **1.6.86** CI Maintenance Release
 * **1.6.87** CI Maintenance Release
 * **1.6.88** CI Maintenance Release
+* **1.6.89** CI Maintenance Release
