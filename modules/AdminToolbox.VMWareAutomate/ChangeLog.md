@@ -138,3 +138,4 @@
 * **4.8.84** CI Maintenance Release
 * **4.8.85** CI Maintenance Release
 * **4.8.86** CI Maintenance Release
+* **4.8.87** CI Maintenance Release
