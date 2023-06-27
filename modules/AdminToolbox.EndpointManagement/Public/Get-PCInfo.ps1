@@ -43,7 +43,7 @@ function Get-PCInfo {
         PCName         = $OS.CSName
         OS             = $OS.Caption
         Architecture   = $OS.OSArchitecture
-        AssetTag       = $systemenclosure.serialnumber
+        Serial         = $systemenclosure.serialnumber
         OSVersion      = $OS.Version
         InstallDate    = $OS.InstallDate
         LastBootUpTime = $OS.LastBootUpTime
@@ -52,7 +52,6 @@ function Get-PCInfo {
     #Writing to Host
     Write-Host " "
     Write-Host "Computer Info" -ForegroundColor Cyan
-    Write-Host "If not run on a Dell machine AssetTag is the Serial Number" -ForegroundColor Yellow
 
     #Display Hash Table
     $PCInfo.getenumerator() | Sort-Object -Property name | Format-Table -AutoSize
@@ -62,16 +61,16 @@ function Get-PCInfo {
 
     #Display Drives
     Get-CimInstance win32_logicaldisk -Filter "drivetype=3" -computer $computer |
-    Format-Table -Property DeviceID, Volumename, `
-    @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } }, `
-    @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } }, `
-    @{Name = "PercentFree"; Expression = { [math]::Round(($_.Freespace / $_.size) * 100, 2) } }
+        Format-Table -Property DeviceID, Volumename, `
+        @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } }, `
+        @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } }, `
+        @{Name = "PercentFree"; Expression = { [math]::Round(($_.Freespace / $_.size) * 100, 2) } }
 
     #Writing to Host
     Write-Host "Network Information" -ForegroundColor Cyan
 
     Get-CimInstance win32_networkadapterconfiguration -computer $computer | Where-Object { $null -ne $_.IPAddress } |
-    Select-Object IPAddress, DefaultIPGateway, DNSServerSearchOrder, IPSubnet, MACAddress, Caption, DHCPEnabled, DHCPServer, DNSDomainSuffixSearchOrder |
-    Format-List
+        Select-Object IPAddress, DefaultIPGateway, DNSServerSearchOrder, IPSubnet, MACAddress, Caption, DHCPEnabled, DHCPServer, DNSDomainSuffixSearchOrder |
+        Format-List
 
 }
