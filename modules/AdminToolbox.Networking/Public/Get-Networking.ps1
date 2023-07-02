@@ -21,7 +21,6 @@ function Get-Networking {
     Write-Host "Reset-NetworkAdapter       ..Reset Network Adapters"                                         -ForegroundColor cyan
     Write-Host "Reset-NetworkStack         ..Reset TCP/IP and Winsock"                                       -ForegroundColor cyan
     Write-Host "Show-IpInfo                ..Shows Address Spaces and a CIDR Table"                          -ForegroundColor cyan
-    Write-Host "Start-Speedtest            ..Starts a wan speed test"                                        -ForegroundColor cyan
     Write-Host "Test-Netconnection         ..Tests Ping, Traceroute, Route Diagnosing, and Port Testing"     -ForegroundColor cyan
     Write-Host " "
 
