@@ -143,3 +143,4 @@
 * **4.9.84** Update Get-PCInfo assettag object label to say label instead
 * **4.9.85** CI Maintenance Release
 * **4.9.86** CI Maintenance Release
+* **4.9.87** CI Maintenance Release

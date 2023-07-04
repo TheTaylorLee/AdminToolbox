@@ -150,3 +150,4 @@
 * **2.17.23** CI Maintenance Release
 * **2.18.00** Remove outdated and broken Start-Speedtest
 * **2.18.1** CI Maintenance Release
+* **2.18.2** CI Maintenance Release
