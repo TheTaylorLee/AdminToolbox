@@ -265,7 +265,7 @@ Function New-P2PTunnelNAT {
         }
 
         $ConfLocalAddressObjects = Foreach ($AddressObject in $script:LocalAddressObjects) {
-            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+            New-AddressObjectTunnel -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create Remote Address Objects
@@ -278,7 +278,7 @@ Function New-P2PTunnelNAT {
         }
 
         $ConfRemoteAddressObjects = Foreach ($AddressObject in $script:RemoteAddressObjects) {
-            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+            New-AddressObjectTunnel -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create NAT Address Objects
@@ -291,7 +291,7 @@ Function New-P2PTunnelNAT {
         }
 
         $ConfNATAddressObjects = Foreach ($AddressObject in $script:NATAddressObjects) {
-            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+            New-AddressObjectTunnel -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create Local Address Group
