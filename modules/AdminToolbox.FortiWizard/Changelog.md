@@ -132,3 +132,4 @@
 * **2.17.24** CI Maintenance Release
 * **2.17.25** CI Maintenance Release
 * **2.17.26** CI Maintenance Release
+* **2.18.00** Modify New-AddressObject to accept an array. Issue [#138](https://github.com/TheTaylorLee/AdminToolbox/issues/138)

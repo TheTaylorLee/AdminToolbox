@@ -1,30 +1,26 @@
-#Required by functions
-#New-P2PTunnel
-#New-P2PTunnelNAT
-#New-DialUPTunnelDynamic
-#New-DialUPTunnelStatic
-
 <#
     .Description
-    Create a New Address Object
+    Create New Address Objects
 
     .Parameter AddressName
-    Specify a Unique name for the Address Object
+    Specify a prefix for the Address Object/s. This will prefix the CIDR address as a name for the addresses.
 
     .Parameter CIDR
-    Specify a CIDR address. ex: 192.168.0.0/24
+    Specify a CIDR address or addresses. ex: 192.168.0.0/24 or 192.168.0.0/24, 10.10.10.5/32
 
     .Example
     $Params = @{
-        AddressName   = "ComanyLan_192.168.0.1/26"
-        CIDR          = "192.168.0.1/26"
+        AddressName   = "ComanyLan"
+        CIDR          = "192.168.0.1/26", "10.10.0.0/24"
     }
     New-AddressObject @params
+
+    Create Multiple Address Objects.
 
     .Example
     New-SSHSession -computername 192.168.0.1
     $Params = @{
-        AddressName   = "ComanyLan_192.168.0.1/26"
+        AddressName   = "ComanyLan"
         CIDR          = "192.168.0.1/26"
     }
     $command = New-AddressObject @params
@@ -37,7 +33,7 @@
     New-SSHSession -computername 192.168.0.1
     New-SSHSession -computername 192.168.1.1
     $Params = @{
-        AddressName   = "ComanyLan_192.168.0.1/26"
+        AddressName   = "ComanyLan"
         CIDR          = "192.168.0.1/26"
     }
     $command = New-AddressObject @params
@@ -69,18 +65,22 @@ Function New-AddressObject {
                     throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
                 }
             })]
+        [String[]]
         $CIDR
     )
 
-    $calc = Invoke-PSipcalc $cidr
+    foreach ($sub in $Cidr) {
+    $calc = Invoke-PSipcalc $sub
     $IPAddress = ($calc).IP
     $SubnetMask = ($calc).SubnetMask
+    $name = $AddressName + "_" + $sub
 
     Write-Output "
 config firewall address
-    edit ""$AddressName""
+    edit ""$name""
         set subnet $IPAddress $SubnetMask
         set allow-routing enable
     next
 end"
+    }
 }

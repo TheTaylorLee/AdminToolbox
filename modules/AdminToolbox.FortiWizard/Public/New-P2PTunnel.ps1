@@ -219,7 +219,7 @@ Function New-P2PTunnel {
         }
 
         $ConfLocalAddressObjects = Foreach ($AddressObject in $script:LocalAddressObjects) {
-            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+            New-AddressObjectTunnel -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create Remote Address Objects
@@ -232,7 +232,7 @@ Function New-P2PTunnel {
         }
 
         $ConfRemoteAddressObjects = Foreach ($AddressObject in $script:RemoteAddressObjects) {
-            New-AddressObject -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
+            New-AddressObjectTunnel -AddressName $AddressObject.Name -CIDR $AddressObject.CIDR
         }
 
         #Create Local Address Group
