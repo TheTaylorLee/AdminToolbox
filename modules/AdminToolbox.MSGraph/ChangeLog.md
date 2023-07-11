@@ -99,3 +99,4 @@
 * **1.2.92** CI Maintenance Release
 * **1.2.93** CI Maintenance Release
 * **1.2.94** CI Maintenance Release
+* **1.2.95** CI Maintenance Release
