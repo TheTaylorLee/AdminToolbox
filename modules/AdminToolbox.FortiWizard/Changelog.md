@@ -135,3 +135,4 @@
 * **2.18.00** Modify New-AddressObject to accept an array. Issue [#138](https://github.com/TheTaylorLee/AdminToolbox/issues/138)
 * **2.18.1** CI Maintenance Release
 * **2.18.2** CI Maintenance Release
+* **2.18.3** CI Maintenance Release
