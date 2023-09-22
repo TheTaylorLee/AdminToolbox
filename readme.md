@@ -60,7 +60,9 @@ VMWareAutomate | <a href="https://www.powershellgallery.com/packages/AdminToolbo
 > Functions for Exchange Management. A few functions focused on mailboxes, connecting to exchange PowerShell, and Exchange Virtual Directories.
 
 #### FFTools
-> Expedite simple ffmpeg actions. This module focuses on simple transcoding tasks and batch processing of media.
+> Expedite simple ffmpeg actions. This module focuses on opinionated transcoding tasks and batch processing of media.
+
+- This module receives infrequent updates, but is useable. If transcoding frequently consider checking out [Docker-TranscodeAutomation](https://github.com/TheTaylorLee/docker-transcodeautomation)
 
 #### FileManagement
 > File Management Functions. This module offers some share and file management options. One of it's most useful features is free space cleanup.
