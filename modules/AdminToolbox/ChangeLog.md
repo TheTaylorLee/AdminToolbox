@@ -302,3 +302,4 @@
 * **11.0.114** CI Update required modules
 * **11.0.115** CI Update required modules
 * **11.0.116** CI Update required modules
+* **11.0.117** CI Update required modules
