@@ -140,3 +140,4 @@
 * **1.15.103** CI Maintenance Release
 * **1.15.104** CI Maintenance Release
 * **1.15.105** CI Maintenance Release
+* **1.15.106** CI Maintenance Release
