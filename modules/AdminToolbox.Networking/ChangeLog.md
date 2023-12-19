@@ -175,3 +175,4 @@
 * **2.18.24** CI Maintenance Release
 * **2.18.25** CI Maintenance Release
 * **2.18.26** CI Maintenance Release
+* **2.18.27** CI Maintenance Release
