@@ -171,7 +171,7 @@ function Invoke-PublishModules {
     $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FortiWizardGithub = $step3 | Select-Object -First 1
     if ([version]$FortiwizardGithub -gt [version]$FortiwizardPSGallery ) {
         New-Manifest -FortiWizard #Generate each modules manifest files
-        Install-Module AdminToolbox.Networking -AllowClobber -Force; Import-Module AdminToolbox.Networking -Force -Global
+        Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
         $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGallery"
     }
@@ -187,29 +187,17 @@ function Invoke-PublishModules {
     $step = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $AdminToolboxGithub = $step3 | Select-Object -First 1
     if ([version]$AdminToolboxGithub -gt [version]$AdminToolboxPSGallery ) {
         New-Manifest -AdminToolbox #Generate each modules manifest files
-        #Install-Module AdminToolbox.ActiveDirectory -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.ActiveDirectory -Force -Global
-        #Install-Module AdminToolbox.EndpointManagement -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.EndpointManagement -Force -Global
-        #Install-Module AdminToolbox.Exchange -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.Exchange -Force -Global
-        #Install-Module AdminToolbox.FFTools -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.FFTools -Force -Global
-        #Install-Module AdminToolbox.FileManagement -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
-        #Install-Module AdminToolbox.FortiWizard -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
-        #Install-Module AdminToolbox.Fun -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
-        #Install-Module AdminToolbox.msgraph -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
-        #Install-Module AdminToolbox.Networking -AllowClobber -Force;
-        Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
-        #Install-Module AdminToolbox.Office365 -AllowClobber -Force;
+        Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
-        #Install-Module AdminToolbox.Remoting -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
-        #Install-Module AdminToolbox.VMWareAutomate -AllowClobber -Force;
         Import-Module $workingdirectory/modules/AdminToolbox.VMWareAutomate -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
         $AdminToolbox = Write-Output "[+] AdminToolbox published to PSGallery"
