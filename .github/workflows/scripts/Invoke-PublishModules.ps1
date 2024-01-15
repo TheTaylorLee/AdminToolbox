@@ -192,9 +192,9 @@ function Invoke-PublishModules {
         Import-Module $workingdirectory/modules/AdminToolbox.Exchange -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.FFTools -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
+        Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
         Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
