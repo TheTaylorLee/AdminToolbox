@@ -171,7 +171,7 @@ function Invoke-PublishModules {
     $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FortiWizardGithub = $step3 | Select-Object -First 1
     if ([version]$FortiwizardGithub -gt [version]$FortiwizardPSGallery ) {
         New-Manifest -FortiWizard #Generate each modules manifest files
-        Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
         $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGallery"
     }
@@ -187,18 +187,18 @@ function Invoke-PublishModules {
     $step = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $AdminToolboxGithub = $step3 | Select-Object -First 1
     if ([version]$AdminToolboxGithub -gt [version]$AdminToolboxPSGallery ) {
         New-Manifest -AdminToolbox #Generate each modules manifest files
-        Copy-Item $workingdirectory/modules/AdminToolbox.ActiveDirectory -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.ActiveDirectory -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.EndpointManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.EndpointManagement -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.Exchange -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Exchange -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.FFTools -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.FFTools -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.FileManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
-        if (Test-Path $env:ProgramFiles\WindowsPowerShell\Modules\AdminToolbox.Networking -eq $false) { Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose }; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.FortiWizard -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.Fun -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.MSGraph -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.Office365 -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.Remoting -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.VMWareAutomate -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.VMWareAutomate -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.ActiveDirectory -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.ActiveDirectory -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.EndpointManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.EndpointManagement -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Exchange -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Exchange -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.FFTools -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.FFTools -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.FileManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
+        if ((Test-Path $env:ProgramFiles\WindowsPowerShell\Modules\AdminToolbox.Networking) -eq $false) { Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse }; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.FortiWizard -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Fun -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.MSGraph -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Office365 -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Remoting -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.VMWareAutomate -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.VMWareAutomate -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
         $AdminToolbox = Write-Output "[+] AdminToolbox published to PSGallery"
     }
