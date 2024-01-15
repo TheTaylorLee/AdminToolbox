@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.EndpointManagementManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.9.117'
+ModuleVersion = '4.10.3'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '04f9df32-9108-49e5-ac73-5844c5aff988'
+GUID = '4c51e147-e276-403f-a829-8c7b901384dc'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -82,7 +82,8 @@ FunctionsToExport = 'Add-LocalAdmin', 'Disable-Firewall', 'Disable-PasswordPeek'
                'Remove-Tiles', 'Restart-Endpoint', 'Get-ChocoInstalls', 'Set-UAC', 
                'Uninstall-Application', 'Get-PowerShell7', 'Reset-EndpointPassword', 
                'Repair-DomainJoin', 'Disable-Cortana', 'Get-MonitorSizes', 
-               'Get-RebootEvents', 'Get-RemoteDesktopLogins'
+               'Get-RebootEvents', 'Get-RemoteDesktopLogins', 
+               'Get-LocalLogonHistory'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = '*'

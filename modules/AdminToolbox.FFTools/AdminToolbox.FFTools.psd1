@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.FFToolsManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.16.74'
+ModuleVersion = '4.16.76'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'b27185bb-7c74-467a-b63b-9a25f2e767e6'
+GUID = 'dd88ad04-55db-4c18-9a6b-d6618cbe3e65'
 
 # Author of this module
 Author = 'Taylor Lee'
