@@ -14,7 +14,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #EndpointManagement
     $EndpointManagementPSGallery = (Find-Module "AdminToolbox.EndpointManagement" -Repository PSGallery).version
@@ -29,7 +29,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #Exchange
     $ExchangePSGallery = (Find-Module "AdminToolbox.Exchange" -Repository PSGallery).version
@@ -44,7 +44,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #FFTools
     $FFToolsPSGallery = (Find-Module "AdminToolbox.FFTools" -Repository PSGallery).version
@@ -59,7 +59,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #FileManagement
     $FileManagementPSGallery = (Find-Module "AdminToolbox.FileManagement" -Repository PSGallery).version
@@ -74,7 +74,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #Fun
     $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
@@ -89,7 +89,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #msgraph
     $msgraphPSGallery = (Find-Module "AdminToolbox.msgraph" -Repository PSGallery).version
@@ -104,7 +104,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #Networking
     $NetworkingPSGallery = (Find-Module "AdminToolbox.Networking" -Repository PSGallery).version
@@ -119,7 +119,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #Office365
     $Office365PSGallery = (Find-Module "AdminToolbox.Office365" -Repository PSGallery).version
@@ -134,7 +134,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #Remoting
     $RemotingPSGallery = (Find-Module "AdminToolbox.Remoting" -Repository PSGallery).version
@@ -149,7 +149,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #VMWareAutomate
     $VMWareAutomatePSGallery = (Find-Module "AdminToolbox.VMWareAutomate" -Repository PSGallery).version
@@ -164,14 +164,14 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #FortiWizard
     $FortiwizardPSGallery = (Find-Module Admintoolbox.FortiWizard -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FortiWizardGithub = $step3 | Select-Object -First 1
     if ([version]$FortiwizardGithub -gt [version]$FortiwizardPSGallery ) {
         New-Manifest -FortiWizard #Generate each modules manifest files
-        Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox.FortiWizard" -NuGetApiKey $env:NUGET_KEY
         $FortiWizard = Write-Output "[+] Admintoolbox.FortiWizard published to PSGallery"
     }
@@ -180,25 +180,25 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    Start-Sleep -Seconds 30
+    # Start-Sleep -Seconds 30
 
     #AdminToolbox
     $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $AdminToolboxGithub = $step3 | Select-Object -First 1
     if ([version]$AdminToolboxGithub -gt [version]$AdminToolboxPSGallery ) {
         New-Manifest -AdminToolbox #Generate each modules manifest files
-        Import-Module $workingdirectory/modules/AdminToolbox.ActiveDirectory -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.EndpointManagement -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.Exchange -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.FFTools -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
-        Import-Module $workingdirectory/modules/AdminToolbox.VMWareAutomate -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.ActiveDirectory -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.ActiveDirectory -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.EndpointManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.EndpointManagement -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Exchange -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Exchange -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.FFTools -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.FFTools -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.FileManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
+        if (Test-Path $env:ProgramFiles\WindowsPowerShell\Modules\AdminToolbox.Networking -eq $false) { Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose }; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.FortiWizard -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Fun -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.MSGraph -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Office365 -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.Remoting -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.VMWareAutomate -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse -Verbose; Import-Module $workingdirectory/modules/AdminToolbox.VMWareAutomate -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
         $AdminToolbox = Write-Output "[+] AdminToolbox published to PSGallery"
     }
