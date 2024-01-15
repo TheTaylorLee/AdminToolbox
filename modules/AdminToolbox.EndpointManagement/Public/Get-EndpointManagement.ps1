@@ -23,6 +23,7 @@ function Get-EndpointManagement {
     Write-Host "Enable-Firewall            ..Enables windows builtin firewall"                             -ForegroundColor cyan
     Write-Host "Enable-RSATFeatures        ..Enables Windows 10 RSAT Features"                             -ForegroundColor cyan
     Write-Host "Get-Applications           ..Gets a list of installed Applications"                        -ForegroundColor cyan
+    Write-Host "Get-LocalLogonHistory      ..Get logon/logoff events for an endpoint"                      -ForegroundColor cyan
     Write-Host "Get-Management             ..Gets Computer Management for another endpoint"                -ForegroundColor cyan
     Write-Host "Get-MonitorSizes           ..Gets connected monitors"                                      -ForegroundColor cyan
     Write-Host "Get-PCInfo                 ..Gets info on targeted PC"                                     -ForegroundColor cyan

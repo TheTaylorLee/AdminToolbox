@@ -174,3 +174,4 @@
 * **4.9.115** CI Maintenance Release
 * **4.9.116** CI Maintenance Release
 * **4.9.117** CI Maintenance Release
+* **4.10.0** Added function get-locallogonhistory
