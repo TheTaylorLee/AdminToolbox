@@ -178,3 +178,4 @@
 * **4.10.1** Added manifest export for function get-locallogonhistory
 * **4.10.2** CI Maintenance Release
 * **4.10.3** CI Maintenance Release
+* **4.10.4** CI Maintenance Release
