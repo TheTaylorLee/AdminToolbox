@@ -25,7 +25,7 @@
 
 - ALLOWED type VALUES:
 
-    Value | Description
+    Type | Description
     ---------|----------
     build | A change to the overall structure of a module
     ci | changes to CI/CD
