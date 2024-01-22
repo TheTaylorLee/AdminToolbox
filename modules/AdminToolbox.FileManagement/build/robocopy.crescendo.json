@@ -445,7 +445,7 @@
                 {
                     "Name": "ExcludeFileName",
                     "OriginalName": "/XF",
-                    "ParameterType": "switch",
+                    "ParameterType": "string",
                     "Description": "File Selection Options \neXclude Files matching given names/paths/wildcards.",
                     "ParameterSetName": [
                         "Default"
@@ -454,7 +454,7 @@
                 {
                     "Name": "ExcludeDirName",
                     "OriginalName": "/XD",
-                    "ParameterType": "switch",
+                    "ParameterType": "string",
                     "Description": "File Selection Options \neXclude Directories matching given names/paths.",
                     "ParameterSetName": [
                         "Default"

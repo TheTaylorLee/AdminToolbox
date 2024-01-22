@@ -596,9 +596,9 @@ function Invoke-Robocopy {
         [Parameter(ParameterSetName = 'Default')]
         [string]$ExcludeAttributes,
         [Parameter(ParameterSetName = 'Default')]
-        [switch]$ExcludeFileName,
+        [string]$ExcludeFileName,
         [Parameter(ParameterSetName = 'Default')]
-        [switch]$ExcludeDirName,
+        [string]$ExcludeDirName,
         [Parameter(ParameterSetName = 'Default')]
         [switch]$ExcludeChanged,
         [Parameter(ParameterSetName = 'Default')]
@@ -1031,14 +1031,14 @@ function Invoke-Robocopy {
                 OriginalName     = '/XF'
                 OriginalPosition = '0'
                 Position         = '2147483647'
-                ParameterType    = 'switch'
+                ParameterType    = 'string'
                 NoGap            = $False
             }
             ExcludeDirName       = @{
                 OriginalName     = '/XD'
                 OriginalPosition = '0'
                 Position         = '2147483647'
-                ParameterType    = 'switch'
+                ParameterType    = 'string'
                 NoGap            = $False
             }
             ExcludeChanged       = @{
