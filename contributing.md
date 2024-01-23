@@ -3,11 +3,11 @@
 **Contribution Guidelines**
 
 - An issue should be opened prior to any work being done. Use one of the existing templates.
-- Create a fork or branch off the master branch.
+- Create a fork or branch off the main branch.
 - Modify, fix, or add code that pertains to the issue only.
 - When creating a pull request reference the issue number.
 - If the committed changes increment a module version, update that modules ChangeLog.md file. This is important so that the workflow responsible for publishing new versions to PowerShell Gallery, can run on approved pull requests.
-- Code will be reviewed and committed to the master branch, or comments will be added to the issue if problems are found.
+- Code will be reviewed and committed to the main branch, or comments will be added to the issue if problems are found.
 
 **Coding Guidelines**
 
