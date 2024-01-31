@@ -56,4 +56,4 @@ jobs:
           git config --global user.name "TheTaylorLee"
           git add -A
           git commit -m "docs: Update_Docs"
-          git push -u origin master
+          git push -u origin main
