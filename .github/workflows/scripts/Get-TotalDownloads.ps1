@@ -15,10 +15,10 @@ Function Get-TotalDownloads {
     $Write = $FindText.outertext -replace ("Total downloads of packages", '')
     $total = $write.trim()
     $date = Get-Date -Format yyyy-MM-dd
-    Write-Output "Total downloads of packages: $total as of $date"
+    Write-Output "### $total downloads as of $date"
 }
 
-$old = [string](Get-Content .\readme.md | Select-String "total downloads")
-$new = get-totaldownloads
-$content = [System.IO.File]::ReadAllText(".\readme.md").Replace("$old", "$new")
-[System.IO.File]::WriteAllText(".\readme.md", $content)
+#$old = [string](Get-Content .\readme.md | Select-String "downloads as of ")
+#$new = get-totaldownloads
+#$content = [System.IO.File]::ReadAllText(".\readme.md").Replace("$old", "$new")
+#[System.IO.File]::WriteAllText(".\readme.md", $content)
