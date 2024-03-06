@@ -21,10 +21,10 @@ jobs:
       - uses: actions/checkout@v3
 
       #Run pwsh functions to publish the module
-      - name: Version Bump and Repository Push
+      - name: Update Downloads count
         env:
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        shell: pwsh
+        shell: powershell
         run: |
           #Import and Run Scripts
           $workingdirectory = (Get-Location).path
