@@ -22,8 +22,8 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
     <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/PSScriptAnalyzer.yml?branch=master">
         <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/PSScriptAnalyzer.yml?branch=master&label=PSScriptAnalyzer&logo=Github">
     </a>
-    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/Update_ Readme_Downloads.yml?branch=master">
-        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/Update_ Readme_Downloads.yml?branch=master&label=Readme%20Downloads&logo=Github">
+    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/Update_Readme_Downloads.yml?branch=master">
+        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/Update_Readme_Downloads.yml?branch=master&label=Readme%20Downloads&logo=Github">
     </a>
     <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue">
         <img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox">
