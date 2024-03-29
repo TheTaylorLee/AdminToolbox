@@ -1,22 +1,25 @@
 <#
-.SYNOPSIS
+    .SYNOPSIS
     Copies the enabled members of a source group to a target group.
 
-.DESCRIPTION
+    .DESCRIPTION
     This function copies the enabled members of a source group to a target group.
     The source group is specified by its distinguished name, and the target group
     is specified by its distinguished name.
 
-.PARAMETER sourceGroupDN
+    .PARAMETER sourceGroupDN
     The distinguished name of the source group.
 
-.PARAMETER targetGroupDN
+    .PARAMETER targetGroupDN
     The distinguished name of the target group.
 
-.EXAMPLE
+    .EXAMPLE
     Copy-GroupMembersToGroup -sourceGroupDN "CN=SourceGroup,OU=Groups,DC=contoso,DC=com" -targetGroupDN "CN=TargetGroup,OU=Groups,DC=contoso,DC=com"
 
     Copies the enabled members of the SourceGroup to the TargetGroup.
+
+.Link
+    https://github.com/TheTaylorLee/AdminToolbox
 #>
 
 function Copy-GroupMembersToGroup {
