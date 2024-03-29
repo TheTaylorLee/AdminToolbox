@@ -3,6 +3,7 @@ function Get-ActiveDirectory {
     Get-IntroAD
 
     Write-Host "Active Directory Functions"                                                                    -ForegroundColor green
+    Write-Host "Copy-GroupMembersToGroup   ..Copies the enabled members of a source group to a target group"   -ForegroundColor cyan
     Write-Host "Get-ADInfo                 ..Gets info on local domain"                                        -ForegroundColor cyan
     Write-Host "Get-DCLockoutEvents        ..Gets endpoints causing user lockouts"                             -ForegroundColor cyan
     Write-Host "Get-EndpointReport         ..Gets a Report of AD Endpoints"                                    -ForegroundColor cyan
