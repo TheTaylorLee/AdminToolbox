@@ -73,7 +73,7 @@ function New-LocalinPolicy {
         }
 
         Foreach ($Address in $Addresses) {
-            New-AddressObject -AddressName $Address.Name -CIDR $Address.CIDR
+            New-LocalInAddressObject -AddressName $Address.Name -CIDR $Address.CIDR
         }
 
         #Create Address Objects for the policy
