@@ -168,3 +168,4 @@
 * **1.9.136** CI Maintenance Release
 * **1.10.0** Added Function Copy-GroupMembersToGroup
 * **1.10.1** CI Maintenance Release
+* **1.10.2** CI Maintenance Release
