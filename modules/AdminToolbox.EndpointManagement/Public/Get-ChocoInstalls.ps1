@@ -5,6 +5,9 @@
     .EXAMPLE
     Show-ChocoInstalls
 
+    .NOTES
+    This function was updated to support chocolatey versions after version 2.0. If running an older version first update chocolatey.
+
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 #>
@@ -17,5 +20,5 @@ function Get-ChocoInstalls {
     )
 
 
-    choco.exe list --local-only
+    choco.exe list  --include-programs
 }
