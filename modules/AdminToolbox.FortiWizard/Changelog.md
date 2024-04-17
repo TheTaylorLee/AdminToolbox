@@ -181,3 +181,4 @@
 * **2.18.46** Fix new-localinpolicy address objects inserting the cidr twice into address object names
 * **2.18.47** CI Maintenance Release
 * **2.18.48** CI Maintenance Release
+* **2.18.49** CI Maintenance Release
