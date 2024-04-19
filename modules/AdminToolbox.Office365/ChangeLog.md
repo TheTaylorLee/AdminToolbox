@@ -185,3 +185,4 @@
 * **3.1.90** CI Maintenance Release
 * **3.1.91** CI Maintenance Release
 * **3.1.92** CI Maintenance Release
+* **4.0.0** Added four Sharepoint functions to help with managing storage quotas. The purpose is to get a better control on existing file versions and free up space.

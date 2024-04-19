@@ -110,9 +110,15 @@ function Connect-Office365 {
 
     if ($SharepointOnline) {
         #Sharepoint Online Module
-        Import-Module Microsoft.Online.SharePoint.PowerShell -DisableNameChecking
+        if ($host.version.major -gt 6) {
+            Import-Module Microsoft.Online.SharePoint.PowerShell -DisableNameChecking -UseWindowsPowerShell
+        }
+        else {
+            Import-Module Microsoft.Online.SharePoint.PowerShell -DisableNameChecking
+        }
         Write-Host "Connecting to SharePoint Online" -BackgroundColor black -ForegroundColor green
         Connect-SPOService -Url https://$DomainHost-admin.sharepoint.com
+
     }
 
     if ($ExchangeOnline) {
