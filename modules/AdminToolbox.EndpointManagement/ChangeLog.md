@@ -195,3 +195,4 @@
 * **4.10.18** Fix Get-Chocoinstalls called chocolatey parameters to support 2.0 and newer versions.
 * **4.10.19** CI Maintenance Release
 * **4.10.20** CI Maintenance Release
+* **4.10.21** CI Maintenance Release

@@ -147,3 +147,4 @@
 * **1.2.140** CI Maintenance Release
 * **1.2.141** CI Maintenance Release
 * **1.2.142** CI Maintenance Release
+* **1.2.143** CI Maintenance Release
