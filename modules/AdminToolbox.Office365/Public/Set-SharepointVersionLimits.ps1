@@ -53,8 +53,7 @@ function Set-SharepointVersionLimits {
 
 
     foreach ($site in $sites) {
-        $siteUrl = $site.Url
-        Connect-PnPOnline $siteUrl -Interactive -erroraction SilentlyContinue
+        Connect-PnPOnline $site -Interactive
 
         ### Get the Library
         $Library = Get-PnPList -Identity $ListName
