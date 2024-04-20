@@ -7,7 +7,7 @@
     It connects to the specified SharePoint Online sites, retrieves the version history for each file in the specified list,
     and exports the information to a CSV file.
 
-    .PARAMETER SiteURLs
+    .PARAMETER sites
     Specifies an array of SharePoint Online site URLs to connect to.
 
     .PARAMETER ListName
@@ -18,7 +18,7 @@
 
     .EXAMPLE
     $date = Get-Date -Format yyyy-MM-dd
-    Get-VersionHistoryReport -SiteURLs "https://company.sharepoint.com/sites/site1", "https://company.sharepoint.com/sites/site2" -ListName "Documents" -LogPath "$env:userprofile\downloads\$date SharepointVersionReport.csv"
+    Get-VersionHistoryReport -sites "https://company.sharepoint.com/sites/site1", "https://company.sharepoint.com/sites/site2" -ListName "Documents" -LogPath "$env:userprofile\downloads\$date SharepointVersionReport.csv"
 
     Retrieves the version history for files in the "Documents" list from two SharePoint Online sites and exports the information to your downloads folder.
 
@@ -33,7 +33,7 @@
 
 function Get-VersionHistoryReport {
     param (
-        [Parameter(Mandatory = $true)][string[]]$SiteURLs,
+        [Parameter(Mandatory = $true)][string[]]$sites,
         [Parameter(Mandatory = $true)][string]$ListName,
         [Parameter(Mandatory = $true)][string]$LogPath
     )
@@ -41,7 +41,7 @@ function Get-VersionHistoryReport {
     #Import Modules
     Import-Module PnP.PowerShell
 
-    foreach ($site in $SiteURLs) {
+    foreach ($site in $sites) {
         #Connect to SharePoint Online site.
         Connect-PnPOnline -Url $Site -Interactive
 
