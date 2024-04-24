@@ -190,3 +190,4 @@
 * **4.0.2** Update get-versionhistoryreport parameters to be consistent with other sharepoint functions.
 * **4.0.3** Fix Set-SharepointVersionLimits variable
 * **4.0.4** CI Maintenance Release
+* **4.0.5** CI Maintenance Release
