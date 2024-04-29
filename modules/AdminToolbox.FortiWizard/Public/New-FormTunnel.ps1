@@ -15,8 +15,11 @@
     .Example
     New-TunnelForm -tunneltype p2pnat -vpnformpath .\vpnform.xlsx
 
+    .NOTES
+    The VPN Buildout form can be grabbed from https://github.com/TheTaylorLee/AdminToolbox/blob/main/docs/AdminToolbox.FortiWizard/Examples/VPN%20Buildout%20Form.xlsx
+
     .Link
-    https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
+    https://github.com/TheTaylorLee/AdminToolbox
 #>
 
 Function New-FormTunnel {
