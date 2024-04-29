@@ -91,12 +91,19 @@
     .Parameter WANInterface
     This is the name of the WAN interface that the tunnel will be built on.
 
+    .Parameter WildcardSelector
+    This is a yes/no option that will determine if there should be a single phase 2 with a wildcard selector, or if there should be multiple phase 2s with specific selectors. If set to true, then the local and remote CIDR addresses will only be used when for the static routes and policies.
+
+    For example 0.0.0.0/0 instead of two phase twos with the specific local and remote addresses 192.168.1.0/24, 10.10.10.0/24
+
     .Example
     $params = @{
        dhgroups           = "5", "14"
+       ikev               = "1"
        LANInterface       = "port1", "port2"
        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
        PeerID             = "187"
+       PFS                = "yes"
        Proposal           = "aes256-sha512", "aes256-sha1"
        PSK                = "dfdayb%^4356456"
        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
@@ -104,7 +111,7 @@
        TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
-       ikev               = "1"
+       WildcardSelector   = "yes"
     }
     New-DialUPTunnelRemoteNAT @params
 
@@ -114,9 +121,11 @@
     New-SSHSession -computername 192.168.0.1
     $params = @{
        dhgroups           = "5", "14"
+       ikev               = "1"
        LANInterface       = "port1", "port2"
        LocalAddressCIDRs  = "192.168.10.0/24", "192.168.11.0/24", "192.168.12.0/24"
        PeerID             = "187"
+       PFS                = "yes"
        Proposal           = "aes256-sha512", "aes256-sha1"
        PSK                = "dfdayb%^4356456"
        RemoteAddressCIDRs = "10.10.240.0/24", "10.10.241.0/24", "10.10.242.0/24"
@@ -124,7 +133,7 @@
        TTL                = "28800"
        TunnelName         = "TestTunnel"
        WANInterface       = "wan3"
-       ikev               = "1"
+       WildcardSelector   = "yes"
     }
     $command = New-DialUPTunnelRemoteNAT @params
     $result = Invoke-SSHCommand -Command $command -SessionId 0
@@ -184,7 +193,10 @@ Function New-DialUPTunnelRemoteNAT {
         [Parameter(Mandatory = $true, HelpMessage = "Provide the name of the public interface for this tunnel.")]
         $WANInterface,
         [Parameter(Mandatory = $false, HelpMessage = "Provide a description for the tunnel")]
-        $Comments
+        $Comments,
+        [Parameter(Mandatory = $true, HelpMessage = "Yes or No option for specifying if a wildcard selector should be used for the Phase 2 proposals.")]
+        [ValidateSet('yes', 'no')]
+        [string]$WildcardSelector
     )
 
     begin {
@@ -267,27 +279,44 @@ Function New-DialUPTunnelRemoteNAT {
         $Phase1 = New-P2PPhase1InterfaceDialUp @params
 
         #Create Phase 2 Proposals
-        [int]$localcount = $script:LocalAddressObjects.count
-        [int]$remotecount = $script:RemoteAddressObjects.count
-        [int]$Script:PhaseCount = 0
-
-        $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
-            [string[]]$locals = ($script:LocalAddressObjects).name
-            [string[]]$sourceaddressname = $locals[$i]
-            for ($ii = 0; $ii -lt $remotecount; $ii++) {
-                [string[]]$remotes = ($script:RemoteAddressObjects).name
+        switch ($WildcardSelector) {
+            'yes' {
                 $params = @{
-                    DestinationAddressName = [string[]]$remotes[$ii]
-                    dhgroups               = $dhgroups
-                    PFS                    = $PFS
-                    PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
-                    Proposal               = $Proposal
-                    SourceAddressName      = $sourceaddressname
-                    TTL                    = $TTL
-                    TunnelName             = $TunnelName
+                    dhgroups         = $dhgroups
+                    PFS              = $PFS
+                    PhaseName        = $TunnelName + " Wildcard P2"
+                    Proposal         = $Proposal
+                    TTL              = $TTL
+                    TunnelName       = $TunnelName
+                    WildcardSelector = $WildcardSelector
                 }
-                New-P2PPhase2Interface @params
-                $Script:phasecount++
+                $Phase2 = New-P2PPhase2Interface @params
+            }
+            'no' {
+                [int]$localcount = $script:LocalAddressObjects.count
+                [int]$remotecount = $script:RemoteAddressObjects.count
+                [int]$Script:PhaseCount = 0
+
+                $Phase2 = for ($i = 0; $i -lt $localcount; $i++) {
+                    [string[]]$locals = ($script:LocalAddressObjects).name
+                    [string[]]$sourceaddressname = $locals[$i]
+                    for ($ii = 0; $ii -lt $remotecount; $ii++) {
+                        [string[]]$remotes = ($script:RemoteAddressObjects).name
+                        $params = @{
+                            DestinationAddressName = [string[]]$remotes[$ii]
+                            dhgroups               = $dhgroups
+                            PFS                    = $PFS
+                            PhaseName              = $TunnelName + " P2 " + $Script:PhaseCount
+                            Proposal               = $Proposal
+                            SourceAddressName      = $sourceaddressname
+                            TTL                    = $TTL
+                            TunnelName             = $TunnelName
+                            WildcardSelector       = $WildcardSelector
+                        }
+                        New-P2PPhase2Interface @params
+                        $Script:phasecount++
+                    }
+                }
             }
         }
 

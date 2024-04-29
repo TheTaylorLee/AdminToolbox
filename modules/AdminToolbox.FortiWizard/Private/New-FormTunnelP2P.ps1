@@ -10,7 +10,7 @@ Function New-FormTunnelP2P {
 
     $Sheet = "vpn"
     $services = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { $null }
-    $comments = try { (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 19 -EndRow 19 -StartColumn 2 -EndColumn 2 -NoHeader).p1 } catch { $null }
+    $comments = try { (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 20 -EndRow 20 -StartColumn 2 -EndColumn 2 -NoHeader).p1 } catch { $null }
     $dhgroupsparam = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
     $proposal = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 11 -EndRow 11 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 11 -EndRow 11 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
     $LANInterface = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
@@ -30,6 +30,7 @@ Function New-FormTunnelP2P {
         TTLPhase2          = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 14 -EndRow 14 -StartColumn 2 -EndColumn 2 -NoHeader).p1
         TunnelName         = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 6 -EndRow 6 -StartColumn 2 -EndColumn 2 -NoHeader).p1
         WANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 2 -EndRow 2 -StartColumn 2 -EndColumn 2 -NoHeader).p1
+        WildcardSelector   = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 19 -EndRow 19 -StartColumn 2 -EndColumn 2 -NoHeader).p1
     }
 
     if ($null -ne $services) {

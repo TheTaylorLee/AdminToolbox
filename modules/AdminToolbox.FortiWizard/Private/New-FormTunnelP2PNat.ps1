@@ -11,7 +11,7 @@ Function New-FormTunnelP2PNAT {
     #Conditional Tiers Comments, Services
     $Sheet = "natvpn"
     $services = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 17 -EndRow 17 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { $null }
-    $comments = try { (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 20 -EndRow 20 -StartColumn 2 -EndColumn 2 -NoHeader).p1 } catch { $null }
+    $comments = try { (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 21 -EndRow 21 -StartColumn 2 -EndColumn 2 -NoHeader).p1 } catch { $null }
     $dhgroupsparam = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 16 -EndRow 16 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
     $proposal = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 12 -EndRow 12 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 12 -EndRow 12 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
     $LANInterface = try { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1).split(", ") } catch { ((Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 3 -EndRow 3 -StartColumn 2 -EndColumn 2 -NoHeader).p1).tostring() }
@@ -32,6 +32,7 @@ Function New-FormTunnelP2PNAT {
         TTLPhase2          = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 15 -EndRow 15 -StartColumn 2 -EndColumn 2 -NoHeader).p1
         TunnelName         = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 7 -EndRow 7 -StartColumn 2 -EndColumn 2 -NoHeader).p1
         WANInterface       = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 2 -EndRow 2 -StartColumn 2 -EndColumn 2 -NoHeader).p1
+        WildcardSelector   = (Import-Excel -Path $VPNFormPath -WorksheetName $sheet -StartRow 20 -EndRow 20 -StartColumn 2 -EndColumn 2 -NoHeader).p1
     }
 
     if ($null -ne $services) {
