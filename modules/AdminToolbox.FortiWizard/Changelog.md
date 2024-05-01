@@ -188,3 +188,4 @@
 * **2.19.00** Add functionality for wildcard selectors when building tunnels
 * **2.19.1** CI Maintenance Release
 * **2.19.2** CI Maintenance Release
+* **2.19.3** CI Maintenance Release

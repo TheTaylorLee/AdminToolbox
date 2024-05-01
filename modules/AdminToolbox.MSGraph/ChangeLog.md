@@ -153,3 +153,4 @@
 * **1.2.146** CI Maintenance Release
 * **1.3.0** Add function Disable-UserServicePlan
 * **1.3.1** CI Maintenance Release
+* **1.3.2** CI Maintenance Release
