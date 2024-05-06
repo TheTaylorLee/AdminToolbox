@@ -8,7 +8,7 @@ function Get-MSGraph {
     Write-Host " "
 
     Write-Host "Licensing Functions"                                                                                        -ForegroundColor green
-    Write-Host "Disable-UserServicePlan         ..Disables a specific service plan for selected users in Microsoft 365"     -ForegroundColor cyan
+    Write-Host "Disable-UserServicePlan             ..Disables a specific service plan for selected users in Microsoft 365" -ForegroundColor cyan
     Write-Host " "
 
     Write-Host "MSGraph Manage Functions"                                                                                   -ForegroundColor green
