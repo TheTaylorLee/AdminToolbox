@@ -206,3 +206,4 @@
 * **2.18.55** CI Maintenance Release
 * **2.18.56** CI Maintenance Release
 * **2.18.57** CI Maintenance Release
+* **2.19.0** Update get-publicip to add an alias and provide the output as a pscustomobject.
