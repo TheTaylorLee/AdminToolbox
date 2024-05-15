@@ -191,3 +191,4 @@
 * **2.19.3** CI Maintenance Release
 * **2.19.4** CI Maintenance Release
 * **2.19.5** CI Maintenance Release
+* **2.19.6** CI Maintenance Release
