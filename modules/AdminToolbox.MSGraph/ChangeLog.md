@@ -157,3 +157,4 @@
 * **1.3.3** CI Maintenance Release
 * **1.3.4** CI Maintenance Release
 * **1.3.5** CI Maintenance Release
+* **1.3.6** CI Maintenance Release
