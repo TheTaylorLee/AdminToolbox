@@ -5,7 +5,7 @@ name: Update Readme Downloads
 # Controls when the action will run.
 on:
   schedule:
-    - cron: "0 0 * * 1,4"
+    - cron: "0 0 * * 2,4"
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
