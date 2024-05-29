@@ -211,3 +211,4 @@
 * **2.19.2** Update get-publicip. Add ability to provide ips in a string arrayand added a api rate limit parameter.
 * **2.19.3** CI Maintenance Release
 * **2.19.4** CI Maintenance Release
+* **2.19.5** CI Maintenance Release
