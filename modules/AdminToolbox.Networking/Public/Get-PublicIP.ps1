@@ -32,9 +32,13 @@ function Get-PublicIP {
     [CmdletBinding()]
     [Alias('p')]
     Param (
-        [string[]][Parameter(Mandatory = $true, Position = 0)]$IP,
+        [string[]][Parameter(Mandatory = $false, Position = 0)]$IP,
         [int][Parameter(Mandatory = $false, Position = 1)]$Sleep
     )
+
+    if ($null -eq $ip) {
+        Invoke-RestMethod http://ipinfo.io/$address -Headers @{'Accept' = 'application/json' }
+    }
 
     ForEach ($address in $ip) {
         $ipinfo = Invoke-RestMethod http://ipinfo.io/$address -Headers @{'Accept' = 'application/json' }
