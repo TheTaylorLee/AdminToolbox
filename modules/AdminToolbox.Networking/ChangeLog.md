@@ -213,3 +213,4 @@
 * **2.19.4** CI Maintenance Release
 * **2.19.5** CI Maintenance Release
 * **2.19.6** Fix get-publicip to not require providing an ip.
+* **2.19.7** CI Maintenance Release
