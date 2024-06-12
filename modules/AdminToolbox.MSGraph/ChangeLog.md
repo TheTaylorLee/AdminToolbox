@@ -160,3 +160,4 @@
 * **1.3.6** CI Maintenance Release
 * **1.3.7** CI Maintenance Release
 * **1.3.8** CI Maintenance Release
+* **1.3.9** CI Maintenance Release
