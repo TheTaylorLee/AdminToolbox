@@ -33,7 +33,7 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 Install-Module AdminToolbox -Allowclobber -Force
 ```
 
-### 614,029 downloads as of 2024-06-11
+### 618,062 downloads as of 2024-06-13
 
 Module | Version | Downloads |
 ---------|---------|----------|
