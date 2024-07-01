@@ -33,9 +33,8 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
 Install-Module AdminToolbox -Allowclobber -Force
 ```
 
-### 656,171 downloads as of 2024-07-01
-
 ## AdminToolbox Modules Description
+### 656,171 downloads as of 2024-07-01
 #### ActiveDirectory
 > Active Directory Related functions. This module focuses on Account & Group, management & discovery.
 
