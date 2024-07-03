@@ -351,3 +351,4 @@
 * **11.0.163** CI Update required modules
 * **11.0.164** CI Update required modules
 * **11.0.165** CI Update required modules
+* **11.0.166** CI Update required modules
