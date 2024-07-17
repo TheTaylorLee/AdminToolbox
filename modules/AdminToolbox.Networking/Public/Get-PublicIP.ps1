@@ -8,6 +8,9 @@
     .Parameter Sleep
     Adds specified seconds to sleep between api requests to ifconfig.io. There is a rate limit of 1 request per second. So if a rate limit is not specified 1 second will be used.
 
+    .Parameter Token
+    The token parameter can be used to expand the number of requests allowed. Register an account with ipinfo.io if needed.
+
     .EXAMPLE
     Get-PublicIP
 
@@ -33,7 +36,8 @@ function Get-PublicIP {
     [Alias('p')]
     Param (
         [string[]][Parameter(Mandatory = $false, Position = 0)]$IP,
-        [int][Parameter(Mandatory = $false, Position = 1)]$Sleep
+        [int][Parameter(Mandatory = $false, Position = 1)]$Sleep,
+        [string][Parameter(Mandatory = $false, Position = 2)]$Token
     )
 
     if ($null -eq $ip) {
@@ -41,7 +45,14 @@ function Get-PublicIP {
     }
 
     ForEach ($address in $ip) {
-        $ipinfo = Invoke-RestMethod http://ipinfo.io/$address -Headers @{'Accept' = 'application/json' }
+        if ($Token) {
+            $concate = $address + "?token=$Token"
+        }
+        else {
+            $concate = $address
+        }
+
+        $ipinfo = Invoke-RestMethod http://ipinfo.io/$concate -Headers @{'Accept' = 'application/json' }
         #$ipinfo = Invoke-RestMethod http://ipinfo.io/4.2.2.2 -UserAgent 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.19041.1'
 
         [PSCustomObject]@{
