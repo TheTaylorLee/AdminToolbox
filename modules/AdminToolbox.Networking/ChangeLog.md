@@ -220,3 +220,4 @@
 * **2.19.11** CI Maintenance Release
 * **2.19.12** CI Maintenance Release
 * **2.20.00** Add token parameter to get-publicip to allow exceeding free api limit
+* **2.20.1** CI Maintenance Release
