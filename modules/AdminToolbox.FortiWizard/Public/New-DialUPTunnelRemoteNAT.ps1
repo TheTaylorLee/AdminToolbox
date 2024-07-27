@@ -377,6 +377,7 @@ Function New-DialUPTunnelRemoteNAT {
         Write-Output "# https://www.powershellgallery.com/profiles/TaylorLee"
         Write-Output "# https://github.com/TheTaylorLee/AdminToolbox"
         Write-Output "# Created using module version $ModVersion"
+        Write-Output "# Warning: If the distance value for the default route is configured to a value higher than 15, setting add route to enable will result in overriding default routes. For this reason it is set to disabled when creating this config file. If that is not desired modify the phase 1 configuration."
         Write-Output "#####################################################################################"
         Write-Output $ConfLocalAddressObjects
         Write-Output $ConfRemoteAddressObjects

@@ -56,7 +56,7 @@ config vpn ipsec phase1-interface
         set mode aggressive
         set peertype one
         set net-device enable
-        set add-route enable
+        set add-route disable
         set proposal $Proposal
         set dpd on-idle
         set dhgrp $dhgroups
@@ -77,7 +77,7 @@ config vpn ipsec phase1-interface
         set mode aggressive
         set peertype one
         set net-device enable
-        set add-route enable
+        set add-route disable
         set proposal $Proposal
         set dpd on-idle
         set dhgrp $dhgroups
@@ -101,7 +101,7 @@ config vpn ipsec phase1-interface
         set mode aggressive
         set peertype any
         set net-device enable
-        set add-route enable
+        set add-route disable
         set proposal $Proposal
         set localid $Peerid
         set dhgrp $dhgroups
@@ -119,7 +119,7 @@ config vpn ipsec phase1-interface
         set mode aggressive
         set peertype any
         set net-device enable
-        set add-route enable
+        set add-route disable
         set proposal $Proposal
         set localid $Peerid
         set dhgrp $dhgroups
