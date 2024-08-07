@@ -15,7 +15,7 @@ Function Get-TotalDownloads {
     $Write = $FindText.outertext -replace ("Total downloads of packages", '')
     $total = $write.trim()
     $date = Get-Date -Format yyyy-MM-dd
-    Write-Output "##### $total downloads as of $date"
+    Write-Output "##### [$total downloads as of $date](https://www.powershellgallery.com/profiles/TaylorLee)"
 }
 
 #$old = [string](Get-Content .\readme.md | Select-String "downloads as of ")
