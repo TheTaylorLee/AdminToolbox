@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.ActiveDirectoryManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.10.27'
+ModuleVersion = '1.10.29'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '9ce8c3cd-5572-4ceb-8d43-a6de0edae446'
+GUID = '41208ac0-c78b-4b97-b756-9b4f7e294ef4'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -100,7 +100,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = 'Active', 'ActiveDirectory', 'Directory'
+        Tags = 'Active', 'ActiveDirectory', 'Directory', 'Groups', 'Users'
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'

@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.FortiWizardManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.19.21'
+ModuleVersion = '2.19.23'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'a724b150-816f-4046-9809-fbe1df08cefa'
+GUID = '8cc21b6a-1bca-4c5c-a9ea-6eb1df522135'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -51,7 +51,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.20.6'; }, 
+RequiredModules = @(@{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.20.8'; }, 
                @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; }, 
                @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0'; })
 
@@ -106,7 +106,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = 'Fortinet', 'FortiGate', 'FortiOS'
+        Tags = 'Fortinet', 'FortiGate', 'FortiOS', 'Network', 'Networking', 'VPN', 'Wizard'
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'

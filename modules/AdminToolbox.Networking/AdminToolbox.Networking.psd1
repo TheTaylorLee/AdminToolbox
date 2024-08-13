@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.NetworkingManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.20.6'
+ModuleVersion = '2.20.8'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '5b7aaf41-d3a7-44ca-b2f8-2e94e8ff00ef'
+GUID = '28dc4106-ac22-4405-b8ac-5ab38317a171'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -99,7 +99,8 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = 'iperf', 'ethr', 'Networking', 'NetworkScan'
+        Tags = 'ARP', 'CIDR', 'ethr', 'iperf', 'MAC', 'Network', 'Networking', 'NetworkScan', 
+               'OUI', 'Scanning', 'Subnet', 'Subnetting', 'Whois'
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
