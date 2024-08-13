@@ -171,3 +171,4 @@
 * **1.3.17** CI Maintenance Release
 * **1.3.18** CI Maintenance Release
 * **1.3.19** CI Maintenance Release
+* **1.3.20** CI Maintenance Release
