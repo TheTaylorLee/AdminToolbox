@@ -94,7 +94,7 @@ Function New-Manifest {
             )
             RootModule           = "AdminToolbox.ActiveDirectoryManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-            Tags                 = 'Active', 'ActiveDirectory', 'Directory'
+            Tags                 = 'Active', 'ActiveDirectory', 'Directory', 'Groups', 'Users'
         }
 
         New-ModuleManifest @Params
@@ -217,7 +217,7 @@ Function New-Manifest {
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/master/images/toolboxShell2.png'
             LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
-            Tags                 = 'Fortinet', 'FortiGate', 'FortiOS'
+            Tags                 = 'Fortinet', 'FortiGate', 'FortiOS', 'Network', 'Networking', 'VPN', 'Wizard'
             RequiredModules      = (
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = $script:NetworkingGithubVersion; },
                 @{ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
@@ -269,7 +269,7 @@ Function New-Manifest {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RootModule           = "AdminToolbox.NetworkingManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-            Tags                 = 'iperf', 'ethr', 'Networking', 'NetworkScan'
+            Tags                 = 'ARP', 'CIDR', 'ethr', 'iperf', 'IP Lookup', 'MAC', 'Network', 'Networking', 'NetworkScan', 'OUI', 'Scanning', 'Subnet', 'Subnetting', 'Whois'
         }
 
         New-ModuleManifest @Params
