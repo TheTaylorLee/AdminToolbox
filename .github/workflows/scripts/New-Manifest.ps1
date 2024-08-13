@@ -269,7 +269,7 @@ Function New-Manifest {
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             RootModule           = "AdminToolbox.NetworkingManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-            Tags                 = 'ARP', 'CIDR', 'ethr', 'iperf', 'IP Lookup', 'MAC', 'Network', 'Networking', 'NetworkScan', 'OUI', 'Scanning', 'Subnet', 'Subnetting', 'Whois'
+            Tags                 = 'ARP', 'CIDR', 'ethr', 'iperf', 'MAC', 'Network', 'Networking', 'NetworkScan', 'OUI', 'Scanning', 'Subnet', 'Subnetting', 'Whois'
         }
 
         New-ModuleManifest @Params
