@@ -220,3 +220,4 @@
 * **4.0.32** CI Maintenance Release
 * **4.0.33** CI Maintenance Release
 * **4.1.0** Update pnp module functions to login using the new app registration method.
+* **4.1.1** CI Maintenance Release
