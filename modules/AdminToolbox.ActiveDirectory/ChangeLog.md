@@ -205,3 +205,4 @@
 * **1.10.36** CI Maintenance Release
 * **1.10.37** CI Maintenance Release
 * **1.11.0.0** Add workflow versioning
+* **1.11.0.1** CI Maintenance Release
