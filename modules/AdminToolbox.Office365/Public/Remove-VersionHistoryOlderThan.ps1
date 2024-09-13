@@ -24,6 +24,7 @@
     - This function requires the pnp.powershell module to be installed. You can install it by running the following command:
         Install-Module -Name pnp.powershell -Force
     - You need to have the necessary permissions to connect to the SharePoint Online site and perform the version removal operation.
+    - If you have issues with pnp logins review these requirements. https://pnp.github.io/powershell/articles/registerapplication
 
     .LINK
     https://github.com/TheTaylorLee/AdminToolbox
