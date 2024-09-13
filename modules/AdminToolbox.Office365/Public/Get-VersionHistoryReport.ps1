@@ -7,6 +7,9 @@
     It connects to the specified SharePoint Online sites, retrieves the version history for each file in the specified list,
     and exports the information to a CSV file.
 
+    .PARAMETER ClientID
+    Specifies the Client ID of the Azure AD application that has the necessary permissions to connect to the SharePoint Online site. If not already done so, https://pnp.github.io/powershell/articles/registerapplication has instructions to register the required application.
+
     .PARAMETER sites
     Specifies an array of SharePoint Online site URLs to connect to.
 
@@ -26,6 +29,7 @@
     - This function requires the pnp.powershell module to be installed. You can install it by running the following command:
         Install-Module -Name pnp.powershell -Force
     - You need to have the necessary permissions to connect to the SharePoint site and perform get item versions.
+    - If you have issues with pnp logins review these requirements. https://pnp.github.io/powershell/articles/registerapplication
 
     .LINK
     https://github.com/TheTaylorLee/AdminToolbox
@@ -33,6 +37,7 @@
 
 function Get-VersionHistoryReport {
     param (
+        [Parameter(Mandatory = $true)][string]$ClientID,
         [Parameter(Mandatory = $true)][string[]]$sites,
         [Parameter(Mandatory = $true)][string]$ListName,
         [Parameter(Mandatory = $true)][string]$LogPath
@@ -43,7 +48,7 @@ function Get-VersionHistoryReport {
 
     foreach ($site in $sites) {
         #Connect to SharePoint Online site.
-        Connect-PnPOnline -Url $Site -Interactive
+        Connect-PnPOnline -Url $Site -Interactive -ClientId $ClientId
 
 
         $ListItems = Get-PnPListItem -List $ListName -PageSize 500 -Fields Author, Editor, Created, File_x0020_Type, File_x0020_Size, ObjectVersion | Where-Object { $_.FileSystemObjectType -eq "File" }

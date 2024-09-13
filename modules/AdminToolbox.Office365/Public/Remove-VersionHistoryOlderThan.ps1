@@ -5,6 +5,9 @@
     .DESCRIPTION
     The Remove-VersionHistoryOlderThan function connects to a SharePoint Online site, retrieves a specified list, and removes version history older than 3 months for files in the list, excluding the existing version and the latest version. It logs the success and failure details of each version removal to a CSV file.
 
+    .PARAMETER ClientID
+    Specifies the Client ID of the Azure AD application that has the necessary permissions to connect to the SharePoint Online site. If not already done so, https://pnp.github.io/powershell/articles/registerapplication has instructions to register the required application.
+
     .PARAMETER site
     The URL of the SharePoint Online site.
 
@@ -33,6 +36,7 @@
 function Remove-VersionHistoryOlderThan {
 
     param (
+        [Parameter(Mandatory = $true)][string]$ClientID,
         [Parameter(Mandatory = $true)][string[]]$sites,
         [Parameter(Mandatory = $true)][string]$listName,
         [Parameter(Mandatory = $true)][int]$months,
@@ -52,7 +56,7 @@ function Remove-VersionHistoryOlderThan {
 
 
         # Connect to the site
-        Connect-PnPOnline -Url $site -Interactive
+        Connect-PnPOnline -Url $site -Interactive -ClientId $ClientId
 
         # Get the list
         $list = Get-PnPList -Identity $listName
