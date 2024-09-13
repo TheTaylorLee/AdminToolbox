@@ -78,7 +78,7 @@ function Remove-VersionHistoryOlderThan {
                         [PSCustomObject]@{
                             Deleted      = Write-Output "true"
                             VersionLabel = $version.VersionLabel
-                            FileSize     = "{0}" -f ($version.Size / 1MB)
+                            FileSizeMB   = "{0}" -f ($version.Size / 1MB)
                             FileName     = $item.FieldValues.FileLeafRef
                             FullPath     = $item.FieldValues.FileRef
                             ListName     = $listName
@@ -91,7 +91,7 @@ function Remove-VersionHistoryOlderThan {
                         [PSCustomObject]@{
                             Deleted      = Write-Output "false"
                             VersionLabel = $version.VersionLabel
-                            FileSize     = $null
+                            FileSizeMB   = $null
                             FileName     = $item.FieldValues.FileLeafRef
                             FullPath     = $item.FieldValues.FileRef
                             ListName     = $listName
