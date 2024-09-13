@@ -222,3 +222,4 @@
 * **4.1.0** Update pnp module functions to login using the new app registration method.
 * **4.1.1** CI Maintenance Release
 * **4.1.2** Add size unit descriptors to pscustomobject File Size results
+* **4.2.0.0** Add workflow versioning

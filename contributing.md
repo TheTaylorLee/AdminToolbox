@@ -38,8 +38,9 @@
     test | Testing changes
 
 **Version Guidelines**
-MAJOR.MINOR.REVISION
+MAJOR.MINOR.Build.Revision
 
 MAJOR: Adding multiple new functions or major refactoring of a module \
 MINOR: Adding or updating few functions that don't result in functional changes to a module \
-REVISION: is usually a fix for a previous minor release (no new functionality).
+Build: is usually a fix for a previous minor release (no new functionality). \
+Revision: Versions created automatically by workflows.
