@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.EndpointManagementManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.10.52'
+ModuleVersion = '4.11.0.1'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '62cc2f88-9f06-4adc-a70c-c106bde10b9f'
+GUID = '117acb6d-ec4a-4149-a75a-5d7d399eb4a5'
 
 # Author of this module
 Author = 'Taylor Lee'
