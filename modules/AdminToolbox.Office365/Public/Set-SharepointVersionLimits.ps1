@@ -24,7 +24,7 @@
     Specifies the maximum number of minor versions to keep for each item in the SharePoint list or library. This parameter accepts an integer value.
 
     .EXAMPLE
-    Set-SharepointVersionLimits -Sites "https://tenant.sharepoint.com/sites/site1", "https://tenant.sharepoint.com/sites/site2" -ListName "Documents" -EnableVersioning $true -MajorVersionLimit 10 -MinorVersionLimit 5
+    Set-SharepointVersionLimits -Sites "https://tenant.sharepoint.com/sites/site1", "https://tenant.sharepoint.com/sites/site2" -ListName "Documents" -EnableVersioning $true -MajorVersionLimit 10 -MinorVersionLimit 5 -clientid "12345678-1234-1234-1234-123456789012"
 
     Sets versioning limits for the "Documents" library in the "site1" and "site2" SharePoint sites. Versioning is enabled with a maximum of 10 major versions and 5 minor versions.
 
@@ -32,7 +32,7 @@
     $siteurl = "https://tenant-admin.sharepoint.com"
     Connect-PnPOnline $Site -Interactive
     [string[]]$allSites = Get-PnPTenantSite | Sort-Object -Property Url
-    Set-SharepointVersionLimits -Sites $allsites -ListName "Documents" -EnableVersioning $false
+    Set-SharepointVersionLimits -Sites $allsites -ListName "Documents" -EnableVersioning $false -clientid "12345678-1234-1234-1234-123456789012"
 
     Disables versioning for the "Documents" library on all sites that the connected account has owner rights to.
 

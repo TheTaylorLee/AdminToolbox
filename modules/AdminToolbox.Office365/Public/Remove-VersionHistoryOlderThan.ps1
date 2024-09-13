@@ -19,7 +19,7 @@
 
     .EXAMPLE
     Import-Module pnp.powershell
-    Remove-VersionHistoryOlderThan -site "https://company.sharepoint.com/sites/site1", "https://company.sharepoint.com/sites/site2" -listName "Documents" -months 3 -logpath $env:userprofile\downloads\Remove-VersionHistoryOlderThan.csv
+    Remove-VersionHistoryOlderThan -site "https://company.sharepoint.com/sites/site1", "https://company.sharepoint.com/sites/site2" -listName "Documents" -months 3 -logpath $env:userprofile\downloads\Remove-VersionHistoryOlderThan.csv -clientid "12345678-1234-1234-1234-123456789012"
 
     This example removes version history older than 3 months for files in the "Documents" list of the SharePoint Online site "https://company.sharepoint.com/sites/site1".
 

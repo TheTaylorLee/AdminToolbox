@@ -21,7 +21,7 @@
 
     .EXAMPLE
     $date = Get-Date -Format yyyy-MM-dd
-    Get-VersionHistoryReport -sites "https://company.sharepoint.com/sites/site1", "https://company.sharepoint.com/sites/site2" -ListName "Documents" -LogPath "$env:userprofile\downloads\$date SharepointVersionReport.csv"
+    Get-VersionHistoryReport -sites "https://company.sharepoint.com/sites/site1", "https://company.sharepoint.com/sites/site2" -ListName "Documents" -LogPath "$env:userprofile\downloads\$date SharepointVersionReport.csv" -clientid "12345678-1234-1234-1234-123456789012"
 
     Retrieves the version history for files in the "Documents" list from two SharePoint Online sites and exports the information to your downloads folder.
 
