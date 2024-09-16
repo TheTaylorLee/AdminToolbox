@@ -224,3 +224,4 @@
 * **4.1.2** Add size unit descriptors to pscustomobject File Size results
 * **4.2.0.0** Add workflow versioning
 * **4.2.0.1** CI Maintenance Release
+* **4.3.0.0** Add confirm parameter to Remove-VersionhistoryOlderThan

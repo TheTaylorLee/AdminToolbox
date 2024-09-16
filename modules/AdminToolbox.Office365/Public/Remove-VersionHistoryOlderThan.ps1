@@ -5,6 +5,9 @@
     .DESCRIPTION
     The Remove-VersionHistoryOlderThan function connects to a SharePoint Online site, retrieves a specified list, and removes version history older than 3 months for files in the list, excluding the existing version and the latest version. It logs the success and failure details of each version removal to a CSV file.
 
+    .Parameter Confirm
+    Specifies understanding of the risk to run this function and accepts the risks. This function will delete versions of files and they will not be able to be reverted back to once completed.
+
     .PARAMETER ClientID
     Specifies the Client ID of the Azure AD application that has the necessary permissions to connect to the SharePoint Online site. If not already done so, https://pnp.github.io/powershell/articles/registerapplication has instructions to register the required application.
 
@@ -36,6 +39,7 @@
 function Remove-VersionHistoryOlderThan {
 
     param (
+        [Parameter(Mandatory = $false)][Boolean]$Confirm,
         [Parameter(Mandatory = $true)][string]$ClientID,
         [Parameter(Mandatory = $true)][string[]]$sites,
         [Parameter(Mandatory = $true)][string]$listName,
@@ -43,67 +47,65 @@ function Remove-VersionHistoryOlderThan {
         [Parameter(Mandatory = $true)][string]$LogPath
     )
 
-    $query = "You assume the risk of running this function. Do you wish to continue? (yes/no)"
-
-    if ((Read-Host -Prompt $query) -ne "yes") {
-        Write-Output "Operation aborted."
-        return
-    }
-
-    foreach ($site in $sites) {
-        # Import the PnP PowerShell module
-        Import-Module PnP.PowerShell -Force
+    if ($confirm) {
+        foreach ($site in $sites) {
+            # Import the PnP PowerShell module
+            Import-Module PnP.PowerShell -Force
 
 
-        # Connect to the site
-        Connect-PnPOnline -Url $site -Interactive -ClientId $ClientId
+            # Connect to the site
+            Connect-PnPOnline -Url $site -Interactive -ClientId $ClientId
 
-        # Get the list
-        $list = Get-PnPList -Identity $listName
-        $items = Get-PnPListItem -List $list -PageSize 500 | Where-Object { $_.FileSystemObjectType -eq "File" }
+            # Get the list
+            $list = Get-PnPList -Identity $listName
+            $items = Get-PnPListItem -List $list -PageSize 500 | Where-Object { $_.FileSystemObjectType -eq "File" }
 
-        # Loop through each item
-        foreach ($item in $items) {
-            # Get the versions of the item
-            $versions = Get-PnPFileVersion -Url $item.FieldValues.FileRef
-            $versionsforRemoval = $versions | Sort-Object -Property Created | Select-Object -SkipLast 1
+            # Loop through each item
+            foreach ($item in $items) {
+                # Get the versions of the item
+                $versions = Get-PnPFileVersion -Url $item.FieldValues.FileRef
+                $versionsforRemoval = $versions | Sort-Object -Property Created | Select-Object -SkipLast 1
 
-            # Loop through each version
-            foreach ($version in $versionsforRemoval) {
-                # Check if the version is older than specified months
-                if ($version.Created -lt (Get-Date).AddMonths(-$months)) {
-                    try {
-                        Remove-PnPFileVersion -Url $item.FieldValues.FileRef -Identity $version.VersionLabel -Force
-                        # Log successes
-                        [PSCustomObject]@{
-                            Deleted      = Write-Output "true"
-                            VersionLabel = $version.VersionLabel
-                            FileSizeMB   = "{0}" -f ($version.Size / 1MB)
-                            FileName     = $item.FieldValues.FileLeafRef
-                            FullPath     = $item.FieldValues.FileRef
-                            ListName     = $listName
-                            Site         = $site
-                            Error        = $null
-                        } | Export-Csv $logpath -Append -NoTypeInformation
-                    }
-                    catch {
-                        # Log failures
-                        [PSCustomObject]@{
-                            Deleted      = Write-Output "false"
-                            VersionLabel = $version.VersionLabel
-                            FileSizeMB   = $null
-                            FileName     = $item.FieldValues.FileLeafRef
-                            FullPath     = $item.FieldValues.FileRef
-                            ListName     = $listName
-                            Site         = $site
-                            Error        = $error[0].Exception.Message
-                        } | Export-Csv $logpath -Append -NoTypeInformation
+                # Loop through each version
+                foreach ($version in $versionsforRemoval) {
+                    # Check if the version is older than specified months
+                    if ($version.Created -lt (Get-Date).AddMonths(-$months)) {
+                        try {
+                            Remove-PnPFileVersion -Url $item.FieldValues.FileRef -Identity $version.VersionLabel -Force
+                            # Log successes
+                            [PSCustomObject]@{
+                                Deleted      = Write-Output "true"
+                                VersionLabel = $version.VersionLabel
+                                FileSizeMB   = "{0}" -f ($version.Size / 1MB)
+                                FileName     = $item.FieldValues.FileLeafRef
+                                FullPath     = $item.FieldValues.FileRef
+                                ListName     = $listName
+                                Site         = $site
+                                Error        = $null
+                            } | Export-Csv $logpath -Append -NoTypeInformation
+                        }
+                        catch {
+                            # Log failures
+                            [PSCustomObject]@{
+                                Deleted      = Write-Output "false"
+                                VersionLabel = $version.VersionLabel
+                                FileSizeMB   = $null
+                                FileName     = $item.FieldValues.FileLeafRef
+                                FullPath     = $item.FieldValues.FileRef
+                                ListName     = $listName
+                                Site         = $site
+                                Error        = $error[0].Exception.Message
+                            } | Export-Csv $logpath -Append -NoTypeInformation
+                        }
                     }
                 }
             }
-        }
 
-        # Disconnect from SharePoint Online
-        Disconnect-PnPOnline
+            # Disconnect from SharePoint Online
+            Disconnect-PnPOnline
+        }
+    }
+    else {
+        Write-Output "The confirm parameter is required for this function to run. If you set Confirm to $true, you are accepting the risks of running this function."
     }
 }
