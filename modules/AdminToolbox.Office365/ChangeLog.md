@@ -226,3 +226,4 @@
 * **4.2.0.1** CI Maintenance Release
 * **4.3.0.0** Add confirm parameter to Remove-VersionhistoryOlderThan
 * **4.3.0.1** CI Maintenance Release
+* **4.3.0.2** CI Maintenance Release
