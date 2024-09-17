@@ -32,6 +32,14 @@
     - You need to have the necessary permissions to connect to the SharePoint Online site and perform the version removal operation.
     - If you have issues with pnp logins review these requirements. https://pnp.github.io/powershell/articles/registerapplication
 
+    ***Invalid Retention Hold***
+    - https://answers.microsoft.com/en-us/msoffice/forum/all/unable-to-delete-version/8f1097a4-d7c9-4770-b0b3-166aa1cf1745
+    - If you run into an invalid retention hold error, navigate to admin.microsoft.com dashboard and click on help and support.
+    - Paste this into the search bar "Can't delete the versions in Sharepoint Online Site"
+    - Then where it says Sharepoint Online Site URL, paste the site url and run tests.
+
+    This process can remove invalid retention holds that are preventing the versions from being deleted.
+
     .LINK
     https://github.com/TheTaylorLee/AdminToolbox
 #>
