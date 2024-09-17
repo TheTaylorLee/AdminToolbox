@@ -182,3 +182,4 @@
 * **1.3.28** CI Maintenance Release
 * **1.4.0.0** Add workflow versioning
 * **1.4.0.1** CI Maintenance Release
+* **1.4.0.2** CI Maintenance Release
