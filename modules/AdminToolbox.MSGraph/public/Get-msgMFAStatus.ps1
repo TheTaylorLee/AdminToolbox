@@ -2,46 +2,43 @@
     .DESCRIPTION
     Get multifactor authentication status for Microsoft Azure accounts
 
-    .PARAMETER type
-    Filter the results by user type. Options are "all", "licensed", "unlicensed", "guests"
+    .PARAMETER filter
+    Add any filter accepted by the get-mguser function.
+
+    FILTER EXAMPLES:
+    Get Enabled Accounts Only:
+     "accountEnabled eq true"
+    Get Local AD Synced:
+     "OnPremisesSyncEnabled eq true"
+    Get Guests:
+     "UserType eq 'Guest'"
+    Get Licensed Members:
+     "assignedLicenses/`$count ne 0 and userType eq 'Member'"
+    Get Unlicensed Members:
+     "assignedLicenses/`$count eq 0 and userType eq 'Member'"
 
     .EXAMPLE
     Get-msgMFAStatus | export-csv .\nacc-mfastatus.csv -notypeinformation
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
+
 #>
 
 function Get-msgMFAStatus {
 
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, Mandatory = $false)]
-        [ValidateSet("all", "licensed", "unlicensed", "guests")]
-        [string]$type = "all"
+        [Parameter(Mandatory = $true)]
+        [string]$filter
     )
 
     #Confirm pre-requisites are met.
     Test-MSGraphRequirements -scopes "User.Read.All", “UserAuthenticationMethod.Read.All” | Out-Null
 
 
-    switch ($type) {
-        "all" {
-            $users = Get-MgUser -All
-        }
-        "licensed" {
-            $users = Get-MgUser -Filter 'assignedLicenses/$count ne 0' -All
-        }
-        "unlicensed" {
-            $users = Get-MgUser -Filter 'assignedLicenses/$count eq 0' -All
-        }
-        "guests" {
-            $users = Get-MgUser -Filter "userType eq 'Guest'" -All
-        }
-        default {
-            $users = Get-MgUser -All
-        }
-    }
+    #Get all Azure users
+    $users = get-mguser -filter $filter -All -ConsistencyLevel eventual -CountVariable Records
 
     #loop through each user account
     foreach ($user in $users) {
