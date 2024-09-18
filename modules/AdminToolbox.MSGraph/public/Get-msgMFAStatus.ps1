@@ -44,26 +44,17 @@ function Get-msgMFAStatus {
     foreach ($user in $users) {
 
         $myObject = [PSCustomObject]@{
-            user                                          = $null
-            MFAstatus                                     = $null
-            email                                         = $null
-            fido2                                         = $null
-            MicrosoftAuthenticator                        = $null
-            password                                      = $null
-            Authenticatorpasswordless                     = $null
-            phone                                         = $null
-            softwareoath                                  = $null
-            tempaccess                                    = $null
-            hellobusiness                                 = $null
-            AdditionalPropertiesemail                     = $null
-            AdditionalPropertiesfido2                     = $null
-            AdditionalPropertiesMicrosoftAuthenticator    = $null
-            AdditionalPropertiespassword                  = $null
-            AdditionalPropertiesAuthenticatorpasswordless = $null
-            AdditionalPropertiesphone                     = $null
-            AdditionalPropertiessoftwareoath              = $null
-            AdditionalPropertiestempaccess                = $null
-            AdditionalPropertieshellobusiness             = $null
+            user                      = $null
+            MFAstatus                 = $null
+            email                     = $null
+            fido2                     = $null
+            MicrosoftAuthenticator    = $null
+            password                  = $null
+            Authenticatorpasswordless = $null
+            phone                     = $null
+            softwareoath              = $null
+            tempaccess                = $null
+            hellobusiness             = $null
         }
 
         $MFAData = Get-MgUserAuthenticationMethod -UserId $user.UserPrincipalName #-ErrorAction SilentlyContinue
@@ -76,22 +67,18 @@ function Get-msgMFAStatus {
                 "#microsoft.graph.emailAuthenticationMethod" {
                     $myObject.email = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiesemail = $MFAData.AdditionalProperties["emailAddress"]
                 }
                 "#microsoft.graph.fido2AuthenticationMethod" {
                     $myObject.fido2 = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiesfido2 = $MFAData.AdditionalProperties["model"]
                 }
                 '#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod' {
                     $myObject.Authenticatorpasswordless = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiesAuthenticatorpasswordless = $MFAData.AdditionalProperties["displayName"]
                 }
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod" {
                     $myObject.MicrosoftAuthenticator = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiesMicrosoftAuthenticator = $MFAData.AdditionalProperties["displayName"]
                 }
                 "#microsoft.graph.passwordAuthenticationMethod" {
                     $myObject.password = $true
@@ -99,27 +86,22 @@ function Get-msgMFAStatus {
                     if ($myObject.MFAstatus -ne "Enabled") {
                         $myObject.MFAstatus = "Disabled"
                     }
-                    $myObject.AdditionalPropertiespassword = $MFAData.AdditionalProperties["displayName"]
                 }
                 "#microsoft.graph.phoneAuthenticationMethod" {
                     $myObject.phone = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiesphone = $MFAData.AdditionalProperties["phoneType", "phoneNumber"] -join ' '
                 }
                 "#microsoft.graph.softwareOathAuthenticationMethod" {
                     $myObject.softwareoath = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiessoftwareoath = $MFAData.AdditionalProperties["displayName"]
                 }
                 "#microsoft.graph.temporaryAccessPassAuthenticationMethod" {
                     $myObject.tempaccess = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertiestempaccess = 'TapLifetime:' + $MFAData.AdditionalProperties["lifetimeInMinutes"] + 'm - Status:' + $MFAData.AdditionalProperties["methodUsabilityReason"]
                 }
                 "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod" {
                     $myObject.hellobusiness = $true
                     $myObject.MFAstatus = "Enabled"
-                    $myObject.AdditionalPropertieshellobusiness = $MFAData.AdditionalProperties["displayName"]
                 }
             }
         }
