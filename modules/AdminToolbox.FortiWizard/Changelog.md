@@ -220,3 +220,4 @@
 * **2.20.0.1** CI Maintenance Release
 * **2.20.0.2** CI Maintenance Release
 * **2.20.0.3** CI Maintenance Release
+* **2.20.0.4** CI Maintenance Release
