@@ -3,7 +3,7 @@
     Get multifactor authentication status for Microsoft Azure accounts
 
     .EXAMPLE
-    Get-msgMFAStatus
+    Get-msgMFAStatus | select userdisplayname, userprincipalname, {$_.authmethods -join ","}, iscapable, isenabled, ismfaregistered, isregistered | export-csv .\nacc-mfastatus.csv
 
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
