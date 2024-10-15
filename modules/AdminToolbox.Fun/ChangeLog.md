@@ -205,3 +205,4 @@
 * **1.7.0.5** CI Maintenance Release
 * **1.7.0.6** CI Maintenance Release
 * **1.7.0.7** CI Maintenance Release
+* **1.7.0.8** CI Maintenance Release
