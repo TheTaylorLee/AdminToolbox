@@ -216,3 +216,4 @@
 * **1.11.0.9** CI Maintenance Release
 * **1.11.0.10** CI Maintenance Release
 * **1.11.1.0** Update get-adinfo with a proper pscustomobject usage and include global catalog servers.
+* **1.11.1.1** CI Maintenance Release
