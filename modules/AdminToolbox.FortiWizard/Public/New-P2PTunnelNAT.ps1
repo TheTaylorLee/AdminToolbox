@@ -433,14 +433,17 @@ Function New-P2PTunnelNAT {
 
         [int]$max = $LocalAddressCIDRs.Count
         $FirewallPolicy = for ($i = 0; $i -lt $max; $i++) {
+            [string[]]$sa = $script:LocalAddressObjects.name
+            [string[]]$ipp = $IPPoolObjects.IPPoolName
+            [string[]]$vipn = $VIPObjects.VIPName
             $params = @{
-                TunnelName          = $TunnelName + " $i"
+                TunnelName          = $TunnelName
                 SourceInterfaceName = $LANInterface
-                SourceAddress       = $script:LocalAddressObjects.name[$i]
+                SourceAddress       = $sa[$i]
                 DestinationAddress  = $RemoteGroupName
                 service             = $svcgroupname
-                IPPoolName          = $IPPoolObjects.IPPoolName[$i]
-                Vipname             = $VIPObjects.VIPName[$i]
+                IPPoolName          = $ipp[$i]
+                Vipname             = $vipn[$i]
             }
             New-FirewallPolicyTunnelNAT @params
         }
