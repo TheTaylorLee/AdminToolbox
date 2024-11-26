@@ -236,3 +236,4 @@
 * **2.21.0.0** Add functions for converting key-value faz logs into csv format.
 * **2.21.0.1** CI Maintenance Release
 * **2.21.1.0** Update get-fortiwizard
+* **2.21.2.0** Export the new faz log functions in the manifest.
