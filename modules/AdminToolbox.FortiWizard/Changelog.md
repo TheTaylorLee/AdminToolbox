@@ -233,3 +233,4 @@
 * **2.20.1.2** CI Maintenance Release
 * **2.20.1.3** CI Maintenance Release
 * **2.20.1.4** CI Maintenance Release
+* **2.21.0.0** Add functions for converting key-value faz logs into csv format.
