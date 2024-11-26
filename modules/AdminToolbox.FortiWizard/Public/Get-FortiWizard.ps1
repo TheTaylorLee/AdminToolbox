@@ -10,7 +10,7 @@ function Get-FortiWizard {
 
     Write-Host "Other Functions..."                         -ForegroundColor green
     Write-Host "
-Convert-FAZLogToCSV.ps1                     ..Converts FAZ logs to CSV format
+Convert-FAZLogToCSV                         ..Converts FAZ logs to CSV format
 Disable-SipALG                              ..Disables SipALG and deletes SIP profile
 Enable-Management                           ..Enables Management of the Firewall from the Public Interface and sets trusted Hosts
 Expand-andConvertFAZLogArchive              ..Expands and Converts FAZ Log Archives
