@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.RemotingManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.10.0.16'
+ModuleVersion = '1.10.0.17'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '4f8e87ba-4b94-420c-9fa8-2b52f8625da6'
+GUID = '649efe33-1f84-4275-a8c9-3890e30ef627'
 
 # Author of this module
 Author = 'Taylor Lee'

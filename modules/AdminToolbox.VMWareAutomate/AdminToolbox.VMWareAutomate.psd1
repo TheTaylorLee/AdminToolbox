@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.VMWareAutomateManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.9.0.16'
+ModuleVersion = '4.9.0.17'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'af693409-4928-4956-8ad5-91d882887038'
+GUID = 'ef13e236-77b9-4d46-b322-2b598aaef46f'
 
 # Author of this module
 Author = 'Taylor Lee'
