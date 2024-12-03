@@ -238,3 +238,4 @@
 * **2.21.1.0** Update get-fortiwizard
 * **2.21.2.0** Export the new faz log functions in the manifest.
 * **2.21.2.1** CI Maintenance Release
+* **2.21.2.2** CI Maintenance Release
