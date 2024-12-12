@@ -31,7 +31,7 @@ function Get-EndpointManagement {
     Write-Host "Join-Domain                ..Joins Endpoint to a Domain"                                   -ForegroundColor cyan
     Write-Host "Mount-ProfileRegistry      ..Mounts local users registry hive"                             -ForegroundColor cyan
     Write-Host "Remove-Shortcuts           ..Removes Desktop Shortcuts"                                    -ForegroundColor cyan
-    Write-Host "Remove-StoreApps           ..Removes crap store apps"                                      -ForegroundColor cyan
+    Write-Host "Remove-StoreApps           ..Remove an array of MS store apps"                             -ForegroundColor cyan
     Write-Host "Remove-Tiles               ..Removes start menu tiles"                                     -ForegroundColor cyan
     Write-Host "Repair-DomainJoin          ..Repairs lost Domain Membership"                               -ForegroundColor cyan
     Write-Host "Reset-EndpointPassword     ..Reset the endpoints domain password to repair trust"          -ForegroundColor cyan
