@@ -58,7 +58,7 @@ Install-Module AdminToolbox -Allowclobber -Force
 
 [Examples](https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs/AdminToolbox.FortiWizard/Examples)
 
-[VPN Form](https://github.com/TheTaylorLee/AdminToolbox/raw/master/docs/AdminToolbox.FortiWizard/Examples/VPN%20Buildout%20Form.xlsx)
+[VPN Form](https://github.com/TheTaylorLee/AdminToolbox/blob/main/docs/AdminToolbox.FortiWizard/Examples/VPN%20Buildout%20Form.xlsx)
 
 #### Fun
 > Functions that are just for Fun. This includes functions that can play music, presenting powershell creed, and generating funny excuses.
