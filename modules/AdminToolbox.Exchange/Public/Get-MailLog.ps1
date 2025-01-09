@@ -15,7 +15,7 @@
     Requires the Microsoft Exchange module.
 
     .EXAMPLE
-    Get-MailLog -Start 05/14/2017 -End 05/14/2018 -Resultsize 10000
+    Get-MailLog -Start (get-date).AddDays(-30) -End (get-date) -Resultsize 100000 | export-csv $home\downloads\maillog.csv
 
     Specify the date range, report path, and amount of records to return.
 
@@ -34,5 +34,5 @@ function Get-MailLog {
     )
 
     Get-MessageTrackingLog -Start "$Start" -End "$End" -ResultSize $ResultSize |
-    Select-Object Timestamp, Sender, { $_.Recipients }, { $_.Recipientstatus }, EventID, Source, Directionality, MessageSubject, TotalBytes, SourceContext, ServerIP, ClientHostName, ConnectorID, MessageId, OriginalClientIP, { $_.EventData }
+        Select-Object Timestamp, Sender, { $_.Recipients }, { $_.Recipientstatus }, EventID, Source, Directionality, MessageSubject, TotalBytes, SourceContext, ServerIP, ClientHostName, ConnectorID, MessageId, OriginalClientIP, { $_.EventData }
 }
