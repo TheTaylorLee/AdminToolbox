@@ -6,7 +6,7 @@
     Specifies the export directory and filename for the report
 
     .PARAMETER Searchbase
-    A distinguished name for an OU path.
+    A distinguished name for an OU path, or Multiple OU paths to search for groups.
 
     .NOTES
     Requires Active Directory and ImportExcel Modules
@@ -24,32 +24,35 @@ Function Get-GroupMembers {
 
     Param (
         [Parameter(Mandatory = $false)]$Path = "$env:USERPROFILE\downloads\AD Group Members.xlsx",
-        [Parameter(Mandatory = $false)]$Searchbase
+        [string[]][Parameter(Mandatory = $false)]$Searchbase
     )
 
     $ErrorActionPreference = 'silentlycontinue'
 
     if ($searchbase) {
-        Get-ADGroup -Filter * -searchbase $Searchbase -properties proxyaddresses, description, displayname |
-        Sort-Object Name |
-        ForEach-Object {
-            $name = $_.name
-            $description = $_.description
-            Get-ADGroupMember -Identity $_.distinguishedName |
-            Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
+        foreach ($base in $searchbase) {
+            Get-ADGroup -Filter * -searchbase $base -properties proxyaddresses, description, displayname |
+                Sort-Object Name |
+                ForEach-Object {
+                    $name = $_.name
+                    $description = $_.description
+                    Get-ADGroupMember -Identity $_.distinguishedName |
+                        Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
+                        Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
+                    }
         }
     }
+
     else {
         Get-ADGroup -Filter * -properties proxyaddresses, description, displayname |
-        Sort-Object Name |
-        ForEach-Object {
-            $name = $_.name
-            $description = $_.description
-            Get-ADGroupMember -Identity $_.distinguishedName |
-            Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
-            Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
-        }
+            Sort-Object Name |
+            ForEach-Object {
+                $name = $_.name
+                $description = $_.description
+                Get-ADGroupMember -Identity $_.distinguishedName |
+                    Select-Object objectClass, name, SamAccountName, @{name = "AccountStatus"; Expression = ( { $status = Get-ADUser $_.SamAccountName | Select-Object Enabled; $status.Enabled }) }, distinguishedName, objectGUID |
+                    Export-Excel -FreezeTopRow -WorksheetName $_.name -TableName $_.name -Path $Path -Title "$name -- $description"
+                }
     }
     $ErrorActionPreference = 'continue'
 }
