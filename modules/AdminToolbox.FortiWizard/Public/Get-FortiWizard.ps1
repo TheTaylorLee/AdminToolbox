@@ -10,6 +10,7 @@ function Get-FortiWizard {
 
     Write-Host "Other Functions..."                         -ForegroundColor green
     Write-Host "
+Add-SSLVPNSAMLUsers                         ..Adds users to the app registration and security group for forticlient SAML based on user selections
 Convert-FAZLogToCSV                         ..Converts FAZ logs to CSV format
 Disable-SipALG                              ..Disables SipALG and deletes SIP profile
 Enable-Management                           ..Enables Management of the Firewall from the Public Interface and sets trusted Hosts
@@ -30,13 +31,6 @@ New-ServiceObject                           ..Creates New Service
 New-ServiceGroup                            ..Creates New Service Group
 New-VIPHost                                 ..Creates New Virtual IP for Single Host
 New-VIPRange                                ..Creates New Virtual IP Range
-    "     -ForegroundColor cyan
-
-    Write-Host "SAML Functions..."                    -ForegroundColor green
-    Write-Host "
-Add-SSLVPNSAMLUsersAzureDefaultSecurity     ..Adds licensed users to app registration and security groups for forticlient SAML
-Add-SSLVPNSAMLUsersMFAEnforced              ..Adds licensed users to app registration and security groups for forticlient SAML if MFA enabled
-Add-SSLVPNSAMLUsersSelection                ..Adds licensed users to app registration and security groups for forticlient SAML based on user selections
     "     -ForegroundColor cyan
 
     Write-Host "VPN Functions..."                           -ForegroundColor green

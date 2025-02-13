@@ -21,6 +21,6 @@ function Get-MSGraph {
     Write-Host "Get-msgDirectoryRoleMembers         ..Gets Azure AD Role Members"                                           -ForegroundColor cyan
     Write-Host "Get-msgGuestUsers                   ..Gets Azure guest users and their team memberships"                    -ForegroundColor cyan
     Write-Host "Get-msgMFAStatus                    ..Gets User MFA status and devices"                                     -ForegroundColor cyan
-    Write-Host "Get-msgSignIns                      ..Gets and audit log of sign ins"                                       -ForegroundColor cyan
+    Write-Host "Get-msgSignIns                      ..Gets an audit log of sign ins"                                        -ForegroundColor cyan
     Write-Host " "
 }

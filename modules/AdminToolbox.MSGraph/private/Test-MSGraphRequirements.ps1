@@ -35,16 +35,16 @@ function Test-MSGraphRequirements {
         }
     }
 
-    # Sets the MSGraph profile to beta if not already set. This is required by some functions
+    # Sets the MSGraph profile to beta if not already set. This is required by some functions, but also deprecated in future msgraph modules. Mute Errors.
     if ((Get-MgProfile).name -ne 'beta') {
-        Select-MgProfile -Name "beta" -Verbose
+        Select-MgProfile -Name "beta" -Verbose -erroraction silentlycontinue
     }
 
     # Test that required scopes are imported and import them if they are not.
     $importedscopes = (Get-MgContext).scopes
     foreach ($scope in $scopes) {
         if ($importedscopes -notcontains $scope) {
-            Connect-MgGraph -Scopes $scopes
+            Connect-MgGraph -Scopes $scopes -NoWelcome
         }
     }
 }
