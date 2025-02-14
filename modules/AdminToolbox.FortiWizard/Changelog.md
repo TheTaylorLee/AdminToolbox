@@ -251,3 +251,4 @@
 * **2.21.2.12** CI Maintenance Release
 * **2.22.0.0** Update SAML functions to bring them inline with deprecating modules and updated MFA standards, before Microsoft deprecates old methods.
 * **2.22.0.1** CI Maintenance Release
+* **2.22.0.2** CI Maintenance Release
