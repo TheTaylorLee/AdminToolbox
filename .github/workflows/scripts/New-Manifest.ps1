@@ -46,7 +46,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Master module for a collection of modules. These modules are varied in their tasks. The overall purpose of them being to provide a powerfull Toolset to improve IT Admin workflows."
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:AdminToolboxGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox'
@@ -85,7 +85,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions for Active Directory"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:ActiveDirectoryGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -110,7 +110,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions for management of endpoints"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:EndpointManagementGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -136,7 +136,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions for Exchange Management"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:ExchangeGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -161,7 +161,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Expedite simple ffmpeg actions"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:FFToolsGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -186,7 +186,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "File Management Functions"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:FileManagementGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -215,7 +215,7 @@ Function New-Manifest {
             RootModule           = "AdminToolbox.FortiWizardManifest.psm1"
             ReleaseNotes         = "Full ChangeLog contained in bundled ChangeLog"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
             Tags                 = 'Fortinet', 'FortiGate', 'FortiOS', 'Network', 'Networking', 'VPN', 'Wizard'
             RequiredModules      = (
@@ -238,7 +238,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions that have no purpose"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:FunGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -263,7 +263,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Network Troubleshooting Functions"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:NetworkingGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -285,7 +285,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Microsoft Graph interactive API Functions"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:MSGraphGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -307,7 +307,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions for working with Office365 and Azure modules"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:Office365GithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -332,7 +332,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions for remote management and access."
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:RemotingGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
@@ -357,7 +357,7 @@ Function New-Manifest {
             Author               = "Taylor Lee"
             Description          = "Functions to Automate Bulk VMWare Tasks"
             IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/master/LICENSE.txt'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
             ModuleVersion        = "$script:VMWareAutomateGithubVersion"
             Powershellversion    = "5.1"
             ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
