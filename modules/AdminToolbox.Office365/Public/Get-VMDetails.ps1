@@ -19,6 +19,10 @@ Function Get-VMDetails {
         [Parameter(Mandatory = $false)][switch]$SetSubscription
     )
 
+    if ($null -eq (Get-AzContext)) {
+        Connect-AzAccount
+    }
+
     if ($SetSubscription) {
         #Set the subscription - Set-AzContext
         Write-Host "Select the subscription containing the VM's" -ForegroundColor Green

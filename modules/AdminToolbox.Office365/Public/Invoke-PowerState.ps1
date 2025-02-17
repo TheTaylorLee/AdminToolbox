@@ -60,6 +60,10 @@ Function Invoke-PowerState {
         [switch]$Status
     )
 
+    if ($null -eq (Get-AzContext)) {
+        Connect-AzAccount
+    }
+
     #Set the subscription - Set-AzContext
     Write-Host "Select the subscription containing the VM's" -ForegroundColor Green
     Set-Subscription

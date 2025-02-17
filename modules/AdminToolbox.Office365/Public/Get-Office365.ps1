@@ -3,7 +3,6 @@ function Get-Office365 {
     Get-Intro365
 
     Write-Host "Office 365 Functions"                                                                                 -ForegroundColor green
-    Write-Host "Connect-Office365               ..Connects to Office 365 Modules"                                     -ForegroundColor cyan
     Write-Host "Invoke-EXOSharedSession         ..Invokes an environment to EXO and On-Prem modules same console"     -ForegroundColor cyan
     Write-Host " "
 
@@ -26,10 +25,6 @@ function Get-Office365 {
     Write-Host "Get-Quarantine                  ..Gets quarantine messages beyond the 1000 limit Microsoft Sets"      -ForegroundColor cyan
     Write-Host "Set-365GroupVisibility          ..Sets a office365 group visible in the Outlook Client"               -ForegroundColor cyan
     Write-Host "Unblock-Quarantine              ..Unblock/release quarantine messages multiple at a time"             -ForegroundColor cyan
-    Write-Host " "
-
-    Write-Host "Teams Module Functions"                                                                               -ForegroundColor green
-    Write-Host "Clear-TeamsCache                ..Clears Cache files for Microsoft Teams"                             -ForegroundColor cyan
     Write-Host " "
 
     Write-Host "Sharepoint pnp Module Functions"                                                                      -ForegroundColor green
