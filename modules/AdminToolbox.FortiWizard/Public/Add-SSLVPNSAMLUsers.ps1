@@ -43,6 +43,9 @@ function Add-SSLVPNSAMLUsers {
     # Test that required modules are install, install if not, and then connect to them.
     Test-SAMLFunctionRequirements -Scopes "Directory.ReadWrite.All", "User.Read.All", “UserAuthenticationMethod.Read.All”, "GroupMember.ReadWrite.All", "AppRoleAssignment.ReadWrite.All", "Application.ReadWrite.All"
 
+    #SHARED VARIABLES
+    ##Get user list with mfa properties for selection to add to the Enterprise App and Security Group
+    ##Get all Azure users
     Write-Warning "Getting users from entra ID can take awhile depending on the filter used. Be prepared to wait for the next step."
     $users = get-mguser -filter $filter -All -ConsistencyLevel eventual -CountVariable Records
     $usermfastatus = foreach ($user in $users) {
@@ -165,9 +168,6 @@ function Add-SSLVPNSAMLUsers {
         }
         catch {
             $_
-        }
-    }
-}           $_
         }
     }
 }
