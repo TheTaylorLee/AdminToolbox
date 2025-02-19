@@ -151,7 +151,7 @@ function Invoke-PublishModules {
     }
 
     # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
-    # Start-Sleep -Seconds 30
+    Start-Sleep -Seconds 60
 
     #AdminToolbox
     $AdminToolboxPSGallery = (Find-Module AdminToolbox -Repository PSGallery).version
