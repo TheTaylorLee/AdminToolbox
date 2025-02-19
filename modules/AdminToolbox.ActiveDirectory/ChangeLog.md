@@ -240,3 +240,4 @@
 * **1.11.2.2** CI Maintenance Release
 * **1.11.2.3** CI Maintenance Release
 * **1.11.2.4** CI Maintenance Release
+* **1.11.2.5** CI Maintenance Release
