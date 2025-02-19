@@ -238,3 +238,4 @@
 * **1.11.2.0** Add string array to searchbase parameter get-groupmembers
 * **1.11.2.1** CI Maintenance Release
 * **1.11.2.2** CI Maintenance Release
+* **1.11.2.3** CI Maintenance Release
