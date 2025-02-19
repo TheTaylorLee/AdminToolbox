@@ -13,14 +13,14 @@
 The AdminToolbox Powershell Module has multiple dependency modules that are intended to provide a swiss army knife of Admin tools. I am adding to it over time. Installing the Admintoolbox Module will install the other required modules. However, it is not necessary to install all modules, and each module can be installed on it's own.
 
 <p align="Left">
-    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/PS_Gallery_Pipeline.yml?branch=master">
-        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/PS_Gallery_Pipeline.yml?branch=master&label=PSGallery%20Publsh&logo=Github">
+    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/PS_Gallery_Pipeline.yml?branch=main">
+        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/PS_Gallery_Pipeline.yml?branch=main&label=PSGallery%20Publsh&logo=Github">
     </a>
-    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/Version_Bump.yml?branch=master">
-        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/Version_Bump.yml?branch=master&label=Version%20Bump&logo=Github">
+    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/Version_Bump.yml?branch=main">
+        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/Version_Bump.yml?branch=main&label=Version%20Bump&logo=Github">
     </a>
-    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/PSScriptAnalyzer.yml?branch=master">
-        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/PSScriptAnalyzer.yml?branch=master&label=PSScriptAnalyzer&logo=Github">
+    <a href="https://img.shields.io/github/workflow/status/thetaylorlee/admintoolbox/.github/workflows/PSScriptAnalyzer.yml?branch=main">
+        <img src="https://img.shields.io/github/actions/workflow/status/TheTaylorLee/AdminToolbox/PSScriptAnalyzer.yml?branch=main&label=PSScriptAnalyzer&logo=Github">
     </a>
     <a href="https://github.com/TheTaylorLee/AdminToolbox/issues?q=is%3Aopen+is%3Aissue">
         <img src ="https://img.shields.io/github/issues-raw/thetaylorlee/admintoolbox">
