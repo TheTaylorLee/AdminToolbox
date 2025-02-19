@@ -37,7 +37,7 @@ function Test-MSGraphRequirements {
 
     # Sets the MSGraph profile to beta if not already set. This is required for graph sdk v1 but not v2. This remains as a legacy solution for those that haven't upgraded.
     try {
-        Select-MgProfile -Name "beta" -Verbose
+        #Select-MgProfile -Name "beta" -Verbose
     }
     catch {}
 
