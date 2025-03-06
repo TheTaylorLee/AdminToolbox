@@ -28,7 +28,9 @@ function Get-EndpointReport {
     Import-Module ActiveDirectory
 
     Get-ADComputer -Filter { (Enabled -eq $true) } -Properties * |
-    Select-Object name, OperatingSystem, whenCreated, LastLogonDate |
-    Export-Csv $Path -NoTypeInformation
+        Select-Object name, distinguishedname, OperatingSystem,
+        @{Name = "OUPath"; Expression = { Get-ParentOUPath -DistinguishedName $_.DistinguishedName } },
+        whenCreated, LastLogonDate |
+        Export-Csv $Path -NoTypeInformation
 
 }
