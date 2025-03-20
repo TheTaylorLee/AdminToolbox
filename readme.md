@@ -74,5 +74,8 @@ Install-Module AdminToolbox -Allowclobber -Force
 #### Remoting
 > Remoting related functions. This module focuses on remote access and management tasks.
 
+#### SecOps
+> A complimentary module with functions specific to security operations or investigations.
+
 #### VmwareAutomate
 > VMWare related functions. This module focuses on Automateing Bulk VMWare Tasks.

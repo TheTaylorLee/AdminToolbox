@@ -133,7 +133,7 @@ function Invoke-PublishModules {
         $VMWareAutomate = Write-Output "[-] AdminToolbox.VMWareAutomate not published"
     }
 
-    # Added sleep to  to allow for required modules to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    # Added sleep to allow for required modules to be indexed by PSGallery first. This is an attempt to avoid dependency issues on publish.
     # Admintoolbox and Admintoolbox.Fortiwizard depend on all and admintoolbox.networking modules respectively.
     Start-Sleep -Seconds 60
 
@@ -150,7 +150,19 @@ function Invoke-PublishModules {
         $FortiWizard = Write-Output "[-] Admintoolbox.FortiWizard not published"
     }
 
-    # Added sleep to  to allow for the module to be indexed PSGallery first. This is an attempt to avoid dependency issues on publish.
+    #Secops
+    $SecOpsPSGallery = (Find-Module Admintoolbox.Secops -Repository PSGallery).version
+    $step = Get-Content "$workingdirectory/modules/Admintoolbox.SecOps/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $SecOpsGithub = $step3 | Select-Object -First 1
+    if ([version]$SecOpsGithub -gt [version]$SecOpsPSGallery ) {
+        New-Manifest -SecOps #Generate each modules manifest files
+        Publish-Module -Path "$workingdirectory/modules/AdminToolbox.SecOps" -NuGetApiKey $env:NUGET_KEY
+        $SecOps = Write-Output "[+] Admintoolbox.SecOps published to PSGallery"
+    }
+    else {
+        $SecOps = Write-Output "[-] Admintoolbox.SecOps not published"
+    }
+
+    # Added sleep to allow for all modules to be indexed by PSGallery first. This is an attempt to avoid dependency issues on publish.
     Start-Sleep -Seconds 60
 
     #AdminToolbox
@@ -169,6 +181,7 @@ function Invoke-PublishModules {
         Copy-Item $workingdirectory/modules/AdminToolbox.MSGraph -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.Office365 -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.Remoting -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
+        Copy-Item $workingdirectory/modules/AdminToolbox.SecOps -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.SecOps -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.VMWareAutomate -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.VMWareAutomate -Force -Global
         Publish-Module -Path "$workingdirectory/modules/AdminToolbox" -NuGetApiKey $env:NUGET_KEY
         $AdminToolbox = Write-Output "[+] AdminToolbox published to PSGallery"
@@ -188,6 +201,7 @@ function Invoke-PublishModules {
     $Networking
     $Office365
     $Remoting
+    $SecOps
     $VMWareAutomate
     $AdminToolbox
 }

@@ -1,6 +1,6 @@
 #This is used by a workflow to generate manifest files. Only needs to be updated manually when exported functions or other static variables need changing. Otherwise can be left as is.
 
-Function New-Manifest {
+function New-Manifest {
     #Must Be run each time a new module version is created.
     #Version folder name must be the same as the moduleversion parameter
     [CmdletBinding(SupportsShouldProcess)]
@@ -17,6 +17,7 @@ Function New-Manifest {
         [Parameter(Mandatory = $false)][Switch]$MSGraph,
         [Parameter(Mandatory = $false)][Switch]$Office365,
         [Parameter(Mandatory = $false)][Switch]$Remoting,
+        [Parameter(Mandatory = $false)][Switch]$SecOps,
         [Parameter(Mandatory = $false)][Switch]$VMWareAutomate
     )
 
@@ -25,13 +26,14 @@ Function New-Manifest {
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Exchange/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:ExchangeGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FFToolsGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FileManagementGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FortiWizardGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FunGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:MSGraphGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:NetworkingGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:Office365GithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Remoting/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:RemotingGithubVersion = $step3 | Select-Object -First 1
+    $step = Get-Content "$workingdirectory/modules/AdminToolbox.SecOps/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:SecOpsGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.VMWareAutomate/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:VMWareAutomateGithubVersion = $step3 | Select-Object -First 1
-    $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FortiWizardGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:AdminToolboxGithubVersion = $step3 | Select-Object -First 1
 
     if ($AdminToolbox) {
@@ -62,6 +64,7 @@ Function New-Manifest {
                 @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = $script:MSGraphGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = $script:Office365GithubVersion; },
                 @{ModuleName = 'AdminToolbox.Remoting'; ModuleVersion = $script:RemotingGithubVersion; },
+                @{ModuleName = 'AdminToolbox.SecOps'; ModuleVersion = $script:SecOpsGithubVersion; },
                 @{ModuleName = 'AdminToolbox.VMWareAutomate'; ModuleVersion = $script:VMWareAutomateGithubVersion; },
                 @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; },
                 @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' },
@@ -342,6 +345,28 @@ Function New-Manifest {
             RootModule           = "AdminToolbox.RemotingManifest.psm1"
             ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
             Tags                 = 'OpenSSH', 'Remoting', 'SSH'
+        }
+
+        New-ModuleManifest @Params
+    }
+
+    if ($SecOps) {
+        #SecOps
+        $savepath = "$workingdirectory\modules\AdminToolbox.SecOps"
+        $Params = @{
+            CompatiblePSEditions = "Desktop", "Core"
+            FunctionsToExport    = 'Get-SecOps', 'Convert-StringtoBase64', 'Convert-Base64toString'
+            Path                 = "$savepath\AdminToolbox.SecOps.psd1"
+            Author               = "Taylor Lee"
+            Description          = "Functions for Security Operations and Investigations"
+            IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
+            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
+            ModuleVersion        = "$script:SecOpsGithubVersion"
+            Powershellversion    = "5.1"
+            ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
+            RootModule           = "AdminToolbox.SecOpsManifest.psm1"
+            ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
+            Tags                 = 'Security', 'Base64', 'Encoding'
         }
 
         New-ModuleManifest @Params
