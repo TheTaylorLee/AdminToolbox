@@ -248,3 +248,4 @@
 * **1.12.0.0** Add a private function that enables providing parent OU information for report functions. Added to device and user report functions.
 * **1.12.0.1** CI Maintenance Release
 * **1.12.0.2** CI Maintenance Release
+* **1.12.0.3** CI Maintenance Release
