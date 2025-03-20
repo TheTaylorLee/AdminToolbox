@@ -30,6 +30,7 @@ Get-MSGraph                       ..Gets functions for MSGraph
 Get-Networking                    ..Gets functions for Networking
 Get-Office365                     ..Gets functions for Office 365
 Get-Remoting                      ..Gets functions for Remoting
+Get-SecOps                        ..Gets functions for SecOps
 Get-VMWareAutomate                ..Gets functions for VMWare
     "                                                                                                       -ForegroundColor cyan
     Write-Host " "
