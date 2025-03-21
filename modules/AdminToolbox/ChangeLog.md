@@ -411,3 +411,4 @@
 * **11.1.0.40** CI Maintenance Release
 * **11.1.0.41** CI Maintenance Release
 * **12.0.0.0** Adding the SecOps Module
+* **12.0.0.1** CI Maintenance Release
