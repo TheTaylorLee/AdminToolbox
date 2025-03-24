@@ -355,7 +355,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.SecOps"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-SecOps', 'Convert-StringtoBase64', 'Convert-Base64toString'
+            FunctionsToExport    = 'Get-SecOps', 'Convert-Base64'
             Path                 = "$savepath\AdminToolbox.SecOps.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for Security Operations and Investigations"
