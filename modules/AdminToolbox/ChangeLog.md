@@ -414,3 +414,4 @@
 * **12.0.0.1** CI Maintenance Release
 * **12.0.0.2** CI Maintenance Release
 * **12.0.0.3** CI Maintenance Release
+* **12.0.0.4** CI Maintenance Release
