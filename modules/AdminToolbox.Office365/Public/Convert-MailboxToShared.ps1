@@ -130,9 +130,9 @@ Prerequisites:
                         $selection2 = Read-Host "Please make a selection"
                         switch ($selection2) {
                             '1' {
-                                get-mailbox -softdeletedmailbox |
-                                Select-Object DisplayName, IsSoftDeletedByRemove, IsSoftDeletedByDisable, IsInactiveMailbox |
-                                Sort-Object DisplayName | Format-Table
+                                get-exomailbox -softdeletedmailbox -inactivemailbox |
+                                    Select-Object DisplayName, IsSoftDeletedByRemove, IsSoftDeletedByDisable, IsInactiveMailbox |
+                                    Sort-Object DisplayName | Format-Table
                             }
                         }
                         Pause
@@ -166,7 +166,7 @@ Prerequisites:
                             switch ($selection3) {
                                 '1' {
                                     Write-Host "When the Popup appears, select a mailbox, and hit ok." -ForegroundColor Yellow
-                                    $AccessPermission = get-mailbox | Out-GridView -PassThru -Title "Select a Mailbox and Hit Ok"
+                                    $AccessPermission = get-exomailbox | Out-GridView -PassThru -Title "Select a Mailbox and Hit Ok"
                                     Add-MailboxPermission -Identity "$MailboxName" -User $AccessPermission.name -AccessRights FullAccess -InheritanceType All
                                 }
                             }
@@ -179,13 +179,13 @@ Prerequisites:
 
                     #Get GUID of new shared mailbox:
                     Write-Host "Select the Shared Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $SharedMailbox = Get-Mailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
+                    $SharedMailbox = get-exomailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
                     Write-Host "The Shared Mailbox Guid is" -ForegroundColor Cyan
                     $SharedMailbox.ExchangeGuid
 
                     #Get GUID of old inactive mailbox:
                     Write-Host "Select the disconnected/disabled Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $DisconnectedMailbox = Get-Mailbox -softdeletedmailbox | Out-GridView -PassThru -Title "Select the disconnected/disabled Mailbox and Hit Ok"
+                    $DisconnectedMailbox = get-exomailbox -softdeletedmailbox -inactivemailbox | Out-GridView -PassThru -Title "Select the disconnected/disabled Mailbox and Hit Ok"
                     Write-Host "The Disconnected/disabled Mailbox Guid is" -ForegroundColor Cyan
                     $DisconnectedMailbox.ExchangeGuid
 
@@ -217,7 +217,7 @@ Prerequisites:
                     #Add SMTP Addresses to the Shared Mailbox
                     Write-Host " "
                     Write-Host "Select the Shared Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $SharedMailbox = Get-Mailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
+                    $SharedMailbox = get-exomailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
                     Write-Host " "
                     Write-Host "Current Mailbox Addresses are..." -ForegroundColor Green
                     $SharedMailbox.EmailAddresses

@@ -275,3 +275,4 @@
 * **5.0.1.12** CI Maintenance Release
 * **5.0.1.13** CI Maintenance Release
 * **5.0.1.14** CI Maintenance Release
+* **5.1.0.0** Update convert-mailbox to use the newer get-exomailbox function and to include inactivemailboxes.
