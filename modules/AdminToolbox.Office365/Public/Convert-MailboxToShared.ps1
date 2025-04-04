@@ -5,7 +5,7 @@
     .NOTES
     Requirements:
         1. This Function is used for an Active Directory Synced account that is being disabled and the mailbox converted to an Exchange Online Shared Mailbox.
-        2. This Function must be run from the server that hosts Azure AD Connect and the on-premise Account must be synced to an Exchange Online Mailbox.
+        2. This Function must be run from the server that hosts Azure AD Connect if running azureadsynceycle. In step 1
         3. The Exchange online Module must be imported into the console before this function is run.
         4. The account associated with the Exchange Online Mailbox must be disabled and moved to an OU that is not Azure AD Synced
 
@@ -180,20 +180,18 @@ Prerequisites:
                     #Get GUID of new shared mailbox:
                     Write-Host "Select the Shared Mailbox and Hit Ok" -ForegroundColor Yellow
                     $SharedMailbox = get-exomailbox | Where-Object { $_.RecipientTypeDetails -eq 'SharedMailbox' } | Out-GridView -PassThru -Title "Select the Shared Mailbox and Hit Ok"
-                    Write-Host "The Shared Mailbox Guid is" -ForegroundColor Cyan
-                    $SharedMailbox.ExchangeGuid
+
 
                     #Get GUID of old inactive mailbox:
                     Write-Host "Select the disconnected/disabled Mailbox and Hit Ok" -ForegroundColor Yellow
                     $DisconnectedMailbox = get-exomailbox -softdeletedmailbox -inactivemailbox | Out-GridView -PassThru -Title "Select the disconnected/disabled Mailbox and Hit Ok"
-                    Write-Host "The Disconnected/disabled Mailbox Guid is" -ForegroundColor Cyan
-                    $DisconnectedMailbox.ExchangeGuid
 
-                    $TargetMailbox = Read-Host "Paste the Shared Mailbox guid here without spaces"
-                    $SourceMailbox = Read-Host "Paste the disconnected/disabled mailbox guid here without spaces"
+                    # set variables
+                    $TargetMailbox = $SharedMailbox.guid.guid
+                    $SourceMailbox = $DisconnectedMailbox.guid.guid
 
                     #Copy inactive mailbox content to the new active or shared mailbox:
-                    Write-Host "The Disconnected Mailbox's emails will be copied to the Shared Mailbox. The Job name matches the Target Guid."
+                    Write-Host "The Disconnected Mailbox's emails will be copied to the Shared Mailbox. "
                     New-MailboxRestoreRequest -SourceMailbox $SourceMailbox -TargetMailbox $TargetMailbox -TargetRootFolder "Inactive Mailbox Archive" -AllowLegacyDNMismatch -BatchName $TargetMailbox
 
                 } '5' {
