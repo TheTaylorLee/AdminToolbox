@@ -279,3 +279,4 @@
 * **5.1.0.1** CI Maintenance Release
 * **5.1.1.0** Fix convert-mailboxtoshared variables that are failing to output mailbox guid. Update the process to no longer require pasting the guid directly.
 * **5.1.1.1** CI Maintenance Release
+* **5.1.1.2** CI Maintenance Release
