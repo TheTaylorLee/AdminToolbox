@@ -10,3 +10,4 @@
 * **1.2.0.0** Add function get-hiddenservices
 * **1.3.0.0** Add Functions get-bitlockerrecover and initialize-bitlocker
 * **1.3.0.1** CI Maintenance Release
+* **1.3.1.0** Fix quiet parameter for function initialize-bitlocker

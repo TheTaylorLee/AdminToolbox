@@ -105,7 +105,7 @@ function Invoke-BitlockerSetup {
         }
     }
 
-    if ($quiet -eq $true) {
+    if ($quiet -ne $true) {
         Get-BitlockerRecovery
     }
 
