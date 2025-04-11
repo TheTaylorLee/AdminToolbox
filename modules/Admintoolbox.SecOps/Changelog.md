@@ -7,3 +7,4 @@
 * **1.1.0.4** CI Maintenance Release
 * **1.1.0.5** CI Maintenance Release
 * **1.1.0.6** CI Maintenance Release
+* **1.2.0.0** Add function get-hiddenservices
