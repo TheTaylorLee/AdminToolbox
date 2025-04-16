@@ -1,1 +1,0 @@
-The files included in this folder are scratch notes for function building and some possible future changes.
