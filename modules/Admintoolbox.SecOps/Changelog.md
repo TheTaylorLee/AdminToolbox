@@ -12,3 +12,4 @@
 * **1.3.0.1** CI Maintenance Release
 * **1.3.1.0** Fix quiet parameter for function initialize-bitlocker
 * **1.3.1.1** CI Maintenance Release
+* **1.4.0.0** Added multiple functions to the module.

@@ -108,7 +108,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.EndpointManagement"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Add-LocalAdmin', 'Disable-Firewall', 'Disable-PasswordPeek', 'Disable-ShakeToMinimize', 'Disable-Standby', 'Dismount-ProfileRegistry', 'Enable-Firewall', 'Enable-RSATFeatures', 'Get-Applications', 'Get-ChocoOutdated', 'Get-IntroPCS', 'Get-Management', 'Get-PCInfo', 'Get-PrintBackup', 'Get-Printers', 'Get-PrintManagement', 'Get-EndpointManagement', 'Install-Chocolatey', 'Install-ChocoPackages', 'Invoke-ChocoUpgrade', 'Invoke-PrinterServerRenew', 'Join-Domain', 'Mount-ProfileRegistry', 'Remove-PrintQueue', 'Remove-Shortcuts', 'Remove-StoreApps', 'Remove-Tiles', 'Restart-Endpoint', 'Get-ChocoInstalls', 'Set-UAC', 'Uninstall-Application', 'Get-PowerShell7', 'Reset-EndpointPassword', 'Repair-DomainJoin', 'Disable-Cortana', 'Get-MonitorSizes', 'Get-RebootEvents', 'Get-RemoteDesktopLogins', 'Get-LocalLogonHistory'
+            FunctionsToExport    = 'Add-LocalAdmin', 'Disable-Firewall', 'Disable-PasswordPeek', 'Disable-ShakeToMinimize', 'Disable-Standby', 'Dismount-ProfileRegistry', 'Enable-Firewall', 'Enable-RSATFeatures', 'Get-Applications', 'Get-ChocoOutdated', 'Get-IntroPCS', 'Get-Management', 'Get-PCInfo', 'Get-PrintBackup', 'Get-Printers', 'Get-PrintManagement', 'Get-EndpointManagement', 'Install-Chocolatey', 'Install-ChocoPackages', 'Invoke-ChocoUpgrade', 'Invoke-PrinterServerRenew', 'Join-Domain', 'Mount-ProfileRegistry', 'Remove-PrintQueue', 'Remove-Shortcuts', 'Remove-StoreApps', 'Remove-Tiles', 'Restart-Endpoint', 'Get-ChocoInstalls', 'Uninstall-Application', 'Get-PowerShell7', 'Reset-EndpointPassword', 'Repair-DomainJoin', 'Disable-Cortana', 'Get-MonitorSizes', 'Get-RebootEvents', 'Get-RemoteDesktopLogins', 'Get-LocalLogonHistory'
             Path                 = "$savepath\AdminToolbox.EndpointManagement.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for management of endpoints"
@@ -355,7 +355,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.SecOps"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-SecOps', 'Convert-Base64', 'Get-BitlockerRecovery', 'Get-HiddenServices', 'Invoke-BitlockerSetup'
+            FunctionsToExport    = 'Get-SecOps', 'Convert-Base64', 'Get-BitlockerRecovery', 'Get-HiddenServices', 'Invoke-BitlockerSetup', 'Set-UAC', 'Set-ScreenTimeout', 'Set-DNSBroadcasting', 'Disable-WindowsTelemetry'
             Path                 = "$savepath\AdminToolbox.SecOps.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for Security Operations and Investigations"

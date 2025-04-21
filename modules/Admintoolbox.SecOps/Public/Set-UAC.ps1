@@ -55,4 +55,6 @@ function Set-UAC {
         reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "ConsentPromptBehaviorAdmin" /t reg_dword /d 2
         reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t reg_dword /d 1
     }
+
+    gpupdate /force
 }
