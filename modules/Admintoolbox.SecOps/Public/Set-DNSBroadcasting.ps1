@@ -46,8 +46,5 @@ function Set-DNSBroadcasting {
             ## LLMNR
             Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows NT\DNSClient\" -Name EnableMulticast -Value 0 -Type DWord
         }
-        default {
-            Write-Error "Invalid action specified: $Action"
-        }
     }
 }
