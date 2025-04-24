@@ -15,9 +15,6 @@
 
     Use Computername to specify the Domain Controller to be queried for active domain accounts
 
-    .Notes
-    Previously used wmi and now uses Cim for removing profiles. If seeing issues with the new method in the future consider updating the function to use either or method, or develop a 3rd method entirely.
-
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 #>
