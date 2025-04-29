@@ -14,3 +14,4 @@
 * **1.3.1.1** CI Maintenance Release
 * **1.4.0.0** Added multiple functions to the module.
 * **1.4.0.1** CI Maintenance Release
+* **1.4.0.2** CI Maintenance Release
