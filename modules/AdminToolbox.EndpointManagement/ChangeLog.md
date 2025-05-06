@@ -282,3 +282,4 @@
 * **4.13.0.0** Moved set-uac to the admintoolbox.secops module
 * **4.13.0.1** CI Maintenance Release
 * **4.13.0.2** CI Maintenance Release
+* **4.13.0.3** CI Maintenance Release
