@@ -62,7 +62,7 @@ function Install-SSH {
     if ($InstallFromScript) {
         #Install winssh from github
         Write-Host "Installing from Github" -ForegroundColor Green
-        $url = "https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.0.0.0p1-Beta/OpenSSH-Win32.zip"
+        $url = "https://github.com/PowerShell/Win32-OpenSSH/releases/download/v9.8.3.0p2-Preview/OpenSSH-Win64.zip"
         $zipfile = "c:\winssh.zip"
         $outpath = "c:\Winssh"
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::TLS12
