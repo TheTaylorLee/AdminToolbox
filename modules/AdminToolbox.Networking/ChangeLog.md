@@ -291,3 +291,4 @@
 * **2.21.1.28** CI Maintenance Release
 * **2.21.1.29** CI Maintenance Release
 * **2.21.1.30** CI Maintenance Release
+* **2.22.0.0** Updated get-publicip with an additional lookup source
