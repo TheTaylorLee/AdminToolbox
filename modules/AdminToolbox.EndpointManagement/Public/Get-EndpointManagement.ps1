@@ -19,7 +19,6 @@ function Get-EndpointManagement {
     Write-Host "Disable-PasswordPeek       ..Disables windows password peek"                               -ForegroundColor cyan
     Write-Host "Disable-ShakeToMinimize    ..Disables Annoying Shake to Minimize"                          -ForegroundColor cyan
     Write-Host "Disable-Standby            ..Disables Hibernate and Sleep"                                 -ForegroundColor cyan
-    Write-Host "Dismount-ProfileRegistry   ..Dismounts local users registry hive"                          -ForegroundColor cyan
     Write-Host "Enable-Firewall            ..Enables windows builtin firewall"                             -ForegroundColor cyan
     Write-Host "Enable-RSATFeatures        ..Enables Windows 10 RSAT Features"                             -ForegroundColor cyan
     Write-Host "Get-Applications           ..Gets a list of installed Applications"                        -ForegroundColor cyan
@@ -29,7 +28,6 @@ function Get-EndpointManagement {
     Write-Host "Get-PCInfo                 ..Gets info on targeted PC"                                     -ForegroundColor cyan
     Write-Host "Get-PowerShell7            ..Gets and installs Powershell 7"                               -ForegroundColor cyan
     Write-Host "Join-Domain                ..Joins Endpoint to a Domain"                                   -ForegroundColor cyan
-    Write-Host "Mount-ProfileRegistry      ..Mounts local users registry hive"                             -ForegroundColor cyan
     Write-Host "Remove-Shortcuts           ..Removes Desktop Shortcuts"                                    -ForegroundColor cyan
     Write-Host "Remove-StoreApps           ..Remove an array of MS store apps"                             -ForegroundColor cyan
     Write-Host "Remove-Tiles               ..Removes start menu tiles"                                     -ForegroundColor cyan
