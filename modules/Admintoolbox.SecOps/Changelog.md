@@ -19,3 +19,4 @@
 * **1.4.0.4** CI Maintenance Release
 * **1.5.0.0** Added functions for loading profile registries.
 * **1.5.0.1** CI Maintenance Release
+* **1.5.0.2** CI Maintenance Release
