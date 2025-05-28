@@ -264,3 +264,4 @@
 * **1.12.0.16** CI Maintenance Release
 * **1.12.0.17** CI Maintenance Release
 * **1.12.0.18** CI Maintenance Release
+* **1.12.0.19** CI Maintenance Release
