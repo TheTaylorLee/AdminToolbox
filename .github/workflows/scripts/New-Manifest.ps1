@@ -305,7 +305,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.Office365"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Office365', 'Convert-MailboxToShared', 'Invoke-Sync365', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Get-DistributionGroupMembers', 'Remove-VersionHistoryOlderThan', 'Get-VersionHistoryReport', 'Set-SharepointVersionLimits', 'Set-SiteOwner'
+            FunctionsToExport    = 'Get-Office365', 'Convert-MailboxToShared', 'Invoke-Sync365', 'Set-365GroupVisibility', 'Unblock-Quarantine', 'Get-Quarantine', 'Set-Subscription', 'Invoke-PowerState', 'Get-VMDetails', 'Invoke-EXOSharedSession', 'Enable-MailboxAccess', 'Get-DistributionGroupMembers', 'Remove-VersionHistoryOlderThan', 'Get-VersionHistoryReport', 'Set-SharepointVersionLimits', 'Set-SiteOwner', 'Get-MailboxDelegatesReport'
             Path                 = "$savepath\AdminToolbox.Office365.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for working with Office365 and Azure modules"
