@@ -11,6 +11,7 @@ function Get-Office365 {
     Write-Host " "
 
     Write-Host "Az Module Functions"                                                                                  -ForegroundColor green
+    Write-Host "Add-AzRoutesToRouteTable        ..Adds routes to a route table in Azure"                              -ForegroundColor cyan
     Write-Host "Get-TenantDiagrams              ..Gets and generates dependency Diagrams"                             -ForegroundColor cyan
     Write-Host "Get-VMDetails                   ..Gets AzureVM details from multiple functions"                       -ForegroundColor cyan
     Write-Host "Invoke-PowerState               ..Invokes power state changes on VMs and can get their status"        -ForegroundColor cyan

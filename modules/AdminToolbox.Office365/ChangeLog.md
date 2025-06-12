@@ -292,3 +292,4 @@
 * **5.1.1.12** CI Maintenance Release
 * **5.2.0.0** Added the function get-mailboxdelegatesreport
 * **5.2.0.1** CI Maintenance Release
+* **5.3.0.0** Added the function Add-AzRoutesToRouteTable
