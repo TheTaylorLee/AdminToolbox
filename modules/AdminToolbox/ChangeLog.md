@@ -148,21 +148,10 @@
 * **9.2.0** Updated Admintoolbox.Fortiwizard Module Requirements
 * **9.3.0** Updated Module requirements for Admintoolbox.Remoting
 * **9.4.0** Update required modules
-* **9.5.0** Update required modules
-* **9.6.0** Update required modules
-* **9.7.0** Update required modules
-* **9.8.0** Update required modules
-* **9.9.0** Update required modules
-* **9.10.0** Update required modules
-* **9.11.0** Update required modules
-* **9.12.0** Update required modules
-* **9.13.0** Update required modules
-* **9.14.0** Update required modules
 * **9.15.0** Update required modules
 * **9.16.0** Updated ConEmu settings to not check for updates
 * **9.16.1** Move comment based help outside function block
 * **9.17.0** Update required modules
-* **9.18.0** Update required modules
 * **9.19.0** Update required modules
 * **9.20.0** Workflow Test
 * **9.20.1** Update required modules
@@ -187,20 +176,6 @@
 * **10.4.0** Security Update
 * **11.0.0** Introducing the Admintoolbox.MSGraph Module
 * **11.0.1** Update required modules
-* **11.0.2** Update required modules
-* **11.0.3** Update required modules
-* **11.0.4** Update required modules
-* **11.0.5** Update required modules
-* **11.0.6** Update required modules
-* **11.0.7** Update required modules
-* **11.0.8** Update required modules
-* **11.0.9** Update required modules
-* **11.0.10** Update required modules
-* **11.0.11** Update required modules
-* **11.0.12** Update required modules
-* **11.0.13** Update required modules
-* **11.0.14** Update required modules
-* **11.0.15** Update required modules
 * **11.0.16** Update required modules
 * **11.0.17** Workflow Fix
 * **11.0.18** Workflow Fix
@@ -215,219 +190,10 @@
 * **11.0.27** Update required modules
 * **11.0.28** Update required modules
 * **11.0.29** CI Update required modules
-* **11.0.30** CI Update required modules
-* **11.0.31** CI Update required modules
-* **11.0.32** CI Update required modules
-* **11.0.33** CI Update required modules
-* **11.0.34** CI Update required modules
-* **11.0.35** CI Update required modules
-* **11.0.36** CI Update required modules
-* **11.0.37** CI Update required modules
-* **11.0.38** CI Update required modules
-* **11.0.39** CI Update required modules
-* **11.0.40** CI Update required modules
-* **11.0.41** CI Update required modules
-* **11.0.42** CI Update required modules
-* **11.0.43** CI Update required modules
-* **11.0.44** CI Update required modules
-* **11.0.45** CI Update required modules
-* **11.0.46** CI Update required modules
-* **11.0.47** CI Update required modules
-* **11.0.48** CI Update required modules
-* **11.0.49** CI Update required modules
-* **11.0.50** CI Update required modules
-* **11.0.51** CI Update required modules
-* **11.0.52** CI Update required modules
-* **11.0.53** CI Update required modules
-* **11.0.54** CI Update required modules
-* **11.0.55** CI Update required modules
-* **11.0.56** CI Update required modules
-* **11.0.57** CI Update required modules
-* **11.0.58** CI Update required modules
-* **11.0.59** CI Update required modules
-* **11.0.60** CI Update required modules
-* **11.0.61** CI Update required modules
-* **11.0.62** CI Update required modules
-* **11.0.63** CI Update required modules
-* **11.0.64** CI Update required modules
-* **11.0.65** CI Update required modules
-* **11.0.66** CI Update required modules
-* **11.0.67** CI Update required modules
-* **11.0.68** CI Update required modules
-* **11.0.69** CI Update required modules
-* **11.0.70** CI Update required modules
-* **11.0.71** CI Update required modules
-* **11.0.72** CI Update required modules
-* **11.0.73** CI Update required modules
-* **11.0.74** CI Update required modules
-* **11.0.75** CI Update required modules
-* **11.0.76** CI Update required modules
-* **11.0.77** CI Update required modules
-* **11.0.78** CI Update required modules
-* **11.0.79** CI Update required modules
-* **11.0.80** CI Update required modules
-* **11.0.81** CI Update required modules
-* **11.0.82** CI Update required modules
-* **11.0.83** CI Update required modules
-* **11.0.84** CI Update required modules
-* **11.0.85** CI Update required modules
-* **11.0.86** CI Update required modules
-* **11.0.87** CI Update required modules
-* **11.0.88** CI Update required modules
-* **11.0.89** CI Update required modules
-* **11.0.90** CI Update required modules
-* **11.0.91** CI Update required modules
-* **11.0.92** CI Update required modules
-* **11.0.93** CI Update required modules
-* **11.0.94** CI Update required modules
-* **11.0.95** CI Update required modules
-* **11.0.96** CI Update required modules
-* **11.0.97** CI Update required modules
-* **11.0.98** CI Update required modules
-* **11.0.99** CI Update required modules
-* **11.0.100** CI Update required modules
-* **11.0.101** CI Update required modules
-* **11.0.102** CI Update required modules
-* **11.0.103** CI Update required modules
-* **11.0.104** CI Update required modules
-* **11.0.105** CI Update required modules
-* **11.0.106** CI Update required modules
-* **11.0.107** CI Update required modules
-* **11.0.108** CI Update required modules
-* **11.0.109** CI Update required modules
-* **11.0.110** CI Update required modules
-* **11.0.111** CI Update required modules
-* **11.0.112** CI Update required modules
-* **11.0.113** CI Update required modules
-* **11.0.114** CI Update required modules
-* **11.0.115** CI Update required modules
-* **11.0.116** CI Update required modules
-* **11.0.117** CI Update required modules
-* **11.0.118** CI Update required modules
-* **11.0.119** CI Update required modules
-* **11.0.120** CI Update required modules
-* **11.0.121** CI Update required modules
-* **11.0.122** CI Update required modules
-* **11.0.123** CI Update required modules
-* **11.0.124** CI Update required modules
-* **11.0.125** CI Update required modules
-* **11.0.126** CI Update required modules
-* **11.0.127** CI Update required modules
-* **11.0.128** CI Update required modules
-* **11.0.129** CI Update required modules
-* **11.0.130** CI Update required modules
-* **11.0.131** CI Update required modules
-* **11.0.132** CI Update required modules
-* **11.0.133** CI Update required modules
-* **11.0.134** CI Update required modules
-* **11.0.135** CI Update required modules
-* **11.0.136** CI Update required modules
-* **11.0.137** CI Update required modules
-* **11.0.138** CI Update required modules
-* **11.0.139** CI Update required modules
-* **11.0.140** CI Update required modules
-* **11.0.141** CI Update required modules
-* **11.0.142** CI Update required modules
-* **11.0.143** CI Update required modules
-* **11.0.144** CI Update required modules
-* **11.0.145** CI Update required modules
-* **11.0.146** CI Update required modules
-* **11.0.147** CI Update required modules
-* **11.0.148** CI Update required modules
-* **11.0.149** CI Update required modules
-* **11.0.150** CI Update required modules
-* **11.0.151** CI Update required modules
-* **11.0.152** CI Update required modules
-* **11.0.153** CI Update required modules
-* **11.0.154** CI Update required modules
-* **11.0.155** CI Update required modules
-* **11.0.156** CI Update required modules
-* **11.0.157** CI Update required modules
-* **11.0.158** CI Update required modules
-* **11.0.159** CI Update required modules
-* **11.0.160** CI Update required modules
-* **11.0.161** CI Update required modules
-* **11.0.162** CI Update required modules
-* **11.0.163** CI Update required modules
-* **11.0.164** CI Update required modules
-* **11.0.165** CI Update required modules
-* **11.0.166** CI Update required modules
-* **11.0.167** CI Update required modules
-* **11.0.168** CI Update required modules
-* **11.0.169** CI Update required modules
-* **11.0.170** CI Update required modules
-* **11.0.171** CI Update required modules
-* **11.0.172** CI Update required modules
-* **11.0.173** CI Update required modules
-* **11.0.174** CI Update required modules
-* **11.0.175** CI Update required modules
-* **11.0.176** CI Update required modules
-* **11.0.177** CI Update required modules
-* **11.0.178** CI Update required modules
-* **11.0.179** CI Update required modules
-* **11.0.180** CI Update required modules
-* **11.0.181** CI Update required modules
 * **11.0.182** CI Update required modules
 * **11.1.0.0** Add workflow versioning
 * **11.1.0.1** CI Maintenance Release
-* **11.1.0.2** CI Maintenance Release
-* **11.1.0.3** CI Maintenance Release
-* **11.1.0.4** CI Maintenance Release
-* **11.1.0.5** CI Maintenance Release
-* **11.1.0.6** CI Maintenance Release
-* **11.1.0.7** CI Maintenance Release
-* **11.1.0.8** CI Maintenance Release
-* **11.1.0.9** CI Maintenance Release
-* **11.1.0.10** CI Maintenance Release
-* **11.1.0.11** CI Maintenance Release
-* **11.1.0.12** CI Maintenance Release
-* **11.1.0.13** CI Maintenance Release
-* **11.1.0.14** CI Maintenance Release
-* **11.1.0.15** CI Maintenance Release
-* **11.1.0.16** CI Maintenance Release
-* **11.1.0.17** CI Maintenance Release
-* **11.1.0.18** CI Maintenance Release
-* **11.1.0.19** CI Maintenance Release
-* **11.1.0.20** CI Maintenance Release
-* **11.1.0.21** CI Maintenance Release
-* **11.1.0.22** CI Maintenance Release
-* **11.1.0.23** CI Maintenance Release
-* **11.1.0.24** CI Maintenance Release
-* **11.1.0.25** CI Maintenance Release
-* **11.1.0.26** CI Maintenance Release
-* **11.1.0.27** CI Maintenance Release
-* **11.1.0.28** CI Maintenance Release
-* **11.1.0.29** CI Maintenance Release
-* **11.1.0.30** CI Maintenance Release
-* **11.1.0.31** CI Maintenance Release
-* **11.1.0.32** CI Maintenance Release
-* **11.1.0.33** CI Maintenance Release
-* **11.1.0.34** CI Maintenance Release
-* **11.1.0.35** CI Maintenance Release
-* **11.1.0.36** CI Maintenance Release
-* **11.1.0.37** CI Maintenance Release
-* **11.1.0.38** CI Maintenance Release
-* **11.1.0.39** CI Maintenance Release
-* **11.1.0.40** CI Maintenance Release
 * **11.1.0.41** CI Maintenance Release
 * **12.0.0.0** Adding the SecOps Module
 * **12.0.0.1** CI Maintenance Release
-* **12.0.0.2** CI Maintenance Release
-* **12.0.0.3** CI Maintenance Release
-* **12.0.0.4** CI Maintenance Release
-* **12.0.0.5** CI Maintenance Release
-* **12.0.0.6** CI Maintenance Release
-* **12.0.0.7** CI Maintenance Release
-* **12.0.0.8** CI Maintenance Release
-* **12.0.0.9** CI Maintenance Release
-* **12.0.0.10** CI Maintenance Release
-* **12.0.0.11** CI Maintenance Release
-* **12.0.0.12** CI Maintenance Release
-* **12.0.0.13** CI Maintenance Release
-* **12.0.0.14** CI Maintenance Release
-* **12.0.0.15** CI Maintenance Release
-* **12.0.0.16** CI Maintenance Release
-* **12.0.0.17** CI Maintenance Release
-* **12.0.0.18** CI Maintenance Release
-* **12.0.0.19** CI Maintenance Release
 * **12.0.0.20** CI Maintenance Release

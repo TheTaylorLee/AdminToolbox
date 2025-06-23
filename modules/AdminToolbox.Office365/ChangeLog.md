@@ -262,33 +262,11 @@
      - Add connection handling for get-vmdetails and Invoke-Powerstate
 * **5.0.1.0** Resolve ci/cd workflow
 * **5.0.1.1** CI Maintenance Release
-* **5.0.1.2** CI Maintenance Release
-* **5.0.1.3** CI Maintenance Release
-* **5.0.1.4** CI Maintenance Release
-* **5.0.1.5** CI Maintenance Release
-* **5.0.1.6** CI Maintenance Release
-* **5.0.1.7** CI Maintenance Release
-* **5.0.1.8** CI Maintenance Release
-* **5.0.1.9** CI Maintenance Release
-* **5.0.1.10** CI Maintenance Release
-* **5.0.1.11** CI Maintenance Release
-* **5.0.1.12** CI Maintenance Release
-* **5.0.1.13** CI Maintenance Release
 * **5.0.1.14** CI Maintenance Release
 * **5.1.0.0** Update convert-mailbox to use the newer get-exomailbox function and to include inactivemailboxes.
 * **5.1.0.1** CI Maintenance Release
 * **5.1.1.0** Fix convert-mailboxtoshared variables that are failing to output mailbox guid. Update the process to no longer require pasting the guid directly.
 * **5.1.1.1** CI Maintenance Release
-* **5.1.1.2** CI Maintenance Release
-* **5.1.1.3** CI Maintenance Release
-* **5.1.1.4** CI Maintenance Release
-* **5.1.1.5** CI Maintenance Release
-* **5.1.1.6** CI Maintenance Release
-* **5.1.1.7** CI Maintenance Release
-* **5.1.1.8** CI Maintenance Release
-* **5.1.1.9** CI Maintenance Release
-* **5.1.1.10** CI Maintenance Release
-* **5.1.1.11** CI Maintenance Release
 * **5.1.1.12** CI Maintenance Release
 * **5.2.0.0** Added the function get-mailboxdelegatesreport
 * **5.2.0.1** CI Maintenance Release

@@ -48,7 +48,6 @@
 * **2.12.5** Update Icon URI in Manifest
 * **2.12.6** Increment Manifest to resolve missing manifest version in github timeline
 * **2.13.0** Push any small changes
-* **2.13.1** Push any small changes
 * **2.13.2** Push any small changes
 * **2.13.3** Maintenance Release
 * **2.13.4** Fix invoke-iperf client not permitting host ip entry
@@ -61,240 +60,38 @@
 * **2.15.3** Add parameter help for invoke-networkscan, and update substring for vendor custom object to eliminate whitespace.
 * **2.15.4** Add notes to invoke-networkscan help.
 * **2.15.5** Maintenance Release
-* **2.15.6** Maintenance Release
 * **2.15.7** Maintenance Release
 * **2.15.8** Workflow Fix
 * **2.15.9** Workflow Fix
 * **2.15.10** Workflow Fix
 * **2.15.11** CI Maintenance Release
-* **2.15.12** CI Maintenance Release
-* **2.15.13** CI Maintenance Release
 * **2.15.14** CI Maintenance Release
 * **2.16.00** Remove start-traceng
 * **2.16.1** CI Maintenance Release
-* **2.16.2** CI Maintenance Release
-* **2.16.3** CI Maintenance Release
-* **2.16.4** CI Maintenance Release
-* **2.16.5** CI Maintenance Release
-* **2.16.6** CI Maintenance Release
-* **2.16.7** CI Maintenance Release
-* **2.16.8** CI Maintenance Release
-* **2.16.9** CI Maintenance Release
-* **2.16.10** CI Maintenance Release
-* **2.16.11** CI Maintenance Release
-* **2.16.12** CI Maintenance Release
-* **2.16.13** CI Maintenance Release
-* **2.16.14** CI Maintenance Release
-* **2.16.15** CI Maintenance Release
-* **2.16.16** CI Maintenance Release
-* **2.16.17** CI Maintenance Release
-* **2.16.18** CI Maintenance Release
-* **2.16.19** CI Maintenance Release
-* **2.16.20** CI Maintenance Release
-* **2.16.21** CI Maintenance Release
-* **2.16.22** CI Maintenance Release
-* **2.16.23** CI Maintenance Release
-* **2.16.24** CI Maintenance Release
-* **2.16.25** CI Maintenance Release
-* **2.16.26** CI Maintenance Release
-* **2.16.27** CI Maintenance Release
-* **2.16.28** CI Maintenance Release
-* **2.16.29** CI Maintenance Release
-* **2.16.30** CI Maintenance Release
-* **2.16.31** CI Maintenance Release
-* **2.16.32** CI Maintenance Release
-* **2.16.33** CI Maintenance Release
-* **2.16.34** CI Maintenance Release
-* **2.16.35** CI Maintenance Release
-* **2.16.36** CI Maintenance Release
-* **2.16.37** CI Maintenance Release
-* **2.16.38** CI Maintenance Release
-* **2.16.39** CI Maintenance Release
-* **2.16.40** CI Maintenance Release
-* **2.16.41** CI Maintenance Release
-* **2.16.42** CI Maintenance Release
-* **2.16.43** CI Maintenance Release
-* **2.16.44** CI Maintenance Release
-* **2.16.45** CI Maintenance Release
-* **2.16.46** CI Maintenance Release
-* **2.16.47** CI Maintenance Release
-* **2.16.48** CI Maintenance Release
-* **2.16.49** CI Maintenance Release
-* **2.16.50** CI Maintenance Release
-* **2.16.51** CI Maintenance Release
-* **2.16.52** CI Maintenance Release
 * **2.16.53** CI Maintenance Release
 * **2.17.0** Add Custom Port Scanning option to Invoke-NetworkScan
 * **2.17.1** CI Maintenance Release
-* **2.17.2** CI Maintenance Release
-* **2.17.3** CI Maintenance Release
-* **2.17.4** CI Maintenance Release
-* **2.17.5** CI Maintenance Release
-* **2.17.6** CI Maintenance Release
-* **2.17.7** CI Maintenance Release
-* **2.17.8** CI Maintenance Release
-* **2.17.9** CI Maintenance Release
-* **2.17.10** CI Maintenance Release
-* **2.17.11** CI Maintenance Release
-* **2.17.12** CI Maintenance Release
-* **2.17.13** CI Maintenance Release
-* **2.17.14** CI Maintenance Release
-* **2.17.15** CI Maintenance Release
-* **2.17.16** CI Maintenance Release
-* **2.17.17** CI Maintenance Release
-* **2.17.18** CI Maintenance Release
-* **2.17.19** CI Maintenance Release
-* **2.17.20** CI Maintenance Release
-* **2.17.21** CI Maintenance Release
-* **2.17.22** CI Maintenance Release
 * **2.17.23** CI Maintenance Release
 * **2.18.00** Remove outdated and broken Start-Speedtest
 * **2.18.1** CI Maintenance Release
-* **2.18.2** CI Maintenance Release
-* **2.18.3** CI Maintenance Release
-* **2.18.4** CI Maintenance Release
-* **2.18.5** CI Maintenance Release
-* **2.18.6** CI Maintenance Release
-* **2.18.7** CI Maintenance Release
-* **2.18.8** CI Maintenance Release
-* **2.18.9** CI Maintenance Release
-* **2.18.10** CI Maintenance Release
-* **2.18.11** CI Maintenance Release
-* **2.18.12** CI Maintenance Release
-* **2.18.13** CI Maintenance Release
-* **2.18.14** CI Maintenance Release
-* **2.18.15** CI Maintenance Release
-* **2.18.16** CI Maintenance Release
-* **2.18.17** CI Maintenance Release
-* **2.18.18** CI Maintenance Release
-* **2.18.19** CI Maintenance Release
-* **2.18.20** CI Maintenance Release
-* **2.18.21** CI Maintenance Release
-* **2.18.22** CI Maintenance Release
-* **2.18.23** CI Maintenance Release
-* **2.18.24** CI Maintenance Release
-* **2.18.25** CI Maintenance Release
-* **2.18.26** CI Maintenance Release
-* **2.18.27** CI Maintenance Release
-* **2.18.28** CI Maintenance Release
-* **2.18.29** CI Maintenance Release
-* **2.18.30** CI Maintenance Release
-* **2.18.31** CI Maintenance Release
-* **2.18.32** CI Maintenance Release
-* **2.18.33** CI Maintenance Release
-* **2.18.34** CI Maintenance Release
-* **2.18.35** CI Maintenance Release
-* **2.18.36** CI Maintenance Release
-* **2.18.37** CI Maintenance Release
-* **2.18.38** CI Maintenance Release
-* **2.18.39** CI Maintenance Release
-* **2.18.40** CI Maintenance Release
-* **2.18.41** CI Maintenance Release
-* **2.18.42** CI Maintenance Release
-* **2.18.43** CI Maintenance Release
-* **2.18.44** CI Maintenance Release
-* **2.18.45** CI Maintenance Release
-* **2.18.46** CI Maintenance Release
-* **2.18.47** CI Maintenance Release
-* **2.18.48** CI Maintenance Release
-* **2.18.49** CI Maintenance Release
-* **2.18.50** CI Maintenance Release
-* **2.18.51** CI Maintenance Release
-* **2.18.52** CI Maintenance Release
-* **2.18.53** CI Maintenance Release
-* **2.18.54** CI Maintenance Release
-* **2.18.55** CI Maintenance Release
-* **2.18.56** CI Maintenance Release
 * **2.18.57** CI Maintenance Release
 * **2.19.0** Update get-publicip to add an alias and provide the output as a pscustomobject.
 * **2.19.1** CI Maintenance Release
 * **2.19.2** Update get-publicip. Add ability to provide ips in a string arrayand added a api rate limit parameter.
 * **2.19.3** CI Maintenance Release
-* **2.19.4** CI Maintenance Release
 * **2.19.5** CI Maintenance Release
 * **2.19.6** Fix get-publicip to not require providing an ip.
 * **2.19.7** CI Maintenance Release
-* **2.19.8** CI Maintenance Release
-* **2.19.9** CI Maintenance Release
-* **2.19.10** CI Maintenance Release
-* **2.19.11** CI Maintenance Release
 * **2.19.12** CI Maintenance Release
 * **2.20.00** Add token parameter to get-publicip to allow exceeding free api limit
 * **2.20.1** CI Maintenance Release
-* **2.20.2** CI Maintenance Release
-* **2.20.3** CI Maintenance Release
-* **2.20.4** CI Maintenance Release
-* **2.20.5** CI Maintenance Release
-* **2.20.6** CI Maintenance Release
-* **2.20.7** CI Maintenance Release
-* **2.20.8** CI Maintenance Release
-* **2.20.9** CI Maintenance Release
-* **2.20.10** CI Maintenance Release
-* **2.20.11** CI Maintenance Release
-* **2.20.12** CI Maintenance Release
-* **2.20.13** CI Maintenance Release
-* **2.20.14** CI Maintenance Release
 * **2.20.15** CI Maintenance Release
 * **2.21.0.0** Add workflow versioning
 * **2.21.0.1** CI Maintenance Release
-* **2.21.0.2** CI Maintenance Release
-* **2.21.0.3** CI Maintenance Release
-* **2.21.0.4** CI Maintenance Release
-* **2.21.0.5** CI Maintenance Release
-* **2.21.0.6** CI Maintenance Release
-* **2.21.0.7** CI Maintenance Release
-* **2.21.0.8** CI Maintenance Release
-* **2.21.0.9** CI Maintenance Release
-* **2.21.0.10** CI Maintenance Release
-* **2.21.0.11** CI Maintenance Release
-* **2.21.0.12** CI Maintenance Release
-* **2.21.0.13** CI Maintenance Release
-* **2.21.0.14** CI Maintenance Release
-* **2.21.0.15** CI Maintenance Release
-* **2.21.0.16** CI Maintenance Release
-* **2.21.0.17** CI Maintenance Release
-* **2.21.0.18** CI Maintenance Release
-* **2.21.0.19** CI Maintenance Release
-* **2.21.0.20** CI Maintenance Release
-* **2.21.0.21** CI Maintenance Release
-* **2.21.0.22** CI Maintenance Release
-* **2.21.0.23** CI Maintenance Release
 * **2.21.0.24** CI Maintenance Release
 * **2.21.1.0** Update get-networking
 * **2.21.1.1** CI Maintenance Release
-* **2.21.1.2** CI Maintenance Release
-* **2.21.1.3** CI Maintenance Release
-* **2.21.1.4** CI Maintenance Release
-* **2.21.1.5** CI Maintenance Release
-* **2.21.1.6** CI Maintenance Release
-* **2.21.1.7** CI Maintenance Release
-* **2.21.1.8** CI Maintenance Release
-* **2.21.1.9** CI Maintenance Release
-* **2.21.1.10** CI Maintenance Release
-* **2.21.1.11** CI Maintenance Release
-* **2.21.1.12** CI Maintenance Release
-* **2.21.1.13** CI Maintenance Release
-* **2.21.1.14** CI Maintenance Release
-* **2.21.1.15** CI Maintenance Release
-* **2.21.1.16** CI Maintenance Release
-* **2.21.1.17** CI Maintenance Release
-* **2.21.1.18** CI Maintenance Release
-* **2.21.1.19** CI Maintenance Release
-* **2.21.1.20** CI Maintenance Release
-* **2.21.1.21** CI Maintenance Release
-* **2.21.1.22** CI Maintenance Release
-* **2.21.1.23** CI Maintenance Release
-* **2.21.1.24** CI Maintenance Release
-* **2.21.1.25** CI Maintenance Release
-* **2.21.1.26** CI Maintenance Release
-* **2.21.1.27** CI Maintenance Release
-* **2.21.1.28** CI Maintenance Release
-* **2.21.1.29** CI Maintenance Release
 * **2.21.1.30** CI Maintenance Release
 * **2.22.0.0** Updated get-publicip with an additional lookup source
 * **2.22.0.1** CI Maintenance Release
-* **2.22.0.2** CI Maintenance Release
-* **2.22.0.3** CI Maintenance Release
-* **2.22.0.4** CI Maintenance Release
-* **2.22.0.5** CI Maintenance Release
 * **2.22.0.6** CI Maintenance Release
