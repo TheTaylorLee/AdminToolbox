@@ -273,3 +273,4 @@
 * **5.3.0.0** Added the function Add-AzRoutesToRouteTable
 * **5.3.0.1** CI Maintenance Release
 * **5.3.0.2** CI Maintenance Release
+* **5.4.0.0** Add functions Add-SiteCollectionAdmin and Get-SharePointSiteMembersByDomain
