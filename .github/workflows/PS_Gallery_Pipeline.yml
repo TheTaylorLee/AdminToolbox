@@ -51,8 +51,7 @@ jobs:
           Import-Module powershellget
 
           #Impoort Modules
-          Get-Module Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
-          Get-Module ImportExcel | import-module -Force -Verbose
+          Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
 
           #Set-PSRepository PSGallery -InstallationPolicy Trusted
           #Install-Module PSEventViewer -Force -Allowclobber
