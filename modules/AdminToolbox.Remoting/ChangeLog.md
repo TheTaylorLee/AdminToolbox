@@ -46,3 +46,4 @@
 * **1.10.1.0** Update openssh package.
 * **1.10.1.1** CI Maintenance Release
 * **1.10.1.7** CI Maintenance Release
+* **1.10.1.8** CI Maintenance Release

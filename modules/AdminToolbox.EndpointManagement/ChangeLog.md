@@ -85,3 +85,4 @@
 * **4.14.0.0** Moved registry functions into the secops module.
 * **4.14.0.1** CI Maintenance Release
 * **4.14.0.7** CI Maintenance Release
+* **4.14.0.8** CI Maintenance Release
