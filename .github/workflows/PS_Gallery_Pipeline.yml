@@ -24,7 +24,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -50,14 +50,20 @@ jobs:
           Install-module powershellget -force -Allowclobber
           Import-Module powershellget
 
-          #Impoort Modules
-          Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
-
+          #Install modules. If psmodulecache action is failing uncomment the below lines.
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module ImportExcel -Force -Allowclobber
-          #Install-Module PSEventViewer -Force -Allowclobber
-          #Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
-          #Install-Module -Name VMware.VimAutomation.Core -Force
+          Install-Module Posh-SSH -force -allowclobber
+          Install-Module PSEventViewer -force -allowclobber
+          Install-Module PSNmap -force -allowclobber
+          Install-Module VMware.Vim -force -allowclobber
+          Install-Module VMware.VimAutomation.Cis.Core -force -allowclobber
+          Install-Module VMware.VimAutomation.Common -force -allowclobber
+          Install-Module VMware.VimAutomation.Core -force -allowclobber
+          Install-Module VMware.VimAutomation.Sdk -force -allowclobber
+
+          # Import Modules
+          Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
 
           #Import and Run Scripts
           $workingdirectory = (Get-Location).path
