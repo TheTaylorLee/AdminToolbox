@@ -53,7 +53,8 @@ jobs:
           #Impoort Modules
           Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
 
-          #Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module ImportExcel -Force -Allowclobber
           #Install-Module PSEventViewer -Force -Allowclobber
           #Install-Module Posh-SSH -Force -Allowclobber -AllowPrerelease
           #Install-Module -Name VMware.VimAutomation.Core -Force
