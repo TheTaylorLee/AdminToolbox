@@ -52,15 +52,15 @@ jobs:
 
           #Install modules. If psmodulecache action is failing uncomment the below lines.
           Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module ImportExcel -Force -Allowclobber
-          Install-Module Posh-SSH -force -allowclobber
-          Install-Module PSEventViewer -force -allowclobber
-          Install-Module PSNmap -force -allowclobber
-          Install-Module VMware.Vim -force -allowclobber
-          Install-Module VMware.VimAutomation.Cis.Core -force -allowclobber
-          Install-Module VMware.VimAutomation.Common -force -allowclobber
-          Install-Module VMware.VimAutomation.Core -force -allowclobber
-          Install-Module VMware.VimAutomation.Sdk -force -allowclobber
+          #Install-Module ImportExcel -Force -Allowclobber
+          #Install-Module Posh-SSH -force -allowclobber
+          #Install-Module PSEventViewer -force -allowclobber
+          #Install-Module PSNmap -force -allowclobber
+          #Install-Module VMware.Vim -force -allowclobber
+          #Install-Module VMware.VimAutomation.Cis.Core -force -allowclobber
+          #Install-Module VMware.VimAutomation.Common -force -allowclobber
+          #Install-Module VMware.VimAutomation.Core -force -allowclobber
+          #Install-Module VMware.VimAutomation.Sdk -force -allowclobber
 
           # Import Modules
           Get-Module ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk | Import-Module
