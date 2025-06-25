@@ -24,6 +24,6 @@ Invoke-PublishModules
 - When done commit the updated manifests to github.
 ```pwsh
 set-location $env:userprofile/downloads/admintoolbox
-git commit
+git commit -am "rel: Manifest update"
 git push
 ```
