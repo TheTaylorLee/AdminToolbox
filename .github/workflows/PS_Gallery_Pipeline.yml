@@ -32,11 +32,11 @@ jobs:
       - uses: actions/checkout@v4
 
       #Cache Modules that are required by publishing modules
-      #- name: Specify PowerShell modules to cache
-      #  id: psmodulecache
-      #  uses: potatoqualitee/psmodulecache@v6.2.1
-      #  with:
-      #    modules-to-cache: ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk
+      - name: Specify PowerShell modules to cache
+        id: psmodulecache
+        uses: potatoqualitee/psmodulecache@v6.2.1
+        with:
+          modules-to-cache: ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk
 
       #Run pwsh functions to publish the module
       - name: Install Required Modules, Update Manifests, Publish updated Modules, and commit manifest changes
