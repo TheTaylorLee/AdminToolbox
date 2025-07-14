@@ -94,10 +94,5 @@
 * **2.21.1.30** CI Maintenance Release
 * **2.22.0.0** Updated get-publicip with an additional lookup source
 * **2.22.0.1** CI Maintenance Release
-* **2.22.0.6** CI Maintenance Release
-* **2.22.0.7** CI Maintenance Release
-* **2.22.0.8** CI Maintenance Release
-* **2.22.0.9** CI Maintenance Release
-* **2.22.0.10** CI Maintenance Release
-* **2.22.0.11** CI Maintenance Release
 * **2.22.0.12** CI Maintenance Release
+* **2.23.0.0** Add function Get-SpeedtestCLI
