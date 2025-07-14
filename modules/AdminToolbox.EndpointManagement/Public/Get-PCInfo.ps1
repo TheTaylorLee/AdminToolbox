@@ -27,7 +27,7 @@ function Get-PCInfo {
     [CmdletBinding()]
 
     #Prompts for Computer Name
-    Param (
+    param (
         [parameter(Mandatory = $false)]$Computer
     )
 
@@ -61,9 +61,9 @@ function Get-PCInfo {
 
     #Display Drives
     Get-CimInstance win32_logicaldisk -Filter "drivetype=3" -computer $computer |
-        Format-Table -Property DeviceID, Volumename, `
-        @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } }, `
-        @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } }, `
+        Format-Table -Property DeviceID, Volumename, VolumeSerialNumber,
+        @{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB) } },
+        @{Name = "FreeGB"; Expression = { [math]::Round($_.Freespace / 1GB, 2) } },
         @{Name = "PercentFree"; Expression = { [math]::Round(($_.Freespace / $_.size) * 100, 2) } }
 
     #Writing to Host
