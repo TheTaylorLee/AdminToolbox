@@ -18,7 +18,6 @@ function Get-EndpointManagement {
     Write-Host "Disable-Firewall           ..Disables windows builtin firewall"                            -ForegroundColor cyan
     Write-Host "Disable-PasswordPeek       ..Disables windows password peek"                               -ForegroundColor cyan
     Write-Host "Disable-ShakeToMinimize    ..Disables Annoying Shake to Minimize"                          -ForegroundColor cyan
-    Write-Host "Disable-Standby            ..Disables Hibernate and Sleep"                                 -ForegroundColor cyan
     Write-Host "Enable-Firewall            ..Enables windows builtin firewall"                             -ForegroundColor cyan
     Write-Host "Enable-RSATFeatures        ..Enables Windows 10 RSAT Features"                             -ForegroundColor cyan
     Write-Host "Get-Applications           ..Gets a list of installed Applications"                        -ForegroundColor cyan
