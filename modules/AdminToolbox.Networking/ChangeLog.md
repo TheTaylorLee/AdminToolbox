@@ -98,3 +98,4 @@
 * **2.23.0.0** Add function Get-SpeedtestCLI
 * **2.23.0.1** CI Maintenance Release
 * **2.23.0.2** CI Maintenance Release
+* **2.23.0.3** CI Maintenance Release
