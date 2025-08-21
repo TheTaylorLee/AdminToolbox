@@ -47,7 +47,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 #>
 
-Function Get-LocalLogOnHistory {
+function Get-LocalLogOnHistory {
 
     [CmdletBinding()]
     param (
@@ -109,11 +109,11 @@ Function Get-LocalLogOnHistory {
     try {
         $events = Get-WinEvent -FilterHashtable $filter -ErrorAction Stop -ComputerName $ComputerName
 
-        foreach ($event in $events) {
+        foreach ($ev in $events) {
             [PSCustomObject]@{
-                TimeStamp    = $event.TimeCreated
+                TimeStamp    = $ev.TimeCreated
                 EventType    = $(
-                    if ($event.Id -eq '4624') {
+                    if ($ev.Id -eq '4624') {
                         'LogOn'
                     }
                     else {
@@ -124,23 +124,23 @@ Function Get-LocalLogOnHistory {
                     if ($Username) {
                         $Username
                     }
-                    elseif ($event.Id -eq '4624') {
-                        $event.Properties[5].Value
+                    elseif ($ev.Id -eq '4624') {
+                        $ev.Properties[5].Value
                     }
                     else {
-                        $event.Properties[1].Value
+                        $ev.Properties[1].Value
                     }
                 )
                 SourceIP     = $(
-                    if ($event.Id -eq '4624') {
-                        $event.Properties[18].Value
+                    if ($ev.Id -eq '4624') {
+                        $ev.Properties[18].Value
                     }
                     else {
                         $null
                     }
                 )
                 ComputerName = $ComputerName
-                LogOnType    = $logOnTypeTable["$($event.Properties[8].value)"]
+                LogOnType    = $logOnTypeTable["$($ev.Properties[8].value)"]
             }
         }
     }
