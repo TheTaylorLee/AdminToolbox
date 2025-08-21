@@ -21,11 +21,10 @@ function Get-EndpointManagement {
     Write-Host "Enable-Firewall            ..Enables windows builtin firewall"                             -ForegroundColor cyan
     Write-Host "Enable-RSATFeatures        ..Enables Windows 10 RSAT Features"                             -ForegroundColor cyan
     Write-Host "Get-Applications           ..Gets a list of installed Applications"                        -ForegroundColor cyan
-    Write-Host "Get-LocalLogonHistory      ..Get logon/logoff events for an endpoint"                      -ForegroundColor cyan
     Write-Host "Get-Management             ..Gets Computer Management for another endpoint"                -ForegroundColor cyan
     Write-Host "Get-MonitorSizes           ..Gets connected monitors"                                      -ForegroundColor cyan
     Write-Host "Get-PCInfo                 ..Gets info on targeted PC"                                     -ForegroundColor cyan
-    Write-Host "Get-PowerShell7            ..Gets and installs Powershell 7"                               -ForegroundColor cyan
+    Write-Host "Get-WindowsProfiles        ..Gets a list of windows profiles from specified endpoints"      -ForegroundColor cyan
     Write-Host "Join-Domain                ..Joins Endpoint to a Domain"                                   -ForegroundColor cyan
     Write-Host "Remove-Shortcuts           ..Removes Desktop Shortcuts"                                    -ForegroundColor cyan
     Write-Host "Remove-StoreApps           ..Remove an array of MS store apps"                             -ForegroundColor cyan
@@ -45,7 +44,7 @@ function Get-EndpointManagement {
     Write-Host " "
 
     Write-Host "Reporting Functions"                                                                        -ForegroundColor green
+    Write-Host "Get-LocalLogonHistory      ..Get logon/logoff events for an endpoint"                      -ForegroundColor cyan
     Write-Host "Get-RebootEvents           ..Gets Server reboot history"                                    -ForegroundColor cyan
     Write-Host "Get-RemoteDesktopLogins    ..Gets Remote Desktop Access History"                            -ForegroundColor cyan
-
 }

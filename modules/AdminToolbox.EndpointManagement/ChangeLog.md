@@ -99,3 +99,4 @@
 * **4.15.0.3** CI Maintenance Release
 * **4.15.0.4** CI Maintenance Release
 * **4.15.0.5** CI Maintenance Release
+* **4.15.1.0** Add get-windowsprofiles function and removed a couple legacy functions.
