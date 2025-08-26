@@ -102,3 +102,4 @@
 * **4.15.1.0** Add get-windowsprofiles function and removed a couple legacy functions.
 * **4.15.1.1** Replace usage of an automatic variable with a unique variable
 * **4.15.1.2** CI Maintenance Release
+* **4.15.1.3** CI Maintenance Release

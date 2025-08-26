@@ -60,3 +60,4 @@
 * **1.10.1.19** CI Maintenance Release
 * **1.10.1.20** CI Maintenance Release
 * **1.10.1.21** CI Maintenance Release
+* **1.10.1.22** CI Maintenance Release
