@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.SecOpsManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.5.0.23'
+ModuleVersion = '1.5.0.24'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'a5b27de9-8273-4333-b75d-4a5fdd804e33'
+GUID = '13d9a676-8876-4b4d-a71f-2c087cfab913'
 
 # Author of this module
 Author = 'Taylor Lee'
