@@ -25,7 +25,13 @@ function Disable-SelfServicePurchase {
     }
     catch {
         $test = $null
-        Connect-MSCommerce
+        if ($host.version -gt 5.1) {
+            Import-Module MSCommerce -UseWindowsPowerShell -Force
+            Connect-MSCommerce
+        }
+        else {
+            Connect-MSCommerce
+        }
     }
 
     $products = Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase | Out-GridView -PassThru -Title "Select Products to Disable Self-Service Purchase"
