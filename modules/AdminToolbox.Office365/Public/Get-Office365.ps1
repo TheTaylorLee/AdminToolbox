@@ -29,6 +29,10 @@ function Get-Office365 {
     Write-Host "Unblock-Quarantine                ..Unblock/release quarantine messages multiple at a time"             -ForegroundColor cyan
     Write-Host " "
 
+    Write-Host "MSCommerce Module Functions"                                                                            -ForegroundColor green
+    Write-Host "Disable-SelfServicePurchase       ..Disables self service purchase licenses"                            -ForegroundColor cyan
+    Write-Host " "
+
     Write-Host "Sharepoint pnp Module Functions"                                                                        -ForegroundColor green
     Write-Host "Add-SiteCollectionAdmin           ..Adds a user as a Site Collection Admin to all SharePoint sites"     -ForegroundColor cyan
     Write-Host "Get-SharePointSiteMembersByDomain ..Gets all SharePoint site members filtered by email domain"          -ForegroundColor cyan
