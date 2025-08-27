@@ -30,3 +30,4 @@
 * **1.5.0.21** CI Maintenance Release
 * **1.5.0.22** CI Maintenance Release
 * **1.5.0.23** CI Maintenance Release
+* **1.5.0.24** CI Maintenance Release
