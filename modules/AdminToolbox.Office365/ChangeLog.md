@@ -98,3 +98,4 @@
 * **5.4.0.15** CI Maintenance Release
 * **5.4.1.0** Add MSCommerce subscription management.
 * **5.4.1.1** CI Maintenance Release
+* **5.4.1.2** Update Disable-SelfServicePurchase to handle module import based on powershell version.
