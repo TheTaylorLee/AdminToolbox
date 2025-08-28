@@ -27,7 +27,7 @@ The AdminToolbox Powershell Module has multiple dependency modules that are inte
     </a>
 </p>
 
-##### [2,130,671 downloads as of 2025-08-26](https://www.powershellgallery.com/profiles/TaylorLee)
+##### [2,131,791 downloads as of 2025-08-28](https://www.powershellgallery.com/profiles/TaylorLee)
 
 ### To get started
 
