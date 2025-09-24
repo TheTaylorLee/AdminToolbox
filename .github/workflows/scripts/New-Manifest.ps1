@@ -184,7 +184,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.FileManagement"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-FileManagement', 'Find-ComputersFiles', 'Get-FileOwner', 'Get-FolderSize', 'Invoke-Robocopy', 'Remove-All', 'Remove-DisabledADProfiles', 'Remove-OlderThan', 'Get-ShareReport', 'Get-FolderName', 'Get-FileName', 'Use-WSLnano', 'Get-EmptyDirectory', 'Get-LastUsedDirectory'
+            FunctionsToExport    = 'Get-FileManagement', 'Find-ComputersFiles', 'Get-FileOwner', 'Get-FolderSize', 'Invoke-Robocopy', 'Remove-All', 'Remove-DisabledADProfiles', 'Remove-OlderThan', 'Get-ShareReport', 'Get-FolderName', 'Get-FileName', 'Use-WSLnano', 'Get-EmptyDirectory', 'Get-LastUsedDirectory', 'Find-MovedFolder', 'Set-BackupPrivilege'
             Path                 = "$savepath\AdminToolbox.FileManagement.psd1"
             Author               = "Taylor Lee"
             Description          = "File Management Functions"

@@ -45,25 +45,5 @@
 * **1.16.166** CI Maintenance Release
 * **1.17.0.0** Add workflow versioning
 * **1.17.0.1** CI Maintenance Release
-* **1.17.0.61** CI Maintenance Release
-* **1.17.0.62** CI Maintenance Release
-* **1.17.0.63** CI Maintenance Release
-* **1.17.0.64** CI Maintenance Release
-* **1.17.0.65** CI Maintenance Release
-* **1.17.0.66** CI Maintenance Release
-* **1.17.0.67** CI Maintenance Release
-* **1.17.0.68** CI Maintenance Release
-* **1.17.0.69** CI Maintenance Release
-* **1.17.0.70** CI Maintenance Release
-* **1.17.0.71** CI Maintenance Release
-* **1.17.0.72** CI Maintenance Release
-* **1.17.0.73** CI Maintenance Release
-* **1.17.0.74** CI Maintenance Release
-* **1.17.0.75** CI Maintenance Release
-* **1.17.0.76** CI Maintenance Release
-* **1.17.0.77** CI Maintenance Release
-* **1.17.0.78** CI Maintenance Release
-* **1.17.0.79** CI Maintenance Release
-* **1.17.0.80** CI Maintenance Release
-* **1.17.0.81** CI Maintenance Release
 * **1.17.0.82** CI Maintenance Release
+* **1.18.0.0** Add Find-MovedFolder and Set-BackupPrivilege functions
