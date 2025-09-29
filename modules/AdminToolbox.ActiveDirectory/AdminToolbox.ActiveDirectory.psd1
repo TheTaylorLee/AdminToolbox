@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.ActiveDirectoryManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.12.0.46'
+ModuleVersion = '1.12.0.47'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '5402619f-56fc-4a05-8c12-46ad9b05449a'
+GUID = '76f95f22-8ef7-43bd-a9f3-b24bc01f4092'
 
 # Author of this module
 Author = 'Taylor Lee'
