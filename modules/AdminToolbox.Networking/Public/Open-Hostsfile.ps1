@@ -13,7 +13,7 @@
 
 function Open-HostsFile {
     [CmdletBinding()]
-    [Alias('hostfile')]
+    [Alias('hostfile', 'hostsfile')]
     param()
 
     notepad c:/windows/System32/drivers/etc/hosts
