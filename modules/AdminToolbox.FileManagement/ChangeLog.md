@@ -49,3 +49,4 @@
 * **1.18.0.0** Add Find-MovedFolder and Set-BackupPrivilege functions
 * **1.18.0.1** CI Maintenance Release
 * **1.18.0.2** CI Maintenance Release
+* **1.18.0.3** CI Maintenance Release
