@@ -5,6 +5,7 @@ function Get-Networking {
     Write-Host "DNS Management"                                                                                      -ForegroundColor green
     Write-Host "Clear-DNSClientCache       ..Clears the DNS Cache"                                                   -ForegroundColor cyan
     Write-Host "Get-DNSClientCache         ..Gets the DNS Cache"                                                     -ForegroundColor cyan
+    Write-Host "Open-HostsFile             ..Opens the Windows hosts file in Notepad"                                -ForegroundColor cyan
     Write-Host "Resolve-DNSName            ..Resolves DNS and filter for record type"                                -ForegroundColor cyan
     Write-Host " "
 

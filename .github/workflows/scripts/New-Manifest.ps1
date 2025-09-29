@@ -261,7 +261,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.Networking"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Invoke-Ethr', 'Invoke-PSIPcalc', 'Get-NICConfig', "Get-SpeedTestCLI"
+            FunctionsToExport    = 'Get-Networking', 'Clear-Arp', 'Get-NetworkStatistics', 'Get-PublicIP', 'Get-MacVendor', 'Invoke-NetworkScan', 'Reset-NetworkAdapter', 'Reset-NetworkStack', 'Invoke-Iperf', 'Start-SpeedTest', 'Get-Whois', 'Invoke-Monitor', 'Show-IPInfo', 'Invoke-Ethr', 'Invoke-PSIPcalc', 'Get-NICConfig', "Get-SpeedTestCLI", "Open-HostsFile"
             Path                 = "$savepath\AdminToolbox.Networking.psd1"
             Author               = "Taylor Lee"
             Description          = "Network Troubleshooting Functions"
