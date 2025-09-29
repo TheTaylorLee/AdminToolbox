@@ -99,3 +99,4 @@
 * **2.23.0.1** CI Maintenance Release
 * **2.23.0.16** CI Maintenance Release
 * **2.24.0.0** Add Open-Hostsfile
+* **2.24.0.1** CI Maintenance Release
