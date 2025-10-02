@@ -16,7 +16,7 @@
 function Convert-MailboxToShared {
 
     [CmdletBinding()]
-    Param (
+    param (
     )
 
     begin {
@@ -86,10 +86,9 @@ function Convert-MailboxToShared {
         Write-Host "
 Prerequisites:
 1. This Function is used for an Active Directory Synced account that is being disabled and the mailbox converted to an Exchange Online Shared Mailbox.
-2. This Function must be run from the server that hosts Azure AD Connect and the on-premise Account must be synced to an Exchange Online Mailbox.
-3. The Exchange online Module must be imported into the console before this function is run.
+2. This Function must be run from the server that hosts Azure AD Connect and the on-premise Account must be synced to an Exchange Online Mailbox, or prerequisite 4 previously met.
+3. The Exchange online Module must be imported into the console before this function is run. Connect-ExchangeOnline
 4. The account associated with the Exchange Online Mailbox must be disabled and moved to an OU that is not Azure AD Synced
-5. Powershell version 5 is required
         " -ForegroundColor Green
 
         Write-Host " "
