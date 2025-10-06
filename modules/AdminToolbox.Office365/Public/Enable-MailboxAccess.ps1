@@ -22,15 +22,15 @@
     https://github.com/TheTaylorLee/AdminToolbox
 #>
 
-Function Enable-MailboxAccess {
+function Enable-MailboxAccess {
 
     [CmdletBinding()]
-    Param (
+    param (
         [Parameter(Mandatory = $true)]$MailboxIdentity,
         [Parameter(Mandatory = $true)]$ReaderIdentity
     )
 
-    add-mailboxpermission -Identity $MailboxIdentity -user $ReaderIdentity -AccessRights fullaccess -Confirm:$false -verbose
+    add-mailboxpermission -Identity $MailboxIdentity -user $ReaderIdentity -AccessRights fullaccess -Confirm:$false
 
     Write-Host " "
 
