@@ -8,9 +8,9 @@ function Get-SecOps {
 
     Write-Host "Investigation Functions"                                                                                       -ForegroundColor green
     Write-Host "Convert-Base64           ..Converts a base64 encoded string to plain text or vice versa and Write-Output"      -ForegroundColor cyan
-    Write-Host "Dismount-ProfileRegistry ..Dismounts local users registry hive"                                              -ForegroundColor cyan
+    Write-Host "Dismount-ProfileRegistry ..Dismounts local users registry hive"                                                -ForegroundColor cyan
     Write-Host "Get-HiddenServices       ..Retrieves and displays information about all hidden services on the system"         -ForegroundColor cyan
-    Write-Host "Mount-ProfileRegistry    ..Mounts local users registry hive"                                                 -ForegroundColor cyan
+    Write-Host "Mount-ProfileRegistry    ..Mounts local users registry hive"                                                   -ForegroundColor cyan
     Write-Host " "
 
     Write-Host "Policy Functions"                                                                                              -ForegroundColor green
