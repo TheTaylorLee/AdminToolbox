@@ -105,3 +105,4 @@
 * **2.24.0.4** CI Maintenance Release
 * **2.24.0.5** CI Maintenance Release
 * **2.24.0.6** CI Maintenance Release
+* **2.24.0.7** CI Maintenance Release
