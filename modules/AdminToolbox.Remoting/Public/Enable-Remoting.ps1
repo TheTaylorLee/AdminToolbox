@@ -19,6 +19,9 @@
 
     This will enable remoting and then prompt for credentials
 
+    .Note
+    Requires PSExec from Sysinternals Suite
+
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 #>
@@ -27,18 +30,23 @@ function Enable-Remoting {
 
     [CmdletBinding()]
 
-    Param (
+    param (
         [Parameter(Position = 0, Mandatory = $true)]$Computer,
         [Parameter(Position = 1, Mandatory = $false)]$Username,
         [Parameter(Position = 2, Mandatory = $false)][SecureString]$Password
     )
 
-    #Enabling PSRemoting
-    PsExec.exe \\$Computer -s winrm.cmd quickconfig -q
-    PsExec.exe \\$Computer -u $Username -p $Password powershell.exe cmd /c "enable-psremoting -force"
+    if (Get-Command psexec.exe -ErrorAction SilentlyContinue) {
+        #Enabling PSRemoting
+        PsExec.exe \\$Computer -s winrm.cmd quickconfig -q
+        PsExec.exe \\$Computer -u $Username -p $Password powershell.exe cmd /c "enable-psremoting -force"
 
 
-    #Testing that PSRemoting is now enabled.
-    Write-Host "If an error is presented after this point PSRemoting wasn't enabled" -ForegroundColor Yellow
-    Test-WSMan $Computer
+        #Testing that PSRemoting is now enabled.
+        Write-Host "If an error is presented after this point PSRemoting wasn't enabled" -ForegroundColor Yellow
+        Test-WSMan $Computer
+    }
+    else {
+        Write-Error "PSExec.exe was not found in your path. Please download PSExec from the Sysinternals Suite and add it to your Environment path."
+    }
 }
