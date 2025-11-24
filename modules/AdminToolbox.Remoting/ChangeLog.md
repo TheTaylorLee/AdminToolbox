@@ -48,3 +48,4 @@
 * **1.10.1.38** CI Maintenance Release
 * **1.10.2.0** Remove PSExec binary and instead require it be downloaded to path by the module user.
 * **1.10.2.1** CI Maintenance Release
+* **1.10.2.2** CI Maintenance Release

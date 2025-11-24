@@ -50,3 +50,4 @@
 * **1.18.0.1** CI Maintenance Release
 * **1.18.0.11** CI Maintenance Release
 * **1.19.0.0** Add Get-LastUsedItem function
+* **1.19.0.1** CI Maintenance Release
