@@ -25,6 +25,7 @@ function Get-LastUsedItem {
     foreach ($item in $items) {
         [pscustomobject]@{
             Item           = $item.Name
+            DirectoryName  = $item.DirectoryName
             FullName       = $item.FullName
             PSIsContainer  = $item.PSIsContainer
             LastWriteTime  = $item.LastWriteTime
