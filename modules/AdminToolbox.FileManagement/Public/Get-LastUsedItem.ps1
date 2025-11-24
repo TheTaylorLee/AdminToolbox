@@ -6,7 +6,7 @@
     The parent directory path to recurse.
 
     .EXAMPLE
-    Get-LastUsedItem -Path "C:\Temp" | Export-Excel .\lastused.xlsx
+    Get-LastUsedItem -Path "C:\Temp" | Export-csv .\lastused.csv -NoTypeInformation -append
 
     .Notes
     Returns a list of custom objects with item name, full path, container status, and timestamps.
@@ -20,17 +20,6 @@ function Get-LastUsedItem {
         [string]$Path
     )
 
-    $items = Get-ChildItem -Path $Path -Recurse -Force
+    Get-ChildItem -Path $Path -Recurse -Force | Select-Object name, directoryname, fullname, psiscontainer, lastwritetime, creationtime, lastaccesstime
 
-    foreach ($item in $items) {
-        [pscustomobject]@{
-            Item           = $item.Name
-            DirectoryName  = $item.DirectoryName
-            FullName       = $item.FullName
-            PSIsContainer  = $item.PSIsContainer
-            LastWriteTime  = $item.LastWriteTime
-            CreationTime   = $item.CreationTime
-            LastAccessTime = $item.LastAccessTime
-        }
-    }
 }
