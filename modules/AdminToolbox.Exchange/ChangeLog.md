@@ -75,3 +75,4 @@
 * **1.10.0.92** CI Maintenance Release
 * **1.10.0.93** CI Maintenance Release
 * **1.10.0.94** CI Maintenance Release
+* **1.10.0.95** CI Maintenance Release
