@@ -53,3 +53,4 @@
 * **1.19.0.1** CI Maintenance Release
 * **1.19.0.2** Update Get-LastUsedItem to stream output instead of loading a variable, so it uses less memory.
 * **1.19.0.3** CI Maintenance Release
+* **1.19.0.4** CI Maintenance Release
