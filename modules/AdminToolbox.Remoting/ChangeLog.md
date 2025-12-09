@@ -51,3 +51,4 @@
 * **1.10.2.2** CI Maintenance Release
 * **1.10.2.3** CI Maintenance Release
 * **1.10.2.4** CI Maintenance Release
+* **1.10.2.5** CI Maintenance Release
