@@ -65,3 +65,4 @@
 * **1.5.0.93** CI Maintenance Release
 * **1.5.0.94** CI Maintenance Release
 * **1.5.0.95** CI Maintenance Release
+* **1.5.0.96** CI Maintenance Release
