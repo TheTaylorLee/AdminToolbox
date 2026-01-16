@@ -37,7 +37,7 @@ function Get-PublicIP {
 
     [CmdletBinding(DefaultParameterSetName = 'ipquery')]
     [Alias('p')]
-    Param (
+    param (
         [Parameter(Mandatory = $false, Position = 0, ParameterSetName = 'ipquery')]
         [Parameter(Mandatory = $false, Position = 0, ParameterSetName = 'ipinfo')]
         [string[]]$IP,
@@ -45,7 +45,7 @@ function Get-PublicIP {
         [Parameter(Mandatory = $false, ParameterSetName = 'ipquery')]
         [Parameter(Mandatory = $false, ParameterSetName = 'ipinfo')]
         [ValidateSet('ipinfo', 'ipquery')]
-        [string]$source = 'ipquery',
+        [string]$source = 'ipinfo',
 
         [Parameter(Mandatory = $false, ParameterSetName = 'ipinfo')]
         [int]$Sleep,
@@ -55,7 +55,7 @@ function Get-PublicIP {
     )
 
     if ($null -eq $source) {
-        $source = 'ipquery'
+        $source = 'ipinfo'
     }
 
     switch ($source) {
@@ -75,7 +75,7 @@ function Get-PublicIP {
                 }
             }
 
-            ForEach ($address in $ip) {
+            foreach ($address in $ip) {
                 if ($Token) {
                     $concate = $address + "?token=$Token"
                 }
