@@ -100,30 +100,5 @@
 * **5.4.1.1** CI Maintenance Release
 * **5.4.1.2** Update Disable-SelfServicePurchase to handle module import based on powershell version.
 * **5.4.1.3** CI Maintenance Release
-* **5.4.1.4** CI Maintenance Release
-* **5.4.1.5** CI Maintenance Release
-* **5.4.1.6** CI Maintenance Release
-* **5.4.1.7** CI Maintenance Release
-* **5.4.1.8** CI Maintenance Release
-* **5.4.1.9** CI Maintenance Release
-* **5.4.1.10** CI Maintenance Release
-* **5.4.1.11** CI Maintenance Release
-* **5.4.1.12** CI Maintenance Release
-* **5.4.1.13** CI Maintenance Release
-* **5.4.1.14** CI Maintenance Release
-* **5.4.1.15** CI Maintenance Release
-* **5.4.1.16** CI Maintenance Release
-* **5.4.1.17** CI Maintenance Release
-* **5.4.1.18** CI Maintenance Release
-* **5.4.1.19** CI Maintenance Release
-* **5.4.1.20** CI Maintenance Release
-* **5.4.1.21** CI Maintenance Release
-* **5.4.1.22** CI Maintenance Release
-* **5.4.1.23** CI Maintenance Release
-* **5.4.1.24** CI Maintenance Release
-* **5.4.1.25** CI Maintenance Release
-* **5.4.1.26** CI Maintenance Release
-* **5.4.1.27** CI Maintenance Release
-* **5.4.1.28** CI Maintenance Release
-* **5.4.1.29** CI Maintenance Release
 * **5.4.1.30** CI Maintenance Release
+* **5.5.0.0** Add Get-FormattedDate

@@ -53,13 +53,5 @@
 * **1.19.0.1** CI Maintenance Release
 * **1.19.0.2** Update Get-LastUsedItem to stream output instead of loading a variable, so it uses less memory.
 * **1.19.0.3** CI Maintenance Release
-* **1.19.0.4** CI Maintenance Release
-* **1.19.0.5** CI Maintenance Release
-* **1.19.0.6** CI Maintenance Release
-* **1.19.0.7** CI Maintenance Release
-* **1.19.0.8** CI Maintenance Release
-* **1.19.0.9** CI Maintenance Release
-* **1.19.0.10** CI Maintenance Release
-* **1.19.0.11** CI Maintenance Release
-* **1.19.0.12** CI Maintenance Release
 * **1.19.0.13** CI Maintenance Release
+* **1.20.0.0** Add Get-FormattedDate

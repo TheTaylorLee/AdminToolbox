@@ -48,15 +48,5 @@
 * **1.10.1.38** CI Maintenance Release
 * **1.10.2.0** Remove PSExec binary and instead require it be downloaded to path by the module user.
 * **1.10.2.1** CI Maintenance Release
-* **1.10.2.2** CI Maintenance Release
-* **1.10.2.3** CI Maintenance Release
-* **1.10.2.4** CI Maintenance Release
-* **1.10.2.5** CI Maintenance Release
-* **1.10.2.6** CI Maintenance Release
-* **1.10.2.7** CI Maintenance Release
-* **1.10.2.8** CI Maintenance Release
-* **1.10.2.9** CI Maintenance Release
-* **1.10.2.10** CI Maintenance Release
-* **1.10.2.11** CI Maintenance Release
-* **1.10.2.12** CI Maintenance Release
 * **1.10.2.13** CI Maintenance Release
+* **1.11.0.0** Add Get-FormattedDate

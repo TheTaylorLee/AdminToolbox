@@ -103,5 +103,5 @@
 * **2.24.0.18** CI Maintenance Release
 * **2.24.1.0** Get-Publicip ipquery.io api has been down for a month with no update if it will return. Making ipinfo the primary source again and adding batch queries.
 * **2.24.1.1** CI Maintenance Release
-* **2.24.1.2** CI Maintenance Release
 * **2.24.1.3** CI Maintenance Release
+* **2.25.0.0** Add Get-FormattedDate

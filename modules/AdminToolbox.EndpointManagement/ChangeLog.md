@@ -102,33 +102,5 @@
 * **4.15.1.0** Add get-windowsprofiles function and removed a couple legacy functions.
 * **4.15.1.1** Replace usage of an automatic variable with a unique variable
 * **4.15.1.2** CI Maintenance Release
-* **4.15.1.3** CI Maintenance Release
-* **4.15.1.4** CI Maintenance Release
-* **4.15.1.5** CI Maintenance Release
-* **4.15.1.6** CI Maintenance Release
-* **4.15.1.7** CI Maintenance Release
-* **4.15.1.8** CI Maintenance Release
-* **4.15.1.9** CI Maintenance Release
-* **4.15.1.10** CI Maintenance Release
-* **4.15.1.11** CI Maintenance Release
-* **4.15.1.12** CI Maintenance Release
-* **4.15.1.13** CI Maintenance Release
-* **4.15.1.14** CI Maintenance Release
-* **4.15.1.15** CI Maintenance Release
-* **4.15.1.16** CI Maintenance Release
-* **4.15.1.17** CI Maintenance Release
-* **4.15.1.18** CI Maintenance Release
-* **4.15.1.19** CI Maintenance Release
-* **4.15.1.20** CI Maintenance Release
-* **4.15.1.21** CI Maintenance Release
-* **4.15.1.22** CI Maintenance Release
-* **4.15.1.23** CI Maintenance Release
-* **4.15.1.24** CI Maintenance Release
-* **4.15.1.25** CI Maintenance Release
-* **4.15.1.26** CI Maintenance Release
-* **4.15.1.27** CI Maintenance Release
-* **4.15.1.28** CI Maintenance Release
-* **4.15.1.29** CI Maintenance Release
-* **4.15.1.30** CI Maintenance Release
-* **4.15.1.31** CI Maintenance Release
 * **4.15.1.32** CI Maintenance Release
+* **4.16.0.0** Add Get-FormattedDate

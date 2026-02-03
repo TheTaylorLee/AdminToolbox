@@ -9,6 +9,7 @@ function Get-Info {
     Write-Host "Admintoolbox Functions..."                                                                  -ForegroundColor green
     Write-Host "
 Get-All                           ..Gets all module Functions
+Get-FormattedDate                 ..Gets the current date and time with quick formatting options. Avoid recalling date formats.
 Get-Full                          ..Gets full help for selected functions
 Get-ModuleAliases                 ..Gets aliases for AdminToolbox modules
 Invoke-Show                       ..Invokes a grid view for selecting a function for use with show-command
