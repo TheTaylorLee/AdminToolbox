@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.MSGraphManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.5.0.102'
+ModuleVersion = '1.6.0.1'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = '8c8e2e47-33e3-4e6a-942d-b5fea823359b'
+GUID = '7eb69a29-8ca3-41cd-8179-c5e5ae365cd9'
 
 # Author of this module
 Author = 'Taylor Lee'

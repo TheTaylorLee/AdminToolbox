@@ -12,13 +12,13 @@
 RootModule = 'AdminToolbox.FortiWizardManifest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.22.0.76'
+ModuleVersion = '2.23.0.1'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'fa265088-07ad-41b3-88c0-8685759ef219'
+GUID = '6128be15-3c53-4b78-8821-2d02c6c858b8'
 
 # Author of this module
 Author = 'Taylor Lee'
@@ -51,7 +51,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.24.1.3'; }, 
+RequiredModules = @(@{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = '2.25.0.1'; }, 
                @{ModuleName = 'ImportExcel'; ModuleVersion = '7.0.1'; }, 
                @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0'; })
 
