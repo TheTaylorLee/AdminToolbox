@@ -21,6 +21,9 @@
     .EXAMPLE
     Get-FormattedDate -format 'UTC'
 
+    .EXAMPLE
+    get-process | export-csv .\processes_$(fdate).csv -NoTypeInformation
+
     .Notes
     This function formats the current date and time based on the specified format.
 
