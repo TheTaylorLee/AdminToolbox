@@ -30,3 +30,4 @@
 * **1.5.0.102** CI Maintenance Release
 * **1.6.0.0** Add Get-FormattedDate
 * **1.6.0.1** CI Maintenance Release
+* **1.6.0.2** CI Maintenance Release
