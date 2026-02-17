@@ -200,3 +200,4 @@
 * **12.1.0.0** Add Get-FormattedDate
 * **12.1.0.1** CI Maintenance Release
 * **12.1.0.2** CI Maintenance Release
+* **12.1.0.3** CI Maintenance Release
