@@ -20,6 +20,6 @@ function Get-LastUsedItem {
         [string[]]$Path
     )
 
-    Get-ChildItem -Path $Path -Recurse -Force | Select-Object name, directoryname, fullname, psiscontainer, lastwritetime, creationtime, lastaccesstime, datemodified, datecreated
+    Get-ChildItem -Path $Path -Recurse -Force | Select-Object name, directoryname, fullname, psiscontainer, lastwritetime, creationtime, lastaccesstime
 
 }
