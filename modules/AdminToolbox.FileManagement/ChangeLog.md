@@ -59,3 +59,4 @@
 * **1.20.0.3** CI Maintenance Release
 * **1.20.1.0** Update get-lastuseditem to include additional attributes and accept string arrays for the path.
 * **1.20.1.1** CI Maintenance Release
+* **1.20.1.2** CI Maintenance Release
