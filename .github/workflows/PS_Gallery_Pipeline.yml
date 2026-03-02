@@ -38,6 +38,11 @@ jobs:
         with:
           modules-to-cache: ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk
 
+      # Import .net version required for certain modules
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
       #Run pwsh functions to publish the module
       - name: Install Required Modules, Update Manifests, Publish updated Modules, and commit manifest changes
         env:
@@ -45,6 +50,11 @@ jobs:
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         shell: pwsh
         run: |
+          # Print Environment
+          $PSVersionTable
+          dotnet --info
+          [System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription
+
           # Attempt to resolve future nuget issues observed on 2023/03/15
           Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
           Install-module powershellget -force -Allowclobber
