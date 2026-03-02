@@ -43,12 +43,12 @@ jobs:
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        shell: powershell
+        shell: powershell # switched from pwsh to avoid .net issues in workflow.
         run: |
-          # Print Environment
-          $PSVersionTable
-          dotnet --info
-          [System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription
+          # Print Environment uncomment when debugging
+          #$PSVersionTable
+          #dotnet --info
+          #[System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription
 
           # Attempt to resolve future nuget issues observed on 2023/03/15
           Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
