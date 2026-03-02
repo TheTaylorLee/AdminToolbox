@@ -38,17 +38,12 @@ jobs:
         with:
           modules-to-cache: ImportExcel, Posh-SSH, PSEventViewer, PSNmap, VMware.Vim, VMware.VimAutomation.Cis.Core, VMware.VimAutomation.Common, VMware.VimAutomation.Core, VMware.VimAutomation.Sdk
 
-      # Import .net version required for certain modules
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "9.0.9"
       #Run pwsh functions to publish the module
       - name: Install Required Modules, Update Manifests, Publish updated Modules, and commit manifest changes
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_KEY }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        shell: pwsh
+        shell: powershell
         run: |
           # Print Environment
           $PSVersionTable
