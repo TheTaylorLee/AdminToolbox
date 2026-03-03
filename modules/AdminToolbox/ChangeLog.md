@@ -204,3 +204,4 @@
 * **12.1.0.4** CI Maintenance Release
 * **12.1.0.5** CI Maintenance Release
 * **12.1.0.6** CI Maintenance Release
+* **12.1.0.7** CI Maintenance Release
