@@ -183,7 +183,7 @@ Prerequisites:
 
                     #Get GUID of old inactive mailbox:
                     Write-Host "Select the disconnected/disabled Mailbox and Hit Ok" -ForegroundColor Yellow
-                    $DisconnectedMailbox = get-exomailbox -softdeletedmailbox -inactivemailbox | Out-GridView -PassThru -Title "Select the disconnected/disabled Mailbox and Hit Ok"
+                    $DisconnectedMailbox = get-exomailbox -softdeletedmailbox | Out-GridView -PassThru -Title "Select the disconnected/disabled Mailbox and Hit Ok"
 
                     # set variables
                     $TargetMailbox = $SharedMailbox.guid.guid
