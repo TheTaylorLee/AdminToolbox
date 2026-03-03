@@ -129,7 +129,7 @@ Prerequisites:
                         $selection2 = Read-Host "Please make a selection"
                         switch ($selection2) {
                             '1' {
-                                get-exomailbox -softdeletedmailbox -inactivemailbox |
+                                get-exomailbox -softdeletedmailbox |
                                     Select-Object DisplayName, IsSoftDeletedByRemove, IsSoftDeletedByDisable, IsInactiveMailbox |
                                     Sort-Object DisplayName | Format-Table
                             }
