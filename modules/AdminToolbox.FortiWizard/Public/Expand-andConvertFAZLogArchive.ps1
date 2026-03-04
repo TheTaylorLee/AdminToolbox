@@ -4,7 +4,7 @@
 
     .DESCRIPTION
     This function processes FortiAnalyzer log archive files (*.gz) in the current directory.
-    It unzips each file and converts the content to CSV format using the Convert-LogToCSV function.
+    It unzips each file and converts the content to CSV format using the Convert-FAZLogToCSV function.
 
     .PARAMETER namelike
     Specifies the file name pattern to search for. Default value is 'FSFADOM*.gz'.
