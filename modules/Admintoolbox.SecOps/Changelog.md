@@ -22,3 +22,4 @@
 * **1.6.0.5** CI Maintenance Release
 * **1.6.0.6** CI Maintenance Release
 * **1.6.0.7** CI Maintenance Release
+* **1.6.0.8** CI Maintenance Release

@@ -106,3 +106,4 @@
 * **5.5.0.6** CI Maintenance Release
 * **5.5.1.0** Fix get deleted mailboxes for convert-mailboxtoshared function
 * **5.5.1.1** CI Maintenance Release
+* **5.5.1.2** CI Maintenance Release
