@@ -83,7 +83,7 @@ function New-Manifest {
         $savepath = "$workingdirectory\modules\AdminToolbox.ActiveDirectory"
         $Params = @{
             CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Copy-GroupMembersToGroup', 'Get-ActiveDirectory', 'Get-ADInfo', 'Get-DCLockoutEvents', 'Get-EndpointReport', 'Get-LockedAccounts', 'Get-PasswordExpired', 'Get-ReplicationStatus', 'Get-UserReport', 'Set-Password', 'Start-Replication', 'Unlock-Account', 'Unlock-AllAccounts', 'Get-GroupMemberships', 'Get-GroupMembers', 'Import-ActiveDirectory', 'Get-MailEnabledMembers'
+            FunctionsToExport    = 'Copy-GroupMembersToGroup', 'Get-ActiveDirectory', 'Get-ADInfo', 'Get-DCLockoutEvents', 'Get-EndpointReport', 'Get-LockedAccounts', 'Get-PasswordExpired', 'Get-ReplicationStatus', 'Get-UserReport', 'Set-Password', 'Start-Replication', 'Unlock-Account', 'Unlock-AllAccounts', 'Get-GroupMemberships', 'Get-GroupMembers', 'Import-ActiveDirectory', 'Get-MailEnabledMembers', 'Copy-OUUserstoGroup'
             Path                 = "$savepath\AdminToolbox.ActiveDirectory.psd1"
             Author               = "Taylor Lee"
             Description          = "Functions for Active Directory"

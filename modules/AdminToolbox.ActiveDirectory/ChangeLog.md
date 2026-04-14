@@ -62,15 +62,5 @@
 * **1.12.0.67** CI Maintenance Release
 * **1.13.0.0** Add Get-FormattedDate
 * **1.13.0.1** CI Maintenance Release
-* **1.13.0.2** CI Maintenance Release
-* **1.13.0.3** CI Maintenance Release
-* **1.13.0.4** CI Maintenance Release
-* **1.13.0.5** CI Maintenance Release
-* **1.13.0.6** CI Maintenance Release
-* **1.13.0.7** CI Maintenance Release
-* **1.13.0.8** CI Maintenance Release
-* **1.13.0.9** CI Maintenance Release
-* **1.13.0.10** CI Maintenance Release
-* **1.13.0.11** CI Maintenance Release
 * **1.13.0.12** CI Maintenance Release
-* **1.13.0.13** CI Maintenance Release
+* **1.14.0.0** Add Function Copy-OUUserstoGroup
