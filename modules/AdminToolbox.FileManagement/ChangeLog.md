@@ -59,16 +59,5 @@
 * **1.20.0.3** CI Maintenance Release
 * **1.20.1.0** Update get-lastuseditem to include additional attributes and accept string arrays for the path.
 * **1.20.1.1** CI Maintenance Release
-* **1.20.1.2** CI Maintenance Release
-* **1.20.1.3** CI Maintenance Release
-* **1.20.1.4** CI Maintenance Release
-* **1.20.1.5** CI Maintenance Release
-* **1.20.1.6** CI Maintenance Release
-* **1.20.1.7** CI Maintenance Release
-* **1.20.1.8** CI Maintenance Release
-* **1.20.1.9** CI Maintenance Release
-* **1.20.1.10** CI Maintenance Release
-* **1.20.1.11** CI Maintenance Release
-* **1.20.1.12** CI Maintenance Release
-* **1.20.1.13** CI Maintenance Release
 * **1.20.1.14** CI Maintenance Release
+* **1.21.0.0** Update remove-all to make picking the OS type mandatory.
