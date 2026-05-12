@@ -60,3 +60,4 @@
 * **1.8.0.15** CI Maintenance Release
 * **1.8.0.16** CI Maintenance Release
 * **1.8.0.17** CI Maintenance Release
+* **1.8.0.18** CI Maintenance Release
