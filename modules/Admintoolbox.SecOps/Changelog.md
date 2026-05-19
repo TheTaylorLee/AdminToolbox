@@ -33,3 +33,4 @@
 * **1.6.0.16** CI Maintenance Release
 * **1.6.0.17** CI Maintenance Release
 * **1.6.0.18** CI Maintenance Release
+* **1.6.0.19** CI Maintenance Release

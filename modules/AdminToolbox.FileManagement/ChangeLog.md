@@ -62,3 +62,4 @@
 * **1.20.1.14** CI Maintenance Release
 * **1.21.0.0** Update remove-all to make picking the OS type mandatory.
 * **1.21.0.1** CI Maintenance Release
+* **1.21.0.2** CI Maintenance Release
