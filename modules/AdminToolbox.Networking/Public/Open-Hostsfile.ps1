@@ -1,6 +1,6 @@
 <#
     .DESCRIPTION
-    Opens the Windows hosts file in Notepad.
+    Opens the Windows hosts file for editing.
 
     .EXAMPLE
     Open-HostFile
@@ -16,5 +16,7 @@ function Open-HostsFile {
     [Alias('hostfile', 'hostsfile')]
     param()
 
-    notepad c:/windows/System32/drivers/etc/hosts
+    Get-Elevation
+
+    edit "C:\Windows\System32\drivers\etc\hosts"
 }

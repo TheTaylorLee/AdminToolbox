@@ -106,22 +106,5 @@
 * **2.24.1.3** CI Maintenance Release
 * **2.25.0.0** Add Get-FormattedDate
 * **2.25.0.1** CI Maintenance Release
-* **2.25.0.2** CI Maintenance Release
-* **2.25.0.3** CI Maintenance Release
-* **2.25.0.4** CI Maintenance Release
-* **2.25.0.5** CI Maintenance Release
-* **2.25.0.6** CI Maintenance Release
-* **2.25.0.7** CI Maintenance Release
-* **2.25.0.8** CI Maintenance Release
-* **2.25.0.9** CI Maintenance Release
-* **2.25.0.10** CI Maintenance Release
-* **2.25.0.11** CI Maintenance Release
-* **2.25.0.12** CI Maintenance Release
-* **2.25.0.13** CI Maintenance Release
-* **2.25.0.14** CI Maintenance Release
-* **2.25.0.15** CI Maintenance Release
-* **2.25.0.16** CI Maintenance Release
-* **2.25.0.17** CI Maintenance Release
-* **2.25.0.18** CI Maintenance Release
-* **2.25.0.19** CI Maintenance Release
 * **2.25.0.20** CI Maintenance Release
+* **2.25.1.00** Edit open-hostfile to use the builtin editor.
