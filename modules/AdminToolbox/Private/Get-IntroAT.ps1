@@ -36,7 +36,7 @@ function get-introat {
     Write-Host "             > "                                                                        -Foregroundcolor Green   -NoNewline
     Write-Host "This is a "                                                                             -ForegroundColor Yellow  -NoNewline
     Write-Host "Master Module "                                                                         -ForegroundColor Magenta -NoNewline
-    Write-Host "for many Awesome modules!                "                                              -ForegroundColor Yellow  -NoNewline                   
+    Write-Host "for many modules!                "                                                      -ForegroundColor Yellow  -NoNewline                   
     Write-Host "<"                                                                                      -Foregroundcolor Green
     Write-Host "             --------------------------------------------------------------------"      -Foregroundcolor Green
 
