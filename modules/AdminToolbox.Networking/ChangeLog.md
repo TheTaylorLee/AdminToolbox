@@ -109,3 +109,4 @@
 * **2.25.0.20** CI Maintenance Release
 * **2.25.1.00** Edit open-hostfile to use the builtin editor.
 * **2.25.1.1** CI Maintenance Release
+* **2.25.1.2** CI Maintenance Release
