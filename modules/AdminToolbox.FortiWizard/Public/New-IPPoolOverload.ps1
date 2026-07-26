@@ -1,0 +1,86 @@
+<#
+    .Description
+    Create a New Overload IP Pool
+
+    .Parameter IPPoolName
+    Specify a Unique name for the IP Pool
+
+    .Parameter CIDR
+    Specify a CIDR address. ex: 192.168.0.0/24
+
+    .Example
+    $Params = @{
+        IPPoolName    = "SSLVPNNAT"
+        CIDR          = "192.168.1.0/24"
+    }
+    New-IPPoolOverload @params
+
+    .Example
+    New-SSHSession -computername 192.168.0.1
+    $Params = @{
+        IPPoolName    = "SSLVPNNAT"
+        CIDR          = "192.168.1.0/24"
+    }
+    $command = New-IPPoolOverload @params
+    $result = Invoke-SSHCommand -Command $command -SessionId 0
+    $result.output
+
+    This example generates an SSH session and invokes the output of this function against that session.
+
+    .Example
+    New-SSHSession -computername 192.168.0.1
+    New-SSHSession -computername 192.168.1.1
+    $Params = @{
+        IPPoolName    = "SSLVPNNAT"
+        CIDR          = "192.168.1.0/24"
+    }
+    $command = New-IPPoolOverload @params
+    $sessions = Get-SSHSession
+    foreach ($session in $sessions) {
+        Write-Output "Invoking Command against $session.host"
+        $result = Invoke-SSHCommand -Command $command -SessionId $session.sessionID
+        $result.output
+    }
+
+    This example generates multiple SSH sessions and invokes the output of this function against all active sessions.
+
+    .Notes
+    Source NAT (IP Pool) and Destination NAT (Virtual IP) \
+
+    Destination NAT changes the destination address of packets passing through the Router. It also offers the option to perform the port translation in the TCP/UDP headers. Destination NAT mainly used to redirect incoming packets with an external address or port destination to an internal IP address or port inside the network. \
+
+    Source NAT is most commonly used for translating private IP address to a public routable address to communicate with the host. Source NAT changes the source address of the packets that pass through the Router. A NAT pool is a set of addresses that are designed as a replacement for client IP addresses.
+
+    .Link
+    https://github.com/TheTaylorLee/AdminToolbox/tree/master/docs
+#>
+
+Function New-IPPoolOverLoad {
+
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory = $true)]$IPPoolName,
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                if ($_ -match '^[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[.]{1}[0-9]{1,3}[/]{1}[0-9]{1,2}$') {
+                    $true
+                }
+                else {
+                    throw "$_ is an invalid pattern. You must provide a proper CIDR format. ex: 192.168.0.0/24"
+                }
+            })]
+        $CIDR
+    )
+
+    $calc = Invoke-PSipcalc $cidr
+    $StartIP = ($calc).HostMin
+    $EndIP = ($calc).HostMax
+
+    Write-Output "
+config firewall ippool
+    edit ""$IPPoolName""
+        set startip $StartIP
+        set endip $EndIP
+    next
+end"
+}

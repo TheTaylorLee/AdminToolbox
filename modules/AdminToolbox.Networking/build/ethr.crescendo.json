@@ -1,0 +1,330 @@
+{
+    "$schema": "../Microsoft.PowerShell.Crescendo.Schema.json",
+    "Commands": [
+        {
+            "Verb": "Invoke",
+            "Noun": "Ethr",
+            "OriginalName": "Ethr.exe",
+            "Description": "This is a PowerShell Crescendo wrapper function for Microsoft ethr",
+            "Parameters": [
+                {
+                    "Name": "help",
+                    "OriginalName": "-h",
+                    "ParameterType": "switch",
+                    "Description": "Produces help from the native command",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "help"
+                    ]
+                },
+                {
+                    "Name": "nologging",
+                    "OriginalName": "-no",
+                    "ParameterType": "switch",
+                    "Description": "Disable logging to file. Logging to file is enabled by default.",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "noLogClient",
+                        "noLogExternal"
+                    ]
+                },
+                {
+                    "Name": "logfile",
+                    "OriginalName": "-o",
+                    "ParameterType": "string",
+                    "DefaultValue": ".\\ethr.log",
+                    "Description": "Specify the file to log to. \nex: c:\\output.log",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "LogServer",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "debuglogging",
+                    "OriginalName": "-debug",
+                    "ParameterType": "switch",
+                    "Description": "Enable debug information in logging output.",
+                    "ParameterSetName": [
+                        "LogServer",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "ipv4",
+                    "OriginalName": "-4",
+                    "ParameterType": "switch",
+                    "Description": "Use only IP v4 version",
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogServer",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "ipv6",
+                    "OriginalName": "-6",
+                    "ParameterType": "switch",
+                    "Description": "Use only IP v6 version",
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogServer",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "servermode",
+                    "OriginalName": "-s",
+                    "ParameterType": "switch",
+                    "Description": "Specifies to run Ethr in Server Mode.",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "LogServer"
+                    ]
+                },
+                {
+                    "Name": "ip",
+                    "OriginalName": "-ip",
+                    "ParameterType": "string",
+                    "Description": "Bind to specified local IP address for TCP & UDP tests. \nThis must be a valid IPv4 or IPv6 address. \nDefault: <empty> - Any IP",
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogServer",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "port",
+                    "OriginalName": "-port",
+                    "ParameterType": "string",
+                    "Description": "Use specified port number for TCP & UDP tests. \nDefault: 8888",
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "noLogClient",
+                        "LogServer",
+                        "LogClient"
+                    ]
+                },
+                {
+                    "Name": "ui",
+                    "OriginalName": "-ui",
+                    "ParameterType": "switch",
+                    "Description": "Show output in text UI",
+                    "ParameterSetName": [
+                        "noLogServer",
+                        "LogServer"
+                    ]
+                },
+                {
+                    "Name": "serveraddress",
+                    "OriginalName": "-c",
+                    "ParameterType": "string",
+                    "Description": "Run in client mode and connect to <server>. \nServer is specified using name, FQDN or IP address.",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ]
+                },
+                {
+                    "Name": "bitrate",
+                    "OriginalName": "-b",
+                    "ParameterType": "string",
+                    "Description": "Transmit only Bits per second (format: <num>[K | M | G]) \nOnly valid for Bandwidth tests. \nDefault: 0 - Unlimited         Examples: 100 (100bits/s), 1M (1Mbits/s).",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ]
+                },
+                {
+                    "Name": "cport",
+                    "OriginalName": "-cport",
+                    "ParameterType": "string",
+                    "Description": "Use specified local port number in client for TCP & UDP tests. \nDefault: 0 - Ephemeral Port",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "duration",
+                    "OriginalName": "-d",
+                    "ParameterType": "string",
+                    "Description": "Duration for the test (format: <num>[ms | s | m | h]. \n0: Run forever Default: 10s",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "gap",
+                    "OriginalName": "-g",
+                    "ParameterType": "string",
+                    "Description": "Time interval between successive measurements (format: <num>[ms | s | m | h] \nOnly valid for latency, ping and traceRoute tests. \n0: No gap \nDefault: 1s",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "iterations",
+                    "OriginalName": "-i",
+                    "ParameterType": "string",
+                    "Description": "Number of round trip iterations for each latency measurement. \nOnly valid for latency testing. \n0Default: 1000",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ]
+                },
+                {
+                    "Name": "length",
+                    "OriginalName": "-l",
+                    "ParameterType": "string",
+                    "Description": "Length of buffer (in Bytes) to use (format: <num>[KB | MB | GB]) \nOnly valid for Bandwidth tests. Max 1GB. \nDefault: 16KB",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ]
+                },
+                {
+                    "Name": "throttle",
+                    "OriginalName": "-n",
+                    "ParameterType": "string",
+                    "Description": "Number of Parallel Sessions (and Threads). \n0: Equal to number of CPUs \nDefault: 1",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "clientprotocol",
+                    "OriginalName": "-p",
+                    "ParameterType": "string",
+                    "Description": "Protocol ('tcp', 'udp', 'http', 'https', or 'icmp') \nDefault: tcp",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ],
+                    "AdditionalParameterAttributes": [
+                        "[ValidateSet('tcp', 'udp', 'http', 'https', 'icmp')]"
+                    ]
+                },
+                {
+                    "Name": "externalprotocol",
+                    "OriginalName": "-p",
+                    "ParameterType": "string",
+                    "Description": "Protocol ('tcp', or 'icmp') \nDefault: tcp",
+                    "ParameterSetName": [
+                        "noLogExternal",
+                        "LogExternal"
+                    ],
+                    "AdditionalParameterAttributes": [
+                        "[ValidateSet('tcp', 'icmp')]"
+                    ]
+                },
+                {
+                    "Name": "receive",
+                    "OriginalName": "-r",
+                    "ParameterType": "switch",
+                    "Description": "For Bandwidth tests, send data from server to client.",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ]
+                },
+                {
+                    "Name": "testclient",
+                    "OriginalName": "-t",
+                    "ParameterType": "string",
+                    "Description": "Test to run ('b', 'c', 'p', 'l', 'pi', 'tr', or 'mtr') \nb: Bandwidth \nc: Connections/s \np: Packets/s \nl: Latency, Loss & Jitter \npi: Ping Loss & Latency \ntr: TraceRoute \nmtr: MyTraceRoute with Loss & Latency \nDefault: b - Bandwidth measurement.",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "LogClient"
+                    ],
+                    "AdditionalParameterAttributes": [
+                        "[ValidateSet('b', 'c', 'p', 'l', 'pi', 'tr', 'mtr')]"
+                    ]
+                },
+                {
+                    "Name": "testexternal",
+                    "OriginalName": "-t",
+                    "ParameterType": "string",
+                    "Description": "Test to run ('c', 'pi', 'tr', or 'mtr') \nc: Connections/s \npi: Ping Loss & Latency \ntr: TraceRoute \nmtr: MyTraceRoute with Loss & Latency \nDefault: pi - Ping Loss & Latency.",
+                    "ParameterSetName": [
+                        "noLogExternal",
+                        "LogExternal"
+                    ],
+                    "AdditionalParameterAttributes": [
+                        "[ValidateSet('c', 'pi', 'tr', 'mtr')]"
+                    ]
+                },
+                {
+                    "Name": "tos",
+                    "OriginalName": "-tos",
+                    "ParameterType": "switch",
+                    "Description": "Specifies 8-bit value to use in IPv4 TOS field or IPv6 Traffic Class field.",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "warmup",
+                    "OriginalName": "-w",
+                    "ParameterType": "string",
+                    "Description": "Use specified number of iterations for warmup. \nDefault: 1",
+                    "ParameterSetName": [
+                        "noLogClient",
+                        "noLogExternal",
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "logtitle",
+                    "OriginalName": "-T",
+                    "ParameterType": "string",
+                    "Description": "Use the given title in log files for logging results. \nDefault: <empty>",
+                    "ParameterSetName": [
+                        "LogClient",
+                        "LogExternal"
+                    ]
+                },
+                {
+                    "Name": "destination",
+                    "OriginalName": "-x",
+                    "ParameterType": "string",
+                    "Description": "Run in external client mode and connect to <destination>. \n<destination> is specified in URL or Host:Port format. \nFor URL, if port is not specified, it is assumed to be 80 for http and 443 for https. \nExample: For TCP - www.microsoft.com: 443 or 10.1.0.4: 22 or https: //www.github.com \n         For ICMP - www.microsoft.com or 10.1.0.4",
+                    "Mandatory": true,
+                    "ParameterSetName": [
+                        "noLogExternal",
+                        "LogExternal"
+                    ]
+                }
+            ]
+        }
+    ]
+}

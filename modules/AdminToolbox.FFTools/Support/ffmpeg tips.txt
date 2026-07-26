@@ -1,0 +1,59 @@
+
+>>>Get media info
+    FFprobe $Movie
+
+>>>Switches
+    -i filename.ext (input filename)
+    -c:v (sets video codec)
+    -crf (video quality value. Lower numbers for better quality.)
+    -ac (pick audio channel count)
+    -c:a (sets audio codec)
+    -an removes sound
+    -vn removes video
+    -preset (sets encoding speed)
+    -c copy (copies codec and is used for remuxing) 
+    -t ss (Transcodes X seconds of video file)
+    -to hh:mm:ss (Transcode stop time)
+    -ss hh:mm:ss (start time offset, must come before -t if using both)
+    -filter_complex "[0:v][0:a][0:s]overlay" (Specifies Video, Audio, and subtitle to transcode for video. Overlay burns subtitle option. Remove if not wanted) 
+
+
+>>>Notes
+    Pause transcode by clicking in console. Resume with the enter key.
+
+    You can search srt resync websites to sync srt files, or just clip the film
+
+>>>Cut clip and transcode
+    #order of commands important to ensure proper end time of clip
+     ffmpeg -ss 00:37:00 -i "$Movie" -t 20  -c:v libx265 -crf 23 -ac 6 -c:a aac -preset veryfast  "$Movieout"
+
+
+>>>Join/Concatenate Videos together
+    #First specify all the input files, then intantiate a -filter_complex filtergraph.
+     ffmpeg -i "$MovieOne" -i "$MovieTwo" -filter_complex "[0:v:0][0:a:0][1:v:0][1:a:0]concat=n=2:v=1:a=1[outv][outa]" -map "[outv]" -map "[outa]" "$Movieout"
+
+    #The following line:
+    -[0:v:0][0:a:0][1:v:0][1:a:0][2:v:0][2:a:0]
+    -Specifies which streams to take from the input files and send as input to the concat filter. 
+    -In this case, video stream 0 [0:v:0] and audio stream 0 [0:a:0] from input 0, and video stream 0 [1:v:0] and audio stream 0 [1:v:0] from input 1, and etc.
+    
+    -concat=n=3:v=1:a=1[outv][outa]'
+    -This is the concat filter itself. n=3 is telling the filter that there are three input segments; v=1 is telling it that there will be one video stream per segment; a=1 is telling it that there will be one audio stream per segment. The filter then concatenates these segments and produces two output streams. 
+    -[outv] and [outa] are names for these output streams. Note that the quotes around the filter section are required.
+
+
+>>>Cut Video, Cut Audio, and Combine the two
+    #If the two clips are different lengths they must first be cut. Otherwise go to the second command
+        ffmpeg -i -ss 00:00:10  -t 5 "$file1" -ss 00:00:10  -t 5 -i "$file2" -c:v libx265 -crf 23 -ac 6 -c:a aac -preset veryfast -map "0:v:0" -map "1:a:0" "$outfile"
+
+    Or
+
+    ffmpeg -i "$file1" -i "$files2" -c:v libx265 -crf 23 -ac 6 -c:a aac -preset veryfast -map "0:v:0" -map "1:a:0" "b:\video convert\new\$outfile"
+    
+>>>Include multiple streams of video,audio,subtitle
+    #use ffprobe to determine the streams
+        ffmpeg -i input.mkv -map 0:3 -map 0:2 -map 0:1 -map 0:0 -c copy output.mkv
+            Stream #0:0(ger): Subtitle: text (default)
+            Stream #0:1(eng): Audio: dts (DTS), 48000 Hz, 5.1(side), s16, 1536 kb/s
+            Stream #0:2(ger): Audio: dts (DTS), 48000 Hz, 5.1(side), s16, 1536 kb/s (default)
+            Stream #0:3(eng): Video: h264 (High), yuv420p, 1920x800, 23.98 fps, 23.98 tbr, 1k tbn, 47.95 tbc (default)

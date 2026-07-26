@@ -1,0 +1,59 @@
+# **AdminToolbox.MSGraph**
+
+* **1.0.0** Alpha version of MSGraph
+* **1.0.1** Minor changes of informational outputs
+* **1.0.2** Added 2 functions
+* **1.1.0** Exported un-exported functions
+* **1.2.0** Added Functions Get-msgSignIns & Get-msgAuthenticationRegistration
+* **1.2.1** Push any small changes
+* **1.2.2** Push any small changes
+* **1.2.3** Maintenance Release
+* **1.2.4** Maintenance Release
+* **1.2.5** Maintenance Release
+* **1.2.6** fix: missing manifest from workflow writeback
+* **1.2.7** Maintenance Release
+* **1.2.8** Maintenance Release
+* **1.2.9** Maintenance Release
+* **1.2.10** Workflow Fix
+* **1.2.11** Workflow Fix
+* **1.2.12** Workflow Fix
+* **1.2.13** CI Maintenance Release
+* **1.2.146** CI Maintenance Release
+* **1.3.0** Add function Disable-UserServicePlan
+* **1.3.1** CI Maintenance Release
+* **1.3.28** CI Maintenance Release
+* **1.4.0.0** Add workflow versioning
+* **1.4.0.1** CI Maintenance Release
+* **1.4.0.3** CI Maintenance Release
+* **1.5.0.0** Change get-msgMFAStatus method of reporting to provide additional and easier to interpret detail.
+* **1.5.0.1** CI Maintenance Release
+* **1.5.0.102** CI Maintenance Release
+* **1.6.0.0** Add Get-FormattedDate
+* **1.6.0.1** CI Maintenance Release
+* **1.6.0.2** CI Maintenance Release
+* **1.6.0.3** CI Maintenance Release
+* **1.6.0.4** CI Maintenance Release
+* **1.6.0.5** CI Maintenance Release
+* **1.6.0.6** CI Maintenance Release
+* **1.6.0.7** CI Maintenance Release
+* **1.6.0.8** CI Maintenance Release
+* **1.6.0.9** CI Maintenance Release
+* **1.6.0.10** CI Maintenance Release
+* **1.6.0.11** CI Maintenance Release
+* **1.6.0.12** CI Maintenance Release
+* **1.6.0.13** CI Maintenance Release
+* **1.6.0.14** CI Maintenance Release
+* **1.6.0.15** CI Maintenance Release
+* **1.6.0.16** CI Maintenance Release
+* **1.6.0.17** CI Maintenance Release
+* **1.6.0.18** CI Maintenance Release
+* **1.6.0.19** CI Maintenance Release
+* **1.6.0.20** CI Maintenance Release
+* **1.6.0.21** CI Maintenance Release
+* **1.6.0.22** CI Maintenance Release
+* **1.6.0.23** CI Maintenance Release
+* **1.6.0.24** CI Maintenance Release
+* **1.6.0.25** CI Maintenance Release
+* **1.6.0.26** CI Maintenance Release
+* **1.6.0.27** CI Maintenance Release
+* **1.6.0.28** CI Maintenance Release
