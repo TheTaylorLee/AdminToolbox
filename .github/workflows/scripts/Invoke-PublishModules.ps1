@@ -61,18 +61,6 @@ function Invoke-PublishModules {
         $FileManagement = Write-Output "[-] AdminToolbox.FileManagement not published"
     }
 
-    #Fun
-    $FunPSGallery = (Find-Module "AdminToolbox.Fun" -Repository PSGallery).version
-    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $FunGithub = $step3 | Select-Object -First 1
-    if ([version]$FunGithub -gt [version]$FunPSGallery ) {
-        New-Manifest -Fun #Generate each modules manifest files
-        Publish-Module -Path "$workingdirectory/modules/AdminToolbox.Fun" -NuGetApiKey $env:NUGET_KEY
-        $Fun = Write-Output "[+] AdminToolbox.Fun published to PSGallery"
-    }
-    else {
-        $Fun = Write-Output "[-] AdminToolbox.Fun not published"
-    }
-
     #msgraph
     $msgraphPSGallery = (Find-Module "AdminToolbox.msgraph" -Repository PSGallery).version
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $MSGraphGithub = $step3 | Select-Object -First 1

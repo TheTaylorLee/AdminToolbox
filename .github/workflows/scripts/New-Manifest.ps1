@@ -12,7 +12,6 @@ function New-Manifest {
         [Parameter(Mandatory = $false)][Switch]$FFTools,
         [Parameter(Mandatory = $false)][Switch]$FileManagement,
         [Parameter(Mandatory = $false)][Switch]$FortiWizard,
-        [Parameter(Mandatory = $false)][Switch]$Fun,
         [Parameter(Mandatory = $false)][Switch]$Networking,
         [Parameter(Mandatory = $false)][Switch]$MSGraph,
         [Parameter(Mandatory = $false)][Switch]$Office365,
@@ -27,7 +26,6 @@ function New-Manifest {
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.FFTools/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FFToolsGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.FileManagement/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FileManagementGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/Admintoolbox.FortiWizard/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FortiWizardGithubVersion = $step3 | Select-Object -First 1
-    $step = Get-Content "$workingdirectory/modules/AdminToolbox.Fun/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:FunGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.MSGraph/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:MSGraphGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Networking/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:NetworkingGithubVersion = $step3 | Select-Object -First 1
     $step = Get-Content "$workingdirectory/modules/AdminToolbox.Office365/ChangeLog.md" | Select-Object -Last 1; $step2 = $step.trimstart('* **'); $step3 = ($step2).split('*'); $script:Office365GithubVersion = $step3 | Select-Object -First 1
@@ -59,7 +57,6 @@ function New-Manifest {
                 @{ModuleName = 'AdminToolbox.FFTools'; ModuleVersion = $script:FFToolsGithubVersion; },
                 @{ModuleName = 'AdminToolbox.FileManagement'; ModuleVersion = $script:FileManagementGithubVersion; },
                 @{ModuleName = 'AdminToolbox.FortiWizard'; ModuleVersion = $script:FortiWizardGithubVersion; },
-                @{ModuleName = 'AdminToolbox.Fun'; ModuleVersion = $script:FunGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Networking'; ModuleVersion = $script:NetworkingGithubVersion; },
                 @{ModuleName = 'AdminToolbox.MSGraph'; ModuleVersion = $script:MSGraphGithubVersion; },
                 @{ModuleName = 'AdminToolbox.Office365'; ModuleVersion = $script:Office365GithubVersion; },
@@ -226,31 +223,6 @@ function New-Manifest {
                 @{ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" },
                 @{ModuleName = 'posh-ssh'; ModuleVersion = '2.3.0' }
             )
-        }
-
-        New-ModuleManifest @Params
-    }
-
-    if ($fun) {
-        #Fun
-        $savepath = "$workingdirectory\modules\AdminToolbox.Fun"
-        $Params = @{
-            CompatiblePSEditions = "Desktop", "Core"
-            FunctionsToExport    = 'Get-Fun', 'Get-CloseEncounters', 'Get-Excuse', 'Get-ImperialMarch', 'Get-MissionImpossible', 'Get-Mario', 'Get-Tetris', 'Get-Weather', 'Invoke-EjectTray', 'Invoke-Speak', 'Get-Creed', 'Get-Emote'
-            Path                 = "$savepath\AdminToolbox.Fun.psd1"
-            Author               = "Taylor Lee"
-            Description          = "Functions that have no purpose"
-            IconUri              = 'https://raw.githubusercontent.com/TheTaylorLee/AdminToolbox/main/images/toolboxShell2.png'
-            LicenseUri           = 'https://github.com/TheTaylorLee/AdminToolbox/blob/main/LICENSE.txt'
-            ModuleVersion        = "$script:FunGithubVersion"
-            Powershellversion    = "5.1"
-            ProjectUri           = 'https://github.com/TheTaylorLee/AdminToolbox/'
-            RequiredModules      = (
-                @{ ModuleName = "ImportExcel" ; ModuleVersion = "7.0.1" }
-            )
-            RootModule           = "AdminToolbox.FunManifest.psm1"
-            ReleaseNotes         = "Dependency module for the Module AdminToolbox. Full ChangeLog contained in bundled ChangeLog.txt"
-            Tags                 = 'Pranks', 'ConsoleMusic'
         }
 
         New-ModuleManifest @Params
