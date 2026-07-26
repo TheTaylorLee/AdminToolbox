@@ -165,7 +165,6 @@ function Invoke-PublishModules {
         Copy-Item $workingdirectory/modules/AdminToolbox.FileManagement -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.FileManagement -Force -Global
         if ((Test-Path $env:ProgramFiles\WindowsPowerShell\Modules\AdminToolbox.Networking) -eq $false) { Copy-Item $workingdirectory/modules/AdminToolbox.Networking -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse }; Import-Module $workingdirectory/modules/AdminToolbox.Networking -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.FortiWizard -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.FortiWizard -Force -Global
-        Copy-Item $workingdirectory/modules/AdminToolbox.Fun -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Fun -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.MSGraph -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.MSGraph -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.Office365 -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Office365 -Force -Global
         Copy-Item $workingdirectory/modules/AdminToolbox.Remoting -Destination $env:ProgramFiles\WindowsPowerShell\Modules -Force -Recurse ; Import-Module $workingdirectory/modules/AdminToolbox.Remoting -Force -Global
@@ -184,7 +183,6 @@ function Invoke-PublishModules {
     $FFTools
     $FileManagement
     $FortiWizard
-    $Fun
     $MSGraph
     $Networking
     $Office365
