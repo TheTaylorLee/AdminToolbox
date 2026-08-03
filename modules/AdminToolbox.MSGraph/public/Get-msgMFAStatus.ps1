@@ -18,8 +18,7 @@
      "assignedLicenses/`$count eq 0 and userType eq 'Member'"
 
     .EXAMPLE
-    Get-msgMFAStatus | export-csv .\nacc-mfastatus.csv -notypeinformation
-
+    Get-msgMFAStatus | export-csv .\mfastatus.csv -notypeinformation
     .Link
     https://github.com/TheTaylorLee/AdminToolbox
 
@@ -28,7 +27,7 @@
 function Get-msgMFAStatus {
 
     [CmdletBinding()]
-    Param (
+    param (
         [Parameter(Mandatory = $true)]
         [string]$filter
     )
@@ -60,9 +59,9 @@ function Get-msgMFAStatus {
 
         $myobject.user = $user.UserPrincipalName
         #check authentication methods for each user
-        ForEach ($method in $MFAData) {
+        foreach ($method in $MFAData) {
 
-            Switch ($method.AdditionalProperties["@odata.type"]) {
+            switch ($method.AdditionalProperties["@odata.type"]) {
                 "#microsoft.graph.emailAuthenticationMethod" {
                     $myObject.email = $true
                     $myObject.MFAstatus = "Enabled"
