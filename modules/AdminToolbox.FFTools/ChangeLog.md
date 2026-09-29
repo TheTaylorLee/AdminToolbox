@@ -116,3 +116,4 @@
 * **4.18.0.36** CI Maintenance Release
 * **4.18.0.37** CI Maintenance Release
 * **4.18.0.38** CI Maintenance Release
+* **4.18.0.39** CI Maintenance Release
